@@ -1,0 +1,36 @@
+<html ng-app="plexoApp">
+	<head>
+		<title>Plexo Apps</title>
+		<style>
+			.item {
+			padding: 10px;
+			}
+		</style>
+	</head>
+	<body ng-controller="MainCtrl as mainCtrl">
+		<h1>Plexomancer!</h1>
+		<div ng-repeat="app in mainCtrl.apps" class="item">
+			<div>Name: <span ng-bind="app.app_nfo.name"></span></div>
+			<div>Description: <span ng-bind="app.app_nfo.description"></span></div>
+			<div>Version: <span ng-bind="app.app_nfo.version"></span></div>
+		</div>
+		<!--
+		<div>
+			<form name="addForm" ng-submit="mainCtrl.add()">
+				<input type="text" placeholder="Label" ng-model="mainCtrl.newTodo.label" required>
+				<input type="text" placeholder="Author" ng-model="mainCtrl.newTodo.author" required>
+				<input type="submit" value="Add" ng-disabled="addForm.$invalid">
+			</form>
+		</div>
+		-->
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.js">
+		</script>
+		<script src="/assets/controllers/plexo-apps.js">
+		</script>
+	</body>
+</html>
+
+
+
+
+

@@ -1,0 +1,38 @@
+
+%% File: "./src/core_json.erl"
+%% ---------------------------
+-spec convert_to_json(_) -> any().
+-spec convert_from_json(_) -> any().
+
+%% File: "./src/erts_apps.erl"
+%% ---------------------------
+-spec get_loaded_apps() -> [app_nfo()].
+-spec to_map(From::app_tpl()) -> To::app_nfo().
+-spec to_record(From::app_tpl()) -> To::app_rec().
+
+%% File: "./src/hndlr_apps.erl"
+%% ----------------------------
+-spec init(_,_) -> {'cowboy_rest',_,_}.
+-spec content_types_provided(_,_) -> {[{<<_:128>>,'get_loaded_apps_as_json'},...],_,_}.
+-spec get_loaded_apps_as_json(_,_) -> {_,_,_}.
+-spec terminate(_,_,_) -> 'ok'.
+
+%% File: "./src/hndlr_echo.erl"
+%% ----------------------------
+-spec init(_,_) -> {'http',_,_}.
+-spec handle(_,_) -> {'ok',_,_}.
+-spec echo(_,_,_) -> any().
+
+%% File: "./src/plexo_srv.erl"
+%% ---------------------------
+-spec start() -> 'ok'.
+
+%% File: "./src/plexo_srv_app.erl"
+%% -------------------------------
+-spec start(_,_) -> {'ok',pid()}.
+-spec stop(_) -> 'ok'.
+
+%% File: "./src/plexo_srv_sup.erl"
+%% -------------------------------
+-spec start_link() -> {'ok',pid()}.
+-spec init([]) -> {'ok',{{'one_for_one',10,10},[]}}.

@@ -8,3 +8,13 @@ ebin
 rel/example_project
 .concrete/DEV_MODE
 .rebar
+
+.idea
+plexo.iml
+
+apps/plexo_srv/.eunit
+apps/plexo_srv/.rebar
+apps/plexo_srv/deps
+apps/plexo_srv/doc
+apps/plexo_srv/ebin
+
