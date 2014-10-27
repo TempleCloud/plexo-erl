@@ -55,7 +55,9 @@ start(_Type, _Args) ->
       {priv_dir, plexo_srv, "assets/controllers"}
     },
     %{"/sys/echo", hndlr_echo, []},
-    {"/api/apps/running", cb_apps_hndlr, []}
+    % {"/api/apps/running", cb_apps_hndlr, []}
+    {"/api/apps/:state", cb_apps_hndlr, []}
+
 	]},
 
 	Routes = [AnyHostRoutes],

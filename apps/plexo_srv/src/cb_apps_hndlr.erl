@@ -39,6 +39,7 @@
 ]).
 
 -export([
+  handle_apps_as_json/2,        % Get the require app froup as a JSON type.
   get_loaded_apps_as_json/2,    % Get the 'loaded apps' apps as a JSON type.
   get_running_apps_as_json/2    % Get the 'running apps' apps as a JSON type.
 ]).
@@ -70,7 +71,7 @@ init(Req, Opts) ->
       -> {[{binary(), atom()},...], Req :: cowboy_req:req(), State :: any()}.
 content_types_provided(Req, State) ->
   {[
-    {<<"application/json">>, get_running_apps_as_json}
+    {<<"application/json">>, handle_apps_as_json}
     ], Req, State}.
 
 
@@ -84,6 +85,44 @@ content_types_provided(Req, State) ->
 terminate(Reason, _Req, _State) ->
   io:format("Terminate Handler: ~p ~n", [Reason]),
   ok.
+
+
+
+%%-----------------------------------------------------------------------------
+%% @doc
+%% Get the ERTS 'loaded apps' as a binary JSON type, and return it as the
+%% 'body' of the handling Cowboy response 3-tuple.
+%% @end
+%%-----------------------------------------------------------------------------
+-spec handle_apps_as_json(Req :: cowboy_req:req(), State :: any())
+      -> {JsonRS :: binary(), Req :: cowboy_req:req(), State :: any()}.
+handle_apps_as_json(Req, State) ->
+
+  case cowboy_req:binding(state, Req) of
+    <<"loaded">> ->
+      get_running_apps_as_json(Req, State);
+    <<"running">> ->
+      get_loaded_apps_as_json(Req, State);
+    _ ->
+      {undefined, Req, State}
+  end.
+
+
+
+%%-----------------------------------------------------------------------------
+%% @doc
+%% Get the ERTS 'loaded apps' as a binary JSON type, and return it as the
+%% 'body' of the handling Cowboy response 3-tuple.
+%% @end
+%%-----------------------------------------------------------------------------
+-spec get_loaded_apps_as_json(Req :: cowboy_req:req(), State :: any())
+      -> {JsonRS :: binary(), Req :: cowboy_req:req(), State :: any()}.
+get_loaded_apps_as_json(Req, State) ->
+  io:format("Handling Request: ~p ~n", [Req]),
+  LoadedApps = erts_apps:get_loaded_apps(),
+  JsonRS = core_json:to_json(LoadedApps),
+  io:format("Handled Request. ~n"),
+  {JsonRS, Req, State}.
 
 
 %%-----------------------------------------------------------------------------
@@ -101,21 +140,6 @@ get_running_apps_as_json(Req, State) ->
   io:format("Handled Request. ~n"),
   {JsonRS, Req, State}.
 
-
-%%-----------------------------------------------------------------------------
-%% @doc
-%% Get the ERTS 'loaded apps' as a binary JSON type, and return it as the
-%% 'body' of the handling Cowboy response 3-tuple.
-%% @end
-%%-----------------------------------------------------------------------------
--spec get_loaded_apps_as_json(Req :: cowboy_req:req(), State :: any())
-      -> {JsonRS :: binary(), Req :: cowboy_req:req(), State :: any()}.
-get_loaded_apps_as_json(Req, State) ->
-  io:format("Handling Request: ~p ~n", [Req]),
-  LoadedApps = erts_apps:get_loaded_apps(),
-  JsonRS = core_json:to_json(LoadedApps),
-  io:format("Handled Request. ~n"),
-  {JsonRS, Req, State}.
 
 
 

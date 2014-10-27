@@ -33,7 +33,7 @@ all: build
 
 # Build and run the PlexoSrv.
 #
-run:
+run: build
 	@erl \
 	  $(PRJ_DEP_PATH) \
 	  $(PRJ_APP_PATH) \
@@ -42,7 +42,7 @@ run:
 
 # Build and run the PlexoSrv with a connected shell.
 #
-run-noshell:
+run-noshell: build
 	@erl \
 	  -noshell \
 	  $(PRJ_DEP_PATH) \
