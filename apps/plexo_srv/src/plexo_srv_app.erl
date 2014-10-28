@@ -56,7 +56,8 @@ start(_Type, _Args) ->
     },
     %{"/sys/echo", hndlr_echo, []},
     % {"/api/apps/running", cb_apps_hndlr, []}
-    {"/api/apps/:state", cb_apps_hndlr, []}
+    {"/api/apps/:state", cb_apps_hndlr, []},
+    {"/api/apps/start/:name", cb_apps_hndlr, []}
 
 	]},
 

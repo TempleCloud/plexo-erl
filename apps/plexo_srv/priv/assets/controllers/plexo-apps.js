@@ -5,6 +5,7 @@ angular.module('plexoApp', []) .controller('MainCtrl', ['$http', function($http)
 	self.apps = [];
 	self.startNewApp = {};
 
+
 	// Fetch the Apps
 	var fetchApps = function() {
 		// return self.apps;

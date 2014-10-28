@@ -69,7 +69,7 @@
 
 -export([
   get_loaded_apps/0, get_running_apps/0,
-  start_apps/1, stop_apps/1,
+  start_app/1, start_apps/1, stop_app/1, stop_apps/1,
   to_map/1, to_record/1
 ]).
 
@@ -190,8 +190,12 @@ get_running_apps() ->
 -spec start_apps(Apps :: atom() | list(atom()))
       -> Res :: app_start_res() | list(app_start_res()).
 start_apps(Apps) when is_list(Apps) ->
-  [start_apps(App) || App <- Apps];
+  [start_app(App) || App <- Apps];
 start_apps(App) when is_atom(App) ->
+  start_app(App).
+
+%-spec start_app(App ::atom()) -> Res :: app_start_res().
+start_app(App) when is_atom(App) ->
   case lists:keyfind(App, 1, application:which_applications()) of
     {App, _Desc, _Vsn} ->
       {App, app_running};
@@ -209,8 +213,12 @@ start_apps(App) when is_atom(App) ->
 -spec stop_apps(Apps :: atom() | list(atom()))
       -> Res :: app_stop_res() | list(app_stop_res()).
 stop_apps(Apps) when is_list(Apps) ->
-  [stop_apps(App) || App <- Apps];
+  [stop_app(App) || App <- Apps];
 stop_apps(App) when is_atom(App) ->
+  stop_app(App).
+
+%-spec stop_app(App :: atom()) -> Res :: app_stop_res().
+stop_app(App) when is_atom(App) ->
   case lists:keyfind(App, 1, application:which_applications()) of
     {App, _Desc, _Vsn} ->
       ok = application:stop(App),

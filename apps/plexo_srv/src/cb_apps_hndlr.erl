@@ -34,14 +34,17 @@
 % Cowboy API Callbacks
 -export([
   init/2,                       % Initialise a new request handling process.
-  content_types_provided/2,     % Get the 'loaded apps'.
+  allowed_methods/2,
+  content_types_accepted/2,
+  content_types_provided/2,     % Get the 'apps'.
   terminate/3                   % Clean up after a request has been processed.
 ]).
 
 -export([
-  handle_apps_as_json/2,        % Get the require app froup as a JSON type.
+  handle_get_apps_as_json/2,    % Get the require app froup as a JSON type.
   get_loaded_apps_as_json/2,    % Get the 'loaded apps' apps as a JSON type.
-  get_running_apps_as_json/2    % Get the 'running apps' apps as a JSON type.
+  get_running_apps_as_json/2,   % Get the 'running apps' apps as a JSON type.
+  start_app/2
 ]).
 
 
@@ -61,6 +64,19 @@ init(Req, Opts) ->
   {cowboy_rest, Req, Opts}.
 
 
+allowed_methods(Req, State) ->
+  {
+    [<<"GET">>, <<"POST">>],
+    Req, State}.
+
+
+content_types_accepted(Req, State) ->
+  {
+    [{{<<"application">>, <<"x-www-form-urlencoded">>, []}, start_app}],
+    Req, State}.
+
+
+
 %%-----------------------------------------------------------------------------
 %% @doc
 %% Delegate the Cowboy Req to the appropriate handling function based on
@@ -71,7 +87,7 @@ init(Req, Opts) ->
       -> {[{binary(), atom()},...], Req :: cowboy_req:req(), State :: any()}.
 content_types_provided(Req, State) ->
   {[
-    {<<"application/json">>, handle_apps_as_json}
+    {<<"application/json">>, handle_get_apps_as_json}
     ], Req, State}.
 
 
@@ -87,6 +103,15 @@ terminate(Reason, _Req, _State) ->
   ok.
 
 
+%%=============================================================================
+%% Custom Callback API
+%%=============================================================================
+
+start_app(Req, State) ->
+  App = cowboy_req:binding(name, Req),
+  Res = erts_apps:start_app(App),
+  {Res, Req, State}.
+
 
 %%-----------------------------------------------------------------------------
 %% @doc
@@ -94,10 +119,9 @@ terminate(Reason, _Req, _State) ->
 %% 'body' of the handling Cowboy response 3-tuple.
 %% @end
 %%-----------------------------------------------------------------------------
--spec handle_apps_as_json(Req :: cowboy_req:req(), State :: any())
+-spec handle_get_apps_as_json(Req :: cowboy_req:req(), State :: any())
       -> {JsonRS :: binary(), Req :: cowboy_req:req(), State :: any()}.
-handle_apps_as_json(Req, State) ->
-
+handle_get_apps_as_json(Req, State) ->
   case cowboy_req:binding(state, Req) of
     <<"loaded">> ->
       get_running_apps_as_json(Req, State);
@@ -106,7 +130,6 @@ handle_apps_as_json(Req, State) ->
     _ ->
       {undefined, Req, State}
   end.
-
 
 
 %%-----------------------------------------------------------------------------
