@@ -70,12 +70,6 @@ allowed_methods(Req, State) ->
     Req, State}.
 
 
-content_types_accepted(Req, State) ->
-  {
-    [{{<<"application">>, <<"x-www-form-urlencoded">>, []}, start_app}],
-    Req, State}.
-
-
 
 %%-----------------------------------------------------------------------------
 %% @doc
@@ -86,9 +80,21 @@ content_types_accepted(Req, State) ->
 -spec content_types_provided(Req :: cowboy_req:req(), State :: any())
       -> {[{binary(), atom()},...], Req :: cowboy_req:req(), State :: any()}.
 content_types_provided(Req, State) ->
+  io:format("content_types_provided!~n"),
   {[
     {<<"application/json">>, handle_get_apps_as_json}
     ], Req, State}.
+
+
+content_types_accepted(Req, State) ->
+  io:format("content_types_accepted!~n"),
+  {
+    [{{
+      <<"application">>,
+      <<"x-www-form-urlencoded">>,
+      []
+    }, start_app}],
+    Req, State}.
 
 
 %%-----------------------------------------------------------------------------
@@ -99,7 +105,7 @@ content_types_provided(Req, State) ->
 -spec terminate(any(), _Req :: cowboy_req:req(), _State :: any())
       -> ok when _Req::cowboy_req:req().
 terminate(Reason, _Req, _State) ->
-  io:format("Terminate Handler: ~p ~n", [Reason]),
+  io:format("terminate: ~p ~n", [Reason]),
   ok.
 
 
@@ -108,9 +114,18 @@ terminate(Reason, _Req, _State) ->
 %%=============================================================================
 
 start_app(Req, State) ->
-  App = cowboy_req:binding(name, Req),
+  io:format("start_app... ~n"),
+  AppName = cowboy_req:binding(name, Req),
+  io:format("start_app: ~p ~n", [AppName]),
+  App = binary_to_atom(AppName, utf8),
+  io:format("start_app: ~p ~n", [App]),
   Res = erts_apps:start_app(App),
-  {Res, Req, State}.
+  io:format("start_app: ~p ~n", [Res]),
+  % Json = core_json:to_json(Res),
+  % io:format("start_app: ~p ~n", [Json]),
+  % Req2 = cowboy_req:set_resp_body(Json, Req),
+  Req2 = cowboy_req:set_resp_body(AppName, Req),
+  {true, Req2, State}.
 
 
 %%-----------------------------------------------------------------------------
@@ -122,13 +137,14 @@ start_app(Req, State) ->
 -spec handle_get_apps_as_json(Req :: cowboy_req:req(), State :: any())
       -> {JsonRS :: binary(), Req :: cowboy_req:req(), State :: any()}.
 handle_get_apps_as_json(Req, State) ->
+  io:format("handle_get_apps_as_json... ~n"),
   case cowboy_req:binding(state, Req) of
     <<"loaded">> ->
       get_running_apps_as_json(Req, State);
     <<"running">> ->
       get_loaded_apps_as_json(Req, State);
     _ ->
-      {undefined, Req, State}
+      {<<"Error">>, Req, State}
   end.
 
 
