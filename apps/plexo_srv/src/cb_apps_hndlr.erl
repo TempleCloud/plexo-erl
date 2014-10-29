@@ -115,16 +115,12 @@ terminate(Reason, _Req, _State) ->
 
 start_app(Req, State) ->
   io:format("start_app... ~n"),
-  AppName = cowboy_req:binding(name, Req),
-  io:format("start_app: ~p ~n", [AppName]),
-  App = binary_to_atom(AppName, utf8),
-  io:format("start_app: ~p ~n", [App]),
-  Res = erts_apps:start_app(App),
-  io:format("start_app: ~p ~n", [Res]),
-  % Json = core_json:to_json(Res),
-  % io:format("start_app: ~p ~n", [Json]),
-  % Req2 = cowboy_req:set_resp_body(Json, Req),
-  Req2 = cowboy_req:set_resp_body(AppName, Req),
+  AppParam = cowboy_req:binding(name, Req),
+  App = binary_to_atom(AppParam, utf8),
+  {AppName, AppState} = erts_apps:start_apps(App),
+  Res = #{<<"appName">> => AppName, <<"state">> => AppState},
+  JsonRS = core_json:to_json(Res),
+  Req2 = cowboy_req:set_resp_body(JsonRS, Req),
   {true, Req2, State}.
 
 
@@ -144,7 +140,8 @@ handle_get_apps_as_json(Req, State) ->
     <<"running">> ->
       get_loaded_apps_as_json(Req, State);
     _ ->
-      {<<"Error">>, Req, State}
+      JsonRS = core_json:to_json(#{<<"result">> => <<"{Error}">>}),
+      {JsonRS, Req, State}
   end.
 
 
