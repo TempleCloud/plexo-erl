@@ -58,9 +58,7 @@ start(_Type, _Args) ->
     {"/api/apps", cb_apps_hndlr, []},
     % POST
     {"/api/apps/:app_name", cb_apps_hndlr, []},
-    % GET
-    {"/api/app/:app_name", cb_app_hndlr, []},
-    % DELETE
+    % GET / PUT / DELETE
     {"/api/app/:app_name", cb_app_hndlr, []}
 
 	]},

@@ -70,6 +70,7 @@
 -export([
   get_loaded_apps/0, get_running_apps/0,
   start_apps/1, stop_apps/1,
+  get_app_cnfg/1,
   to_map/1, to_record/1
 ]).
 
@@ -180,6 +181,32 @@ get_loaded_apps() ->
 get_running_apps() ->
   lists:map(fun to_map/1, application:which_applications()).
 
+
+%%-----------------------------------------------------------------------------
+%% @doc
+%% Return the 'currently running applications' in the system as list of
+%% 'app_nfo' map entities.
+%% @end
+%%-----------------------------------------------------------------------------
+-spec get_app_cnfg(App :: atom()) -> AppCnfg :: map().
+get_app_cnfg(App) ->
+  {ok, KVs} = application:get_all_key(App),
+  Res = maps:from_list(KVs),
+  io:format("get_app_cnf - Res: ~p~n", [Res]),
+
+  Res1 = maps:update(description, list_to_binary(maps:get(description, Res)), Res),
+  Res2 = maps:update(vsn, list_to_binary(maps:get(vsn, Res)), Res1),
+
+  % Mod = maps:get(mod, Res)
+  Res3 = maps:remove(mod, Res2),
+
+  
+
+  Res4 = maps:remove(env, Res3),
+
+  io:format("get_app_cnf - Res: ~p~n", [Res4]),
+
+  Res4.
 
 
 %%-----------------------------------------------------------------------------
