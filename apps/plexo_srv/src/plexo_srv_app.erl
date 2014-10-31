@@ -50,14 +50,18 @@ start(_Type, _Args) ->
 
 	AnyHostRoutes = {'_', [
  		{"/", cowboy_static,
-      {priv_file, plexo_srv, "assets/plexomancer.html"}},
+      {priv_file, plexo_srv, "assets/plexo.html"}},
  		{"/assets/controllers/[...]", cowboy_static,
       {priv_dir, plexo_srv, "assets/controllers"}
     },
-    %{"/sys/echo", hndlr_echo, []},
-    % {"/api/apps/running", cb_apps_hndlr, []}
-    {"/api/apps/:state", cb_apps_hndlr, []},
-    {"/api/apps/start/:name", cb_apps_hndlr, []}
+    % GET ?status=(loaded|running)
+    {"/api/apps", cb_apps_hndlr, []},
+    % POST
+    {"/api/apps/:app_name", cb_apps_hndlr, []},
+    % GET
+    {"/api/app/:app_name", cb_app_hndlr, []},
+    % DELETE
+    {"/api/app/:app_name", cb_app_hndlr, []}
 
 	]},
 

@@ -69,8 +69,6 @@ allowed_methods(Req, State) ->
     [<<"GET">>, <<"POST">>],
     Req, State}.
 
-
-
 %%-----------------------------------------------------------------------------
 %% @doc
 %% Delegate the Cowboy Req to the appropriate handling function based on
@@ -115,7 +113,7 @@ terminate(Reason, _Req, _State) ->
 
 start_app(Req, State) ->
   io:format("start_app... ~n"),
-  AppParam = cowboy_req:binding(name, Req),
+  AppParam = cowboy_req:binding(app_name, Req),
   App = binary_to_atom(AppParam, utf8),
   {AppName, AppState} = erts_apps:start_apps(App),
   Res = #{<<"appName">> => AppName, <<"state">> => AppState},
@@ -126,22 +124,23 @@ start_app(Req, State) ->
 
 %%-----------------------------------------------------------------------------
 %% @doc
-%% Get the ERTS 'loaded apps' as a binary JSON type, and return it as the
-%% 'body' of the handling Cowboy response 3-tuple.
+%% Get the ERTS 'loaded/running apps' as a binary JSON type, and return it as
+%% the 'body' of the handling Cowboy response 3-tuple.
 %% @end
 %%-----------------------------------------------------------------------------
 -spec handle_get_apps_as_json(Req :: cowboy_req:req(), State :: any())
       -> {JsonRS :: binary(), Req :: cowboy_req:req(), State :: any()}.
 handle_get_apps_as_json(Req, State) ->
   io:format("handle_get_apps_as_json... ~n"),
-  case cowboy_req:binding(state, Req) of
+
+  case maps:get(status, cowboy_req:match_qs([status], Req)) of
     <<"loaded">> ->
-      get_running_apps_as_json(Req, State);
-    <<"running">> ->
       get_loaded_apps_as_json(Req, State);
+    <<"running">> ->
+      get_running_apps_as_json(Req, State);
     _ ->
       JsonRS = core_json:to_json(#{<<"result">> => <<"{Error}">>}),
-      {JsonRS, Req, State}
+    {JsonRS, Req, State}
   end.
 
 
@@ -155,8 +154,8 @@ handle_get_apps_as_json(Req, State) ->
       -> {JsonRS :: binary(), Req :: cowboy_req:req(), State :: any()}.
 get_loaded_apps_as_json(Req, State) ->
   io:format("Handling Request: ~p ~n", [Req]),
-  LoadedApps = erts_apps:get_loaded_apps(),
-  JsonRS = core_json:to_json(LoadedApps),
+  Loaded = erts_apps:get_loaded_apps(),
+  JsonRS = core_json:to_json(Loaded),
   io:format("Handled Request. ~n"),
   {JsonRS, Req, State}.
 
@@ -171,8 +170,8 @@ get_loaded_apps_as_json(Req, State) ->
       -> {JsonRS :: binary(), Req :: cowboy_req:req(), State :: any()}.
 get_running_apps_as_json(Req, State) ->
   io:format("Handling Request: ~p ~n", [Req]),
-  RunningApps = erts_apps:get_running_apps(),
-  JsonRS = core_json:to_json(RunningApps),
+  Running = erts_apps:get_running_apps(),
+  JsonRS = core_json:to_json(Running),
   io:format("Handled Request. ~n"),
   {JsonRS, Req, State}.
 

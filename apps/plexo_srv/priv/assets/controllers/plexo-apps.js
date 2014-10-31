@@ -9,7 +9,8 @@ angular.module('plexoApp', []) .controller('MainCtrl', ['$http', function($http)
 	// Fetch the Apps
 	var fetchApps = function() {
 		// return self.apps;
-		return $http.get('http://localhost:8877/api/apps/running')
+		// return $http.get('http://localhost:8877/api/apps/running')
+		return $http.get('http://localhost:8877/api/apps?status=running')
 		.then(
 			function(response) {
 				self.apps = response.data;
