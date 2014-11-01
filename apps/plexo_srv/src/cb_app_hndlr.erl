@@ -42,18 +42,25 @@
 % Cowboy API Callbacks
 -export([
   init/2,                       % Initialise a new request handling process.
+  allowed_methods/2,            % Define allowed HTTP methods.
   content_types_provided/2,     % Defines provided types and handling.
   content_types_accepted/2,     % Defines accepted types and handling.
-  allowed_methods/2,            % Define allowed HTTP methods.
   delete_resource/2,            % Handle delete an resource.
   terminate/3                   % Clean up after a request has been processed.
 ]).
 
 % Custom Handler Callbacks
 -export([
-  handle_provided_as_json/2,    % Handle provided content types.
-  handle_delete_as_json/2,      % Handle deletions.
-  handle_accepted_as_json/2     % Handle accepted content types.
+  handle_provide_as_json/2,     % Handle resource provision as json.
+  handle_accept_from_url/2,     % Handle new resource from uri params.
+  handle_delete_from_url/2      % Handle resource deletions from uri params.
+]).
+
+% Support Functions
+-export([
+  get_app_cnfg/2,               % Get the app configuration as json.
+  start_app/2,                  % Start the app and send result as json.
+  stop_app/2                    % Stop the app and send result as json.
 ]).
 
 %%%============================================================================
@@ -74,21 +81,6 @@ init(Req, Opts) ->
 
 %%-----------------------------------------------------------------------------
 %% @doc
-%% Handles "application/json".
-%% @end
-%%-----------------------------------------------------------------------------
--spec content_types_provided(Req :: cowboy_req:req(), State :: any())
-      -> {Handlers :: list(), Req :: cowboy_req:req(), State :: any()}.
-
-content_types_provided(Req, State) ->
-  io:format("content_types_provided!~n"),
-  Provided = <<"application/json">>,
-  {[
-    {Provided, handle_provided_as_json}
-  ], Req, State}.
-
-%%-----------------------------------------------------------------------------
-%% @doc
 %% Allow OPTIONS, GET (get app details), PUT (start app), DELETE (stop app).
 %% All responses are retuned as JSON.
 %% @end
@@ -102,15 +94,20 @@ allowed_methods(Req, State) ->
 
 %%-----------------------------------------------------------------------------
 %% @doc
-%% DELETE operations 'stop' the specified app.
+%% Delegate the Cowboy Req to the appropriate handling function based on
+%% content_type.
+%%
+%% Handles "application/json".
 %% @end
 %%-----------------------------------------------------------------------------
--spec delete_resource(Req :: cowboy_req:req(), State :: any())
-      -> {true, Req :: cowboy_req:req(), State :: any()}.
+-spec content_types_provided(Req :: cowboy_req:req(), State :: any())
+      -> {Handlers :: list(), Req :: cowboy_req:req(), State :: any()}.
 
-delete_resource(Req, State) ->
-  io:format("delete_resource"),
-  handle_delete_as_json(Req, State).
+content_types_provided(Req, State) ->
+  Provided = <<"application/json">>,
+  {[
+    {Provided, handle_provide_as_json}
+  ], Req, State}.
 
 %%-----------------------------------------------------------------------------
 %% @doc
@@ -122,12 +119,22 @@ delete_resource(Req, State) ->
       -> {Handlers :: list(), Req :: cowboy_req:req(), State :: any()}.
 
 content_types_accepted(Req, State) ->
-  io:format("content_types_accepted!~n"),
   Accepted = {<<"application">>, <<"x-www-form-urlencoded">>, []},
   {[{
-    Accepted, handle_accepted_as_json
+    Accepted, handle_accept_from_url
     }],
   Req, State}.
+
+%%-----------------------------------------------------------------------------
+%% @doc
+%% DELETE operations 'stop' the specified app.
+%% @end
+%%-----------------------------------------------------------------------------
+-spec delete_resource(Req :: cowboy_req:req(), State :: any())
+      -> {true, Req :: cowboy_req:req(), State :: any()}.
+
+delete_resource(Req, State) ->
+  handle_delete_from_url(Req, State).
 
 %%-----------------------------------------------------------------------------
 %% @doc
@@ -148,19 +155,35 @@ terminate(Reason, _Req, _State) ->
 
 %%-----------------------------------------------------------------------------
 %% @doc
+%% Handle GET requests for providing the details of the specified application
+%% resource; and writing the representation back to the client as JSON.
+%% @end
+%%-----------------------------------------------------------------------------
+-spec handle_provide_as_json(Req :: cowboy_req:req(), State :: any())
+      -> {Json :: binary(), Req :: cowboy_req:req(), State :: any()}.
+
+handle_provide_as_json(Req, State) ->
+  case cowboy_req:method(Req) of
+    <<"GET">> ->
+      get_app_cnfg(Req, State);
+    _ ->
+      JsonRS = core_json:to_json(#{<<"result">> => <<"{Error}">>}),
+      {JsonRS, Req, State}
+  end.
+
+%%-----------------------------------------------------------------------------
+%% @doc
 %% Handle PUT requests for 'starting' (creating a new instance) the specified
 %% application resource; and writing the outcome of the operation back to the
 %% requesting client as JSON.
 %% @end
 %%-----------------------------------------------------------------------------
--spec handle_accepted_as_json(Req :: cowboy_req:req(), State :: any())
+-spec handle_accept_from_url(Req :: cowboy_req:req(), State :: any())
       -> {true, Req :: cowboy_req:req(), State :: any()}.
 
-handle_accepted_as_json(Req, State) ->
-  io:format("handle_app_rq:~n"),
+handle_accept_from_url(Req, State) ->
   case cowboy_req:method(Req) of
     <<"PUT">> ->
-      io:format("handle_app_rq PUT :~n"),
       start_app(Req, State);
     _ ->
       {true, Req, State}
@@ -172,43 +195,35 @@ handle_accepted_as_json(Req, State) ->
 %% writing the outcome of the operation back to the requesting client as JSON.
 %% @end
 %%-----------------------------------------------------------------------------
--spec handle_delete_as_json(Req :: cowboy_req:req(), State :: any())
+-spec handle_delete_from_url(Req :: cowboy_req:req(), State :: any())
       -> {true, Req :: cowboy_req:req(), State :: any()}.
 
-handle_delete_as_json(Req, State) ->
-  io:format("handle_app_rq:~n"),
+handle_delete_from_url(Req, State) ->
   case cowboy_req:method(Req) of
     <<"DELETE">> ->
-      io:format("handle_app_rq PUT :~n"),
       stop_app(Req, State);
     _ ->
       {true, Req, State}
   end.
 
+%%=============================================================================
+%% Support Functions
+%%=============================================================================
+
 %%-----------------------------------------------------------------------------
 %% @doc
-%% Handle GET requests for 'getting' the details of the specified application
-%% resource; and writing the representation back to the client as JSON.
+%% Get the specified Erlang 'application' details and return the result to the
+%% client.
 %% @end
 %%-----------------------------------------------------------------------------
--spec handle_provided_as_json(Req :: cowboy_req:req(), State :: any())
+-spec get_app_cnfg(Req :: cowboy_req:req(), State :: any())
       -> {Json :: binary(), Req :: cowboy_req:req(), State :: any()}.
 
-handle_provided_as_json(Req, State) ->
-  io:format("handle_app_rq:~n"),
-  case cowboy_req:method(Req) of
-    <<"GET">> ->
-      io:format("handle_app_rq PUT :~n"),
-      get_app_cnfg(Req, State);
-    _ ->
-      JsonRS = core_json:to_json(#{<<"result">> => <<"{Error}">>}),
-      {JsonRS, Req, State}
-  end.
-
-
-%%=============================================================================
-%% Private Methods
-%%=============================================================================
+get_app_cnfg(Req, State) ->
+  App = extract_uri_atom(app_name, Req),
+  ResMap = erts_apps:get_app_cnfg(App),
+  Json = core_json:to_json(ResMap),
+  {Json, Req, State}.
 
 %%-----------------------------------------------------------------------------
 %% @doc
@@ -220,7 +235,6 @@ handle_provided_as_json(Req, State) ->
       -> {true, Req2 :: cowboy_req:req(), State :: any()}.
 
 start_app(Req, State) ->
-  io:format("start_app... ~n"),
   App = extract_uri_atom(app_name, Req),
   Res = erts_apps:start_apps(App),
   Req2 = send_app_status_response(Res, Req),
@@ -236,28 +250,15 @@ start_app(Req, State) ->
       -> {true, Req :: cowboy_req:req(), State :: any()}.
 
 stop_app(Req, State) ->
-  io:format("stop_app... ~n"),
   App = extract_uri_atom(app_name, Req),
   Res = erts_apps:stop_apps(App),
   Req2 = send_app_status_response(Res, Req),
   {true, Req2, State}.
 
-%%-----------------------------------------------------------------------------
-%% @doc
-%% Get the specified Erlang 'application' details and return the result to the
-%% client.
-%% @end
-%%-----------------------------------------------------------------------------
--spec get_app_cnfg(Req :: cowboy_req:req(), State :: any())
-      -> {Json :: binary(), Req :: cowboy_req:req(), State :: any()}.
 
-get_app_cnfg(Req, State) ->
-  io:format("get_app_cnf_as_json... ~n"),
-  App = extract_uri_atom(app_name, Req),
-  ResMap = erts_apps:get_app_cnfg(App),
-  Json = core_json:to_json(ResMap),
-  io:format("get_app_cnf_as_json...~p~n", [Json]),
-  {Json, Req, State}.
+%%=============================================================================
+%% Private Functions
+%%=============================================================================
 
 %%-----------------------------------------------------------------------------
 %% @doc
