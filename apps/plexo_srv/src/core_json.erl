@@ -72,9 +72,9 @@
 %% @end
 %%-----------------------------------------------------------------------------
 -spec to_json(term()) -> binary().
-to_json(ErlTerm) ->
-  io:format("Encoding: ~p ~n", [ErlTerm]),
-  Json = jsxn:encode(ErlTerm),
+to_json(Term) ->
+  io:format("Encoding: ~p ~n", [Term]),
+  Json = jsxn:encode(Term),
   io:format("Encoded: ~p ~n", [Json]),
   Json.
 
@@ -106,71 +106,11 @@ to_json(ErlTerm) ->
 %% @end
 %%-----------------------------------------------------------------------------
 -spec from_json(binary()) -> term().
-from_json(JsonBin) ->
-  io:format("Decoding: ~p ~n", [JsonBin]),
-  JsonMap = jsxn:decode(JsonBin),
-  io:format("Decoded: ~p ~n", [JsonMap]),
-  JsonMap.
+from_json(Json) ->
+  io:format("Decoding: ~p ~n", [Json]),
+  Map = jsxn:decode(Json),
+  io:format("Decoded: ~p ~n", [Map]),
+  Map.
 
-
-
-
-%% %%%============================================================================
-%% %% Private Functions
-%% %%%============================================================================
-%%
-%% to_atom_key_map(JsonTerm) ->
-%%   case JsonTerm of
-%%     []      -> [];
-%%     [_H|_T] -> [atomise_map(JsonMap) || JsonMap <- JsonTerm];
-%%     #{}     -> atomise_map(JsonTerm)
-%%   end.
-%%
-%% atomise_map(JsonMap) when is_map(JsonMap) ->
-%%   maps:fold(fun atomise_kv/3, #{}, JsonMap).
-%%
-%% atomise_kv(K, V, Map) when is_binary(K), is_map(V) ->
-%%   maps:put(binary_to_atom(K, utf8), atomise_map(V), Map);
-%% atomise_kv(K, V, Map) when is_binary(K) ->
-%%   maps:put(binary_to_atom(K, utf8), V, Map).
-%%
-%%
-%%
-%% %% to_binary_key_map(JsonTerm) ->
-%% %%   case JsonTerm of
-%% %%     #{} -> binarise_map(JsonTerm);
-%% %%     []  -> [binarise_map(JsonMap) || JsonMap <- JsonTerm]
-%% %%   end.
-%% %%
-%% %% binarise_map(JsonMap) when is_map(JsonMap) ->
-%% %%   maps:fold(fun binarise_kv/3, #{}, JsonMap).
-%% %%
-%% %% binarise_kv(K, V, Map) when is_atom(K), is_map(V) ->
-%% %%   maps:put(binary_to_atom(K, utf8), binarise_map(V), Map);
-%% %% binarise_kv(K, V, Map) when is_atom(K) ->
-%% %%   maps:put(binary_to_atom(K, utf8), V, Map).
-%%
-%%
-%%
-%% % % @todo Remove - to_atom_key_map v2.
-%% %%
-%% %% to_atom_key_map(JsonMap) ->
-%% %%   maps:fold(fun (K, V, Map) -> maps:put(binary_to_atom(K, utf8), V, Map) end , #{} ,JsonMap).
-%%
-%%
-%% % % @todo Remove - to_atom_key_map v1.
-%% %%
-%% %% -spec to_atom_key_map(map()) -> map().
-%% %% to_atom_key_map(JsonMap) ->
-%% %%   lists:foldl(fun build/2, #{}, [atomise(K, JsonMap) || K <- maps:keys(JsonMap)]).
-%% %%
-%% %% atomise(Key, JsonMap) ->
-%% %%   {binary_to_atom(Key, utf8), maps:get(Key, JsonMap)}.
-%% %%
-%% %% build({K,V}, Map) ->
-%% %%   maps:put(K, V, Map).
-%%
-%%
-%%
 
 

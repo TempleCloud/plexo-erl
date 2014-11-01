@@ -6,8 +6,8 @@
 %%% @see erts_apps
 %%%
 %%% @doc
-%%% A Cowboy REST handler that handles operations relating to 'apps' in
-%%% ERTS.
+%%% A Cowboy REST handler that handles operations relating to collections of
+%%% ERTS 'app' resources.
 %%%
 %%% ==== Notes ====
 %%%
@@ -140,7 +140,7 @@ handle_get_apps_as_json(Req, State) ->
       get_running_apps_as_json(Req, State);
     _ ->
       JsonRS = core_json:to_json(#{<<"result">> => <<"{Error}">>}),
-    {JsonRS, Req, State}
+      {JsonRS, Req, State}
   end.
 
 
