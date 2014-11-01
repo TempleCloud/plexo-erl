@@ -25,13 +25,15 @@
 
 %%-----------------------------------------------------------------------------
 %% @doc
-%% Take an input term and convert any 'binary map keys' to 'atom map keys'.
+%% Take an input Map and convert any 'binary map keys' to 'atom map keys'.
 %% @end
 %%-----------------------------------------------------------------------------
-to_atom_key_map(Term) ->
-  case Term of
-    #{}     -> atomise_map(Term);
-    [_H|_T] -> [atomise_map(Map) || Map <- Term];
+-spec to_atom_key_map(map()) -> map().
+
+to_atom_key_map(InMap) ->
+  case InMap of
+    #{}     -> atomise_map(InMap);
+    [_H|_T] -> [atomise_map(Map) || Map <- InMap];
     X       -> X
   end.
 

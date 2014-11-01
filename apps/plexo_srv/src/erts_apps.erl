@@ -262,7 +262,43 @@ to_map({Name, Desc, Ver}) ->
   },
   #{app_nfo => AppMap}.
 
+
+%%-----------------------------------------------------------------------------
+%% @doc
+%% Convert the specified AppEnv entity into an expanded JSON Map.
+%%
+%% ==== Example Ouput ====
+%%   ```
+%%  {
+%%    "applications": [
+%%      "kernel", ...
+%%    ],
+%%    "description": "SASL  CXC 138 11",
+%%    "env": {
+%%      "errlog_type": "all", ...
+%%      },
+%%    "id": [],
+%%    "included_applications": [],
+%%    "maxP": "infinity",
+%%    "maxT": "infinity",
+%%    "mod": {
+%%      "name": "sasl",
+%%      "params": []
+%%    },
+%%    "modules": [
+%%      "sasl", ...
+%%    ],
+%%    "registered": [
+%%      "sasl_sup", ...
+%%    ],
+%%    "start_phases": "undefined",
+%%    "vsn": "2.4.1"
+%%  }
+%%   '''
+%% @end
+%%-----------------------------------------------------------------------------
 -spec app_env_to_map([{Par :: atom(), Val :: term()}]) -> map().
+
 app_env_to_map(AppEnv) ->
   io:format("app_env_to_map - AppEnv: ~p~n", [AppEnv]),
   Res = maps:from_list(AppEnv),
@@ -273,8 +309,6 @@ app_env_to_map(AppEnv) ->
   Res4 = maps:update(env, maps:from_list((maps:get(env, Res3))), Res3),
   io:format("app_env_to_map - AppEnvMap: ~p~n", [Res4]),
   Res4.
-
-
 
 %%-----------------------------------------------------------------------------
 %% @deprecated
@@ -296,6 +330,7 @@ app_env_to_map(AppEnv) ->
 %% @end
 %%-----------------------------------------------------------------------------
 -spec to_record(From :: app_tpl()) -> To :: #app_rec{}.
+
 to_record({Name, Desc, Ver}) ->
   #app_rec{
     % name = atom_to_binary(Name, utf8),

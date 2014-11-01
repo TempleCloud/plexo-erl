@@ -72,6 +72,7 @@
 %% @end
 %%-----------------------------------------------------------------------------
 -spec to_json(term()) -> binary().
+
 to_json(Term) ->
   io:format("Encoding: ~p ~n", [Term]),
   Json = jsxn:encode(Term),
@@ -106,6 +107,7 @@ to_json(Term) ->
 %% @end
 %%-----------------------------------------------------------------------------
 -spec from_json(binary()) -> term().
+
 from_json(Json) ->
   io:format("Decoding: ~p ~n", [Json]),
   Map = jsxn:decode(Json),

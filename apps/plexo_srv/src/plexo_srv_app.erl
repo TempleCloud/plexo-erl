@@ -7,7 +7,6 @@
 %%%----------------------------------------------------------------------------
 -module(plexo_srv_app).
 
-
 %% ============================================================================
 %% OTP Application Behaviour
 %% ============================================================================
@@ -18,24 +17,17 @@
 	stop/1]
 ).
 
-
 %% ============================================================================
 %% OTP Application Behaviour Callback Implementation
 %% ============================================================================
-
-%% 	http://erlang.org/pipermail/erlang-questions/2011-October/062024.html
-%%
-%% 	Set up your erlang code path properly also during development, so that
-%% 	it contains the application name. That is, not "erl -pa ebin", but "erl
-%% 	-pa ../myappname/ebin" (or use the full path, e.g., "erl -pa `pwd`/ebin").
-%%
 
 %%-----------------------------------------------------------------------------
 %% @doc
 %% Start the Plexo server.
 %% @end
 %%-----------------------------------------------------------------------------
--spec start(_,_) -> {'ok',pid()}.
+-spec start(_,_) -> {'ok', pid()}.
+
 start(_Type, _Args) ->
 
 	Port = 8877,
@@ -81,6 +73,7 @@ start(_Type, _Args) ->
 %% @end
 %%-----------------------------------------------------------------------------
 -spec stop(_) -> 'ok'.
+
 stop(_State) ->
 	ok.
 
