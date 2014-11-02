@@ -33,6 +33,14 @@ all: build
 
 # Build and run the PlexoSrv.
 #
+qrun:
+	@erl \
+	  $(PRJ_DEP_PATH) \
+	  $(PRJ_APP_PATH) \
+	  -s plexo_srv start
+
+# Build and run the PlexoSrv.
+#
 run: build
 	@erl \
 	  $(PRJ_DEP_PATH) \

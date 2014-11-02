@@ -2,7 +2,7 @@
 %%% @author Temple
 %%%
 %%% @doc
-%%%
+%%% Test the 'erts_apps' module.
 %%% @end
 %%%----------------------------------------------------------------------------
 -module(erts_apps_tests).
@@ -50,8 +50,6 @@ mock_running_apps() ->
     }
   ].
 
-%% mock_loaded_apps() ->
-%%   erts_apps:get_loaded_apps().
 
 %%-----------------------------------------------------------------------------
 %% @doc
