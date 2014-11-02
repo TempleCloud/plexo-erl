@@ -1,0 +1,3652 @@
+==> plexo_srv (clean)
+test -d deps || @rebar get-deps
+==> jsx (compile)
+==> jsxn (compile)
+==> ranch (compile)
+==> cowlib (compile)
+==> cowboy (compile)
+==> plexo_srv (compile)
+Compiled src/plexo_srv.erl
+Compiled src/plexo_srv_sup.erl
+Compiled src/plexo_srv_app.erl
+Compiled src/core_json.erl
+Compiled src/core_util.erl
+Compiled src/erts_apps.erl
+Compiled src/cb_apps_hndlr.erl
+Compiled src/cb_app_hndlr.erl
+  Checking whether the PLT /Users/Temple/.dialyzer_plt is up-to-date... yes
+  Proceeding with analysis... done in 0m1.27s
+done (passed successfully)
+==> plexo_srv (eunit)
+Compiled src/plexo_srv.erl
+Compiled src/plexo_srv_sup.erl
+Compiled src/plexo_srv_app.erl
+Compiled src/core_json.erl
+Compiled src/core_util.erl
+Compiled src/erts_apps.erl
+Compiled src/cb_apps_hndlr.erl
+Compiled src/cb_app_hndlr.erl
+Compiled test/plexo_srv_tests.erl
+Compiled test/erts_apps_tests.erl
+Compiled test/core_util_tests.erl
+Compiled test/core_json_tests.erl
+test/cb_apps_hndlr_tests.erl:58: Warning: a term is constructed, but never used
+test/cb_apps_hndlr_tests.erl:66: Warning: a term is constructed, but never used
+Compiled test/cb_apps_hndlr_tests.erl
+test/cb_app_hndlr_tests.erl:61: Warning: a term is constructed, but never used
+test/cb_app_hndlr_tests.erl:69: Warning: a term is constructed, but never used
+test/cb_app_hndlr_tests.erl:77: Warning: a term is constructed, but never used
+test/cb_app_hndlr_tests.erl:85: Warning: a term is constructed, but never used
+test/cb_app_hndlr_tests.erl:105: Warning: a term is constructed, but never used
+Compiled test/cb_app_hndlr_tests.erl
+Starting Cowboy on port 8877...
+RootDir "/usr/local/Cellar/erlang/17.3/lib/erlang"...
+LibDir "/usr/local/Cellar/erlang/17.3/lib/erlang/lib"...
+AppDir "/Users/Temple/Work/dev/projects/plexo/apps/plexo_srv"...
+AppPrivDir "/Users/Temple/Work/dev/projects/plexo/apps/plexo_srv/priv"...
+Started Server...
+test/plexo_srv_tests.erl:29:<0.175.0>: Started Apps: [{crypto,app_running},
+               {ranch,app_started},
+               {cowlib,app_started},
+               {cowboy,app_started},
+               {plexo_srv,app_started}]
+
+
+=INFO REPORT==== 2-Nov-2014::23:37:08 ===
+    application: crypto
+    exited: stopped
+    type: temporary
+
+=INFO REPORT==== 2-Nov-2014::23:37:08 ===
+    application: ranch
+    exited: stopped
+    type: temporary
+
+=INFO REPORT==== 2-Nov-2014::23:37:08 ===
+    application: cowlib
+    exited: stopped
+    type: temporary
+
+=INFO REPORT==== 2-Nov-2014::23:37:08 ===
+    application: cowboy
+    exited: stopped
+    type: temporary
+
+=INFO REPORT==== 2-Nov-2014::23:37:08 ===
+    application: plexo_srv
+    exited: stopped
+    type: temporary
+test/plexo_srv_tests.erl:34:<0.175.0>: Stopped Apps: [{crypto,app_stopped},
+               {ranch,app_stopped},
+               {cowlib,app_stopped},
+               {cowboy,app_stopped},
+               {plexo_srv,app_stopped}]
+
+test/erts_apps_tests.erl:28:<0.175.0>: Expected Running Apps: [#{app_nfo => #{description => <<"ERTS  CXC 138 10">>,
+                            name => <<"stdlib">>,
+                            version => <<"2.2">>}},
+                        #{app_nfo => #{description => <<"ERTS  CXC 138 10">>,
+                            name => <<"kernel">>,
+                            version => <<"3.0.3">>}}]
+
+test/erts_apps_tests.erl:32:<0.175.0>: Actual Running Apps: [#{app_nfo => #{description => <<"ERTS  CXC 138 10">>,
+                          name => <<"stdlib">>,
+                          version => <<"2.2">>}},
+                      #{app_nfo => #{description => <<"ERTS  CXC 138 10">>,
+                          name => <<"kernel">>,
+                          version => <<"3.0.3">>}}]
+
+test/erts_apps_tests.erl:28:<0.175.0>: Expected Running Apps: [#{app_nfo => #{description => <<"ERTS  CXC 138 10">>,
+                            name => <<"stdlib">>,
+                            version => <<"2.2">>}},
+                        #{app_nfo => #{description => <<"ERTS  CXC 138 10">>,
+                            name => <<"kernel">>,
+                            version => <<"3.0.3">>}}]
+
+test/erts_apps_tests.erl:32:<0.175.0>: Actual Running Apps: [#{app_nfo => #{description => <<"ERTS  CXC 138 10">>,
+                          name => <<"stdlib">>,
+                          version => <<"2.2">>}},
+                      #{app_nfo => #{description => <<"ERTS  CXC 138 10">>,
+                          name => <<"kernel">>,
+                          version => <<"3.0.3">>}}]
+
+test/erts_apps_tests.erl:28:<0.175.0>: Expected Running Apps: [#{app_nfo => #{description => <<"ERTS  CXC 138 10">>,
+                            name => <<"stdlib">>,
+                            version => <<"2.2">>}},
+                        #{app_nfo => #{description => <<"ERTS  CXC 138 10">>,
+                            name => <<"kernel">>,
+                            version => <<"3.0.3">>}}]
+
+test/erts_apps_tests.erl:32:<0.175.0>: Actual Running Apps: [#{app_nfo => #{description => <<"ERTS  CXC 138 10">>,
+                          name => <<"stdlib">>,
+                          version => <<"2.2">>}},
+                      #{app_nfo => #{description => <<"ERTS  CXC 138 10">>,
+                          name => <<"kernel">>,
+                          version => <<"3.0.3">>}}]
+
+Starting Cowboy on port 8877...
+RootDir "/usr/local/Cellar/erlang/17.3/lib/erlang"...
+LibDir "/usr/local/Cellar/erlang/17.3/lib/erlang/lib"...
+AppDir "/Users/Temple/Work/dev/projects/plexo/apps/plexo_srv"...
+AppPrivDir "/Users/Temple/Work/dev/projects/plexo/apps/plexo_srv/priv"...
+Started Server...
+Init Handler: {http_req,#Port<0.54415>,ranch_tcp,keepalive,<0.443.0>,
+                        <<"POST">>,'HTTP/1.1',
+                        {{127,0,0,1},59303},
+                        <<"localhost">>,undefined,8877,<<"/api/apps/sasl">>,
+                        undefined,<<>>,
+                        [{app_name,<<"sasl">>}],
+                        [{<<"content-type">>,
+                          <<"application/x-www-form-urlencoded">>},
+                         {<<"content-length">>,<<"0">>},
+                         {<<"te">>,<<>>},
+                         {<<"host">>,<<"localhost:8877">>},
+                         {<<"authorization">>,
+                          <<"Basic VGVtcGxlOldpYmJsZTJXb2JibGU=">>},
+                         {<<"connection">>,<<"keep-alive">>}],
+                        [],waiting,<<>>,undefined,false,waiting,[],<<>>,
+                        undefined} 
+AuthHeader {<<"basic">>,{<<"Temple">>,<<"Wibble2Wobble">>}}
+Username: <<"Temple">>, Password: <<"Wibble2Wobble">>
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {local,sasl_safe_sup}
+             started: [{pid,<0.449.0>},
+                       {name,alarm_handler},
+                       {mfargs,{alarm_handler,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,2000},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {local,sasl_safe_sup}
+             started: [{pid,<0.450.0>},
+                       {name,overload},
+                       {mfargs,{overload,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,2000},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {local,sasl_sup}
+             started: [{pid,<0.448.0>},
+                       {name,sasl_safe_sup},
+                       {mfargs,
+                           {supervisor,start_link,
+                               [{local,sasl_safe_sup},sasl,safe]}},
+                       {restart_type,permanent},
+                       {shutdown,infinity},
+                       {child_type,supervisor}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {local,sasl_sup}
+             started: [{pid,<0.451.0>},
+                       {name,release_handler},
+                       {mfargs,{release_handler,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,2000},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+         application: sasl
+          started_at: nonode@nohost
+Encoding: #{<<"appName">> => sasl,<<"appStatus">> => app_started} 
+Encoded: <<"{\"appName\":\"sasl\",\"appStatus\":\"app_started\"}">> 
+terminate: normal 
+test/cb_apps_hndlr_tests.erl:95:<0.175.0>: Created App Resource: #{<<"appName">> => <<"sasl">>,
+                        <<"appStatus">> => <<"app_started">>}
+
+
+=INFO REPORT==== 2-Nov-2014::23:37:09 ===
+    application: crypto
+    exited: stopped
+    type: temporary
+
+=INFO REPORT==== 2-Nov-2014::23:37:09 ===
+    application: ranch
+    exited: stopped
+    type: temporary
+
+=INFO REPORT==== 2-Nov-2014::23:37:09 ===
+    application: cowlib
+    exited: stopped
+    type: temporary
+
+=INFO REPORT==== 2-Nov-2014::23:37:09 ===
+    application: cowboy
+    exited: stopped
+    type: temporary
+
+=INFO REPORT==== 2-Nov-2014::23:37:09 ===
+    application: plexo_srv
+    exited: stopped
+    type: temporary
+
+=INFO REPORT==== 2-Nov-2014::23:37:09 ===
+    application: inets
+    exited: stopped
+    type: temporary
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+         application: crypto
+          started_at: nonode@nohost
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {local,ranch_sup}
+             started: [{pid,<0.459.0>},
+                       {name,ranch_server},
+                       {mfargs,{ranch_server,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,5000},
+                       {child_type,worker}]
+Starting Cowboy on port 8877...
+RootDir "/usr/local/Cellar/erlang/17.3/lib/erlang"...
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+         application: ranch
+          started_at: nonode@nohost
+LibDir "/usr/local/Cellar/erlang/17.3/lib/erlang/lib"...
+AppDir "/Users/Temple/Work/dev/projects/plexo/apps/plexo_srv"...
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+         application: cowlib
+          started_at: nonode@nohost
+AppPrivDir "/Users/Temple/Work/dev/projects/plexo/apps/plexo_srv/priv"...
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {local,cowboy_sup}
+             started: [{pid,<0.465.0>},
+                       {name,cowboy_clock},
+                       {mfargs,{cowboy_clock,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,5000},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+         application: cowboy
+          started_at: nonode@nohost
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.469.0>,ranch_listener_sup}
+             started: [{pid,<0.470.0>},
+                       {name,ranch_conns_sup},
+                       {mfargs,
+                           {ranch_conns_sup,start_link,
+                               [http,worker,5000,ranch_tcp,5000,
+                                cowboy_protocol]}},
+                       {restart_type,permanent},
+                       {shutdown,infinity},
+                       {child_type,supervisor}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.471.0>,ranch_acceptors_sup}
+             started: [{pid,<0.472.0>},
+                       {name,{acceptor,<0.471.0>,1}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58353>,ranch_tcp,<0.470.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.471.0>,ranch_acceptors_sup}
+             started: [{pid,<0.473.0>},
+                       {name,{acceptor,<0.471.0>,2}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58353>,ranch_tcp,<0.470.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+Started Server...
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.471.0>,ranch_acceptors_sup}
+             started: [{pid,<0.474.0>},
+                       {name,{acceptor,<0.471.0>,3}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58353>,ranch_tcp,<0.470.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.471.0>,ranch_acceptors_sup}
+             started: [{pid,<0.475.0>},
+                       {name,{acceptor,<0.471.0>,4}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58353>,ranch_tcp,<0.470.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.471.0>,ranch_acceptors_sup}
+             started: [{pid,<0.476.0>},
+                       {name,{acceptor,<0.471.0>,5}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58353>,ranch_tcp,<0.470.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.471.0>,ranch_acceptors_sup}
+             started: [{pid,<0.477.0>},
+                       {name,{acceptor,<0.471.0>,6}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58353>,ranch_tcp,<0.470.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+Init Handler: {http_req,#Port<0.58355>,ranch_tcp,keepalive,<0.585.0>,
+                        <<"POST">>,'HTTP/1.1',
+                        {{127,0,0,1},59304},
+                        <<"localhost">>,undefined,8877,<<"/api/apps/sasl">>,
+                        undefined,<<>>,
+                        [{app_name,<<"sasl">>}],
+                        [{<<"content-type">>,
+                          <<"application/x-www-form-urlencoded">>},
+                         {<<"content-length">>,<<"0">>},
+                         {<<"te">>,<<>>},
+                         {<<"host">>,<<"localhost:8877">>},
+                         {<<"authorization">>,
+                          <<"Basic VGVtcGxlOldpYmJsZTJXb2JibGU=">>},
+                         {<<"connection">>,<<"keep-alive">>}],
+                        [],waiting,<<>>,undefined,false,waiting,[],<<>>,
+                        undefined} 
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.471.0>,ranch_acceptors_sup}
+             started: [{pid,<0.478.0>},
+                       {name,{acceptor,<0.471.0>,7}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58353>,ranch_tcp,<0.470.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+AuthHeader {<<"basic">>,{<<"Temple">>,<<"Wibble2Wobble">>}}
+Username: <<"Temple">>, Password: <<"Wibble2Wobble">>
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.471.0>,ranch_acceptors_sup}
+             started: [{pid,<0.479.0>},
+                       {name,{acceptor,<0.471.0>,8}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58353>,ranch_tcp,<0.470.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+Encoding: #{<<"appName">> => sasl,<<"appStatus">> => app_running} 
+Encoded: <<"{\"appName\":\"sasl\",\"appStatus\":\"app_running\"}">> 
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.471.0>,ranch_acceptors_sup}
+             started: [{pid,<0.480.0>},
+                       {name,{acceptor,<0.471.0>,9}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58353>,ranch_tcp,<0.470.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+terminate: normal 
+test/cb_apps_hndlr_tests.erl:95:<0.175.0>: Created App Resource: #{<<"appName">> => <<"sasl">>,
+                        <<"appStatus">> => <<"app_running">>}
+
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.471.0>,ranch_acceptors_sup}
+             started: [{pid,<0.481.0>},
+                       {name,{acceptor,<0.471.0>,10}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58353>,ranch_tcp,<0.470.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+Init Handler: {http_req,#Port<0.58355>,ranch_tcp,keepalive,<0.585.0>,
+                        <<"POST">>,'HTTP/1.1',
+                        {{127,0,0,1},59304},
+                        <<"localhost">>,undefined,8877,<<"/api/apps/sasl">>,
+                        undefined,<<>>,
+                        [{app_name,<<"sasl">>}],
+                        [{<<"content-type">>,
+                          <<"application/x-www-form-urlencoded">>},
+                         {<<"content-length">>,<<"0">>},
+                         {<<"te">>,<<>>},
+                         {<<"host">>,<<"localhost:8877">>},
+                         {<<"authorization">>,
+                          <<"Basic VGVtcGxlOldpYmJsZTJXb2JibGU=">>},
+                         {<<"connection">>,<<"keep-alive">>}],
+                        [],waiting,<<>>,undefined,false,waiting,[],<<>>,
+                        undefined} 
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.471.0>,ranch_acceptors_sup}
+             started: [{pid,<0.482.0>},
+                       {name,{acceptor,<0.471.0>,11}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58353>,ranch_tcp,<0.470.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+AuthHeader {<<"basic">>,{<<"Temple">>,<<"Wibble2Wobble">>}}
+Username: <<"Temple">>, Password: <<"Wibble2Wobble">>
+Encoding: #{<<"appName">> => sasl,<<"appStatus">> => app_running} 
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.471.0>,ranch_acceptors_sup}
+             started: [{pid,<0.483.0>},
+                       {name,{acceptor,<0.471.0>,12}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58353>,ranch_tcp,<0.470.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+Encoded: <<"{\"appName\":\"sasl\",\"appStatus\":\"app_running\"}">> 
+terminate: normal 
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.471.0>,ranch_acceptors_sup}
+             started: [{pid,<0.484.0>},
+                       {name,{acceptor,<0.471.0>,13}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58353>,ranch_tcp,<0.470.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+test/cb_apps_hndlr_tests.erl:95:<0.175.0>: Created App Resource: #{<<"appName">> => <<"sasl">>,
+                        <<"appStatus">> => <<"app_running">>}
+
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.471.0>,ranch_acceptors_sup}
+             started: [{pid,<0.485.0>},
+                       {name,{acceptor,<0.471.0>,14}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58353>,ranch_tcp,<0.470.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.471.0>,ranch_acceptors_sup}
+             started: [{pid,<0.486.0>},
+                       {name,{acceptor,<0.471.0>,15}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58353>,ranch_tcp,<0.470.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.471.0>,ranch_acceptors_sup}
+             started: [{pid,<0.487.0>},
+                       {name,{acceptor,<0.471.0>,16}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58353>,ranch_tcp,<0.470.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.471.0>,ranch_acceptors_sup}
+             started: [{pid,<0.488.0>},
+                       {name,{acceptor,<0.471.0>,17}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58353>,ranch_tcp,<0.470.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.471.0>,ranch_acceptors_sup}
+             started: [{pid,<0.489.0>},
+                       {name,{acceptor,<0.471.0>,18}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58353>,ranch_tcp,<0.470.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.471.0>,ranch_acceptors_sup}
+             started: [{pid,<0.490.0>},
+                       {name,{acceptor,<0.471.0>,19}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58353>,ranch_tcp,<0.470.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.471.0>,ranch_acceptors_sup}
+             started: [{pid,<0.491.0>},
+                       {name,{acceptor,<0.471.0>,20}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58353>,ranch_tcp,<0.470.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.471.0>,ranch_acceptors_sup}
+             started: [{pid,<0.492.0>},
+                       {name,{acceptor,<0.471.0>,21}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58353>,ranch_tcp,<0.470.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.471.0>,ranch_acceptors_sup}
+             started: [{pid,<0.493.0>},
+                       {name,{acceptor,<0.471.0>,22}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58353>,ranch_tcp,<0.470.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.471.0>,ranch_acceptors_sup}
+             started: [{pid,<0.494.0>},
+                       {name,{acceptor,<0.471.0>,23}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58353>,ranch_tcp,<0.470.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.471.0>,ranch_acceptors_sup}
+             started: [{pid,<0.495.0>},
+                       {name,{acceptor,<0.471.0>,24}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58353>,ranch_tcp,<0.470.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.471.0>,ranch_acceptors_sup}
+             started: [{pid,<0.496.0>},
+                       {name,{acceptor,<0.471.0>,25}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58353>,ranch_tcp,<0.470.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.471.0>,ranch_acceptors_sup}
+             started: [{pid,<0.497.0>},
+                       {name,{acceptor,<0.471.0>,26}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58353>,ranch_tcp,<0.470.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.471.0>,ranch_acceptors_sup}
+             started: [{pid,<0.498.0>},
+                       {name,{acceptor,<0.471.0>,27}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58353>,ranch_tcp,<0.470.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.471.0>,ranch_acceptors_sup}
+             started: [{pid,<0.499.0>},
+                       {name,{acceptor,<0.471.0>,28}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58353>,ranch_tcp,<0.470.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.471.0>,ranch_acceptors_sup}
+             started: [{pid,<0.500.0>},
+                       {name,{acceptor,<0.471.0>,29}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58353>,ranch_tcp,<0.470.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.471.0>,ranch_acceptors_sup}
+             started: [{pid,<0.501.0>},
+                       {name,{acceptor,<0.471.0>,30}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58353>,ranch_tcp,<0.470.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.471.0>,ranch_acceptors_sup}
+             started: [{pid,<0.502.0>},
+                       {name,{acceptor,<0.471.0>,31}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58353>,ranch_tcp,<0.470.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.471.0>,ranch_acceptors_sup}
+             started: [{pid,<0.503.0>},
+                       {name,{acceptor,<0.471.0>,32}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58353>,ranch_tcp,<0.470.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+Starting Cowboy on port 8877...
+RootDir "/usr/local/Cellar/erlang/17.3/lib/erlang"...
+LibDir "/usr/local/Cellar/erlang/17.3/lib/erlang/lib"...
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.471.0>,ranch_acceptors_sup}
+             started: [{pid,<0.504.0>},
+                       {name,{acceptor,<0.471.0>,33}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58353>,ranch_tcp,<0.470.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+AppDir "/Users/Temple/Work/dev/projects/plexo/apps/plexo_srv"...
+AppPrivDir "/Users/Temple/Work/dev/projects/plexo/apps/plexo_srv/priv"...
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.471.0>,ranch_acceptors_sup}
+             started: [{pid,<0.505.0>},
+                       {name,{acceptor,<0.471.0>,34}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58353>,ranch_tcp,<0.470.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.471.0>,ranch_acceptors_sup}
+             started: [{pid,<0.506.0>},
+                       {name,{acceptor,<0.471.0>,35}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58353>,ranch_tcp,<0.470.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.471.0>,ranch_acceptors_sup}
+             started: [{pid,<0.507.0>},
+                       {name,{acceptor,<0.471.0>,36}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58353>,ranch_tcp,<0.470.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.471.0>,ranch_acceptors_sup}
+             started: [{pid,<0.508.0>},
+                       {name,{acceptor,<0.471.0>,37}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58353>,ranch_tcp,<0.470.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+Started Server...
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.471.0>,ranch_acceptors_sup}
+             started: [{pid,<0.509.0>},
+                       {name,{acceptor,<0.471.0>,38}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58353>,ranch_tcp,<0.470.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.471.0>,ranch_acceptors_sup}
+             started: [{pid,<0.510.0>},
+                       {name,{acceptor,<0.471.0>,39}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58353>,ranch_tcp,<0.470.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+undefined
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.471.0>,ranch_acceptors_sup}
+             started: [{pid,<0.511.0>},
+                       {name,{acceptor,<0.471.0>,40}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58353>,ranch_tcp,<0.470.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+*** instantiation of subtests failed ***
+**in function cb_apps_hndlr_tests:get_remote_apps/2 (test/cb_apps_hndlr_tests.erl, line 101)
+in call from cb_apps_hndlr_tests:test_get_running_apps/1 (test/cb_apps_hndlr_tests.erl, line 70)
+**error:{badmatch,<<"http://localhost:8877/api/apps">>}
+
+
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.471.0>,ranch_acceptors_sup}
+             started: [{pid,<0.512.0>},
+                       {name,{acceptor,<0.471.0>,41}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58353>,ranch_tcp,<0.470.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+undefined
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.471.0>,ranch_acceptors_sup}
+             started: [{pid,<0.513.0>},
+                       {name,{acceptor,<0.471.0>,42}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58353>,ranch_tcp,<0.470.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+*** instantiation of subtests failed ***
+**in function cb_apps_hndlr_tests:get_remote_apps/2 (test/cb_apps_hndlr_tests.erl, line 101)
+in call from cb_apps_hndlr_tests:test_get_loaded_apps/1 (test/cb_apps_hndlr_tests.erl, line 74)
+**error:{badmatch,<<"http://localhost:8877/api/apps">>}
+
+
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.471.0>,ranch_acceptors_sup}
+             started: [{pid,<0.514.0>},
+                       {name,{acceptor,<0.471.0>,43}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58353>,ranch_tcp,<0.470.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.471.0>,ranch_acceptors_sup}
+             started: [{pid,<0.515.0>},
+                       {name,{acceptor,<0.471.0>,44}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58353>,ranch_tcp,<0.470.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.471.0>,ranch_acceptors_sup}
+             started: [{pid,<0.516.0>},
+                       {name,{acceptor,<0.471.0>,45}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58353>,ranch_tcp,<0.470.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.471.0>,ranch_acceptors_sup}
+             started: [{pid,<0.517.0>},
+                       {name,{acceptor,<0.471.0>,46}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58353>,ranch_tcp,<0.470.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.471.0>,ranch_acceptors_sup}
+             started: [{pid,<0.518.0>},
+                       {name,{acceptor,<0.471.0>,47}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58353>,ranch_tcp,<0.470.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.471.0>,ranch_acceptors_sup}
+             started: [{pid,<0.519.0>},
+                       {name,{acceptor,<0.471.0>,48}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58353>,ranch_tcp,<0.470.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.471.0>,ranch_acceptors_sup}
+             started: [{pid,<0.520.0>},
+                       {name,{acceptor,<0.471.0>,49}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58353>,ranch_tcp,<0.470.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+Init Handler: {http_req,#Port<0.58371>,ranch_tcp,keepalive,<0.718.0>,
+                        <<"DELETE">>,'HTTP/1.1',
+                        {{127,0,0,1},59305},
+                        <<"localhost">>,undefined,8877,<<"/api/app/sasl">>,
+                        undefined,<<>>,
+                        [{app_name,<<"sasl">>}],
+                        [{<<"content-length">>,<<"0">>},
+                         {<<"te">>,<<>>},
+                         {<<"host">>,<<"localhost:8877">>},
+                         {<<"authorization">>,
+                          <<"Basic VGVtcGxlOldpYmJsZTJXb2JibGU=">>},
+                         {<<"connection">>,<<"keep-alive">>}],
+                        [],waiting,<<>>,undefined,false,waiting,[],<<>>,
+                        undefined} 
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.471.0>,ranch_acceptors_sup}
+             started: [{pid,<0.521.0>},
+                       {name,{acceptor,<0.471.0>,50}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58353>,ranch_tcp,<0.470.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+AuthHeader {<<"basic">>,{<<"Temple">>,<<"Wibble2Wobble">>}}
+Username: <<"Temple">>, Password: <<"Wibble2Wobble">>
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.471.0>,ranch_acceptors_sup}
+             started: [{pid,<0.522.0>},
+                       {name,{acceptor,<0.471.0>,51}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58353>,ranch_tcp,<0.470.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.471.0>,ranch_acceptors_sup}
+             started: [{pid,<0.523.0>},
+                       {name,{acceptor,<0.471.0>,52}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58353>,ranch_tcp,<0.470.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.471.0>,ranch_acceptors_sup}
+             started: [{pid,<0.524.0>},
+                       {name,{acceptor,<0.471.0>,53}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58353>,ranch_tcp,<0.470.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.471.0>,ranch_acceptors_sup}
+             started: [{pid,<0.525.0>},
+                       {name,{acceptor,<0.471.0>,54}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58353>,ranch_tcp,<0.470.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.471.0>,ranch_acceptors_sup}
+             started: [{pid,<0.526.0>},
+                       {name,{acceptor,<0.471.0>,55}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58353>,ranch_tcp,<0.470.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.471.0>,ranch_acceptors_sup}
+             started: [{pid,<0.527.0>},
+                       {name,{acceptor,<0.471.0>,56}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58353>,ranch_tcp,<0.470.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.471.0>,ranch_acceptors_sup}
+             started: [{pid,<0.528.0>},
+                       {name,{acceptor,<0.471.0>,57}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58353>,ranch_tcp,<0.470.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.471.0>,ranch_acceptors_sup}
+             started: [{pid,<0.529.0>},
+                       {name,{acceptor,<0.471.0>,58}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58353>,ranch_tcp,<0.470.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.471.0>,ranch_acceptors_sup}
+             started: [{pid,<0.530.0>},
+                       {name,{acceptor,<0.471.0>,59}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58353>,ranch_tcp,<0.470.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.471.0>,ranch_acceptors_sup}
+             started: [{pid,<0.531.0>},
+                       {name,{acceptor,<0.471.0>,60}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58353>,ranch_tcp,<0.470.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.471.0>,ranch_acceptors_sup}
+             started: [{pid,<0.532.0>},
+                       {name,{acceptor,<0.471.0>,61}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58353>,ranch_tcp,<0.470.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.471.0>,ranch_acceptors_sup}
+             started: [{pid,<0.533.0>},
+                       {name,{acceptor,<0.471.0>,62}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58353>,ranch_tcp,<0.470.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.471.0>,ranch_acceptors_sup}
+             started: [{pid,<0.534.0>},
+                       {name,{acceptor,<0.471.0>,63}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58353>,ranch_tcp,<0.470.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.471.0>,ranch_acceptors_sup}
+             started: [{pid,<0.535.0>},
+                       {name,{acceptor,<0.471.0>,64}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58353>,ranch_tcp,<0.470.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.471.0>,ranch_acceptors_sup}
+             started: [{pid,<0.536.0>},
+                       {name,{acceptor,<0.471.0>,65}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58353>,ranch_tcp,<0.470.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.471.0>,ranch_acceptors_sup}
+             started: [{pid,<0.537.0>},
+                       {name,{acceptor,<0.471.0>,66}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58353>,ranch_tcp,<0.470.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.471.0>,ranch_acceptors_sup}
+             started: [{pid,<0.538.0>},
+                       {name,{acceptor,<0.471.0>,67}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58353>,ranch_tcp,<0.470.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.471.0>,ranch_acceptors_sup}
+             started: [{pid,<0.539.0>},
+                       {name,{acceptor,<0.471.0>,68}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58353>,ranch_tcp,<0.470.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.471.0>,ranch_acceptors_sup}
+             started: [{pid,<0.540.0>},
+                       {name,{acceptor,<0.471.0>,69}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58353>,ranch_tcp,<0.470.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.471.0>,ranch_acceptors_sup}
+             started: [{pid,<0.541.0>},
+                       {name,{acceptor,<0.471.0>,70}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58353>,ranch_tcp,<0.470.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.471.0>,ranch_acceptors_sup}
+             started: [{pid,<0.542.0>},
+                       {name,{acceptor,<0.471.0>,71}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58353>,ranch_tcp,<0.470.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.471.0>,ranch_acceptors_sup}
+             started: [{pid,<0.543.0>},
+                       {name,{acceptor,<0.471.0>,72}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58353>,ranch_tcp,<0.470.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.471.0>,ranch_acceptors_sup}
+             started: [{pid,<0.544.0>},
+                       {name,{acceptor,<0.471.0>,73}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58353>,ranch_tcp,<0.470.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.471.0>,ranch_acceptors_sup}
+             started: [{pid,<0.545.0>},
+                       {name,{acceptor,<0.471.0>,74}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58353>,ranch_tcp,<0.470.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.471.0>,ranch_acceptors_sup}
+             started: [{pid,<0.546.0>},
+                       {name,{acceptor,<0.471.0>,75}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58353>,ranch_tcp,<0.470.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.471.0>,ranch_acceptors_sup}
+             started: [{pid,<0.547.0>},
+                       {name,{acceptor,<0.471.0>,76}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58353>,ranch_tcp,<0.470.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.471.0>,ranch_acceptors_sup}
+             started: [{pid,<0.548.0>},
+                       {name,{acceptor,<0.471.0>,77}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58353>,ranch_tcp,<0.470.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.471.0>,ranch_acceptors_sup}
+             started: [{pid,<0.549.0>},
+                       {name,{acceptor,<0.471.0>,78}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58353>,ranch_tcp,<0.470.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.471.0>,ranch_acceptors_sup}
+             started: [{pid,<0.550.0>},
+                       {name,{acceptor,<0.471.0>,79}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58353>,ranch_tcp,<0.470.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.471.0>,ranch_acceptors_sup}
+             started: [{pid,<0.551.0>},
+                       {name,{acceptor,<0.471.0>,80}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58353>,ranch_tcp,<0.470.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.471.0>,ranch_acceptors_sup}
+             started: [{pid,<0.552.0>},
+                       {name,{acceptor,<0.471.0>,81}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58353>,ranch_tcp,<0.470.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.471.0>,ranch_acceptors_sup}
+             started: [{pid,<0.553.0>},
+                       {name,{acceptor,<0.471.0>,82}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58353>,ranch_tcp,<0.470.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.471.0>,ranch_acceptors_sup}
+             started: [{pid,<0.554.0>},
+                       {name,{acceptor,<0.471.0>,83}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58353>,ranch_tcp,<0.470.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.471.0>,ranch_acceptors_sup}
+             started: [{pid,<0.555.0>},
+                       {name,{acceptor,<0.471.0>,84}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58353>,ranch_tcp,<0.470.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.471.0>,ranch_acceptors_sup}
+             started: [{pid,<0.556.0>},
+                       {name,{acceptor,<0.471.0>,85}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58353>,ranch_tcp,<0.470.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.471.0>,ranch_acceptors_sup}
+             started: [{pid,<0.557.0>},
+                       {name,{acceptor,<0.471.0>,86}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58353>,ranch_tcp,<0.470.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.471.0>,ranch_acceptors_sup}
+             started: [{pid,<0.558.0>},
+                       {name,{acceptor,<0.471.0>,87}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58353>,ranch_tcp,<0.470.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.471.0>,ranch_acceptors_sup}
+             started: [{pid,<0.559.0>},
+                       {name,{acceptor,<0.471.0>,88}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58353>,ranch_tcp,<0.470.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.471.0>,ranch_acceptors_sup}
+             started: [{pid,<0.560.0>},
+                       {name,{acceptor,<0.471.0>,89}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58353>,ranch_tcp,<0.470.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.471.0>,ranch_acceptors_sup}
+             started: [{pid,<0.561.0>},
+                       {name,{acceptor,<0.471.0>,90}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58353>,ranch_tcp,<0.470.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.471.0>,ranch_acceptors_sup}
+             started: [{pid,<0.562.0>},
+                       {name,{acceptor,<0.471.0>,91}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58353>,ranch_tcp,<0.470.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.471.0>,ranch_acceptors_sup}
+             started: [{pid,<0.563.0>},
+                       {name,{acceptor,<0.471.0>,92}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58353>,ranch_tcp,<0.470.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.471.0>,ranch_acceptors_sup}
+             started: [{pid,<0.564.0>},
+                       {name,{acceptor,<0.471.0>,93}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58353>,ranch_tcp,<0.470.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.471.0>,ranch_acceptors_sup}
+             started: [{pid,<0.565.0>},
+                       {name,{acceptor,<0.471.0>,94}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58353>,ranch_tcp,<0.470.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.471.0>,ranch_acceptors_sup}
+             started: [{pid,<0.566.0>},
+                       {name,{acceptor,<0.471.0>,95}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58353>,ranch_tcp,<0.470.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.471.0>,ranch_acceptors_sup}
+             started: [{pid,<0.567.0>},
+                       {name,{acceptor,<0.471.0>,96}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58353>,ranch_tcp,<0.470.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.471.0>,ranch_acceptors_sup}
+             started: [{pid,<0.568.0>},
+                       {name,{acceptor,<0.471.0>,97}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58353>,ranch_tcp,<0.470.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.471.0>,ranch_acceptors_sup}
+             started: [{pid,<0.569.0>},
+                       {name,{acceptor,<0.471.0>,98}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58353>,ranch_tcp,<0.470.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.471.0>,ranch_acceptors_sup}
+             started: [{pid,<0.570.0>},
+                       {name,{acceptor,<0.471.0>,99}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58353>,ranch_tcp,<0.470.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.471.0>,ranch_acceptors_sup}
+             started: [{pid,<0.571.0>},
+                       {name,{acceptor,<0.471.0>,100}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58353>,ranch_tcp,<0.470.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.469.0>,ranch_listener_sup}
+             started: [{pid,<0.471.0>},
+                       {name,ranch_acceptors_sup},
+                       {mfargs,
+                           {ranch_acceptors_sup,start_link,
+                               [http,100,ranch_tcp,[{port,8877}]]}},
+                       {restart_type,permanent},
+                       {shutdown,infinity},
+                       {child_type,supervisor}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {local,ranch_sup}
+             started: [{pid,<0.469.0>},
+                       {name,{ranch_listener_sup,http}},
+                       {mfargs,
+                        {ranch_listener_sup,start_link,
+                         [http,100,ranch_tcp,
+                          [{port,8877}],
+                          cowboy_protocol,
+                          [{env,
+                            [{dispatch,
+                              [{'_',[],
+                                [{[],[],cowboy_static,
+                                  {priv_file,plexo_srv,"assets/plexo.html"}},
+                                 {[<<"assets">>,<<"controllers">>,'...'],
+                                  [],cowboy_static,
+                                  {priv_dir,plexo_srv,"assets/controllers"}},
+                                 {[<<"api">>,<<"apps">>],[],cb_apps_hndlr,[]},
+                                 {[<<"api">>,<<"apps">>,app_name],
+                                  [],cb_apps_hndlr,[]},
+                                 {[<<"api">>,<<"app">>,app_name],
+                                  [],cb_app_hndlr,[]}]}]}]}]]}},
+                       {restart_type,permanent},
+                       {shutdown,infinity},
+                       {child_type,supervisor}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+         application: plexo_srv
+          started_at: nonode@nohost
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {local,inets_sup}
+             started: [{pid,<0.577.0>},
+                       {name,ftp_sup},
+                       {mfargs,{ftp_sup,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,infinity},
+                       {child_type,supervisor}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {local,httpc_profile_sup}
+             started: [{pid,<0.580.0>},
+                       {name,httpc_manager},
+                       {mfargs,
+                           {httpc_manager,start_link,
+                               [default,only_session_cookies,inets]}},
+                       {restart_type,permanent},
+                       {shutdown,4000},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {local,httpc_sup}
+             started: [{pid,<0.579.0>},
+                       {name,httpc_profile_sup},
+                       {mfargs,
+                           {httpc_profile_sup,start_link,
+                               [[{httpc,{default,only_session_cookies}}]]}},
+                       {restart_type,permanent},
+                       {shutdown,infinity},
+                       {child_type,supervisor}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {local,httpc_sup}
+             started: [{pid,<0.581.0>},
+                       {name,httpc_handler_sup},
+                       {mfargs,{httpc_handler_sup,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,infinity},
+                       {child_type,supervisor}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {local,inets_sup}
+             started: [{pid,<0.578.0>},
+                       {name,httpc_sup},
+                       {mfargs,
+                           {httpc_sup,start_link,
+                               [[{httpc,{default,only_session_cookies}}]]}},
+                       {restart_type,permanent},
+                       {shutdown,infinity},
+                       {child_type,supervisor}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {local,inets_sup}
+             started: [{pid,<0.582.0>},
+                       {name,httpd_sup},
+                       {mfargs,{httpd_sup,start_link,[[]]}},
+                       {restart_type,permanent},
+                       {shutdown,infinity},
+                       {child_type,supervisor}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {local,inets_sup}
+             started: [{pid,<0.583.0>},
+                       {name,tftp_sup},
+                       {mfargs,{tftp_sup,start_link,[[]]}},
+                       {restart_type,permanent},
+                       {shutdown,infinity},
+                       {child_type,supervisor}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+         application: inets
+          started_at: nonode@nohost
+
+=INFO REPORT==== 2-Nov-2014::23:37:09 ===
+    application: crypto
+    exited: stopped
+    type: temporary
+
+=INFO REPORT==== 2-Nov-2014::23:37:09 ===
+    application: ranch
+    exited: stopped
+    type: temporary
+
+=INFO REPORT==== 2-Nov-2014::23:37:09 ===
+    application: cowlib
+    exited: stopped
+    type: temporary
+
+=INFO REPORT==== 2-Nov-2014::23:37:09 ===
+    application: cowboy
+    exited: stopped
+    type: temporary
+
+=INFO REPORT==== 2-Nov-2014::23:37:09 ===
+    application: plexo_srv
+    exited: stopped
+    type: temporary
+
+=INFO REPORT==== 2-Nov-2014::23:37:09 ===
+    application: inets
+    exited: stopped
+    type: temporary
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+         application: crypto
+          started_at: nonode@nohost
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {local,ranch_sup}
+             started: [{pid,<0.592.0>},
+                       {name,ranch_server},
+                       {mfargs,{ranch_server,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,5000},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+         application: ranch
+          started_at: nonode@nohost
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+         application: cowlib
+          started_at: nonode@nohost
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {local,cowboy_sup}
+             started: [{pid,<0.598.0>},
+                       {name,cowboy_clock},
+                       {mfargs,{cowboy_clock,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,5000},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+         application: cowboy
+          started_at: nonode@nohost
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.602.0>,ranch_listener_sup}
+             started: [{pid,<0.603.0>},
+                       {name,ranch_conns_sup},
+                       {mfargs,
+                           {ranch_conns_sup,start_link,
+                               [http,worker,5000,ranch_tcp,5000,
+                                cowboy_protocol]}},
+                       {restart_type,permanent},
+                       {shutdown,infinity},
+                       {child_type,supervisor}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.604.0>,ranch_acceptors_sup}
+             started: [{pid,<0.605.0>},
+                       {name,{acceptor,<0.604.0>,1}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58356>,ranch_tcp,<0.603.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.604.0>,ranch_acceptors_sup}
+             started: [{pid,<0.606.0>},
+                       {name,{acceptor,<0.604.0>,2}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58356>,ranch_tcp,<0.603.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.604.0>,ranch_acceptors_sup}
+             started: [{pid,<0.607.0>},
+                       {name,{acceptor,<0.604.0>,3}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58356>,ranch_tcp,<0.603.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.604.0>,ranch_acceptors_sup}
+             started: [{pid,<0.608.0>},
+                       {name,{acceptor,<0.604.0>,4}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58356>,ranch_tcp,<0.603.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.604.0>,ranch_acceptors_sup}
+             started: [{pid,<0.609.0>},
+                       {name,{acceptor,<0.604.0>,5}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58356>,ranch_tcp,<0.603.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.604.0>,ranch_acceptors_sup}
+             started: [{pid,<0.610.0>},
+                       {name,{acceptor,<0.604.0>,6}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58356>,ranch_tcp,<0.603.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.604.0>,ranch_acceptors_sup}
+             started: [{pid,<0.611.0>},
+                       {name,{acceptor,<0.604.0>,7}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58356>,ranch_tcp,<0.603.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.604.0>,ranch_acceptors_sup}
+             started: [{pid,<0.612.0>},
+                       {name,{acceptor,<0.604.0>,8}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58356>,ranch_tcp,<0.603.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.604.0>,ranch_acceptors_sup}
+             started: [{pid,<0.613.0>},
+                       {name,{acceptor,<0.604.0>,9}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58356>,ranch_tcp,<0.603.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.604.0>,ranch_acceptors_sup}
+             started: [{pid,<0.614.0>},
+                       {name,{acceptor,<0.604.0>,10}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58356>,ranch_tcp,<0.603.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.604.0>,ranch_acceptors_sup}
+             started: [{pid,<0.615.0>},
+                       {name,{acceptor,<0.604.0>,11}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58356>,ranch_tcp,<0.603.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.604.0>,ranch_acceptors_sup}
+             started: [{pid,<0.616.0>},
+                       {name,{acceptor,<0.604.0>,12}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58356>,ranch_tcp,<0.603.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.604.0>,ranch_acceptors_sup}
+             started: [{pid,<0.617.0>},
+                       {name,{acceptor,<0.604.0>,13}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58356>,ranch_tcp,<0.603.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.604.0>,ranch_acceptors_sup}
+             started: [{pid,<0.618.0>},
+                       {name,{acceptor,<0.604.0>,14}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58356>,ranch_tcp,<0.603.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.604.0>,ranch_acceptors_sup}
+             started: [{pid,<0.619.0>},
+                       {name,{acceptor,<0.604.0>,15}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58356>,ranch_tcp,<0.603.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.604.0>,ranch_acceptors_sup}
+             started: [{pid,<0.620.0>},
+                       {name,{acceptor,<0.604.0>,16}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58356>,ranch_tcp,<0.603.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.604.0>,ranch_acceptors_sup}
+             started: [{pid,<0.621.0>},
+                       {name,{acceptor,<0.604.0>,17}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58356>,ranch_tcp,<0.603.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.604.0>,ranch_acceptors_sup}
+             started: [{pid,<0.622.0>},
+                       {name,{acceptor,<0.604.0>,18}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58356>,ranch_tcp,<0.603.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.604.0>,ranch_acceptors_sup}
+             started: [{pid,<0.623.0>},
+                       {name,{acceptor,<0.604.0>,19}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58356>,ranch_tcp,<0.603.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.604.0>,ranch_acceptors_sup}
+             started: [{pid,<0.624.0>},
+                       {name,{acceptor,<0.604.0>,20}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58356>,ranch_tcp,<0.603.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.604.0>,ranch_acceptors_sup}
+             started: [{pid,<0.625.0>},
+                       {name,{acceptor,<0.604.0>,21}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58356>,ranch_tcp,<0.603.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.604.0>,ranch_acceptors_sup}
+             started: [{pid,<0.626.0>},
+                       {name,{acceptor,<0.604.0>,22}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58356>,ranch_tcp,<0.603.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.604.0>,ranch_acceptors_sup}
+             started: [{pid,<0.627.0>},
+                       {name,{acceptor,<0.604.0>,23}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58356>,ranch_tcp,<0.603.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.604.0>,ranch_acceptors_sup}
+             started: [{pid,<0.628.0>},
+                       {name,{acceptor,<0.604.0>,24}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58356>,ranch_tcp,<0.603.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.604.0>,ranch_acceptors_sup}
+             started: [{pid,<0.629.0>},
+                       {name,{acceptor,<0.604.0>,25}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58356>,ranch_tcp,<0.603.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.604.0>,ranch_acceptors_sup}
+             started: [{pid,<0.630.0>},
+                       {name,{acceptor,<0.604.0>,26}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58356>,ranch_tcp,<0.603.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.604.0>,ranch_acceptors_sup}
+             started: [{pid,<0.631.0>},
+                       {name,{acceptor,<0.604.0>,27}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58356>,ranch_tcp,<0.603.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.604.0>,ranch_acceptors_sup}
+             started: [{pid,<0.632.0>},
+                       {name,{acceptor,<0.604.0>,28}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58356>,ranch_tcp,<0.603.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.604.0>,ranch_acceptors_sup}
+             started: [{pid,<0.633.0>},
+                       {name,{acceptor,<0.604.0>,29}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58356>,ranch_tcp,<0.603.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.604.0>,ranch_acceptors_sup}
+             started: [{pid,<0.634.0>},
+                       {name,{acceptor,<0.604.0>,30}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58356>,ranch_tcp,<0.603.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.604.0>,ranch_acceptors_sup}
+             started: [{pid,<0.635.0>},
+                       {name,{acceptor,<0.604.0>,31}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58356>,ranch_tcp,<0.603.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.604.0>,ranch_acceptors_sup}
+             started: [{pid,<0.636.0>},
+                       {name,{acceptor,<0.604.0>,32}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58356>,ranch_tcp,<0.603.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.604.0>,ranch_acceptors_sup}
+             started: [{pid,<0.637.0>},
+                       {name,{acceptor,<0.604.0>,33}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58356>,ranch_tcp,<0.603.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.604.0>,ranch_acceptors_sup}
+             started: [{pid,<0.638.0>},
+                       {name,{acceptor,<0.604.0>,34}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58356>,ranch_tcp,<0.603.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.604.0>,ranch_acceptors_sup}
+             started: [{pid,<0.639.0>},
+                       {name,{acceptor,<0.604.0>,35}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58356>,ranch_tcp,<0.603.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.604.0>,ranch_acceptors_sup}
+             started: [{pid,<0.640.0>},
+                       {name,{acceptor,<0.604.0>,36}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58356>,ranch_tcp,<0.603.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.604.0>,ranch_acceptors_sup}
+             started: [{pid,<0.641.0>},
+                       {name,{acceptor,<0.604.0>,37}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58356>,ranch_tcp,<0.603.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.604.0>,ranch_acceptors_sup}
+             started: [{pid,<0.642.0>},
+                       {name,{acceptor,<0.604.0>,38}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58356>,ranch_tcp,<0.603.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.604.0>,ranch_acceptors_sup}
+             started: [{pid,<0.643.0>},
+                       {name,{acceptor,<0.604.0>,39}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58356>,ranch_tcp,<0.603.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.604.0>,ranch_acceptors_sup}
+             started: [{pid,<0.644.0>},
+                       {name,{acceptor,<0.604.0>,40}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58356>,ranch_tcp,<0.603.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.604.0>,ranch_acceptors_sup}
+             started: [{pid,<0.645.0>},
+                       {name,{acceptor,<0.604.0>,41}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58356>,ranch_tcp,<0.603.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.604.0>,ranch_acceptors_sup}
+             started: [{pid,<0.646.0>},
+                       {name,{acceptor,<0.604.0>,42}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58356>,ranch_tcp,<0.603.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.604.0>,ranch_acceptors_sup}
+             started: [{pid,<0.647.0>},
+                       {name,{acceptor,<0.604.0>,43}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58356>,ranch_tcp,<0.603.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.604.0>,ranch_acceptors_sup}
+             started: [{pid,<0.648.0>},
+                       {name,{acceptor,<0.604.0>,44}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58356>,ranch_tcp,<0.603.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.604.0>,ranch_acceptors_sup}
+             started: [{pid,<0.649.0>},
+                       {name,{acceptor,<0.604.0>,45}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58356>,ranch_tcp,<0.603.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.604.0>,ranch_acceptors_sup}
+             started: [{pid,<0.650.0>},
+                       {name,{acceptor,<0.604.0>,46}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58356>,ranch_tcp,<0.603.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.604.0>,ranch_acceptors_sup}
+             started: [{pid,<0.651.0>},
+                       {name,{acceptor,<0.604.0>,47}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58356>,ranch_tcp,<0.603.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.604.0>,ranch_acceptors_sup}
+             started: [{pid,<0.652.0>},
+                       {name,{acceptor,<0.604.0>,48}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58356>,ranch_tcp,<0.603.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.604.0>,ranch_acceptors_sup}
+             started: [{pid,<0.653.0>},
+                       {name,{acceptor,<0.604.0>,49}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58356>,ranch_tcp,<0.603.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.604.0>,ranch_acceptors_sup}
+             started: [{pid,<0.654.0>},
+                       {name,{acceptor,<0.604.0>,50}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58356>,ranch_tcp,<0.603.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.604.0>,ranch_acceptors_sup}
+             started: [{pid,<0.655.0>},
+                       {name,{acceptor,<0.604.0>,51}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58356>,ranch_tcp,<0.603.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.604.0>,ranch_acceptors_sup}
+             started: [{pid,<0.656.0>},
+                       {name,{acceptor,<0.604.0>,52}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58356>,ranch_tcp,<0.603.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.604.0>,ranch_acceptors_sup}
+             started: [{pid,<0.657.0>},
+                       {name,{acceptor,<0.604.0>,53}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58356>,ranch_tcp,<0.603.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.604.0>,ranch_acceptors_sup}
+             started: [{pid,<0.658.0>},
+                       {name,{acceptor,<0.604.0>,54}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58356>,ranch_tcp,<0.603.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.604.0>,ranch_acceptors_sup}
+             started: [{pid,<0.659.0>},
+                       {name,{acceptor,<0.604.0>,55}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58356>,ranch_tcp,<0.603.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.604.0>,ranch_acceptors_sup}
+             started: [{pid,<0.660.0>},
+                       {name,{acceptor,<0.604.0>,56}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58356>,ranch_tcp,<0.603.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.604.0>,ranch_acceptors_sup}
+             started: [{pid,<0.661.0>},
+                       {name,{acceptor,<0.604.0>,57}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58356>,ranch_tcp,<0.603.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.604.0>,ranch_acceptors_sup}
+             started: [{pid,<0.662.0>},
+                       {name,{acceptor,<0.604.0>,58}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58356>,ranch_tcp,<0.603.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.604.0>,ranch_acceptors_sup}
+             started: [{pid,<0.663.0>},
+                       {name,{acceptor,<0.604.0>,59}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58356>,ranch_tcp,<0.603.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.604.0>,ranch_acceptors_sup}
+             started: [{pid,<0.664.0>},
+                       {name,{acceptor,<0.604.0>,60}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58356>,ranch_tcp,<0.603.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.604.0>,ranch_acceptors_sup}
+             started: [{pid,<0.665.0>},
+                       {name,{acceptor,<0.604.0>,61}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58356>,ranch_tcp,<0.603.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.604.0>,ranch_acceptors_sup}
+             started: [{pid,<0.666.0>},
+                       {name,{acceptor,<0.604.0>,62}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58356>,ranch_tcp,<0.603.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.604.0>,ranch_acceptors_sup}
+             started: [{pid,<0.667.0>},
+                       {name,{acceptor,<0.604.0>,63}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58356>,ranch_tcp,<0.603.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.604.0>,ranch_acceptors_sup}
+             started: [{pid,<0.668.0>},
+                       {name,{acceptor,<0.604.0>,64}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58356>,ranch_tcp,<0.603.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.604.0>,ranch_acceptors_sup}
+             started: [{pid,<0.669.0>},
+                       {name,{acceptor,<0.604.0>,65}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58356>,ranch_tcp,<0.603.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.604.0>,ranch_acceptors_sup}
+             started: [{pid,<0.670.0>},
+                       {name,{acceptor,<0.604.0>,66}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58356>,ranch_tcp,<0.603.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.604.0>,ranch_acceptors_sup}
+             started: [{pid,<0.671.0>},
+                       {name,{acceptor,<0.604.0>,67}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58356>,ranch_tcp,<0.603.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.604.0>,ranch_acceptors_sup}
+             started: [{pid,<0.672.0>},
+                       {name,{acceptor,<0.604.0>,68}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58356>,ranch_tcp,<0.603.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.604.0>,ranch_acceptors_sup}
+             started: [{pid,<0.673.0>},
+                       {name,{acceptor,<0.604.0>,69}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58356>,ranch_tcp,<0.603.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.604.0>,ranch_acceptors_sup}
+             started: [{pid,<0.674.0>},
+                       {name,{acceptor,<0.604.0>,70}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58356>,ranch_tcp,<0.603.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.604.0>,ranch_acceptors_sup}
+             started: [{pid,<0.675.0>},
+                       {name,{acceptor,<0.604.0>,71}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58356>,ranch_tcp,<0.603.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.604.0>,ranch_acceptors_sup}
+             started: [{pid,<0.676.0>},
+                       {name,{acceptor,<0.604.0>,72}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58356>,ranch_tcp,<0.603.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.604.0>,ranch_acceptors_sup}
+             started: [{pid,<0.677.0>},
+                       {name,{acceptor,<0.604.0>,73}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58356>,ranch_tcp,<0.603.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.604.0>,ranch_acceptors_sup}
+             started: [{pid,<0.678.0>},
+                       {name,{acceptor,<0.604.0>,74}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58356>,ranch_tcp,<0.603.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.604.0>,ranch_acceptors_sup}
+             started: [{pid,<0.679.0>},
+                       {name,{acceptor,<0.604.0>,75}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58356>,ranch_tcp,<0.603.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.604.0>,ranch_acceptors_sup}
+             started: [{pid,<0.680.0>},
+                       {name,{acceptor,<0.604.0>,76}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58356>,ranch_tcp,<0.603.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.604.0>,ranch_acceptors_sup}
+             started: [{pid,<0.681.0>},
+                       {name,{acceptor,<0.604.0>,77}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58356>,ranch_tcp,<0.603.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.604.0>,ranch_acceptors_sup}
+             started: [{pid,<0.682.0>},
+                       {name,{acceptor,<0.604.0>,78}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58356>,ranch_tcp,<0.603.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.604.0>,ranch_acceptors_sup}
+             started: [{pid,<0.683.0>},
+                       {name,{acceptor,<0.604.0>,79}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58356>,ranch_tcp,<0.603.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.604.0>,ranch_acceptors_sup}
+             started: [{pid,<0.684.0>},
+                       {name,{acceptor,<0.604.0>,80}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58356>,ranch_tcp,<0.603.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.604.0>,ranch_acceptors_sup}
+             started: [{pid,<0.685.0>},
+                       {name,{acceptor,<0.604.0>,81}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58356>,ranch_tcp,<0.603.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.604.0>,ranch_acceptors_sup}
+             started: [{pid,<0.686.0>},
+                       {name,{acceptor,<0.604.0>,82}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58356>,ranch_tcp,<0.603.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.604.0>,ranch_acceptors_sup}
+             started: [{pid,<0.687.0>},
+                       {name,{acceptor,<0.604.0>,83}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58356>,ranch_tcp,<0.603.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.604.0>,ranch_acceptors_sup}
+             started: [{pid,<0.688.0>},
+                       {name,{acceptor,<0.604.0>,84}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58356>,ranch_tcp,<0.603.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.604.0>,ranch_acceptors_sup}
+             started: [{pid,<0.689.0>},
+                       {name,{acceptor,<0.604.0>,85}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58356>,ranch_tcp,<0.603.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.604.0>,ranch_acceptors_sup}
+             started: [{pid,<0.690.0>},
+                       {name,{acceptor,<0.604.0>,86}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58356>,ranch_tcp,<0.603.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.604.0>,ranch_acceptors_sup}
+             started: [{pid,<0.691.0>},
+                       {name,{acceptor,<0.604.0>,87}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58356>,ranch_tcp,<0.603.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.604.0>,ranch_acceptors_sup}
+             started: [{pid,<0.692.0>},
+                       {name,{acceptor,<0.604.0>,88}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58356>,ranch_tcp,<0.603.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.604.0>,ranch_acceptors_sup}
+             started: [{pid,<0.693.0>},
+                       {name,{acceptor,<0.604.0>,89}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58356>,ranch_tcp,<0.603.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.604.0>,ranch_acceptors_sup}
+             started: [{pid,<0.694.0>},
+                       {name,{acceptor,<0.604.0>,90}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58356>,ranch_tcp,<0.603.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.604.0>,ranch_acceptors_sup}
+             started: [{pid,<0.695.0>},
+                       {name,{acceptor,<0.604.0>,91}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58356>,ranch_tcp,<0.603.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.604.0>,ranch_acceptors_sup}
+             started: [{pid,<0.696.0>},
+                       {name,{acceptor,<0.604.0>,92}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58356>,ranch_tcp,<0.603.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.604.0>,ranch_acceptors_sup}
+             started: [{pid,<0.697.0>},
+                       {name,{acceptor,<0.604.0>,93}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58356>,ranch_tcp,<0.603.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.604.0>,ranch_acceptors_sup}
+             started: [{pid,<0.698.0>},
+                       {name,{acceptor,<0.604.0>,94}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58356>,ranch_tcp,<0.603.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.604.0>,ranch_acceptors_sup}
+             started: [{pid,<0.699.0>},
+                       {name,{acceptor,<0.604.0>,95}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58356>,ranch_tcp,<0.603.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.604.0>,ranch_acceptors_sup}
+             started: [{pid,<0.700.0>},
+                       {name,{acceptor,<0.604.0>,96}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58356>,ranch_tcp,<0.603.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.604.0>,ranch_acceptors_sup}
+             started: [{pid,<0.701.0>},
+                       {name,{acceptor,<0.604.0>,97}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58356>,ranch_tcp,<0.603.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.604.0>,ranch_acceptors_sup}
+             started: [{pid,<0.702.0>},
+                       {name,{acceptor,<0.604.0>,98}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58356>,ranch_tcp,<0.603.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.604.0>,ranch_acceptors_sup}
+             started: [{pid,<0.703.0>},
+                       {name,{acceptor,<0.604.0>,99}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58356>,ranch_tcp,<0.603.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.604.0>,ranch_acceptors_sup}
+             started: [{pid,<0.704.0>},
+                       {name,{acceptor,<0.604.0>,100}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.58356>,ranch_tcp,<0.603.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {<0.602.0>,ranch_listener_sup}
+             started: [{pid,<0.604.0>},
+                       {name,ranch_acceptors_sup},
+                       {mfargs,
+                           {ranch_acceptors_sup,start_link,
+                               [http,100,ranch_tcp,[{port,8877}]]}},
+                       {restart_type,permanent},
+                       {shutdown,infinity},
+                       {child_type,supervisor}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {local,ranch_sup}
+             started: [{pid,<0.602.0>},
+                       {name,{ranch_listener_sup,http}},
+                       {mfargs,
+                        {ranch_listener_sup,start_link,
+                         [http,100,ranch_tcp,
+                          [{port,8877}],
+                          cowboy_protocol,
+                          [{env,
+                            [{dispatch,
+                              [{'_',[],
+                                [{[],[],cowboy_static,
+                                  {priv_file,plexo_srv,"assets/plexo.html"}},
+                                 {[<<"assets">>,<<"controllers">>,'...'],
+                                  [],cowboy_static,
+                                  {priv_dir,plexo_srv,"assets/controllers"}},
+                                 {[<<"api">>,<<"apps">>],[],cb_apps_hndlr,[]},
+                                 {[<<"api">>,<<"apps">>,app_name],
+                                  [],cb_apps_hndlr,[]},
+                                 {[<<"api">>,<<"app">>,app_name],
+                                  [],cb_app_hndlr,[]}]}]}]}]]}},
+                       {restart_type,permanent},
+                       {shutdown,infinity},
+                       {child_type,supervisor}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+         application: plexo_srv
+          started_at: nonode@nohost
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {local,inets_sup}
+             started: [{pid,<0.710.0>},
+                       {name,ftp_sup},
+                       {mfargs,{ftp_sup,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,infinity},
+                       {child_type,supervisor}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {local,httpc_profile_sup}
+             started: [{pid,<0.713.0>},
+                       {name,httpc_manager},
+                       {mfargs,
+                           {httpc_manager,start_link,
+                               [default,only_session_cookies,inets]}},
+                       {restart_type,permanent},
+                       {shutdown,4000},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {local,httpc_sup}
+             started: [{pid,<0.712.0>},
+                       {name,httpc_profile_sup},
+                       {mfargs,
+                           {httpc_profile_sup,start_link,
+                               [[{httpc,{default,only_session_cookies}}]]}},
+                       {restart_type,permanent},
+                       {shutdown,infinity},
+                       {child_type,supervisor}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {local,httpc_sup}
+             started: [{pid,<0.714.0>},
+                       {name,httpc_handler_sup},
+                       {mfargs,{httpc_handler_sup,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,infinity},
+                       {child_type,supervisor}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {local,inets_sup}
+             started: [{pid,<0.711.0>},
+                       {name,httpc_sup},
+                       {mfargs,
+                           {httpc_sup,start_link,
+                               [[{httpc,{default,only_session_cookies}}]]}},
+                       {restart_type,permanent},
+                       {shutdown,infinity},
+                       {child_type,supervisor}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {local,inets_sup}
+             started: [{pid,<0.715.0>},
+                       {name,httpd_sup},
+                       {mfargs,{httpd_sup,start_link,[[]]}},
+                       {restart_type,permanent},
+                       {shutdown,infinity},
+                       {child_type,supervisor}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {local,inets_sup}
+             started: [{pid,<0.716.0>},
+                       {name,tftp_sup},
+                       {mfargs,{tftp_sup,start_link,[[]]}},
+                       {restart_type,permanent},
+                       {shutdown,infinity},
+                       {child_type,supervisor}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+         application: inets
+          started_at: nonode@nohost
+Encoding: #{<<"appName">> => sasl,<<"appStatus">> => app_stopped} 
+
+=INFO REPORT==== 2-Nov-2014::23:37:09 ===
+    application: sasl
+    exited: stopped
+    type: temporary
+Encoded: <<"{\"appName\":\"sasl\",\"appStatus\":\"app_stopped\"}">> 
+terminate: normal 
+test/cb_app_hndlr_tests.erl:144:<0.175.0>: Deleted App Resource: #{<<"appName">> => <<"sasl">>,
+                        <<"appStatus">> => <<"app_stopped">>}
+
+Init Handler: {http_req,#Port<0.58371>,ranch_tcp,keepalive,<0.718.0>,
+                        <<"PUT">>,'HTTP/1.1',
+                        {{127,0,0,1},59305},
+                        <<"localhost">>,undefined,8877,<<"/api/app/sasl">>,
+                        undefined,<<>>,
+                        [{app_name,<<"sasl">>}],
+                        [{<<"content-type">>,
+                          <<"application/x-www-form-urlencoded">>},
+                         {<<"content-length">>,<<"0">>},
+                         {<<"te">>,<<>>},
+                         {<<"host">>,<<"localhost:8877">>},
+                         {<<"authorization">>,
+                          <<"Basic VGVtcGxlOldpYmJsZTJXb2JibGU=">>},
+                         {<<"connection">>,<<"keep-alive">>}],
+                        [],waiting,<<>>,undefined,false,waiting,[],<<>>,
+                        undefined} 
+AuthHeader {<<"basic">>,{<<"Temple">>,<<"Wibble2Wobble">>}}
+Username: <<"Temple">>, Password: <<"Wibble2Wobble">>
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {local,sasl_safe_sup}
+             started: [{pid,<0.724.0>},
+                       {name,alarm_handler},
+                       {mfargs,{alarm_handler,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,2000},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {local,sasl_safe_sup}
+             started: [{pid,<0.725.0>},
+                       {name,overload},
+                       {mfargs,{overload,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,2000},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {local,sasl_sup}
+             started: [{pid,<0.723.0>},
+                       {name,sasl_safe_sup},
+                       {mfargs,
+                           {supervisor,start_link,
+                               [{local,sasl_safe_sup},sasl,safe]}},
+                       {restart_type,permanent},
+                       {shutdown,infinity},
+                       {child_type,supervisor}]
+Encoding: #{<<"appName">> => sasl,<<"appStatus">> => app_started} 
+Encoded: <<"{\"appName\":\"sasl\",\"appStatus\":\"app_started\"}">> 
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {local,sasl_sup}
+             started: [{pid,<0.726.0>},
+                       {name,release_handler},
+                       {mfargs,{release_handler,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,2000},
+                       {child_type,worker}]
+terminate: normal 
+test/cb_app_hndlr_tests.erl:128:<0.175.0>: Created App Resource (Authed): #{<<"appName">> => <<"sasl">>,
+                                 <<"appStatus">> => <<"app_started">>}
+
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+         application: sasl
+          started_at: nonode@nohost
+Init Handler: {http_req,#Port<0.58371>,ranch_tcp,keepalive,<0.718.0>,
+                        <<"DELETE">>,'HTTP/1.1',
+                        {{127,0,0,1},59305},
+                        <<"localhost">>,undefined,8877,<<"/api/app/sasl">>,
+                        undefined,<<>>,
+                        [{app_name,<<"sasl">>}],
+                        [{<<"content-length">>,<<"0">>},
+                         {<<"te">>,<<>>},
+                         {<<"host">>,<<"localhost:8877">>},
+                         {<<"authorization">>,
+                          <<"Basic VGVtcGxlOldpYmJsZTJXb2JibGU=">>},
+                         {<<"connection">>,<<"keep-alive">>}],
+                        [],waiting,<<>>,undefined,false,waiting,[],<<>>,
+                        undefined} 
+AuthHeader {<<"basic">>,{<<"Temple">>,<<"Wibble2Wobble">>}}
+Username: <<"Temple">>, Password: <<"Wibble2Wobble">>
+Encoding: #{<<"appName">> => sasl,<<"appStatus">> => app_stopped} 
+
+=INFO REPORT==== 2-Nov-2014::23:37:09 ===
+    application: sasl
+    exited: stopped
+    type: temporary
+Encoded: <<"{\"appName\":\"sasl\",\"appStatus\":\"app_stopped\"}">> 
+terminate: normal 
+test/cb_app_hndlr_tests.erl:144:<0.175.0>: Deleted App Resource: #{<<"appName">> => <<"sasl">>,
+                        <<"appStatus">> => <<"app_stopped">>}
+
+
+=INFO REPORT==== 2-Nov-2014::23:37:09 ===
+    application: crypto
+    exited: stopped
+    type: temporary
+
+=INFO REPORT==== 2-Nov-2014::23:37:09 ===
+    application: ranch
+    exited: stopped
+    type: temporary
+
+=INFO REPORT==== 2-Nov-2014::23:37:09 ===
+    application: cowlib
+    exited: stopped
+    type: temporary
+
+=INFO REPORT==== 2-Nov-2014::23:37:09 ===
+    application: cowboy
+    exited: stopped
+    type: temporary
+
+=INFO REPORT==== 2-Nov-2014::23:37:09 ===
+    application: plexo_srv
+    exited: stopped
+    type: temporary
+
+=INFO REPORT==== 2-Nov-2014::23:37:09 ===
+    application: inets
+    exited: stopped
+    type: temporary
+Starting Cowboy on port 8877...
+RootDir "/usr/local/Cellar/erlang/17.3/lib/erlang"...
+LibDir "/usr/local/Cellar/erlang/17.3/lib/erlang/lib"...
+AppDir "/Users/Temple/Work/dev/projects/plexo/apps/plexo_srv"...
+AppPrivDir "/Users/Temple/Work/dev/projects/plexo/apps/plexo_srv/priv"...
+Started Server...
+Init Handler: {http_req,#Port<0.58375>,ranch_tcp,keepalive,<0.860.0>,
+                        <<"PUT">>,'HTTP/1.1',
+                        {{127,0,0,1},59306},
+                        <<"localhost">>,undefined,8877,<<"/api/app/sasl">>,
+                        undefined,<<>>,
+                        [{app_name,<<"sasl">>}],
+                        [{<<"content-type">>,
+                          <<"application/x-www-form-urlencoded">>},
+                         {<<"content-length">>,<<"0">>},
+                         {<<"te">>,<<>>},
+                         {<<"host">>,<<"localhost:8877">>},
+                         {<<"authorization">>,
+                          <<"Basic VGVtcGxlOldpYmJsZTJXb2JibGU=">>},
+                         {<<"connection">>,<<"keep-alive">>}],
+                        [],waiting,<<>>,undefined,false,waiting,[],<<>>,
+                        undefined} 
+AuthHeader {<<"basic">>,{<<"Temple">>,<<"Wibble2Wobble">>}}
+Username: <<"Temple">>, Password: <<"Wibble2Wobble">>
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {local,sasl_safe_sup}
+             started: [{pid,<0.866.0>},
+                       {name,alarm_handler},
+                       {mfargs,{alarm_handler,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,2000},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {local,sasl_safe_sup}
+             started: [{pid,<0.867.0>},
+                       {name,overload},
+                       {mfargs,{overload,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,2000},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {local,sasl_sup}
+             started: [{pid,<0.865.0>},
+                       {name,sasl_safe_sup},
+                       {mfargs,
+                           {supervisor,start_link,
+                               [{local,sasl_safe_sup},sasl,safe]}},
+                       {restart_type,permanent},
+                       {shutdown,infinity},
+                       {child_type,supervisor}]
+Encoding: #{<<"appName">> => sasl,<<"appStatus">> => app_started} 
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {local,sasl_sup}
+             started: [{pid,<0.868.0>},
+                       {name,release_handler},
+                       {mfargs,{release_handler,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,2000},
+                       {child_type,worker}]
+Encoded: <<"{\"appName\":\"sasl\",\"appStatus\":\"app_started\"}">> 
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+         application: sasl
+          started_at: nonode@nohost
+terminate: normal 
+test/cb_app_hndlr_tests.erl:128:<0.175.0>: Created App Resource (Authed): #{<<"appName">> => <<"sasl">>,
+                                 <<"appStatus">> => <<"app_started">>}
+
+Init Handler: {http_req,#Port<0.58375>,ranch_tcp,keepalive,<0.860.0>,
+                        <<"PUT">>,'HTTP/1.1',
+                        {{127,0,0,1},59306},
+                        <<"localhost">>,undefined,8877,<<"/api/app/sasl">>,
+                        undefined,<<>>,
+                        [{app_name,<<"sasl">>}],
+                        [{<<"content-type">>,
+                          <<"application/x-www-form-urlencoded">>},
+                         {<<"content-length">>,<<"0">>},
+                         {<<"te">>,<<>>},
+                         {<<"host">>,<<"localhost:8877">>},
+                         {<<"authorization">>,
+                          <<"Basic VGVtcGxlOldpYmJsZTJXb2JibGU=">>},
+                         {<<"connection">>,<<"keep-alive">>}],
+                        [],waiting,<<>>,undefined,false,waiting,[],<<>>,
+                        undefined} 
+AuthHeader {<<"basic">>,{<<"Temple">>,<<"Wibble2Wobble">>}}
+Username: <<"Temple">>, Password: <<"Wibble2Wobble">>
+Encoding: #{<<"appName">> => sasl,<<"appStatus">> => app_running} 
+Encoded: <<"{\"appName\":\"sasl\",\"appStatus\":\"app_running\"}">> 
+terminate: normal 
+test/cb_app_hndlr_tests.erl:128:<0.175.0>: Created App Resource (Authed): #{<<"appName">> => <<"sasl">>,
+                                 <<"appStatus">> => <<"app_running">>}
+
+Init Handler: {http_req,#Port<0.58375>,ranch_tcp,keepalive,<0.860.0>,
+                        <<"DELETE">>,'HTTP/1.1',
+                        {{127,0,0,1},59306},
+                        <<"localhost">>,undefined,8877,<<"/api/app/sasl">>,
+                        undefined,<<>>,
+                        [{app_name,<<"sasl">>}],
+                        [{<<"content-length">>,<<"0">>},
+                         {<<"te">>,<<>>},
+                         {<<"host">>,<<"localhost:8877">>},
+                         {<<"authorization">>,
+                          <<"Basic VGVtcGxlOldpYmJsZTJXb2JibGU=">>},
+                         {<<"connection">>,<<"keep-alive">>}],
+                        [],waiting,<<>>,undefined,false,waiting,[],<<>>,
+                        undefined} 
+AuthHeader {<<"basic">>,{<<"Temple">>,<<"Wibble2Wobble">>}}
+Username: <<"Temple">>, Password: <<"Wibble2Wobble">>
+Encoding: #{<<"appName">> => sasl,<<"appStatus">> => app_stopped} 
+
+=INFO REPORT==== 2-Nov-2014::23:37:09 ===
+    application: sasl
+    exited: stopped
+    type: temporary
+Encoded: <<"{\"appName\":\"sasl\",\"appStatus\":\"app_stopped\"}">> 
+terminate: normal 
+test/cb_app_hndlr_tests.erl:144:<0.175.0>: Deleted App Resource: #{<<"appName">> => <<"sasl">>,
+                        <<"appStatus">> => <<"app_stopped">>}
+
+
+=INFO REPORT==== 2-Nov-2014::23:37:09 ===
+    application: crypto
+    exited: stopped
+    type: temporary
+
+=INFO REPORT==== 2-Nov-2014::23:37:09 ===
+    application: ranch
+    exited: stopped
+    type: temporary
+
+=INFO REPORT==== 2-Nov-2014::23:37:09 ===
+    application: cowlib
+    exited: stopped
+    type: temporary
+
+=INFO REPORT==== 2-Nov-2014::23:37:09 ===
+    application: cowboy
+    exited: stopped
+    type: temporary
+
+=INFO REPORT==== 2-Nov-2014::23:37:09 ===
+    application: plexo_srv
+    exited: stopped
+    type: temporary
+
+=INFO REPORT==== 2-Nov-2014::23:37:09 ===
+    application: inets
+    exited: stopped
+    type: temporary
+Starting Cowboy on port 8877...
+RootDir "/usr/local/Cellar/erlang/17.3/lib/erlang"...
+LibDir "/usr/local/Cellar/erlang/17.3/lib/erlang/lib"...
+AppDir "/Users/Temple/Work/dev/projects/plexo/apps/plexo_srv"...
+AppPrivDir "/Users/Temple/Work/dev/projects/plexo/apps/plexo_srv/priv"...
+Started Server...
+Init Handler: {http_req,#Port<0.58379>,ranch_tcp,keepalive,<0.1002.0>,
+                        <<"PUT">>,'HTTP/1.1',
+                        {{127,0,0,1},59307},
+                        <<"localhost">>,undefined,8877,<<"/api/app/sasl">>,
+                        undefined,<<>>,
+                        [{app_name,<<"sasl">>}],
+                        [{<<"content-type">>,
+                          <<"application/x-www-form-urlencoded">>},
+                         {<<"content-length">>,<<"0">>},
+                         {<<"te">>,<<>>},
+                         {<<"host">>,<<"localhost:8877">>},
+                         {<<"authorization">>,
+                          <<"Basic VGVtcGxlOldpYmJsZTJXb2JibGU=">>},
+                         {<<"connection">>,<<"keep-alive">>}],
+                        [],waiting,<<>>,undefined,false,waiting,[],<<>>,
+                        undefined} 
+AuthHeader {<<"basic">>,{<<"Temple">>,<<"Wibble2Wobble">>}}
+Username: <<"Temple">>, Password: <<"Wibble2Wobble">>
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {local,sasl_safe_sup}
+             started: [{pid,<0.1008.0>},
+                       {name,alarm_handler},
+                       {mfargs,{alarm_handler,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,2000},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {local,sasl_safe_sup}
+             started: [{pid,<0.1009.0>},
+                       {name,overload},
+                       {mfargs,{overload,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,2000},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {local,sasl_sup}
+             started: [{pid,<0.1007.0>},
+                       {name,sasl_safe_sup},
+                       {mfargs,
+                           {supervisor,start_link,
+                               [{local,sasl_safe_sup},sasl,safe]}},
+                       {restart_type,permanent},
+                       {shutdown,infinity},
+                       {child_type,supervisor}]
+Encoding: #{<<"appName">> => sasl,<<"appStatus">> => app_started} 
+Encoded: <<"{\"appName\":\"sasl\",\"appStatus\":\"app_started\"}">> 
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {local,sasl_sup}
+             started: [{pid,<0.1010.0>},
+                       {name,release_handler},
+                       {mfargs,{release_handler,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,2000},
+                       {child_type,worker}]
+terminate: normal 
+test/cb_app_hndlr_tests.erl:128:<0.175.0>: Created App Resource (Authed): #{<<"appName">> => <<"sasl">>,
+                                 <<"appStatus">> => <<"app_started">>}
+
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+         application: sasl
+          started_at: nonode@nohost
+Init Handler: {http_req,#Port<0.58379>,ranch_tcp,keepalive,<0.1002.0>,
+                        <<"DELETE">>,'HTTP/1.1',
+                        {{127,0,0,1},59307},
+                        <<"localhost">>,undefined,8877,<<"/api/app/sasl">>,
+                        undefined,<<>>,
+                        [{app_name,<<"sasl">>}],
+                        [{<<"content-length">>,<<"0">>},
+                         {<<"te">>,<<>>},
+                         {<<"host">>,<<"localhost:8877">>},
+                         {<<"authorization">>,
+                          <<"Basic VGVtcGxlOldpYmJsZTJXb2JibGU=">>},
+                         {<<"connection">>,<<"keep-alive">>}],
+                        [],waiting,<<>>,undefined,false,waiting,[],<<>>,
+                        undefined} 
+AuthHeader {<<"basic">>,{<<"Temple">>,<<"Wibble2Wobble">>}}
+Username: <<"Temple">>, Password: <<"Wibble2Wobble">>
+Encoding: #{<<"appName">> => sasl,<<"appStatus">> => app_stopped} 
+
+=INFO REPORT==== 2-Nov-2014::23:37:09 ===
+    application: sasl
+    exited: stopped
+    type: temporary
+Encoded: <<"{\"appName\":\"sasl\",\"appStatus\":\"app_stopped\"}">> 
+terminate: normal 
+test/cb_app_hndlr_tests.erl:144:<0.175.0>: Deleted App Resource: #{<<"appName">> => <<"sasl">>,
+                        <<"appStatus">> => <<"app_stopped">>}
+
+Init Handler: {http_req,#Port<0.58379>,ranch_tcp,keepalive,<0.1002.0>,
+                        <<"DELETE">>,'HTTP/1.1',
+                        {{127,0,0,1},59307},
+                        <<"localhost">>,undefined,8877,<<"/api/app/sasl">>,
+                        undefined,<<>>,
+                        [{app_name,<<"sasl">>}],
+                        [{<<"content-length">>,<<"0">>},
+                         {<<"te">>,<<>>},
+                         {<<"host">>,<<"localhost:8877">>},
+                         {<<"authorization">>,
+                          <<"Basic VGVtcGxlOldpYmJsZTJXb2JibGU=">>},
+                         {<<"connection">>,<<"keep-alive">>}],
+                        [],waiting,<<>>,undefined,false,waiting,[],<<>>,
+                        undefined} 
+AuthHeader {<<"basic">>,{<<"Temple">>,<<"Wibble2Wobble">>}}
+Username: <<"Temple">>, Password: <<"Wibble2Wobble">>
+Encoding: #{<<"appName">> => sasl,<<"appStatus">> => app_not_running} 
+Encoded: <<"{\"appName\":\"sasl\",\"appStatus\":\"app_not_running\"}">> 
+terminate: normal 
+test/cb_app_hndlr_tests.erl:144:<0.175.0>: Deleted App Resource: #{<<"appName">> => <<"sasl">>,
+                        <<"appStatus">> => <<"app_not_running">>}
+
+
+=INFO REPORT==== 2-Nov-2014::23:37:09 ===
+    application: crypto
+    exited: stopped
+    type: temporary
+
+=INFO REPORT==== 2-Nov-2014::23:37:09 ===
+    application: ranch
+    exited: stopped
+    type: temporary
+
+=INFO REPORT==== 2-Nov-2014::23:37:09 ===
+    application: cowlib
+    exited: stopped
+    type: temporary
+
+=INFO REPORT==== 2-Nov-2014::23:37:09 ===
+    application: cowboy
+    exited: stopped
+    type: temporary
+
+=INFO REPORT==== 2-Nov-2014::23:37:09 ===
+    application: plexo_srv
+    exited: stopped
+    type: temporary
+
+=INFO REPORT==== 2-Nov-2014::23:37:09 ===
+    application: inets
+    exited: stopped
+    type: temporary
+Starting Cowboy on port 8877...
+RootDir "/usr/local/Cellar/erlang/17.3/lib/erlang"...
+LibDir "/usr/local/Cellar/erlang/17.3/lib/erlang/lib"...
+AppDir "/Users/Temple/Work/dev/projects/plexo/apps/plexo_srv"...
+AppPrivDir "/Users/Temple/Work/dev/projects/plexo/apps/plexo_srv/priv"...
+Started Server...
+Init Handler: {http_req,#Port<0.58383>,ranch_tcp,keepalive,<0.1144.0>,
+                        <<"DELETE">>,'HTTP/1.1',
+                        {{127,0,0,1},59308},
+                        <<"localhost">>,undefined,8877,<<"/api/app/sasl">>,
+                        undefined,<<>>,
+                        [{app_name,<<"sasl">>}],
+                        [{<<"content-length">>,<<"0">>},
+                         {<<"te">>,<<>>},
+                         {<<"host">>,<<"localhost:8877">>},
+                         {<<"authorization">>,
+                          <<"Basic VGVtcGxlOldpYmJsZTJXb2JibGU=">>},
+                         {<<"connection">>,<<"keep-alive">>}],
+                        [],waiting,<<>>,undefined,false,waiting,[],<<>>,
+                        undefined} 
+AuthHeader {<<"basic">>,{<<"Temple">>,<<"Wibble2Wobble">>}}
+Username: <<"Temple">>, Password: <<"Wibble2Wobble">>
+Encoding: #{<<"appName">> => sasl,<<"appStatus">> => app_not_running} 
+Encoded: <<"{\"appName\":\"sasl\",\"appStatus\":\"app_not_running\"}">> 
+terminate: normal 
+test/cb_app_hndlr_tests.erl:144:<0.175.0>: Deleted App Resource: #{<<"appName">> => <<"sasl">>,
+                        <<"appStatus">> => <<"app_not_running">>}
+
+Init Handler: {http_req,#Port<0.58383>,ranch_tcp,keepalive,<0.1144.0>,
+                        <<"DELETE">>,'HTTP/1.1',
+                        {{127,0,0,1},59308},
+                        <<"localhost">>,undefined,8877,<<"/api/app/sasl">>,
+                        undefined,<<>>,
+                        [{app_name,<<"sasl">>}],
+                        [{<<"content-length">>,<<"0">>},
+                         {<<"te">>,<<>>},
+                         {<<"host">>,<<"localhost:8877">>},
+                         {<<"authorization">>,
+                          <<"Basic VGVtcGxlOldpYmJsZTJXb2JibGU=">>},
+                         {<<"connection">>,<<"keep-alive">>}],
+                        [],waiting,<<>>,undefined,false,waiting,[],<<>>,
+                        undefined} 
+AuthHeader {<<"basic">>,{<<"Temple">>,<<"Wibble2Wobble">>}}
+Username: <<"Temple">>, Password: <<"Wibble2Wobble">>
+Encoding: #{<<"appName">> => sasl,<<"appStatus">> => app_not_running} 
+Encoded: <<"{\"appName\":\"sasl\",\"appStatus\":\"app_not_running\"}">> 
+terminate: normal 
+test/cb_app_hndlr_tests.erl:144:<0.175.0>: Deleted App Resource: #{<<"appName">> => <<"sasl">>,
+                        <<"appStatus">> => <<"app_not_running">>}
+
+Init Handler: {http_req,#Port<0.58383>,ranch_tcp,keepalive,<0.1144.0>,
+                        <<"DELETE">>,'HTTP/1.1',
+                        {{127,0,0,1},59308},
+                        <<"localhost">>,undefined,8877,<<"/api/app/sasl">>,
+                        undefined,<<>>,
+                        [{app_name,<<"sasl">>}],
+                        [{<<"content-length">>,<<"0">>},
+                         {<<"te">>,<<>>},
+                         {<<"host">>,<<"localhost:8877">>},
+                         {<<"authorization">>,
+                          <<"Basic VGVtcGxlOldpYmJsZTJXb2JibGU=">>},
+                         {<<"connection">>,<<"keep-alive">>}],
+                        [],waiting,<<>>,undefined,false,waiting,[],<<>>,
+                        undefined} 
+AuthHeader {<<"basic">>,{<<"Temple">>,<<"Wibble2Wobble">>}}
+Username: <<"Temple">>, Password: <<"Wibble2Wobble">>
+Encoding: #{<<"appName">> => sasl,<<"appStatus">> => app_not_running} 
+Encoded: <<"{\"appName\":\"sasl\",\"appStatus\":\"app_not_running\"}">> 
+terminate: normal 
+test/cb_app_hndlr_tests.erl:144:<0.175.0>: Deleted App Resource: #{<<"appName">> => <<"sasl">>,
+                        <<"appStatus">> => <<"app_not_running">>}
+
+
+=INFO REPORT==== 2-Nov-2014::23:37:09 ===
+    application: crypto
+    exited: stopped
+    type: temporary
+
+=INFO REPORT==== 2-Nov-2014::23:37:09 ===
+    application: ranch
+    exited: stopped
+    type: temporary
+
+=INFO REPORT==== 2-Nov-2014::23:37:09 ===
+    application: cowlib
+    exited: stopped
+    type: temporary
+
+=INFO REPORT==== 2-Nov-2014::23:37:09 ===
+    application: cowboy
+    exited: stopped
+    type: temporary
+
+=INFO REPORT==== 2-Nov-2014::23:37:09 ===
+    application: plexo_srv
+    exited: stopped
+    type: temporary
+
+=INFO REPORT==== 2-Nov-2014::23:37:09 ===
+    application: inets
+    exited: stopped
+    type: temporary
+Starting Cowboy on port 8877...
+RootDir "/usr/local/Cellar/erlang/17.3/lib/erlang"...
+LibDir "/usr/local/Cellar/erlang/17.3/lib/erlang/lib"...
+AppDir "/Users/Temple/Work/dev/projects/plexo/apps/plexo_srv"...
+AppPrivDir "/Users/Temple/Work/dev/projects/plexo/apps/plexo_srv/priv"...
+Started Server...
+Init Handler: {http_req,#Port<0.58386>,ranch_tcp,keepalive,<0.1277.0>,
+                        <<"PUT">>,'HTTP/1.1',
+                        {{127,0,0,1},59309},
+                        <<"localhost">>,undefined,8877,<<"/api/app/sasl">>,
+                        undefined,<<>>,
+                        [{app_name,<<"sasl">>}],
+                        [{<<"content-type">>,
+                          <<"application/x-www-form-urlencoded">>},
+                         {<<"content-length">>,<<"0">>},
+                         {<<"te">>,<<>>},
+                         {<<"host">>,<<"localhost:8877">>},
+                         {<<"authorization">>,
+                          <<"Basic VGVtcGxlOldpYmJsZTJXb2JibGU=">>},
+                         {<<"connection">>,<<"keep-alive">>}],
+                        [],waiting,<<>>,undefined,false,waiting,[],<<>>,
+                        undefined} 
+AuthHeader {<<"basic">>,{<<"Temple">>,<<"Wibble2Wobble">>}}
+Username: <<"Temple">>, Password: <<"Wibble2Wobble">>
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {local,sasl_safe_sup}
+             started: [{pid,<0.1283.0>},
+                       {name,alarm_handler},
+                       {mfargs,{alarm_handler,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,2000},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {local,sasl_safe_sup}
+             started: [{pid,<0.1284.0>},
+                       {name,overload},
+                       {mfargs,{overload,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,2000},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {local,sasl_sup}
+             started: [{pid,<0.1282.0>},
+                       {name,sasl_safe_sup},
+                       {mfargs,
+                           {supervisor,start_link,
+                               [{local,sasl_safe_sup},sasl,safe]}},
+                       {restart_type,permanent},
+                       {shutdown,infinity},
+                       {child_type,supervisor}]
+Encoding: #{<<"appName">> => sasl,<<"appStatus">> => app_started} 
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+          supervisor: {local,sasl_sup}
+             started: [{pid,<0.1285.0>},
+                       {name,release_handler},
+                       {mfargs,{release_handler,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,2000},
+                       {child_type,worker}]
+Encoded: <<"{\"appName\":\"sasl\",\"appStatus\":\"app_started\"}">> 
+
+=PROGRESS REPORT==== 2-Nov-2014::23:37:09 ===
+         application: sasl
+          started_at: nonode@nohost
+terminate: normal 
+test/cb_app_hndlr_tests.erl:128:<0.175.0>: Created App Resource (Authed): #{<<"appName">> => <<"sasl">>,
+                                 <<"appStatus">> => <<"app_started">>}
+
+Init Handler: {http_req,#Port<0.58386>,ranch_tcp,keepalive,<0.1277.0>,
+                        <<"GET">>,'HTTP/1.1',
+                        {{127,0,0,1},59309},
+                        <<"localhost">>,undefined,8877,<<"/api/app/sasl">>,
+                        undefined,<<>>,
+                        [{app_name,<<"sasl">>}],
+                        [{<<"content-length">>,<<"0">>},
+                         {<<"te">>,<<>>},
+                         {<<"host">>,<<"localhost:8877">>},
+                         {<<"authorization">>,
+                          <<"Basic VGVtcGxlOldpYmJsZTJXb2JibGU=">>},
+                         {<<"connection">>,<<"keep-alive">>}],
+                        [],waiting,<<>>,undefined,false,waiting,[],<<>>,
+                        undefined} 
+AuthHeader {<<"basic">>,{<<"Temple">>,<<"Wibble2Wobble">>}}
+Username: <<"Temple">>, Password: <<"Wibble2Wobble">>
+app_env_to_map - AppEnv: [{description,"SASL  CXC 138 11"},
+                          {id,[]},
+                          {vsn,"2.4.1"},
+                          {modules,[sasl,alarm_handler,format_lib_supp,
+                                    misc_supp,overload,rb,rb_format_supp,
+                                    release_handler,release_handler_1,erlsrv,
+                                    sasl_report,sasl_report_tty_h,
+                                    sasl_report_file_h,si,si_sasl_supp,
+                                    systools,systools_make,systools_rc,
+                                    systools_relup,systools_lib]},
+                          {maxP,infinity},
+                          {maxT,infinity},
+                          {registered,[sasl_sup,alarm_handler,overload,
+                                       release_handler]},
+                          {included_applications,[]},
+                          {applications,[kernel,stdlib]},
+                          {env,[{errlog_type,all},
+                                {included_applications,[]},
+                                {sasl_error_logger,tty}]},
+                          {mod,{sasl,[]}},
+                          {start_phases,undefined}]
+app_env_to_map - AppEnvMap: #{applications => [kernel,stdlib],
+                              description => <<"SASL  CXC 138 11">>,
+                              env => #{errlog_type => all,
+                                included_applications => [],
+                                sasl_error_logger => tty},
+                              id => [],
+                              included_applications => [],
+                              maxP => infinity,
+                              maxT => infinity,
+                              mod => #{<<"name">> => sasl,<<"params">> => []},
+                              modules => [sasl,alarm_handler,format_lib_supp,misc_supp,
+                               overload,rb,rb_format_supp,release_handler,
+                               release_handler_1,erlsrv,sasl_report,
+                               sasl_report_tty_h,sasl_report_file_h,si,
+                               si_sasl_supp,systools,systools_make,
+                               systools_rc,systools_relup,systools_lib],
+                              registered => [sasl_sup,alarm_handler,overload,
+                               release_handler],
+                              start_phases => undefined,
+                              vsn => <<"2.4.1">>}
+Encoding: #{applications => [kernel,stdlib],
+            description => <<"SASL  CXC 138 11">>,
+            env => #{errlog_type => all,included_applications => [],sasl_error_logger => tty},
+            id => [],
+            included_applications => [],
+            maxP => infinity,
+            maxT => infinity,
+            mod => #{<<"name">> => sasl,<<"params">> => []},
+            modules => [sasl,alarm_handler,format_lib_supp,misc_supp,overload,rb,
+             rb_format_supp,release_handler,release_handler_1,erlsrv,
+             sasl_report,sasl_report_tty_h,sasl_report_file_h,si,si_sasl_supp,
+             systools,systools_make,systools_rc,systools_relup,systools_lib],
+            registered => [sasl_sup,alarm_handler,overload,release_handler],
+            start_phases => undefined,
+            vsn => <<"2.4.1">>} 
+Encoded: <<"{\"applications\":[\"kernel\",\"stdlib\"],\"description\":\"SASL  CXC 138 11\",\"env\":{\"errlog_type\":\"all\",\"included_applications\":[],\"sasl_error_logger\":\"tty\"},\"id\":[],\"included_applications\":[],\"maxP\":\"infinity\",\"maxT\":\"infinity\",\"mod\":{\"name\":\"sasl\",\"params\":[]},\"modules\":[\"sasl\",\"alarm_handler\",\"format_lib_supp\",\"misc_supp\",\"overload\",\"rb\",\"rb_format_supp\",\"release_handler\",\"release_handler_1\",\"erlsrv\",\"sasl_report\",\"sasl_report_tty_h\",\"sasl_report_file_h\",\"si\",\"si_sasl_supp\",\"systools\",\"systools_make\",\"systools_rc\",\"systools_relup\",\"systools_lib\"],\"registered\":[\"sasl_sup\",\"alarm_handler\",\"overload\",\"release_handler\"],\"start_phases\":\"undefined\",\"vsn\":\"2.4.1\"}">> 
+terminate: normal 
+test/cb_app_hndlr_tests.erl:160:<0.175.0>: Retrieved App Resource: #{<<"applications">> => [<<"kernel">>,<<"stdlib">>],
+                          <<"description">> => <<"SASL  CXC 138 11">>,
+                          <<"env">> => #{<<"errlog_type">> => <<"all">>,
+                            <<"included_applications">> => [],
+                            <<"sasl_error_logger">> => <<"tty">>},
+                          <<"id">> => [],
+                          <<"included_applications">> => [],
+                          <<"maxP">> => <<"infinity">>,
+                          <<"maxT">> => <<"infinity">>,
+                          <<"mod">> => #{<<"name">> => <<"sasl">>,<<"params">> => []},
+                          <<"modules">> => [<<"sasl">>,<<"alarm_handler">>,
+                           <<"format_lib_supp">>,<<"misc_supp">>,
+                           <<"overload">>,<<"rb">>,<<"rb_format_supp">>,
+                           <<"release_handler">>,<<"release_handler_1">>,
+                           <<"erlsrv">>,<<"sasl_report">>,
+                           <<"sasl_report_tty_h">>,<<"sasl_report_file_h">>,
+                           <<"si">>,<<"si_sasl_supp">>,<<"systools">>,
+                           <<"systools_make">>,<<"systools_rc">>,
+                           <<"systools_relup">>,<<"systools_lib">>],
+                          <<"registered">> => [<<"sasl_sup">>,<<"alarm_handler">>,<<"overload">>,
+                           <<"release_handler">>],
+                          <<"start_phases">> => <<"undefined">>,
+                          <<"vsn">> => <<"2.4.1">>}
+
+Init Handler: {http_req,#Port<0.58386>,ranch_tcp,keepalive,<0.1277.0>,
+                        <<"DELETE">>,'HTTP/1.1',
+                        {{127,0,0,1},59309},
+                        <<"localhost">>,undefined,8877,<<"/api/app/sasl">>,
+                        undefined,<<>>,
+                        [{app_name,<<"sasl">>}],
+                        [{<<"content-length">>,<<"0">>},
+                         {<<"te">>,<<>>},
+                         {<<"host">>,<<"localhost:8877">>},
+                         {<<"authorization">>,
+                          <<"Basic VGVtcGxlOldpYmJsZTJXb2JibGU=">>},
+                         {<<"connection">>,<<"keep-alive">>}],
+                        [],waiting,<<>>,undefined,false,waiting,[],<<>>,
+                        undefined} 
+AuthHeader {<<"basic">>,{<<"Temple">>,<<"Wibble2Wobble">>}}
+Username: <<"Temple">>, Password: <<"Wibble2Wobble">>
+
+=INFO REPORT==== 2-Nov-2014::23:37:09 ===
+    application: sasl
+    exited: stopped
+    type: temporary
+Encoding: #{<<"appName">> => sasl,<<"appStatus">> => app_stopped} 
+Encoded: <<"{\"appName\":\"sasl\",\"appStatus\":\"app_stopped\"}">> 
+terminate: normal 
+test/cb_app_hndlr_tests.erl:144:<0.175.0>: Deleted App Resource: #{<<"appName">> => <<"sasl">>,
+                        <<"appStatus">> => <<"app_stopped">>}
+
+
+=INFO REPORT==== 2-Nov-2014::23:37:09 ===
+    application: crypto
+    exited: stopped
+    type: temporary
+
+=INFO REPORT==== 2-Nov-2014::23:37:09 ===
+    application: ranch
+    exited: stopped
+    type: temporary
+
+=INFO REPORT==== 2-Nov-2014::23:37:09 ===
+    application: cowlib
+    exited: stopped
+    type: temporary
+
+=INFO REPORT==== 2-Nov-2014::23:37:09 ===
+    application: cowboy
+    exited: stopped
+    type: temporary
+
+=INFO REPORT==== 2-Nov-2014::23:37:09 ===
+    application: plexo_srv
+    exited: stopped
+    type: temporary
+
+=INFO REPORT==== 2-Nov-2014::23:37:09 ===
+    application: inets
+    exited: stopped
+    type: temporary
+=======================================================
+  Failed: 0.  Skipped: 0.  Passed: 22.
+One or more tests were cancelled.
+Cover analysis: /Users/Temple/Work/dev/projects/plexo/apps/plexo_srv/.eunit/index.html
+Coverdata export: /Users/Temple/Work/dev/projects/plexo/apps/plexo_srv/.eunit/cover.coverdata
+
+Code Coverage:
+cb_app_hndlr  : 89%
+cb_apps_hndlr : 55%
+core_json     : 100
+core_util     : 100
+erts_apps     : 96%
+plexo_srv     : 100
+plexo_srv_app : 100
+plexo_srv_sup : 100
+
+Total         : 86%

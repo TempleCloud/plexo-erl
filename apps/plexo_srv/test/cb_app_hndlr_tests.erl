@@ -36,12 +36,15 @@ cb_app_hndlr_test_() -> {
 start_plexo_srv() ->
   plexo_srv:start(),
   inets:start(),
-  RestPath = <<"http://localhost:8877/api/app">>,
+  User = "Temple",
+  Passwd = "Wibble2Wobble",
+  Uri = <<"http://localhost:8877/api/app">>,
   App = <<"sasl">>,
-  {RestPath, App}.
+  Fixture = #{user => User, passwd => Passwd, uri => Uri, app => App},
+  Fixture.
 
-stop_plexo_srv({RestPath, App}) ->
-  stop_remote_app(RestPath, App),
+stop_plexo_srv(Fixture) ->
+  stop_remote_app(Fixture),
   plexo_srv:stop(),
   inets:stop(),
   ok.
@@ -50,41 +53,41 @@ stop_plexo_srv({RestPath, App}) ->
 %% Tests
 %%%============================================================================
 
-test_start_app({RestPath, App}) ->
-  stop_remote_app(RestPath, App),
-  Res = start_remote_app(RestPath, App),
+test_start_app(Fixture) ->
+  stop_remote_app(Fixture),
+  Res = start_remote_app(Fixture),
   #{<<"appName">> := AppName} = Res,
   #{<<"appStatus">> := AppStatus} = Res,
-  ?_assertEqual(AppName, App),
+  ?_assertEqual(AppName, maps:get(app, Fixture)),
   ?_assertEqual(AppStatus, <<"app_started">>).
 
-test_start_started_app({RestPath, App}) ->
-  start_remote_app(RestPath, App),
-  Res = start_remote_app(RestPath, App),
+test_start_started_app(Fixture) ->
+  start_remote_app(Fixture),
+  Res = start_remote_app(Fixture),
   #{<<"appName">> := AppName} = Res,
   #{<<"appStatus">> := AppStatus} = Res,
-  ?_assertEqual(AppName, App),
+  ?_assertEqual(AppName, maps:get(app, Fixture)),
   ?_assertEqual(AppStatus, <<"app_running">>).
 
-test_stop_app({RestPath, App}) ->
-  start_remote_app(RestPath, App),
-  Res = stop_remote_app(RestPath, App),
+test_stop_app(Fixture) ->
+  start_remote_app(Fixture),
+  Res = stop_remote_app(Fixture),
   #{<<"appName">> := AppName} = Res,
   #{<<"appStatus">> := AppStatus} = Res,
-  ?_assertEqual(AppName, App),
+  ?_assertEqual(AppName, maps:get(app, Fixture)),
   ?_assertEqual(AppStatus, <<"app_stopped">>).
 
-test_stop_stopped_app({RestPath, App}) ->
-  stop_remote_app(RestPath, App),
-  Res = stop_remote_app(RestPath, App),
+test_stop_stopped_app(Fixture) ->
+  stop_remote_app(Fixture),
+  Res = stop_remote_app(Fixture),
   #{<<"appName">> := AppName} = Res,
   #{<<"appStatus">> := AppStatus} = Res,
-  ?_assertEqual(AppName, App),
+  ?_assertEqual(AppName, maps:get(app, Fixture)),
   ?_assertEqual(AppStatus, <<"app_not_running">>).
 
-test_get_app({RestPath, App}) ->
-  start_remote_app(RestPath, App),
-  Res = get_remote_app(RestPath, App),
+test_get_app(Fixture) ->
+  start_remote_app(Fixture),
+  Res = get_remote_app(Fixture),
   #{
     <<"applications">> := _Applications,
     <<"description">> := _Description,
@@ -99,7 +102,7 @@ test_get_app({RestPath, App}) ->
     <<"start_phases">> := _StartPhase,
     <<"vsn">> := _VSN
   } = Res,
-  ?_assertEqual(ModName, App),
+  ?_assertEqual(ModName, maps:get(app, Fixture)),
   ?_assertEqual(ok, ok).
 
 
@@ -107,56 +110,51 @@ test_get_app({RestPath, App}) ->
 %% Helper Methods
 %%%============================================================================
 
-start_remote_app(RestPath, App) ->
 
-  Url = binary_to_list(RestPath) ++ "/" ++ binary_to_list(App),
+start_remote_app(Fixture) ->
+
+  #{user := User, passwd :=  Passwd, uri :=  Uri, app := App} = Fixture,
+
+  Url = binary_to_list(Uri) ++ "/" ++ binary_to_list(App),
   ContentType = "application/x-www-form-urlencoded",
+  RqHeaders = [auth_header(User, Passwd), {"Content-Type",ContentType}],
+  RqOptions = [{body_format,binary}],
   RqBody = <<"">>,
 
   {ok, {{_HttpVsn, 200, _StatusCode}, _Headers, RsBody}} =
-    httpc:request(put, {Url, [], ContentType, RqBody}, [], []),
+    httpc:request(put, {Url, RqHeaders, ContentType, RqBody}, [], RqOptions),
 
   Res = core_json:from_json(RsBody),
-  ?debugFmt("Created App Resource (NonAuthed): ~p~n", [Res]),
+  ?debugFmt("Created App Resource (Authed): ~p~n", [Res]),
   Res.
 
-%% start_remote_app(RestPath, App) ->
-%%
-%%   User = "Temple",
-%%   Passwd = "Wibble2Wobble",
-%%
-%%   Url = binary_to_list(RestPath) ++ "/" ++ binary_to_list(App),
-%%   ContentType = "application/x-www-form-urlencoded",
-%%   RqHeaders = [auth_header(User, Passwd), {"Content-Type",ContentType}],
-%%   RqOptions = [{body_format,binary}],
-%%   RqBody = <<"">>,
-%%
-%%   {ok, {{_HttpVsn, 200, _StatusCode}, _Headers, RsBody}} =
-%%     httpc:request(put, {Url, RqHeaders, ContentType, RqBody}, [], RqOptions),
-%%
-%%   Res = core_json:from_json(RsBody),
-%%   ?debugFmt("Created App Resource (Authed): ~p~n", [Res]),
-%%   Res.
 
+stop_remote_app(Fixture) ->
 
-stop_remote_app(RestPath, App) ->
+  #{user := User, passwd :=  Passwd, uri :=  Uri, app := App} = Fixture,
 
-  Url = binary_to_list(RestPath) ++ "/" ++ binary_to_list(App),
+  Url = binary_to_list(Uri) ++ "/" ++ binary_to_list(App),
+  RqHeaders = [auth_header(User, Passwd)],
+  RqOptions = [],
 
   {ok, {{_HttpVsn, 200, _StatusCode}, _RsHeaders, RsBody}} =
-    httpc:request(delete, {Url, []}, [], []),
+    httpc:request(delete, {Url, RqHeaders}, [], RqOptions),
 
   Res = core_json:from_json(RsBody),
   ?debugFmt("Deleted App Resource: ~p~n", [Res]),
   Res.
 
 
-get_remote_app(RestPath, App) ->
+get_remote_app(Fixture) ->
 
-  Url = binary_to_list(RestPath) ++ "/" ++ binary_to_list(App),
+  #{user := User, passwd :=  Passwd, uri :=  Uri, app := App} = Fixture,
+
+  Url = binary_to_list(Uri) ++ "/" ++ binary_to_list(App),
+  RqHeaders = [auth_header(User, Passwd)],
+  RqOptions = [],
 
   {ok, {{_HttpVsn, 200, _StatusCode}, _Headers, RsBody}} =
-    httpc:request(get, {Url, []}, [], []),
+    httpc:request(get, {Url, RqHeaders}, [], RqOptions),
 
   Res = core_json:from_json(RsBody),
   ?debugFmt("Retrieved App Resource: ~p~n", [Res]),
