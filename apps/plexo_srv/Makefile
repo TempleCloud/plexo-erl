@@ -31,13 +31,6 @@ all: build
 # Run Commands
 #------------------------------------------------------------------------------
 
-# Build and run the PlexoSrv.
-#
-qrun:
-	@erl \
-	  $(PRJ_DEP_PATH) \
-	  $(PRJ_APP_PATH) \
-	  -s plexo_srv start
 
 # Build and run the PlexoSrv.
 #
@@ -53,6 +46,15 @@ run: build
 run-noshell: build
 	@erl \
 	  -noshell \
+	  $(PRJ_DEP_PATH) \
+	  $(PRJ_APP_PATH) \
+	  -s plexo_srv start
+
+
+# Quick compile and run the PlexoSrv.
+#
+qrun: compile
+	@erl \
 	  $(PRJ_DEP_PATH) \
 	  $(PRJ_APP_PATH) \
 	  -s plexo_srv start

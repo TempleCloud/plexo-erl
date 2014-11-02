@@ -42,6 +42,7 @@
 % Cowboy API Callbacks
 -export([
   init/2,                       % Initialise a new request handling process.
+%  is_authorized/2,              % Check authorization.
   allowed_methods/2,            % Define allowed HTTP methods.
   content_types_provided/2,     % Defines provided types and handling.
   content_types_accepted/2,     % Defines accepted types and handling.
@@ -79,6 +80,7 @@ init(Req, Opts) ->
   io:format("Init Handler: ~p ~n", [Req]),
   {cowboy_rest, Req, Opts}.
 
+
 %%-----------------------------------------------------------------------------
 %% @doc
 %% Allow OPTIONS, GET (get app details), PUT (start app), DELETE (stop app).
@@ -91,6 +93,45 @@ init(Req, Opts) ->
 allowed_methods(Req, State) ->
   Allowed = [<<"OPTIONS">>, <<"GET">>, <<"PUT">>, <<"DELETE">>],
   {Allowed, Req, State}.
+
+
+%% %%-----------------------------------------------------------------------------
+%% %% @doc
+%% %% Delegate the Cowboy Req to the appropriate handling function based on
+%% %% content_type.
+%% %%
+%% %% What authentication mechanisms should I provide? For example: form-based,
+%% %% token-based (in the URL or a cookie), HTTP basic, HTTP digest, SSL certificate
+%% %% or any other form of authentication
+%% %% @end
+%% %%-----------------------------------------------------------------------------
+%% -spec is_authorized(Req :: cowboy_req:req(), State :: any())
+%%       ->  {
+%%             {true, Req :: cowboy_req:req(), User :: {binary(),binary()}},
+%%              Req :: cowboy_req:req(),
+%%              State :: any()
+%%           }
+%%         | {
+%%             {false, Realm :: binary()},
+%%             Req :: cowboy_req:req(),
+%%             State :: any()
+%%           }.
+%%
+%% is_authorized(Req, State) ->
+%%   % {<<"authorization">>,
+%%   %  <<"Basic VGVtcGxlOldpYmJsZTJXb2JibGU=">>},
+%%   AuthHeader = cowboy_req:parse_header(<<"authorization">>, Req),
+%%   io:format("AuthHeader ~p~n", [AuthHeader]),
+%%   {<<"basic">>, {User, Passwd}} = AuthHeader,
+%%   io:format("Username: ~p, Password: ~p~n", [User, Passwd]),
+%%
+%%   case AuthHeader of
+%%     {<<"basic">>, {User = <<"Temple">>, <<"Wibble2Wobble">>}} ->
+%%       {true, Req, User};
+%%     _ ->
+%%       {{false, <<"Basic realm=\"cowboy\"">>}, Req, State}
+%%   end.
+
 
 %%-----------------------------------------------------------------------------
 %% @doc

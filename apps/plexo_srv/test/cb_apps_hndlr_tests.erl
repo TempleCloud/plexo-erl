@@ -15,7 +15,7 @@
 %% Test Descriptions
 %%%============================================================================
 
-cb_app_hndlr_test_() -> {
+cb_apps_hndlr_test_() -> {
   "Test starting the applications required for the plexo_srv application.", [
     {setup, local,
       fun start_plexo_srv/0, fun stop_plexo_srv/1, fun test_start_app/1},
@@ -70,8 +70,6 @@ test_get_running_apps({RestPath, _App}) ->
 test_get_loaded_apps({RestPath, _App}) ->
   Res = get_remote_apps(RestPath, <<"?status=loaded">>),
   ?_assertEqual(Res, Res).
-
-
 
 %%%============================================================================
 %% Helper Methods

@@ -40,7 +40,8 @@ start_plexo_srv() ->
   App = <<"sasl">>,
   {RestPath, App}.
 
-stop_plexo_srv(_TestConfig) ->
+stop_plexo_srv({RestPath, App}) ->
+  stop_remote_app(RestPath, App),
   plexo_srv:stop(),
   inets:stop(),
   ok.
@@ -50,6 +51,7 @@ stop_plexo_srv(_TestConfig) ->
 %%%============================================================================
 
 test_start_app({RestPath, App}) ->
+  stop_remote_app(RestPath, App),
   Res = start_remote_app(RestPath, App),
   #{<<"appName">> := AppName} = Res,
   #{<<"appStatus">> := AppStatus} = Res,
@@ -73,6 +75,7 @@ test_stop_app({RestPath, App}) ->
   ?_assertEqual(AppStatus, <<"app_stopped">>).
 
 test_stop_stopped_app({RestPath, App}) ->
+  stop_remote_app(RestPath, App),
   Res = stop_remote_app(RestPath, App),
   #{<<"appName">> := AppName} = Res,
   #{<<"appStatus">> := AppStatus} = Res,
@@ -86,7 +89,7 @@ test_get_app({RestPath, App}) ->
     <<"applications">> := _Applications,
     <<"description">> := _Description,
     <<"env">> := _Env,
-    <<"id">> := Id,
+    <<"id">> := _Id,
     <<"included_applications">> := _IncludedApplications,
     <<"maxP">> := _MaxP,
     <<"maxT">> := _MaxT,
@@ -114,8 +117,26 @@ start_remote_app(RestPath, App) ->
     httpc:request(put, {Url, [], ContentType, RqBody}, [], []),
 
   Res = core_json:from_json(RsBody),
-  ?debugFmt("Created App Resource: ~p~n", [Res]),
+  ?debugFmt("Created App Resource (NonAuthed): ~p~n", [Res]),
   Res.
+
+%% start_remote_app(RestPath, App) ->
+%%
+%%   User = "Temple",
+%%   Passwd = "Wibble2Wobble",
+%%
+%%   Url = binary_to_list(RestPath) ++ "/" ++ binary_to_list(App),
+%%   ContentType = "application/x-www-form-urlencoded",
+%%   RqHeaders = [auth_header(User, Passwd), {"Content-Type",ContentType}],
+%%   RqOptions = [{body_format,binary}],
+%%   RqBody = <<"">>,
+%%
+%%   {ok, {{_HttpVsn, 200, _StatusCode}, _Headers, RsBody}} =
+%%     httpc:request(put, {Url, RqHeaders, ContentType, RqBody}, [], RqOptions),
+%%
+%%   Res = core_json:from_json(RsBody),
+%%   ?debugFmt("Created App Resource (Authed): ~p~n", [Res]),
+%%   Res.
 
 
 stop_remote_app(RestPath, App) ->
@@ -140,3 +161,8 @@ get_remote_app(RestPath, App) ->
   Res = core_json:from_json(RsBody),
   ?debugFmt("Retrieved App Resource: ~p~n", [Res]),
   Res.
+
+
+auth_header(User, Pass) ->
+  Encoded = base64:encode_to_string(lists:append([User,":",Pass])),
+  {"Authorization","Basic " ++ Encoded}.
