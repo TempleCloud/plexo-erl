@@ -98,9 +98,8 @@ init(Req, Opts) ->
 is_authorized(Req, State) ->
   AuthHeader = cowboy_req:parse_header(<<"authorization">>, Req),
   io:format("AuthHeader ~p~n", [AuthHeader]),
-  {<<"basic">>, {User, Passwd}} = AuthHeader,
-  io:format("Username: ~p, Password: ~p~n", [User, Passwd]),
-
+  % {<<"basic">>, {User, Passwd}} = AuthHeader,
+  % io:format("Username: ~p, Password: ~p~n", [User, Passwd]),
   case AuthHeader of
     {<<"basic">>, {User = <<"Temple">>, <<"Wibble2Wobble">>}} ->
       {true, Req, User};

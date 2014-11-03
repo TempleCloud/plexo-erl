@@ -102,10 +102,11 @@ get_remote_apps(Fixture, QueryParam) ->
 
   Url = binary_to_list(Uri) ++ binary_to_list(QueryParam),
   RqHeaders = [auth_header(User, Passwd)],
+  RqHttpOptions = [],
   RqOptions = [],
 
   {ok, {{_HttpVsn, 200, _StatusCode}, _Headers, RsBody}} =
-    httpc:request(get, {Url, RqHeaders}, [], RqOptions),
+    httpc:request(get, {Url, RqHeaders}, RqHttpOptions, RqOptions),
 
   Res = core_json:from_json(RsBody),
   ?debugFmt("Retrieved App Resource: ~p~n", [Res]),
