@@ -39,18 +39,18 @@
 
 % Cowboy API Callbacks
 -export([
-  init/2,                       % Initialise a new request handling process.
-  is_authorized/2,              % Check authorization.
-  allowed_methods/2,            % Define allowed HTTP methods.
-  content_types_provided/2,     % Defines provided types and handling.
-  content_types_accepted/2,     % Defines accepted types and handling.
-  terminate/3                   % Clean up after a request has been processed.
+  init/2,                      % Initialise a new request handling process.
+  is_authorized/2,             % Check authorization.
+  allowed_methods/2,           % Define allowed HTTP methods.
+  content_types_provided/2,    % Defines provided types and handling.
+  content_types_accepted/2,    % Defines accepted types and handling.
+  terminate/3                  % Clean up after a request has been processed.
 ]).
 
 % Custom Handler Callbacks
 -export([
-  handle_provide_as_json/2,     % Handle resource provision as json.
-  handle_accept_from_url/2      % Handle new resource from uri params.
+  handle_provide_as_json/2,    % Handle resource provision as json.
+  handle_accept_from_url/2     % Handle new resource from uri params.
 ]).
 
 %%%============================================================================

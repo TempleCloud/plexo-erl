@@ -63,15 +63,20 @@
 %%%============================================================================
 
 -export_type([
-  app_tpl/0,  app_nfo/0,
-  app_start_res/0, app_stop_res/0
+  app_tpl/0,                   % Erlang 'app' tuple type.
+  app_nfo/0,                   % Erlang 'app' map type.
+  app_start_res/0,             % start_apps/2 result type.
+  app_stop_res/0               % stop_apps/2 result type.
 ]).
 
 -export([
-  get_loaded_apps/0, get_running_apps/0,
-  start_apps/1, stop_apps/1,
-  get_app_cnfg/1,
-  to_map/1, to_record/1
+  get_loaded_apps/0,           % Get the currently 'loaded' apps.
+  get_running_apps/0,          % Get the currently 'running' apps.
+  start_apps/1,                % Start the specified app/apps.
+  stop_apps/1,                 % Stop the specified app/apps.
+  get_app_cnfg/1,              % Get the configuration of the specified app.
+  to_map/1,                    % Convert an app_tpl to an app_nfo.
+  to_record/1                  % Convert an app_tpl to an app_rec.
 ]).
 
 
@@ -92,7 +97,7 @@
   Name :: atom(),
   Desc :: iolist(),
   Ver :: iolist()
-  }.
+}.
 
 %%-----------------------------------------------------------------------------
 %% A type definition defining a 'map representation' of an ERTS application.
@@ -114,7 +119,6 @@
     version => Ver :: binary()
   }
 }.
-
 
 %%-----------------------------------------------------------------------------
 % A record definition defining a 'map representation of an ERTS application.
@@ -155,7 +159,6 @@
 }.
 
 
-
 %%%============================================================================
 %%% Public Functions
 %%%============================================================================
@@ -167,9 +170,9 @@
 %% @end
 %%-----------------------------------------------------------------------------
 -spec get_loaded_apps() -> LoadedApps :: [app_nfo()].
+
 get_loaded_apps() ->
   lists:map(fun to_map/1, application:loaded_applications()).
-
 
 %%-----------------------------------------------------------------------------
 %% @doc
@@ -178,9 +181,9 @@ get_loaded_apps() ->
 %% @end
 %%-----------------------------------------------------------------------------
 -spec get_running_apps() -> RunningApps :: [app_nfo()].
+
 get_running_apps() ->
   lists:map(fun to_map/1, application:which_applications()).
-
 
 %%-----------------------------------------------------------------------------
 %% @doc
@@ -189,10 +192,10 @@ get_running_apps() ->
 %% @end
 %%-----------------------------------------------------------------------------
 -spec get_app_cnfg(App :: atom()) -> AppCnfg :: map().
+
 get_app_cnfg(App) ->
   {ok, KVs} = application:get_all_key(App),
   app_env_to_map(KVs).
-
 
 %%-----------------------------------------------------------------------------
 %% @doc
@@ -201,6 +204,7 @@ get_app_cnfg(App) ->
 %%-----------------------------------------------------------------------------
 -spec start_apps(Apps :: atom() | list(atom()))
       -> Res :: app_start_res() | list(app_start_res()).
+
 start_apps(Apps) when is_list(Apps) ->
   [start_apps(App) || App <- Apps];
 start_apps(App) when is_atom(App) ->
@@ -212,7 +216,6 @@ start_apps(App) when is_atom(App) ->
       {App, app_started}
   end.
 
-
 %%-----------------------------------------------------------------------------
 %% @doc
 %% Stop the specified OTP applications if they are running.
@@ -220,6 +223,7 @@ start_apps(App) when is_atom(App) ->
 %%-----------------------------------------------------------------------------
 -spec stop_apps(Apps :: atom() | list(atom()))
       -> Res :: app_stop_res() | list(app_stop_res()).
+
 stop_apps(Apps) when is_list(Apps) ->
   [stop_apps(App) || App <- Apps];
 stop_apps(App) when is_atom(App) ->
@@ -230,7 +234,6 @@ stop_apps(App) when is_atom(App) ->
     false ->
       {App, app_not_running}
   end.
-
 
 %%-----------------------------------------------------------------------------
 %% @doc
@@ -253,6 +256,7 @@ stop_apps(App) when is_atom(App) ->
 %% @end
 %%-----------------------------------------------------------------------------
 -spec to_map(From :: app_tpl()) -> To :: app_nfo().
+
 to_map({Name, Desc, Ver}) ->
   io:format("Converting: ~p ~n", [{Name, Desc, Ver}]),
   AppMap = #{
@@ -261,7 +265,6 @@ to_map({Name, Desc, Ver}) ->
     version => list_to_binary(Ver)
   },
   #{app_nfo => AppMap}.
-
 
 %%-----------------------------------------------------------------------------
 %% @doc

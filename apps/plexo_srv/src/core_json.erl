@@ -36,8 +36,8 @@
 %%%============================================================================
 
 -export([
-  to_json/1,
-  from_json/1
+  to_json/1,                   % Convert a JSON term to a JSON binary.
+  from_json/1                  % Convert a JSON binary to a JSON term.
 ]).
 
 %%%============================================================================
@@ -71,8 +71,8 @@
 %%   '''
 %% @end
 %%-----------------------------------------------------------------------------
-% -spec to_json(term()) -> binary().
 -spec to_json(map() | list()) -> binary().
+
 to_json(Term) ->
   io:format("Encoding: ~p ~n", [Term]),
   Json = jsxn:encode(Term),
@@ -106,12 +106,12 @@ to_json(Term) ->
 %%   '''
 %% @end
 %%-----------------------------------------------------------------------------
-% -spec from_json(binary()) -> term().
 -spec from_json(binary()) -> map() | list().
 
+% Handle binary() input...
 from_json(Json) when is_binary(Json) ->
   jsxn:decode(Json);
-
+% Handle list(char()) input...
 from_json(Json) when is_list(Json) ->
   jsxn:decode(list_to_binary(Json)).
 

@@ -19,7 +19,8 @@
 %%%============================================================================
 
 -export([
-	start/0, stop/0
+	start/0,                     % Start the plexo_srv app.
+  stop/0                       % Stop the plexo_srv app.
 ]).
 
 %%%============================================================================
@@ -33,6 +34,7 @@
 %%-----------------------------------------------------------------------------
 -spec start()
       -> Res :: erts_apps:app_start_res() | list(erts_apps:app_start_res()).
+
 start() ->
   Apps = [crypto, ranch, cowlib, cowboy, plexo_srv],
   Res = erts_apps:start_apps(Apps),
@@ -46,6 +48,7 @@ start() ->
 %%-----------------------------------------------------------------------------
 -spec stop()
       -> Res :: erts_apps:app_stop_res() | list(erts_apps:app_stop_res()).
+
 stop() ->
   Apps = [crypto, ranch, cowlib, cowboy, plexo_srv],
   Res = erts_apps:stop_apps(Apps),

@@ -13,9 +13,9 @@
 
 -behaviour(application).
 -export([
-	start/2,
-	stop/1]
-).
+	start/2,                     % Start the plexo_srv application.
+	stop/1                       % Stop the plexo_srv application.
+]).
 
 %% ============================================================================
 %% OTP Application Behaviour Callback Implementation

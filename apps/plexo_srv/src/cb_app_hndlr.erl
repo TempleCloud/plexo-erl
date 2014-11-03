@@ -41,27 +41,27 @@
 
 % Cowboy API Callbacks
 -export([
-  init/2,                       % Initialise a new request handling process.
-  is_authorized/2,              % Check authorization.
-  allowed_methods/2,            % Define allowed HTTP methods.
-  content_types_provided/2,     % Defines provided types and handling.
-  content_types_accepted/2,     % Defines accepted types and handling.
-  delete_resource/2,            % Handle delete an resource.
-  terminate/3                   % Clean up after a request has been processed.
+  init/2,                      % Initialise a new request handling process.
+  is_authorized/2,             % Check authorization.
+  allowed_methods/2,           % Define allowed HTTP methods.
+  content_types_provided/2,    % Defines provided types and handling.
+  content_types_accepted/2,    % Defines accepted types and handling.
+  delete_resource/2,           % Handle delete an resource.
+  terminate/3                  % Clean up after a request has been processed.
 ]).
 
 % Custom Handler Callbacks
 -export([
-  handle_provide_as_json/2,     % Handle resource provision as json.
-  handle_accept_from_url/2,     % Handle new resource from uri params.
-  handle_delete_from_url/2      % Handle resource deletions from uri params.
+  handle_provide_as_json/2,    % Handle resource provision as json.
+  handle_accept_from_url/2,    % Handle new resource from uri params.
+  handle_delete_from_url/2     % Handle resource deletions from uri params.
 ]).
 
 % Support Functions
 -export([
-  get_app_cnfg/2,               % Get the app configuration as json.
-  start_app/2,                  % Start the app and send result as json.
-  stop_app/2                    % Stop the app and send result as json.
+  get_app_cnfg/2,              % Get the app configuration as json.
+  start_app/2,                 % Start the app and send result as json.
+  stop_app/2                   % Stop the app and send result as json.
 ]).
 
 %%%============================================================================
@@ -98,13 +98,15 @@ init(Req, Opts) ->
 is_authorized(Req, State) ->
   AuthHeader = cowboy_req:parse_header(<<"authorization">>, Req),
   io:format("AuthHeader ~p~n", [AuthHeader]),
+
   % {<<"basic">>, {User, Passwd}} = AuthHeader,
   % io:format("Username: ~p, Password: ~p~n", [User, Passwd]),
+
   case AuthHeader of
     {<<"basic">>, {User = <<"Temple">>, <<"Wibble2Wobble">>}} ->
       {true, Req, User};
     _ ->
-      {{false, <<"Basic realm=\"cowboy\"">>}, Req, State}
+      {{false, <<"Basic realm=\"plexo\"">>}, Req, State}
   end.
 
 %%-----------------------------------------------------------------------------

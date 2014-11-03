@@ -117,7 +117,7 @@ start_remote_app(Fixture) ->
 
   Url = binary_to_list(Uri) ++ "/" ++ binary_to_list(App),
   ContentType = "application/x-www-form-urlencoded",
-  RqHeaders = [auth_header(User, Passwd), {"Content-Type",ContentType}],
+  RqHeaders = [util_inet:auth_header(User, Passwd), {"Content-Type",ContentType}],
   RqOptions = [{body_format,binary}],
   RqBody = <<"">>,
 
@@ -134,7 +134,7 @@ stop_remote_app(Fixture) ->
   #{user := User, passwd :=  Passwd, uri :=  Uri, app := App} = Fixture,
 
   Url = binary_to_list(Uri) ++ "/" ++ binary_to_list(App),
-  RqHeaders = [auth_header(User, Passwd)],
+  RqHeaders = [util_inet:auth_header(User, Passwd)],
   RqHttpOptions = [],
   RqOptions = [],
 
@@ -151,7 +151,7 @@ get_remote_app(Fixture) ->
   #{user := User, passwd :=  Passwd, uri :=  Uri, app := App} = Fixture,
 
   Url = binary_to_list(Uri) ++ "/" ++ binary_to_list(App),
-  RqHeaders = [auth_header(User, Passwd)],
+  RqHeaders = [util_inet:auth_header(User, Passwd)],
   RqHttpOptions = [],
   RqOptions = [],
 
@@ -162,7 +162,3 @@ get_remote_app(Fixture) ->
   ?debugFmt("Retrieved App Resource: ~p~n", [Res]),
   Res.
 
-
-auth_header(User, Pass) ->
-  Encoded = base64:encode_to_string(lists:append([User,":",Pass])),
-  {"Authorization","Basic " ++ Encoded}.
