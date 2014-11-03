@@ -96,20 +96,13 @@ init(Req, Opts) ->
     | {{false, Realm :: binary()}, Req :: cowboy_req:req(), State :: any()}.
 
 is_authorized(Req, State) ->
-  AuthHeader = cowboy_req:parse_header(<<"authorization">>, Req),
-  io:format("AuthHeader ~p~n", [AuthHeader]),
-
-  RqMap = cb_util:build_rq_map(Req),
-  io:format("RequestMap! ~p~n", [RqMap]),
-
-  % {<<"basic">>, {User, Passwd}} = AuthHeader,
-  % io:format("Username: ~p, Password: ~p~n", [User, Passwd]),
-
-  case AuthHeader of
-    {<<"basic">>, {User = <<"Temple">>, <<"Wibble2Wobble">>}} ->
-      {true, Req, User};
+  RestAction = cb_util:build_rq_map(Req),
+  #{request := #{auth := #{user := User, passwd :=  Passwd}}} = RestAction,
+  case core_auth:restful_auth(RestAction) of
+    true ->
+      {true, Req, {User, Passwd}};
     _ ->
-      {{false, <<"Basic realm=\"plexo\"">>}, Req, State}
+      {{false, core_auth:basic_realm_hdr(RestAction)}, Req, State}
   end.
 
 %%-----------------------------------------------------------------------------

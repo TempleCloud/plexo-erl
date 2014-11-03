@@ -79,11 +79,13 @@
 -spec build_rq_map(Req :: cowboy_req:req()) -> Built :: map().
 
 build_rq_map(Req) ->
-  #{
+  RestAction = #{
     request => build_http_rq_data_map(Req),
     host => build_http_host_data_map(Req),
     peer => build_http_peer_data_map(Req)
-  }.
+  },
+  io:format("Built RestAction: ~p~n", [RestAction]),
+  RestAction.
 
 %%-----------------------------------------------------------------------------
 %% @doc
