@@ -93,7 +93,7 @@ is_authorized(Req, State) ->
     {<<"basic">>, {User = <<"Temple">>, <<"Wibble2Wobble">>}} ->
       {true, Req, User};
     _ ->
-      {{false, <<"Basic realm=\"cowboy\"">>}, Req, State}
+      {{false, <<"Basic realm=\"plexo\"">>}, Req, State}
   end.
 
 %%-----------------------------------------------------------------------------

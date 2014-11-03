@@ -99,6 +99,9 @@ is_authorized(Req, State) ->
   AuthHeader = cowboy_req:parse_header(<<"authorization">>, Req),
   io:format("AuthHeader ~p~n", [AuthHeader]),
 
+  RqMap = cb_util:build_rq_map(Req),
+  io:format("RequestMap! ~p~n", [RqMap]),
+
   % {<<"basic">>, {User, Passwd}} = AuthHeader,
   % io:format("Username: ~p, Password: ~p~n", [User, Passwd]),
 
