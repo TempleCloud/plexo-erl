@@ -27,6 +27,7 @@
 %%%============================================================================
 
 -export([
+  is_authorized/2,             % Default authorization method.
   build_rq_map/1,              % Build a map of the HTTP paramters.
   build_http_rq_data_map/1,    % Build a map of the HTTP request paramters.
   build_auth_hdr_map/1,        % Build a auth map from the HTTP auth header.
@@ -37,6 +38,31 @@
 %%%============================================================================
 %% Public Functions
 %%%============================================================================
+
+%%-----------------------------------------------------------------------------
+%% @doc
+%% A centralized authorization method for Cowboy HTTP/REST Handlers.
+%%
+%% This method currently builds a RestAction entity (that is a map of relevant
+%% HTTP Request parameters extracted from the Cowboy Req object), and passes it
+%% to the {@link core_auth:restful_auth/1} for authentication and
+%% authorization.
+%% @end
+%%-----------------------------------------------------------------------------
+-spec is_authorized(Req :: cowboy_req:req(), State :: any())
+      ->  {{true, Req :: cowboy_req:req(), User :: {binary(),binary()}},
+            Req :: cowboy_req:req(), State :: any()}
+      |   {{false, Realm :: binary()}, Req :: cowboy_req:req(), State :: any()}.
+
+is_authorized(Req, State) ->
+  RestAction = cb_util:build_rq_map(Req),
+  #{request := #{auth := #{user := User, passwd :=  Passwd}}} = RestAction,
+  case core_auth:restful_auth(RestAction) of
+    true ->
+      {true, Req, {User, Passwd}};
+    _ ->
+      {{false, core_auth:http_basic_realm_hdr(RestAction)}, Req, State}
+  end.
 
 %%-----------------------------------------------------------------------------
 %% @doc

@@ -71,28 +71,17 @@ init(Req, Opts) ->
 
 %%-----------------------------------------------------------------------------
 %% @doc
-%% Delegate the Cowboy Req to the appropriate handling function based on
-%% content_type.
-%%
-%% What authentication mechanisms should I provide? For example: form-based,
-%% token-based (in the URL or a cookie), HTTP basic, HTTP digest, SSL certificate
-%% or any other form of authentication
+%% Authenticate this request via the standard {@link cb_util:is_authorized/2}
+%% centralised implementation.
 %% @end
 %%-----------------------------------------------------------------------------
 -spec is_authorized(Req :: cowboy_req:req(), State :: any())
-      -> {{true, Req :: cowboy_req:req(), User :: {binary(),binary()}},
-      Req :: cowboy_req:req(), State :: any()}
-    | {{false, Realm :: binary()}, Req :: cowboy_req:req(), State :: any()}.
+      ->  {{true, Req :: cowboy_req:req(), User :: {binary(),binary()}},
+            Req :: cowboy_req:req(), State :: any()}
+      |   {{false, Realm :: binary()}, Req :: cowboy_req:req(), State :: any()}.
 
 is_authorized(Req, State) ->
-  RestAction = cb_util:build_rq_map(Req),
-  #{request := #{auth := #{user := User, passwd :=  Passwd}}} = RestAction,
-  case core_auth:restful_auth(RestAction) of
-    true ->
-      {true, Req, {User, Passwd}};
-    _ ->
-      {{false, core_auth:basic_realm_hdr(RestAction)}, Req, State}
-  end.
+  cb_util:is_authorized(Req, State).
 
 %%-----------------------------------------------------------------------------
 %% @doc

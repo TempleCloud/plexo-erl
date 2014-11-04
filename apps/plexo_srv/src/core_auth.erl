@@ -12,14 +12,13 @@
 %%%
 %%% ==== Notes ====
 %%%
-%%% <ol>
-%%%   <li>
-%%%     The current implementation uses the
-%%%     <a href="https://github.com/talentdeficit/jsx">JSX</a> and
-%%%     <a href="https://github.com/talentdeficit/jsx">JSXN</a> and
-%%%     libraries to perform the marshalling operations.
-%%%   </li>
-%%% </ol>
+%%% What authentication mechanisms should I provide? For example: form-based,
+%%% token-based (in the URL or a cookie), HTTP basic, HTTP digest, SSL
+%%% certificate or any other form of authentication?
+%%%
+%%% This seems cool and relevant...
+%%% https://auth0.com/blog/2014/01/07/angularjs-authentication-with-cookies-vs-token/
+%%%
 %%% @end
 %%%----------------------------------------------------------------------------
 -module(core_auth).
@@ -30,9 +29,9 @@
 %%%============================================================================
 
 -export([
+  restful_auth/1,               % Convert a JSON term to a JSON binary.
   determine_realm/1,            % Convert a JSON term to a JSON binary.
-  basic_realm_hdr/1,            % Convert a JSON term to a JSON binary.
-  restful_auth/1                % Convert a JSON term to a JSON binary.
+  http_basic_realm_hdr/1        % Convert a JSON term to a JSON binary.
 ]).
 
 %%%============================================================================
@@ -41,28 +40,18 @@
 
 %%-----------------------------------------------------------------------------
 %% @doc
-%%-----------------------------------------------------------------------------
--spec determine_realm(RestAction :: any()) -> Realm :: binary().
-
-determine_realm(_RestAction) ->
-  <<"plexo">>.
-
-%%-----------------------------------------------------------------------------
-%% @doc
-%%-----------------------------------------------------------------------------
--spec basic_realm_hdr(RestAction :: any()) -> RealmHdr :: binary().
-
-basic_realm_hdr(RestAction) ->
-  % e.g. <<"Basic realm=\"plexo\"">>.
-  Realm = determine_realm(RestAction),
-  <<<<"Basic realm=\"">>/binary, Realm/binary, <<"\"">>/binary>>.
-
-%%-----------------------------------------------------------------------------
-%% @doc
+%% Perform a 'restful' authentication and authorisation check with respect to
+%% the specified RestAction.
 %%
+%% Authetication of identitiy should proceed by a standard means (such as HTTP
+%% Basic, Token, JSON Web Token, etc.).
 %%
+%% Authoriation over a specic resource should used some kind of ACL based
+%% protection relative to the RESTAction object.
 %%
-%% ==== Example Ouput ====
+%% Return true if both operations succeed; false otherwise.
+%%
+%% ==== Example RestAction ====
 %%   ```
 %%   #{
 %%     host => #{
@@ -90,14 +79,14 @@ basic_realm_hdr(RestAction) ->
 %%     }
 %%   }
 %%   '''
+%% @TODO Replace static credential mechanism with proper user/password lookup.
 %% @end
-%%
-%% @Todo Replace static credential mechanism with proper user/password lookup.
 %%-----------------------------------------------------------------------------
 -spec restful_auth(Req :: map()) -> true | false.
 
 restful_auth(RestAction) ->
 
+  % For now just hardcode this...
   #{request := #{auth := #{user := User, passwd :=  Passwd}}} = RestAction,
   case {User, Passwd} of
     {<<"Temple">>, <<"Wibble2Wobble">>} ->
@@ -105,3 +94,27 @@ restful_auth(RestAction) ->
     _ ->
       false
   end.
+
+%%-----------------------------------------------------------------------------
+%% @doc
+%% Return a binary string that denotes the security realm with respect to the
+%% specified RestAction.
+%% @TODO Replace static realm mechanism with proper ookup.
+%% @end
+%%-----------------------------------------------------------------------------
+-spec determine_realm(RestAction :: any()) -> Realm :: binary().
+
+determine_realm(_RestAction) ->
+  <<"plexo">>.
+
+%%-----------------------------------------------------------------------------
+%% @doc
+%% A utility method to create an HTTP-Basic binary string header.
+%% @end
+%%-----------------------------------------------------------------------------
+-spec http_basic_realm_hdr(RestAction :: any()) -> RealmHdr :: binary().
+
+http_basic_realm_hdr(RestAction) ->
+  % e.g. <<"Basic realm=\"plexo\"">>.
+  Realm = determine_realm(RestAction),
+  <<<<"Basic realm=\"">>/binary, Realm/binary, <<"\"">>/binary>>.
