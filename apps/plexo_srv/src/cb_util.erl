@@ -28,11 +28,11 @@
 
 -export([
   is_authorized/2,             % Default authorization method.
-  build_rq_map/1,              % Build a map of the HTTP paramters.
-  build_http_rq_data_map/1,    % Build a map of the HTTP request paramters.
-  build_auth_hdr_map/1,        % Build a auth map from the HTTP auth header.
-  build_http_host_data_map/1,  % Build a map of the HTTP host data.
-  build_http_peer_data_map/1   % Build a map of the HTTP peer data.
+  build_rest_action/1,         % Build a map of the HTTP paramters.
+  build_request_nfo/1,         % Build a map of the HTTP request paramters.
+  build_auth_nfo/1,            % Build a auth map from the HTTP auth header.
+  build_host_nfo/1,            % Build a map of the HTTP host data.
+  build_peer_nfo/1             % Build a map of the HTTP peer data.
 ]).
 
 %%%============================================================================
@@ -55,7 +55,7 @@
       |   {{false, Realm :: binary()}, Req :: cowboy_req:req(), State :: any()}.
 
 is_authorized(Req, State) ->
-  RestAction = cb_util:build_rq_map(Req),
+  RestAction = build_rest_action(Req),
   #{request := #{auth := #{user := User, passwd :=  Passwd}}} = RestAction,
   case core_auth:restful_auth(RestAction) of
     true ->
@@ -66,7 +66,6 @@ is_authorized(Req, State) ->
 
 %%-----------------------------------------------------------------------------
 %% @doc
-%%
 %% Build a map of selected HTTP parameters associated with this HTTP request.
 %%
 %% The results can be used for a vareity of purposes such as authentication,
@@ -102,20 +101,19 @@ is_authorized(Req, State) ->
 %%   '''
 %% @end
 %%-----------------------------------------------------------------------------
--spec build_rq_map(Req :: cowboy_req:req()) -> Built :: map().
+-spec build_rest_action(Req :: cowboy_req:req()) -> Built :: core_auth:rest_action().
 
-build_rq_map(Req) ->
+build_rest_action(Req) ->
   RestAction = #{
-    request => build_http_rq_data_map(Req),
-    host => build_http_host_data_map(Req),
-    peer => build_http_peer_data_map(Req)
+    request => build_request_nfo(Req),
+    host => build_host_nfo(Req),
+    peer => build_peer_nfo(Req)
   },
   io:format("Built RestAction: ~p~n", [RestAction]),
   RestAction.
 
 %%-----------------------------------------------------------------------------
 %% @doc
-%%
 %% Build a map of selected HTTP request parameters associated with this HTTP
 %% request.
 %%
@@ -140,9 +138,9 @@ build_rq_map(Req) ->
 %%   '''
 %% @end
 %%-----------------------------------------------------------------------------
--spec build_http_rq_data_map(Req :: cowboy_req:req()) -> map().
+-spec build_request_nfo(Req :: cowboy_req:req()) -> core_auth:request_nfo().
 
-build_http_rq_data_map(Req) ->
+build_request_nfo(Req) ->
   #{
     % -> undefined | binary()
     url => cowboy_req:url(Req),
@@ -151,7 +149,7 @@ build_http_rq_data_map(Req) ->
     % -> cowboy:http_version()
     version => cowboy_req:version(Req),
     % -> map()
-    auth => build_auth_hdr_map(Req),
+    auth => build_auth_nfo(Req),
     % -> binary()
     path => cowboy_req:path(Req),
     % -> cowboy_router:tokens() | undefined
@@ -162,7 +160,6 @@ build_http_rq_data_map(Req) ->
 
 %%-----------------------------------------------------------------------------
 %% @doc
-%%
 %% Build a map of selected HTTP 'authentication header' parameters associated
 %% with this HTTP request.
 %%
@@ -181,11 +178,12 @@ build_http_rq_data_map(Req) ->
 %%   '''
 %% @end
 %%-----------------------------------------------------------------------------
--spec build_auth_hdr_map(Req :: cowboy_req:req()) -> map() | undefined.
+-spec build_auth_nfo(Req :: cowboy_req:req())
+      -> core_auth:auth_nfo() | undefined.
 
-build_auth_hdr_map(Req) ->
+build_auth_nfo(Req) ->
   case cowboy_req:parse_header(<<"authorization">>, Req) of
-  % e.g. {<<"basic">>, {User = <<"Temple">>, <<"Wibble2Wobble">>}}
+    % e.g. {<<"basic">>, {User = <<"Temple">>, <<"Wibble2Wobble">>}}
     {AuthType, {UserIdent, Passwd}} ->
       #{type => AuthType, user => UserIdent, passwd => Passwd};
     _ ->
@@ -194,7 +192,6 @@ build_auth_hdr_map(Req) ->
 
 %%-----------------------------------------------------------------------------
 %% @doc
-%%
 %% Build a map of selected HTTP 'host' parameters associated with this HTTP
 %% request.
 %%
@@ -212,9 +209,9 @@ build_auth_hdr_map(Req) ->
 %%   '''
 %% @end
 %%-----------------------------------------------------------------------------
--spec build_http_host_data_map(Req :: cowboy_req:req()) -> map().
+-spec build_host_nfo(Req :: cowboy_req:req()) -> core_auth:host_nfo().
 
-build_http_host_data_map(Req) ->
+build_host_nfo(Req) ->
   #{
     % -> binary()
     name => cowboy_req:host(Req),
@@ -228,7 +225,6 @@ build_http_host_data_map(Req) ->
 
 %%-----------------------------------------------------------------------------
 %% @doc
-%%
 %% Build a map of selected HTTP 'peer' parameters associated with this HTTP
 %% request.
 %%
@@ -244,9 +240,10 @@ build_http_host_data_map(Req) ->
 %%   '''
 %% @end
 %%-----------------------------------------------------------------------------
--spec build_http_peer_data_map(Req :: cowboy_req:req()) -> map() | undefined.
+-spec build_peer_nfo(Req :: cowboy_req:req())
+      -> core_auth:peer_nfo() | undefined.
 
-build_http_peer_data_map(Req) ->
+build_peer_nfo(Req) ->
   case cowboy_req:peer(Req) of
   % e.g. {inet:ip_address(), inet:port_number()}
     {IPAddress, Port} ->
