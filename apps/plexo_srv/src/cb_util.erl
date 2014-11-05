@@ -29,10 +29,10 @@
 -export([
   is_authorized/2,             % Default authorization method.
   build_rest_action/1,         % Build a map of the HTTP paramters.
-  build_request_nfo/1,         % Build a map of the HTTP request paramters.
-  build_auth_nfo/1,            % Build a auth map from the HTTP auth header.
-  build_host_nfo/1,            % Build a map of the HTTP host data.
-  build_peer_nfo/1             % Build a map of the HTTP peer data.
+  build_auth/1,                % Build a auth map from the HTTP auth header.
+  build_action/1,              % Build a map of the HTTP request paramters.
+  build_host/1,                % Build a map of the HTTP host data.
+  build_peer/1                 % Build a map of the HTTP peer data.
 ]).
 
 %%%============================================================================
@@ -56,7 +56,7 @@
 
 is_authorized(Req, State) ->
   RestAction = build_rest_action(Req),
-  #{request := #{auth := #{user := User, passwd :=  Passwd}}} = RestAction,
+  #{auth := #{user := User, pass :=  Passwd}} = RestAction,
   case core_auth:restful_auth(RestAction) of
     true ->
       {true, Req, {User, Passwd}};
@@ -74,89 +74,45 @@ is_authorized(Req, State) ->
 %% ==== Example Ouput ====
 %%   ```
 %%   #{
+%%     auth => #{
+%%       user => <<"Temple">>,
+%%       pass => <<"Wibble2Wobble">>,
+%%       type => <<"basic">>
+%%     },
+%%     action => #{
+%%       version => 'HTTP/1.1'
+%%       url => <<"http://localhost:8877/api/app/sasl">>,
+%%       method => <<"PUT">>,
+%%       path => <<"/api/app/sasl">>,
+%%       pathInfo => undefined,
+%%       urlQuery => <<>>,
+%%     },
 %%     host => #{
-%%       info => undefined,
+%%       url => <<"http://localhost:8877">>,
 %%       name => <<"localhost">>,
 %%       port => 8877,
-%%       url => <<"http://localhost:8877">>
+%%       info => undefined
 %%     },
 %%     peer => #{
 %%       ip => {127,0,0,1},
 %%       port => 51591
-%%     },
-%%     request => #{
-%%       auth => #{
-%%         passwd => <<"Wibble2Wobble">>,
-%%         type => <<"basic">>,
-%%         user => <<"Temple">>
-%%       },
-%%       method => <<"PUT">>,
-%%       path => <<"/api/app/sasl">>,
-%%       pathInfo => undefined,
-%%       queryString => <<>>,
-%%       url => <<"http://localhost:8877/api/app/sasl">>,
-%%       version => 'HTTP/1.1'
 %%     }
 %%   }
 %%   '''
 %% @end
 %%-----------------------------------------------------------------------------
--spec build_rest_action(Req :: cowboy_req:req()) -> Built :: core_auth:rest_action().
+-spec build_rest_action(Req :: cowboy_req:req())
+      -> Built :: core_rest:rest_action().
 
 build_rest_action(Req) ->
   RestAction = #{
-    request => build_request_nfo(Req),
-    host => build_host_nfo(Req),
-    peer => build_peer_nfo(Req)
+    auth => build_auth(Req),
+    action => build_action(Req),
+    host => build_host(Req),
+    peer => build_peer(Req)
   },
   io:format("Built RestAction: ~p~n", [RestAction]),
   RestAction.
-
-%%-----------------------------------------------------------------------------
-%% @doc
-%% Build a map of selected HTTP request parameters associated with this HTTP
-%% request.
-%%
-%% The results can be used for a vareity of purposes such as authentication,
-%% fine-grained authorisation, auditing, etc.
-%%
-%% ==== Example Ouput ====
-%%   ```
-%%   #{
-%%     auth => #{
-%%       passwd => <<"Wibble2Wobble">>,
-%%       type => <<"basic">>,
-%%       user => <<"Temple">>
-%%     },
-%%     method => <<"PUT">>,
-%%     path => <<"/api/app/sasl">>,
-%%     pathInfo => undefined,
-%%     queryString => <<>>,
-%%     url => <<"http://localhost:8877/api/app/sasl">>,
-%%     version => 'HTTP/1.1'
-%%   }
-%%   '''
-%% @end
-%%-----------------------------------------------------------------------------
--spec build_request_nfo(Req :: cowboy_req:req()) -> core_auth:request_nfo().
-
-build_request_nfo(Req) ->
-  #{
-    % -> undefined | binary()
-    url => cowboy_req:url(Req),
-    % -> binary()
-    method => cowboy_req:method(Req),
-    % -> cowboy:http_version()
-    version => cowboy_req:version(Req),
-    % -> map()
-    auth => build_auth_nfo(Req),
-    % -> binary()
-    path => cowboy_req:path(Req),
-    % -> cowboy_router:tokens() | undefined
-    pathInfo => cowboy_req:path_info(Req),
-    % -> binary()
-    queryString => cowboy_req:qs(Req)
-  }.
 
 %%-----------------------------------------------------------------------------
 %% @doc
@@ -171,24 +127,63 @@ build_request_nfo(Req) ->
 %% ==== Example Ouput ====
 %%   ```
 %%   #{
+%%     user => <<"Temple">>,
 %%     passwd => <<"Wibble2Wobble">>,
-%%     type => <<"basic">>,
-%%     user => <<"Temple">>
+%%     type => <<"basic">>
 %%   }
 %%   '''
 %% @end
 %%-----------------------------------------------------------------------------
--spec build_auth_nfo(Req :: cowboy_req:req())
-      -> core_auth:auth_nfo() | undefined.
+-spec build_auth(Req :: cowboy_req:req())
+      -> core_rest:auth() | undefined.
 
-build_auth_nfo(Req) ->
+build_auth(Req) ->
   case cowboy_req:parse_header(<<"authorization">>, Req) of
-    % e.g. {<<"basic">>, {User = <<"Temple">>, <<"Wibble2Wobble">>}}
+  % e.g. {<<"basic">>, {User = <<"Temple">>, <<"Wibble2Wobble">>}}
     {AuthType, {UserIdent, Passwd}} ->
-      #{type => AuthType, user => UserIdent, passwd => Passwd};
+      #{user => UserIdent, pass => Passwd, type => AuthType};
     _ ->
       undefined
   end.
+
+%%-----------------------------------------------------------------------------
+%% @doc
+%% Build a map of selected HTTP request parameters associated with this HTTP
+%% request.
+%%
+%% The results can be used for a vareity of purposes such as authentication,
+%% fine-grained authorisation, auditing, etc.
+%%
+%% ==== Example Ouput ====
+%%   ```
+%%   #{
+%%     version => 'HTTP/1.1'
+%%     url => <<"http://localhost:8877/api/app/sasl">>,
+%%     method => <<"PUT">>,
+%%     path => <<"/api/app/sasl">>,
+%%     pathInfo => undefined,
+%%     urlQuery => <<>>,
+%%   }
+%%   '''
+%% @end
+%%-----------------------------------------------------------------------------
+-spec build_action(Req :: cowboy_req:req()) -> core_rest:action().
+
+build_action(Req) ->
+  #{
+    % -> cowboy:http_version()
+    version => cowboy_req:version(Req),
+    % -> undefined | binary()
+    url => cowboy_req:url(Req),
+    % -> binary()
+    method => cowboy_req:method(Req),
+    % -> binary()
+    path => cowboy_req:path(Req),
+    % -> cowboy_router:tokens() | undefined
+    pathInfo => cowboy_req:path_info(Req),
+    % -> binary()
+    urlQuery => cowboy_req:qs(Req)
+  }.
 
 %%-----------------------------------------------------------------------------
 %% @doc
@@ -201,26 +196,27 @@ build_auth_nfo(Req) ->
 %% ==== Example Ouput ====
 %%   ```
 %%   #{
-%%     info => undefined,
+%%     url => <<"http://localhost:8877">>,
 %%     name => <<"localhost">>,
 %%     port => 8877,
-%%     url => <<"http://localhost:8877">>
+%%     info => undefined,
 %%   }
 %%   '''
 %% @end
 %%-----------------------------------------------------------------------------
--spec build_host_nfo(Req :: cowboy_req:req()) -> core_auth:host_nfo().
+-spec build_host(Req :: cowboy_req:req())
+      -> core_rest:host().
 
-build_host_nfo(Req) ->
+build_host(Req) ->
   #{
+    % -> undefined | binary()
+    url => cowboy_req:host_url(Req),
     % -> binary()
     name => cowboy_req:host(Req),
-    % -> cowboy_router:tokens() | undefined
-    info => cowboy_req:host_info(Req),
     % -> inet:port_number()
     port => cowboy_req:port(Req),
-    % -> undefined | binary()
-    url => cowboy_req:host_url(Req)
+    % -> cowboy_router:tokens() | undefined
+    info => cowboy_req:host_info(Req)
   }.
 
 %%-----------------------------------------------------------------------------
@@ -240,10 +236,10 @@ build_host_nfo(Req) ->
 %%   '''
 %% @end
 %%-----------------------------------------------------------------------------
--spec build_peer_nfo(Req :: cowboy_req:req())
-      -> core_auth:peer_nfo() | undefined.
+-spec build_peer(Req :: cowboy_req:req())
+      -> core_rest:peer() | undefined.
 
-build_peer_nfo(Req) ->
+build_peer(Req) ->
   case cowboy_req:peer(Req) of
   % e.g. {inet:ip_address(), inet:port_number()}
     {IPAddress, Port} ->
