@@ -166,8 +166,11 @@ handle_provide_as_json(Req, State) ->
       get_loaded_apps_as_json(Req, State);
     <<"running">> ->
       get_running_apps_as_json(Req, State);
-    _ ->
-      JsonRS = core_json:to_json(#{<<"result">> => <<"{Error}">>}),
+    QueryParam ->
+      Error = <<
+        <<"Error. Bad QueryParam: '">>/binary, QueryParam/binary, <<"'">>/binary
+        >>,
+      JsonRS = core_error:gen_json_rs(Error),
       {JsonRS, Req, State}
   end.
 
@@ -182,12 +185,13 @@ handle_provide_as_json(Req, State) ->
       -> {true, Req :: cowboy_req:req(), State :: any()}.
 
 handle_accept_from_url(Req, State) ->
-  case cowboy_req:method(Req) of
-    <<"POST">> ->
-      cb_app_hndlr:start_app(Req, State);
-    _ ->
-      {true, Req, State}
-  end.
+  cb_app_hndlr:start_app(Req, State).
+%%   case cowboy_req:method(Req) of
+%%     <<"POST">> ->
+%%       cb_app_hndlr:start_app(Req, State);
+%%     _ ->
+%%       {true, Req, State}
+%%   end.
 
 
 %%=============================================================================

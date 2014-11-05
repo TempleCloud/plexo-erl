@@ -24,7 +24,11 @@ cb_apps_hndlr_test_() -> {
     {setup, local,
       fun start_plexo_srv/0, fun stop_plexo_srv/1, fun test_get_running_apps/1},
     {setup, local,
-      fun start_plexo_srv/0, fun stop_plexo_srv/1, fun test_get_loaded_apps/1}
+      fun start_plexo_srv/0, fun stop_plexo_srv/1, fun test_get_loaded_apps/1},
+    {setup, local,
+      fun start_plexo_srv/0, fun stop_plexo_srv/1, fun test_get_apps_null_qp/1},
+    {setup, local,
+      fun start_plexo_srv/0, fun stop_plexo_srv/1, fun test_get_apps_bad_qp/1}
   ]
 }.
 
@@ -53,26 +57,34 @@ stop_plexo_srv(_Fixture) ->
 
 test_start_app(Fixture) ->
   Res = start_remote_app(Fixture),
-  #{<<"appName">> := AppName} = Res,
-  #{<<"appStatus">> := AppStatus} = Res,
-  ?_assertEqual(AppName, maps:get(app, Fixture)),
-  ?_assertEqual(AppStatus, <<"app_started">>).
+  #{<<"appName">> := AppName, <<"appStatus">> := AppStatus} = Res,
+  ?_assertEqual(maps:get(app, Fixture), AppName),
+  ?_assertEqual(<<"app_started">>, AppStatus).
 
 test_start_started_app(Fixture) ->
   start_remote_app(Fixture),
   Res = start_remote_app(Fixture),
-  #{<<"appName">> := AppName} = Res,
-  #{<<"appStatus">> := AppStatus} = Res,
-  ?_assertEqual(AppName, maps:get(app, Fixture)),
-  ?_assertEqual(AppStatus, <<"app_running">>).
+  #{<<"appName">> := AppName, <<"appStatus">> := AppStatus} = Res,
+  ?_assertEqual(maps:get(app, Fixture), AppName),
+  ?_assertEqual(<<"app_running">>, AppStatus).
 
 test_get_running_apps(Fixture) ->
   Res = get_remote_apps(Fixture, <<"?status=running">>),
-  ?_assertEqual(Res, Res).
+  [?_assertEqual(true, is_valid(App)) || App <- Res].
 
 test_get_loaded_apps(Fixture) ->
   Res = get_remote_apps(Fixture, <<"?status=loaded">>),
-  ?_assertEqual(Res, Res).
+  [?_assertEqual(true, is_valid(App)) || App <- Res].
+
+test_get_apps_null_qp(Fixture) ->
+  Res = get_remote_apps(Fixture, <<"">>),
+  ?_assertEqual({500, "Internal Server Error"}, Res).
+
+test_get_apps_bad_qp(Fixture) ->
+  Res = get_remote_apps(Fixture, <<"?status=bad">>),
+  Expected = #{<<"error">> => <<"Error. Bad QueryParam: 'bad'">>},
+  ?_assertEqual(Expected, Res).
+
 
 %%%============================================================================
 %% Helper Methods
@@ -92,7 +104,7 @@ start_remote_app(Fixture) ->
     httpc:request(post, {Url, RqHeaders, ContentType, RqBody}, [], RqOptions),
 
   Res = core_json:from_json(RsBody),
-  ?debugFmt("Created App Resource: ~p~n", [Res]),
+  ?debugFmt("start_remote_app: ~p~n", [Res]),
   Res.
 
 
@@ -105,10 +117,28 @@ get_remote_apps(Fixture, QueryParam) ->
   RqHttpOptions = [],
   RqOptions = [],
 
-  {ok, {{_HttpVsn, 200, _StatusCode}, _Headers, RsBody}} =
-    httpc:request(get, {Url, RqHeaders}, RqHttpOptions, RqOptions),
+  Res = case httpc:request(get, {Url, RqHeaders}, RqHttpOptions, RqOptions) of
+    % Process valid HTTP 200 response. These should return JSON.
+    {ok, {{_HttpVsn, 200, _StatusCode}, _Headers, RsBody}} ->
+      core_json:from_json(RsBody);
+    % Process valid HTTP 500 response. These should return JSON.
+    {ok, {{_HttpVsn, 500, StatusCode}, _Headers, _RsBody}} ->
+      {500, StatusCode};
+    _ ->
+      throw(unexpected_response)
+    end,
 
-  Res = core_json:from_json(RsBody),
-  ?debugFmt("Retrieved App Resource: ~p~n", [Res]),
+  ?debugFmt("get_remote_apps: ~p~n", [Res]),
   Res.
+
+is_valid(AppNfo) ->
+  #{
+    <<"app_nfo">> := #{
+      <<"description">> := Desc, <<"name">> := Name, <<"version">> := Vsn
+    }
+  } = AppNfo,
+  case {is_binary(Desc), is_binary(Name), is_binary(Vsn)} of
+    {true, true, true} -> true;
+    _                  -> false
+  end.
 

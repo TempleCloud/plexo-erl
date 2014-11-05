@@ -6,7 +6,8 @@
 %%% @see erts_apps
 %%%
 %%% @doc
-%%% Some helper functions for the Cowboy webserver and libraries.
+%%% The {@module} module provides some Plexo specific helper functions relating
+%%% to the Cowboy webserver and libraries.
 %%%
 %%% ==== Notes ====
 %%%

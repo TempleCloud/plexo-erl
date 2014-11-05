@@ -28,14 +28,37 @@
 %%-----------------------------------------------------------------------------
 %% @doc
 %% Take an input Map and convert any 'binary map keys' to 'atom map keys'.
+%%
+%% ==== Example Input ====
+%%   ```
+%%   #{<<"app_nfo">> => #{
+%%     <<"description">> => <<"ERTS  CXC 138 10">>,
+%%     <<"name">> => <<"kernel">>,
+%%     <<"version">> => <<"3.0.1">>
+%%     }
+%%   }
+%%   '''
+%%
+%% ==== Example Output ====
+%%   ```
+%%   #{app_nfo => #{
+%%     description => <<"ERTS  CXC 138 10">>,
+%%     name => <<"kernel">>,
+%%     version => <<"3.0.1">>
+%%     }
+%%   }
+%%   '''
 %% @end
 %%-----------------------------------------------------------------------------
 -spec to_atom_key_map(map()) -> map().
 
-to_atom_key_map(InMap) ->
-  case InMap of
-    #{}     -> atomise_map(InMap);
-    [_H|_T] -> [atomise_map(Map) || Map <- InMap];
+to_atom_key_map(Input) ->
+  case Input of
+    % Handle single map - convert all binary keys to atoms.
+    #{}     -> atomise_map(Input);
+    % Handle collection of items.
+    [_H|_T] -> [atomise_map(X) || X <- Input];
+    % Ignore all other types.
     X       -> X
   end.
 

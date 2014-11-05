@@ -1,6 +1,6 @@
 %%-----------------------------------------------------------------------------
 %% @doc
-%% An abstraction upon an HTTP/REST call.
+%% The {@module} module provides an abstraction upon an HTTP/REST call.
 %%
 %% Defines some map based types that can be used to capture parameters relating
 %% to an HTTP/REST call associated with performing a speific action upon a

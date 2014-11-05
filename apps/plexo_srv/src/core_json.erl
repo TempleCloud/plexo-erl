@@ -111,9 +111,11 @@ to_json(Term) ->
 % Handle binary() input...
 from_json(Json) when is_binary(Json) ->
   jsxn:decode(Json);
+  % core_util:to_atom_key_map(jsxn:decode(Json));
 % Handle list(char()) input...
 from_json(Json) when is_list(Json) ->
   jsxn:decode(list_to_binary(Json)).
+  % core_util:to_atom_key_map(jsxn:decode(list_to_binary(Json))).
 
 
 

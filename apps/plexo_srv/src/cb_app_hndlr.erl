@@ -96,7 +96,8 @@ is_authorized(Req, State) ->
 
 %%-----------------------------------------------------------------------------
 %% @doc
-%% Allow OPTIONS, GET (get app details), PUT (start app), DELETE (stop app).
+%% Allow OPTIONS, HEAD, GET (get app details), PUT (start app), DELETE (stop
+%% app).
 %% All responses are retuned as JSON.
 %% @end
 %%-----------------------------------------------------------------------------
@@ -104,7 +105,7 @@ is_authorized(Req, State) ->
       -> {Allowed :: list(), Req :: cowboy_req:req(), State :: any()}.
 
 allowed_methods(Req, State) ->
-  Allowed = [<<"OPTIONS">>, <<"GET">>, <<"PUT">>, <<"DELETE">>],
+  Allowed = [<<"OPTIONS">>, <<"HEAD">>, <<"GET">>, <<"PUT">>, <<"DELETE">>],
   {Allowed, Req, State}.
 
 %%-----------------------------------------------------------------------------
@@ -178,13 +179,14 @@ terminate(Reason, _Req, _State) ->
       -> {Json :: binary(), Req :: cowboy_req:req(), State :: any()}.
 
 handle_provide_as_json(Req, State) ->
-  case cowboy_req:method(Req) of
-    <<"GET">> ->
-      get_app_cnfg(Req, State);
-    _ ->
-      JsonRS = core_json:to_json(#{<<"result">> => <<"{Error}">>}),
-      {JsonRS, Req, State}
-  end.
+  get_app_cnfg(Req, State).
+%%   case cowboy_req:method(Req) of
+%%     <<"GET">> ->
+%%       get_app_cnfg(Req, State);
+%%     _ ->
+%%       JsonRS = core_json:to_json(#{<<"result">> => <<"{Error}">>}),
+%%       {JsonRS, Req, State}
+%%   end.
 
 %%-----------------------------------------------------------------------------
 %% @doc
@@ -197,12 +199,13 @@ handle_provide_as_json(Req, State) ->
       -> {true, Req :: cowboy_req:req(), State :: any()}.
 
 handle_accept_from_url(Req, State) ->
-  case cowboy_req:method(Req) of
-    <<"PUT">> ->
-      start_app(Req, State);
-    _ ->
-      {true, Req, State}
-  end.
+  start_app(Req, State).
+%%   case cowboy_req:method(Req) of
+%%     <<"PUT">> ->
+%%       start_app(Req, State);
+%%     _ ->
+%%       {true, Req, State}
+%%   end.
 
 %%-----------------------------------------------------------------------------
 %% @doc
@@ -214,12 +217,13 @@ handle_accept_from_url(Req, State) ->
       -> {true, Req :: cowboy_req:req(), State :: any()}.
 
 handle_delete_from_url(Req, State) ->
-  case cowboy_req:method(Req) of
-    <<"DELETE">> ->
-      stop_app(Req, State);
-    _ ->
-      {true, Req, State}
-  end.
+  stop_app(Req, State).
+%%   case cowboy_req:method(Req) of
+%%     <<"DELETE">> ->
+%%       stop_app(Req, State);
+%%     _ ->
+%%       {true, Req, State}
+%%   end.
 
 %%=============================================================================
 %% Support Functions
