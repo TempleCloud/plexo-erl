@@ -42,12 +42,10 @@ test_from_bin_json() ->
   Result = core_json:from_json(mock_app_nfo_json_bin_str()),
   ?_assertEqual(Expected, Result).
 
-
 test_from_charlist_json() ->
   Expected = mock_app_nfo(),
   Result = core_json:from_json(mock_app_nfo_json_charlist_str()),
   ?_assertEqual(Expected, Result).
-
 
 %%%============================================================================
 %% Mocks
@@ -62,7 +60,6 @@ mock_app_data_map() ->
     <<"name">> => <<"kernel">>,
     <<"version">> => <<"3.0.1">>
   }.
-
 
 %%-----------------------------------------------------------------------------
 %% @todo  Make multiline...

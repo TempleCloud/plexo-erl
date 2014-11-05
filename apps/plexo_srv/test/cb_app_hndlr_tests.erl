@@ -10,6 +10,10 @@
 
 -include_lib("eunit/include/eunit.hrl").
 
+-export([
+  get_remote_app/1                % Create Http Basic Auth Header.
+]).
+
 %%%============================================================================
 %% Test Descriptions
 %%%============================================================================
