@@ -180,13 +180,6 @@ terminate(Reason, _Req, _State) ->
 
 handle_provide_as_json(Req, State) ->
   get_app_cnfg(Req, State).
-%%   case cowboy_req:method(Req) of
-%%     <<"GET">> ->
-%%       get_app_cnfg(Req, State);
-%%     _ ->
-%%       JsonRS = core_json:to_json(#{<<"result">> => <<"{Error}">>}),
-%%       {JsonRS, Req, State}
-%%   end.
 
 %%-----------------------------------------------------------------------------
 %% @doc
@@ -200,12 +193,6 @@ handle_provide_as_json(Req, State) ->
 
 handle_accept_from_url(Req, State) ->
   start_app(Req, State).
-%%   case cowboy_req:method(Req) of
-%%     <<"PUT">> ->
-%%       start_app(Req, State);
-%%     _ ->
-%%       {true, Req, State}
-%%   end.
 
 %%-----------------------------------------------------------------------------
 %% @doc
@@ -218,12 +205,6 @@ handle_accept_from_url(Req, State) ->
 
 handle_delete_from_url(Req, State) ->
   stop_app(Req, State).
-%%   case cowboy_req:method(Req) of
-%%     <<"DELETE">> ->
-%%       stop_app(Req, State);
-%%     _ ->
-%%       {true, Req, State}
-%%   end.
 
 %%=============================================================================
 %% Support Functions

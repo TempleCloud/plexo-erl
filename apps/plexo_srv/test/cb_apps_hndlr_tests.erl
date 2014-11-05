@@ -131,6 +131,7 @@ get_remote_apps(Fixture, QueryParam) ->
   ?debugFmt("get_remote_apps: ~p~n", [Res]),
   Res.
 
+
 is_valid(AppNfo) ->
   #{
     <<"app_nfo">> := #{

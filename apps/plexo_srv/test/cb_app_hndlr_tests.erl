@@ -102,8 +102,7 @@ test_get_app(Fixture) ->
     <<"start_phases">> := _StartPhase,
     <<"vsn">> := _VSN
   } = Res,
-  ?_assertEqual(ModName, maps:get(app, Fixture)),
-  ?_assertEqual(ok, ok).
+  ?_assertEqual(ModName, maps:get(app, Fixture)).
 
 
 %%%============================================================================
@@ -155,10 +154,18 @@ get_remote_app(Fixture) ->
   RqHttpOptions = [],
   RqOptions = [],
 
-  {ok, {{_HttpVsn, 200, _StatusCode}, _Headers, RsBody}} =
-    httpc:request(get, {Url, RqHeaders}, RqHttpOptions, RqOptions),
+  Res = case httpc:request(get, {Url, RqHeaders}, RqHttpOptions, RqOptions) of
+    % Process valid HTTP 200 response. These should return JSON.
+    {ok, {{_HttpVsn, 200, _StatusCode}, _Headers, RsBody}} ->
+      core_json:from_json(RsBody);
+    % Process valid HTTP 401 response. These should return JSON.
+    {ok, {{_HttpVsn, 401, StatusCode}, Headers, _RsBody}} ->
+      {_, Realm} = lists:keyfind("www-authenticate", 1, Headers),
+      {401, StatusCode, Realm};
+    _ ->
+      throw(unexpected_response)
+    end,
 
-  Res = core_json:from_json(RsBody),
   ?debugFmt("Retrieved App Resource: ~p~n", [Res]),
   Res.
 
