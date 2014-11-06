@@ -27,8 +27,11 @@ cb_util_test_() -> {
       fun itest_invalid_basic_auth/1
       },
     {setup, local,
+      fun start_unit_test/0, fun stop_unit_test/1, fun utest_build_auth/1
+    },
+    {setup, local,
       fun start_unit_test/0, fun stop_unit_test/1, fun utest_build_peer/1
-    }
+      }
   ]
 }.
 
@@ -64,7 +67,6 @@ stop_plexo_srv(_Fixture) ->
 
 % Use the simple 'get_remote_app' rest function to test the login.
 itest_valid_basic_auth(Fixture) ->
-  %?debugMsg("PEBCAK"),
   Res = cb_app_hndlr_tests:get_remote_app(Fixture),
   #{
     <<"mod">> := #{<<"name">> := ModName, <<"params">> := _ModParams}
@@ -72,28 +74,44 @@ itest_valid_basic_auth(Fixture) ->
   ?_assertEqual(ModName, maps:get(app, Fixture)).
 
 itest_invalid_basic_auth(Fixture) ->
-  %?debugMsg("PEBCAK2"),
   InvalidFixture = maps:update(passwd, "BadPassword", Fixture),
   Res = cb_app_hndlr_tests:get_remote_app(InvalidFixture),
   ?_assertEqual({401, "Unauthorized", "Basic realm=\"plexo\""}, Res).
 
 
-utest_build_peer(_Fixture) ->
+utest_build_auth(_Fixture) ->
 
   meck:new(cowboy_req, [non_strict]),
-  meck:expect(cowboy_req, peer, fun(_MockRes) -> undefined end),
-  Res = cb_util:build_peer({invalid_tuple}),
+  meck:expect(cowboy_req, parse_header, fun(<<"authorization">>, MockRes) -> MockRes end),
+
+  Res = cb_util:build_auth({bad_input}),
   ?_assertEqual(undefined, Res),
 
-%%   ?_assertEqual(true, cb_util:build_peer({invalid_tuple})),
-%%   ?_assertEqual(undefined, cb_util:build_peer([])),
-%%   ?_assertEqual(
-%%     #{ip => {127,0,0,1}, port => 1234},
-%%     cb_util:build_peer({{127,0,0,1}, 1234})
-%%     ),
+  ?_assertEqual(
+    #{user => <<"Temple">>, passwd => <<"Wibble2Wobble">>, type => <<"basic">>},
+    cb_util:build_auth({<<"basic">>, {<<"Temple">>, <<"Wibble2Wobble">>}})
+  ),
 
   meck:validate(cowboy_req),
   meck:unload(cowboy_req),
 
   ?_assertEqual(ok, ok).
 
+
+utest_build_peer(_Fixture) ->
+
+  meck:new(cowboy_req, [non_strict]),
+  meck:expect(cowboy_req, peer, fun(MockRes) -> MockRes end),
+
+  Res = cb_util:build_peer({bad_input}),
+  ?_assertEqual(undefined, Res),
+
+  ?_assertEqual(
+    #{ip => {127,0,0,1}, port => 1234},
+    cb_util:build_peer({{127,0,0,1}, 1234})
+  ),
+
+  meck:validate(cowboy_req),
+  meck:unload(cowboy_req),
+
+  ?_assertEqual(ok, ok).

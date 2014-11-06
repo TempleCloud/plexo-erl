@@ -140,7 +140,7 @@ build_rest_action(Req) ->
 
 build_auth(Req) ->
   case cowboy_req:parse_header(<<"authorization">>, Req) of
-  % e.g. {<<"basic">>, {User = <<"Temple">>, <<"Wibble2Wobble">>}}
+    % e.g. {<<"basic">>, {User = <<"Temple">>, <<"Wibble2Wobble">>}}
     {AuthType, {UserIdent, Passwd}} ->
       #{user => UserIdent, pass => Passwd, type => AuthType};
     _ ->
