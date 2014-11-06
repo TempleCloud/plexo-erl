@@ -11,7 +11,6 @@
 
 
 -include_lib("eunit/include/eunit.hrl").
--include_lib("eunit/include/eunit.hrl").
 
 %%%============================================================================
 %% Test Descriptions
@@ -26,13 +25,22 @@ cb_util_test_() -> {
     {setup, local,
       fun start_plexo_srv/0, fun stop_plexo_srv/1,
       fun itest_invalid_basic_auth/1
-      }
+      },
+    {setup, local,
+      fun start_unit_test/0, fun stop_unit_test/1, fun utest_build_peer/1
+    }
   ]
 }.
 
 %%%============================================================================
 %% Setup Functions
 %%%============================================================================
+
+start_unit_test() ->
+  ok.
+
+stop_unit_test(_Fixture) ->
+  ok.
 
 start_plexo_srv() ->
   plexo_srv:start(),
@@ -49,12 +57,14 @@ stop_plexo_srv(_Fixture) ->
   inets:stop(),
   ok.
 
+
 %%%============================================================================
 %% Tests
 %%%============================================================================
 
 % Use the simple 'get_remote_app' rest function to test the login.
 itest_valid_basic_auth(Fixture) ->
+  %?debugMsg("PEBCAK"),
   Res = cb_app_hndlr_tests:get_remote_app(Fixture),
   #{
     <<"mod">> := #{<<"name">> := ModName, <<"params">> := _ModParams}
@@ -62,12 +72,28 @@ itest_valid_basic_auth(Fixture) ->
   ?_assertEqual(ModName, maps:get(app, Fixture)).
 
 itest_invalid_basic_auth(Fixture) ->
+  %?debugMsg("PEBCAK2"),
   InvalidFixture = maps:update(passwd, "BadPassword", Fixture),
   Res = cb_app_hndlr_tests:get_remote_app(InvalidFixture),
   ?_assertEqual({401, "Unauthorized", "Basic realm=\"plexo\""}, Res).
 
 
-%% utest_build_peer() ->
-%%
-%%   % peer = undefined :: undefined | {inet:ip_address(), inet:port_number()},
-%%   #cowboy_rq:http_req{peer={{127,0,0,1}, 51591}}.
+utest_build_peer(_Fixture) ->
+
+  meck:new(cowboy_req, [non_strict]),
+  meck:expect(cowboy_req, peer, fun(_MockRes) -> undefined end),
+  Res = cb_util:build_peer({invalid_tuple}),
+  ?_assertEqual(undefined, Res),
+
+%%   ?_assertEqual(true, cb_util:build_peer({invalid_tuple})),
+%%   ?_assertEqual(undefined, cb_util:build_peer([])),
+%%   ?_assertEqual(
+%%     #{ip => {127,0,0,1}, port => 1234},
+%%     cb_util:build_peer({{127,0,0,1}, 1234})
+%%     ),
+
+  meck:validate(cowboy_req),
+  meck:unload(cowboy_req),
+
+  ?_assertEqual(ok, ok).
+

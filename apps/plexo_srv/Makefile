@@ -9,7 +9,8 @@ PRJ_DEP_PATH= \
 	-pa './deps/jsxn/ebin' \
 	-pa './deps/cowlib/ebin' \
 	-pa './deps/ranch/ebin' \
-	-pa './deps/cowboy/ebin'
+	-pa './deps/cowboy/ebin'\
+    -pa './deps/meck/ebin'\
 
 
 # The erl binary path for applications.
