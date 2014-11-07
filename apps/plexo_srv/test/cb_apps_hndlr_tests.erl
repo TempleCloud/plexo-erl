@@ -57,14 +57,14 @@ stop_plexo_srv(_Fixture) ->
 
 test_start_app(Fixture) ->
   Res = start_remote_app(Fixture),
-  #{<<"appName">> := AppName, <<"appStatus">> := AppStatus} = Res,
+  #{appName := AppName, appStatus := AppStatus} = Res,
   ?_assertEqual(maps:get(app, Fixture), AppName),
   ?_assertEqual(<<"app_started">>, AppStatus).
 
 test_start_started_app(Fixture) ->
   start_remote_app(Fixture),
   Res = start_remote_app(Fixture),
-  #{<<"appName">> := AppName, <<"appStatus">> := AppStatus} = Res,
+  #{appName := AppName, appStatus := AppStatus} = Res,
   ?_assertEqual(maps:get(app, Fixture), AppName),
   ?_assertEqual(<<"app_running">>, AppStatus).
 
@@ -82,7 +82,7 @@ test_get_apps_null_qp(Fixture) ->
 
 test_get_apps_bad_qp(Fixture) ->
   Res = get_remote_apps(Fixture, <<"?status=bad">>),
-  Expected = #{<<"error">> => <<"Error. Bad QueryParam: 'bad'">>},
+  Expected = #{error => <<"Error. Bad QueryParam: 'bad'">>},
   ?_assertEqual(Expected, Res).
 
 
@@ -134,8 +134,8 @@ get_remote_apps(Fixture, QueryParam) ->
 
 is_valid(AppNfo) ->
   #{
-    <<"app_nfo">> := #{
-      <<"description">> := Desc, <<"name">> := Name, <<"version">> := Vsn
+    app_nfo := #{
+      description := Desc, name := Name, version := Vsn
     }
   } = AppNfo,
   case {is_binary(Desc), is_binary(Name), is_binary(Vsn)} of

@@ -84,6 +84,9 @@ to_json(Term) ->
 %% Decode the specified JSON encoded binary into an 'Erlang term'. All 'string'
 %% entities in the specified term will remain binary encoded.
 %%
+%% NB: All input keys must be strings and are converted to atoms upon
+%%     conversion.
+%%
 %% ==== Example Input (JSON Binary) ====
 %%   ```
 %%   <<"{
@@ -106,16 +109,14 @@ to_json(Term) ->
 %%   '''
 %% @end
 %%-----------------------------------------------------------------------------
--spec from_json(binary()) -> map() | list().
+-spec from_json(binary()) -> map() | list(map()).
 
 % Handle binary() input...
 from_json(Json) when is_binary(Json) ->
-  jsxn:decode(Json);
-  % core_util:to_atom_key_map(jsxn:decode(Json));
+  core_util:to_atom_key_map(jsxn:decode(Json));
 % Handle list(char()) input...
 from_json(Json) when is_list(Json) ->
-  jsxn:decode(list_to_binary(Json)).
-  % core_util:to_atom_key_map(jsxn:decode(list_to_binary(Json))).
+  core_util:to_atom_key_map(jsxn:decode(list_to_binary(Json))).
 
 
 

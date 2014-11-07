@@ -69,7 +69,7 @@ stop_plexo_srv(_Fixture) ->
 itest_valid_basic_auth(Fixture) ->
   Res = cb_app_hndlr_tests:get_remote_app(Fixture),
   #{
-    <<"mod">> := #{<<"name">> := ModName, <<"params">> := _ModParams}
+    mod := #{name := ModName, params := _ModParams}
   } = Res,
   ?_assertEqual(ModName, maps:get(app, Fixture)).
 

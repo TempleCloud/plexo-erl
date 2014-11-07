@@ -19,7 +19,7 @@
 %%%============================================================================
 
 -export([
-	start/0,                     % Start the plexo_srv app.
+  start/0,                     % Start the plexo_srv app.
   stop/0                       % Stop the plexo_srv app.
 ]).
 

@@ -60,32 +60,32 @@ stop_plexo_srv(Fixture) ->
 test_start_app(Fixture) ->
   stop_remote_app(Fixture),
   Res = start_remote_app(Fixture),
-  #{<<"appName">> := AppName} = Res,
-  #{<<"appStatus">> := AppStatus} = Res,
+  #{appName := AppName} = Res,
+  #{appStatus := AppStatus} = Res,
   ?_assertEqual(AppName, maps:get(app, Fixture)),
   ?_assertEqual(AppStatus, <<"app_started">>).
 
 test_start_started_app(Fixture) ->
   start_remote_app(Fixture),
   Res = start_remote_app(Fixture),
-  #{<<"appName">> := AppName} = Res,
-  #{<<"appStatus">> := AppStatus} = Res,
+  #{appName := AppName} = Res,
+  #{appStatus := AppStatus} = Res,
   ?_assertEqual(AppName, maps:get(app, Fixture)),
   ?_assertEqual(AppStatus, <<"app_running">>).
 
 test_stop_app(Fixture) ->
   start_remote_app(Fixture),
   Res = stop_remote_app(Fixture),
-  #{<<"appName">> := AppName} = Res,
-  #{<<"appStatus">> := AppStatus} = Res,
+  #{appName := AppName} = Res,
+  #{appStatus := AppStatus} = Res,
   ?_assertEqual(AppName, maps:get(app, Fixture)),
   ?_assertEqual(AppStatus, <<"app_stopped">>).
 
 test_stop_stopped_app(Fixture) ->
   stop_remote_app(Fixture),
   Res = stop_remote_app(Fixture),
-  #{<<"appName">> := AppName} = Res,
-  #{<<"appStatus">> := AppStatus} = Res,
+  #{appName := AppName} = Res,
+  #{appStatus := AppStatus} = Res,
   ?_assertEqual(AppName, maps:get(app, Fixture)),
   ?_assertEqual(AppStatus, <<"app_not_running">>).
 
@@ -93,18 +93,18 @@ test_get_app(Fixture) ->
   start_remote_app(Fixture),
   Res = get_remote_app(Fixture),
   #{
-    <<"applications">> := _Applications,
-    <<"description">> := _Description,
-    <<"env">> := _Env,
-    <<"id">> := _Id,
-    <<"included_applications">> := _IncludedApplications,
-    <<"maxP">> := _MaxP,
-    <<"maxT">> := _MaxT,
-    <<"mod">> := #{<<"name">> := ModName, <<"params">> := _ModParams},
-    <<"modules">> := _Modules,
-    <<"registered">> := _Registered,
-    <<"start_phases">> := _StartPhase,
-    <<"vsn">> := _VSN
+    applications := _Applications,
+    description := _Description,
+    env := _Env,
+    id := _Id,
+    included_applications := _IncludedApplications,
+    maxP := _MaxP,
+    maxT := _MaxT,
+    mod := #{name := ModName, params := _ModParams},
+    modules := _Modules,
+    registered := _Registered,
+    start_phases := _StartPhase,
+    vsn := _VSN
   } = Res,
   ?_assertEqual(ModName, maps:get(app, Fixture)).
 

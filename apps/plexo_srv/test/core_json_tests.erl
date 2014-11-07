@@ -52,14 +52,24 @@ test_from_charlist_json() ->
 %%%============================================================================
 
 mock_app_nfo() ->
-  #{<<"app_nfo">> => mock_app_data_map()}.
+  #{app_nfo => mock_app_data_map()}.
 
 mock_app_data_map() ->
   #{
-    <<"description">> => <<"ERTS  CXC 138 10">>,
-    <<"name">> => <<"kernel">>,
-    <<"version">> => <<"3.0.1">>
+    description => <<"ERTS  CXC 138 10">>,
+    name => <<"kernel">>,
+    version => <<"3.0.1">>
   }.
+
+%% mock_app_nfo() ->
+%%   #{<<"app_nfo">> => mock_app_data_map()}.
+%%
+%% mock_app_data_map() ->
+%%   #{
+%%     <<"description">> => <<"ERTS  CXC 138 10">>,
+%%     <<"name">> => <<"kernel">>,
+%%     <<"version">> => <<"3.0.1">>
+%%   }.
 
 %%-----------------------------------------------------------------------------
 %% @todo  Make multiline...
