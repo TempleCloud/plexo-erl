@@ -84,7 +84,7 @@ to_json(Term) ->
 %% Decode the specified JSON encoded binary into an 'Erlang term'. All 'string'
 %% entities in the specified term will remain binary encoded.
 %%
-%% NB: All input keys must be strings and are converted to atoms upon
+%% NB: All keys must be of a string type and will be converted to atoms upon
 %%     conversion.
 %%
 %% ==== Example Input (JSON Binary) ====

@@ -24,6 +24,9 @@
 %%-----------------------------------------------------------------------------
 %% @doc
 %% Start the Plexo server.
+%%
+%% lsof -n | grep LISTEN
+%%
 %% @end
 %%-----------------------------------------------------------------------------
 -spec start(_,_) -> {'ok', pid()}.
@@ -31,7 +34,8 @@
 start(_Type, _Args) ->
 
 	Port = 8877,
-	Num_Sockets = 100,
+	% Port = 8080,
+  Num_Sockets = 100,
 
 	io:format("Starting Cowboy on port ~p...~n", [Port]),
 

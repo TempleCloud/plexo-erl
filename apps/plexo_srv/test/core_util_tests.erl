@@ -94,7 +94,6 @@ mock_ak_app_data_map() ->
     version => <<"3.0.3">>
   }.
 
-
 mock_app_nfo() ->
   #{<<"app_nfo">> => mock_app_data_map()}.
 

@@ -13,71 +13,31 @@
 -include_lib("eunit/include/eunit.hrl").
 
 %%%============================================================================
-%% Test Descriptions
+%% Unit Test Descriptions
 %%%============================================================================
 
-cb_util_test_() -> {
+cb_util_unt_test_() -> {
   "Test starting the applications required for the plexo_srv application.", [
     {setup, local,
-      fun start_plexo_srv/0, fun stop_plexo_srv/1,
-      fun itest_valid_basic_auth/1
-      },
+      fun su_unit_test/0, fun td_unit_test/1, fun utest_build_auth/1},
     {setup, local,
-      fun start_plexo_srv/0, fun stop_plexo_srv/1,
-      fun itest_invalid_basic_auth/1
-      },
-    {setup, local,
-      fun start_unit_test/0, fun stop_unit_test/1, fun utest_build_auth/1
-    },
-    {setup, local,
-      fun start_unit_test/0, fun stop_unit_test/1, fun utest_build_peer/1
-      }
+      fun su_unit_test/0, fun td_unit_test/1, fun utest_build_peer/1}
   ]
 }.
 
 %%%============================================================================
-%% Setup Functions
+%% Unit Test Setup Functions
 %%%============================================================================
 
-start_unit_test() ->
+su_unit_test() ->
   ok.
 
-stop_unit_test(_Fixture) ->
+td_unit_test(_Fixture) ->
   ok.
-
-start_plexo_srv() ->
-  plexo_srv:start(),
-  inets:start(),
-  User = "Temple",
-  Passwd = "Wibble2Wobble",
-  Uri = <<"http://localhost:8877/api/app">>,
-  App = <<"kernel">>,
-  Fixture = #{user => User, passwd => Passwd, uri => Uri, app => App},
-  Fixture.
-
-stop_plexo_srv(_Fixture) ->
-  plexo_srv:stop(),
-  inets:stop(),
-  ok.
-
 
 %%%============================================================================
-%% Tests
+%% Unit Tests
 %%%============================================================================
-
-% Use the simple 'get_remote_app' rest function to test the login.
-itest_valid_basic_auth(Fixture) ->
-  Res = cb_app_hndlr_tests:get_remote_app(Fixture),
-  #{
-    mod := #{name := ModName, params := _ModParams}
-  } = Res,
-  ?_assertEqual(ModName, maps:get(app, Fixture)).
-
-itest_invalid_basic_auth(Fixture) ->
-  InvalidFixture = maps:update(passwd, "BadPassword", Fixture),
-  Res = cb_app_hndlr_tests:get_remote_app(InvalidFixture),
-  ?_assertEqual({401, "Unauthorized", "Basic realm=\"plexo\""}, Res).
-
 
 utest_build_auth(_Fixture) ->
 
@@ -97,7 +57,6 @@ utest_build_auth(_Fixture) ->
 
   ?_assertEqual(ok, ok).
 
-
 utest_build_peer(_Fixture) ->
 
   meck:new(cowboy_req, [non_strict]),
@@ -115,3 +74,58 @@ utest_build_peer(_Fixture) ->
   meck:unload(cowboy_req),
 
   ?_assertEqual(ok, ok).
+
+%%%============================================================================
+%% Integration Test Runner
+%%%============================================================================
+
+cb_util_itg_test_() -> {
+  "Test starting the applications required for the plexo_srv application.", [
+    {setup, local,
+      fun start_plexo_srv/0, fun stop_plexo_srv/1,
+      fun itest_valid_basic_auth/1
+    },
+    {setup, local,
+      fun start_plexo_srv/0, fun stop_plexo_srv/1,
+      fun itest_invalid_basic_auth/1
+    }
+  ]
+}.
+
+%%%============================================================================
+%% Integration Test Setup/Fixture Functions
+%%%============================================================================
+
+start_plexo_srv() ->
+  plexo_srv:start(),
+  inets:start(),
+  User = "Temple",
+  Passwd = "Wibble2Wobble",
+  Uri = <<"http://localhost:8877/api/app">>,
+  App = <<"kernel">>,
+  Fixture = #{user => User, passwd => Passwd, uri => Uri, app => App},
+  Fixture.
+
+stop_plexo_srv(_Fixture) ->
+  plexo_srv:stop(),
+  inets:stop(),
+  ok.
+
+%%%============================================================================
+%% Integration Tests
+%%%============================================================================
+
+% Use the simple 'get_remote_app' rest function to test the login.
+itest_valid_basic_auth(Fixture) ->
+  Res = cb_app_hndlr_tests:get_remote_app(Fixture),
+  #{
+    mod := #{name := ModName, params := _ModParams}
+  } = Res,
+  ?_assertEqual(ModName, maps:get(app, Fixture)).
+
+itest_invalid_basic_auth(Fixture) ->
+  InvalidFixture = maps:update(passwd, "BadPassword", Fixture),
+  Res = cb_app_hndlr_tests:get_remote_app(InvalidFixture),
+  ?_assertEqual({401, "Unauthorized", "Basic realm=\"plexo\""}, Res).
+
+
