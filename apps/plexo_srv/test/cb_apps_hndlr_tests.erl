@@ -133,13 +133,5 @@ get_remote_apps(Fixture, QueryParam) ->
 
 
 is_valid(AppNfo) ->
-  #{
-    app_nfo := #{
-      description := Desc, name := Name, version := Vsn
-    }
-  } = AppNfo,
-  case {is_binary(Desc), is_binary(Name), is_binary(Vsn)} of
-    {true, true, true} -> true;
-    _                  -> false
-  end.
+  erts_apps_tests:is_valid_app_nfo(AppNfo).
 

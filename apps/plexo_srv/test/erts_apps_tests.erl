@@ -10,6 +10,15 @@
 
 -include_lib("eunit/include/eunit.hrl").
 
+
+%%%============================================================================
+%% Export Test Util Function
+%%%============================================================================
+
+-export([
+  is_valid_app_nfo/1                   % Start the plexo_srv app.
+]).
+
 %%%============================================================================
 %% Public Function Tests
 %%%============================================================================
@@ -23,33 +32,8 @@ get_running_apps_test_() ->
   [test_get_running_apps()].
 
 test_get_running_apps() ->
-
-  Expected = mock_running_apps(),
-  ?debugFmt("Expected Running Apps: ~p~n", [Expected]),
-
-  % Actual = erts_apps:get_loaded_apps(),
   Actual = erts_apps:get_running_apps(),
-  ?debugFmt("Actual Running Apps: ~p~n", [Actual]),
-
-  ?_assertEqual(Expected, Actual).
-
-%%-----------------------------------------------------------------------------
-%% @todo Soften this strict test to make it robust to version chnages etc.
-mock_running_apps() ->
-  [
-    #{app_nfo => #{
-      description => <<"ERTS  CXC 138 10">>,
-      name => <<"stdlib">>,
-      version => <<"2.2">>}
-    },
-    #{app_nfo => #{
-      description => <<"ERTS  CXC 138 10">>,
-      name => <<"kernel">>,
-      version => <<"3.0.3">>
-      }
-    }
-  ].
-
+  [?_assertEqual(true, is_valid(App)) || App <- Actual].
 
 %%-----------------------------------------------------------------------------
 %% @doc
@@ -65,7 +49,6 @@ test_to_map() ->
   Result = erts_apps:to_map(Input),
   ?_assertEqual(Expected, Result).
 
-
 mock_test_app_tpl() ->
   {test_app_name, "A test app!", "0.0.0"}.
 
@@ -76,8 +59,6 @@ mock_test_app_nfo() ->
     version => <<"0.0.0">>
     }
   }.
-
-
 
 %%-----------------------------------------------------------------------------
 %% @doc
@@ -94,10 +75,16 @@ test_to_record() ->
   ?_assertEqual(Expected, Result).
 
 mock_test_app_rec() ->
-  %%   #app_rec{
-  %%     name = test_app_name,
-  %%     description = <<"A test app!">>,
-  %%     version =  <<"0.0.0">>
-  %%   }.
   {app_rec, test_app_name, <<"A test app!">>,<<"0.0.0">>}.
 
+
+is_valid_app_nfo(AppNfo) ->
+  #{
+    app_nfo := #{
+      description := Desc, name := Name, version := Vsn
+    }
+  } = AppNfo,
+  case {is_binary(Desc), is_binary(Name), is_binary(Vsn)} of
+    {true, true, true} -> true;
+    _                  -> false
+  end.

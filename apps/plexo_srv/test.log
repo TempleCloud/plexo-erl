@@ -1,5 +1,7 @@
 ==> plexo_srv (clean)
 test -d deps || @rebar get-deps
+==> goldrush (compile)
+==> lager (compile)
 ==> jsx (compile)
 ==> jsxn (compile)
 ==> ranch (compile)
@@ -10,41 +12,45 @@ test -d deps || @rebar get-deps
 Compiled src/plexo_srv_sup.erl
 Compiled src/util_inet.erl
 Compiled src/plexo_srv_app.erl
-Compiled src/plexo_srv.erl
 Compiled src/core_util.erl
 Compiled src/core_rest.erl
-Compiled src/core_json.erl
+Compiled src/plexo_srv.erl
 Compiled src/core_error.erl
+Compiled src/core_json.erl
+Compiled src/erts_apps.erl
 Compiled src/core_auth.erl
 Compiled src/cb_util.erl
-Compiled src/erts_apps.erl
 Compiled src/cb_apps_hndlr.erl
 Compiled src/cb_app_hndlr.erl
   Checking whether the PLT /Users/Temple/.dialyzer_plt is up-to-date... yes
-  Proceeding with analysis... done in 0m1.17s
+  Proceeding with analysis...
+Unknown functions:
+  lager:info/2
+ done in 0m1.09s
 done (passed successfully)
 ==> plexo_srv (eunit)
-Compiled src/util_inet.erl
 Compiled src/plexo_srv_sup.erl
+Compiled src/util_inet.erl
 Compiled src/plexo_srv_app.erl
-Compiled src/plexo_srv.erl
 Compiled src/core_util.erl
+Compiled src/plexo_srv.erl
 Compiled src/core_rest.erl
 Compiled src/core_error.erl
-Compiled src/core_auth.erl
 Compiled src/erts_apps.erl
+Compiled src/core_auth.erl
 Compiled src/core_json.erl
 Compiled src/cb_util.erl
 Compiled src/cb_apps_hndlr.erl
 Compiled src/cb_app_hndlr.erl
 Compiled test/plexo_srv_tests.erl
+test/erts_apps_tests.erl:42: Warning: function mock_running_apps/0 is unused
 Compiled test/erts_apps_tests.erl
 Compiled test/core_json_tests.erl
 Compiled test/core_util_tests.erl
-test/cb_util_tests.erl:75: Warning: a term is constructed, but never used
-test/cb_util_tests.erl:77: Warning: a term is constructed, but never used
-test/cb_util_tests.erl:93: Warning: a term is constructed, but never used
-test/cb_util_tests.erl:95: Warning: a term is constructed, but never used
+test/cb_util_tests.erl:48: Warning: a term is constructed, but never used
+test/cb_util_tests.erl:50: Warning: a term is constructed, but never used
+test/cb_util_tests.erl:66: Warning: a term is constructed, but never used
+test/cb_util_tests.erl:68: Warning: a term is constructed, but never used
 Compiled test/cb_util_tests.erl
 test/cb_apps_hndlr_tests.erl:61: Warning: a term is constructed, but never used
 test/cb_apps_hndlr_tests.erl:68: Warning: a term is constructed, but never used
@@ -54,1110 +60,1906 @@ test/cb_app_hndlr_tests.erl:73: Warning: a term is constructed, but never used
 test/cb_app_hndlr_tests.erl:81: Warning: a term is constructed, but never used
 test/cb_app_hndlr_tests.erl:89: Warning: a term is constructed, but never used
 Compiled test/cb_app_hndlr_tests.erl
+23:20:16.841 [info] Starting 'plexo_srv' apps: [crypto,ranch,cowlib,cowboy,plexo_srv]
+23:20:16.841 [info] Application lager started on node nonode@nohost
+23:20:16.851 [info] Application ranch started on node nonode@nohost
+23:20:16.853 [info] Application cowlib started on node nonode@nohost
+23:20:16.860 [info] Application cowboy started on node nonode@nohost
+Starting Cowboy on port 8877...
+RootDir "/usr/local/Cellar/erlang/17.3/lib/erlang"...
+LibDir "/usr/local/Cellar/erlang/17.3/lib/erlang/lib"...
+AppDir "/Users/Temple/Work/dev/projects/plexo/apps/plexo_srv"...
+AppPrivDir "/Users/Temple/Work/dev/projects/plexo/apps/plexo_srv/priv"...
+Started Server...
+test/plexo_srv_tests.erl:29:<0.229.0>: Started Apps: [{crypto,app_running},
+               {ranch,app_started},
+               {cowlib,app_started},
+               {cowboy,app_started},
+               {plexo_srv,app_started}]
+
+test/plexo_srv_tests.erl:34:<0.229.0>: Stopped Apps: [{crypto,app_stopped},
+               {ranch,app_stopped},
+               {cowlib,app_stopped},
+               {cowboy,app_stopped},
+               {plexo_srv,app_stopped}]
+
+23:20:17.456 [info] Starting 'plexo_srv' apps: [crypto,ranch,cowlib,cowboy,plexo_srv]
+23:20:17.456 [warning] lager_error_logger_h dropped 52 messages in the last second that exceeded the limit of 50 messages/sec
+23:20:17.456 [info] Application crypto started on node nonode@nohost
+23:20:17.456 [info] Application ranch started on node nonode@nohost
+23:20:17.456 [info] Application cowlib started on node nonode@nohost
+23:20:17.457 [info] Application cowboy started on node nonode@nohost
+Starting Cowboy on port 8877...
+RootDir "/usr/local/Cellar/erlang/17.3/lib/erlang"...
+LibDir "/usr/local/Cellar/erlang/17.3/lib/erlang/lib"...
+AppDir "/Users/Temple/Work/dev/projects/plexo/apps/plexo_srv"...
+AppPrivDir "/Users/Temple/Work/dev/projects/plexo/apps/plexo_srv/priv"...
+Started Server...
+Init Handler: {http_req,#Port<0.67977>,ranch_tcp,keepalive,<0.546.0>,
+                        <<"GET">>,'HTTP/1.1',
+                        {{127,0,0,1},50661},
+                        <<"localhost">>,undefined,8877,<<"/api/app/kernel">>,
+                        undefined,<<>>,
+                        [{app_name,<<"kernel">>}],
+                        [{<<"content-length">>,<<"0">>},
+                         {<<"te">>,<<>>},
+                         {<<"host">>,<<"localhost:8877">>},
+                         {<<"authorization">>,
+                          <<"Basic VGVtcGxlOldpYmJsZTJXb2JibGU=">>},
+                         {<<"connection">>,<<"keep-alive">>}],
+                        [],waiting,<<>>,undefined,false,waiting,[],<<>>,
+                        undefined} 
+Built RestAction: #{action => #{method => <<"GET">>,
+                      path => <<"/api/app/kernel">>,
+                      pathInfo => undefined,
+                      url => <<"http://localhost:8877/api/app/kernel">>,
+                      urlQuery => <<>>,
+                      version => 'HTTP/1.1'},
+                    auth => #{pass => <<"Wibble2Wobble">>,
+                      type => <<"basic">>,
+                      user => <<"Temple">>},
+                    host => #{info => undefined,
+                      name => <<"localhost">>,
+                      port => 8877,
+                      url => <<"http://localhost:8877">>},
+                    peer => #{ip => {127,0,0,1},port => 50661}}
+app_env_to_map - AppEnv: [{description,"ERTS  CXC 138 10"},
+                          {id,[]},
+                          {vsn,"3.0.3"},
+                          {modules,[application,application_controller,
+                                    application_master,application_starter,
+                                    auth,code,code_server,dist_util,
+                                    erl_boot_server,erl_distribution,
+                                    erl_reply,error_handler,error_logger,file,
+                                    file_server,file_io_server,global,
+                                    global_group,global_search,group,heart,
+                                    hipe_unified_loader,inet6_tcp,
+                                    inet6_tcp_dist,inet6_udp,inet6_sctp,
+                                    inet_config,inet_hosts,
+                                    inet_gethost_native,inet_tcp_dist,kernel,
+                                    kernel_config,net,net_adm,net_kernel,os,
+                                    ram_file,rpc,user,user_drv,user_sup,
+                                    disk_log,disk_log_1,disk_log_server,
+                                    disk_log_sup,dist_ac,erl_ddll,erl_epmd,
+                                    erts_debug,gen_tcp,gen_udp,gen_sctp,inet,
+                                    inet_db,inet_dns,inet_parse,inet_res,
+                                    inet_tcp,inet_udp,inet_sctp,pg2,seq_trace,
+                                    standard_error,wrap_log_reader]},
+                          {maxP,infinity},
+                          {maxT,infinity},
+                          {registered,[application_controller,erl_reply,auth,
+                                       boot_server,code_server,
+                                       disk_log_server,disk_log_sup,
+                                       erl_prim_loader,error_logger,
+                                       file_server_2,fixtable_server,
+                                       global_group,global_name_server,heart,
+                                       init,kernel_config,kernel_sup,
+                                       net_kernel,net_sup,rex,user,os_server,
+                                       ddll_server,erl_epmd,inet_db,pg2]},
+                          {included_applications,[]},
+                          {applications,[]},
+                          {env,[{included_applications,[]},
+                                {error_logger,tty}]},
+                          {mod,{kernel,[]}},
+                          {start_phases,undefined}]
+app_env_to_map - AppEnvMap: #{applications => [],
+                              description => <<"ERTS  CXC 138 10">>,
+                              env => #{error_logger => tty,included_applications => []},
+                              id => [],
+                              included_applications => [],
+                              maxP => infinity,
+                              maxT => infinity,
+                              mod => #{<<"name">> => kernel,<<"params">> => []},
+                              modules => [application,application_controller,
+                               application_master,application_starter,auth,
+                               code,code_server,dist_util,erl_boot_server,
+                               erl_distribution,erl_reply,error_handler,
+                               error_logger,file,file_server,file_io_server,
+                               global,global_group,global_search,group,heart,
+                               hipe_unified_loader,inet6_tcp,inet6_tcp_dist,
+                               inet6_udp,inet6_sctp,inet_config,inet_hosts,
+                               inet_gethost_native,inet_tcp_dist,kernel,
+                               kernel_config,net,net_adm,net_kernel,os,
+                               ram_file,rpc,user,user_drv,user_sup,disk_log,
+                               disk_log_1,disk_log_server,disk_log_sup,
+                               dist_ac,erl_ddll,erl_epmd,erts_debug,gen_tcp,
+                               gen_udp,gen_sctp,inet,inet_db,inet_dns,
+                               inet_parse,inet_res,inet_tcp,inet_udp,
+                               inet_sctp,pg2,seq_trace,standard_error,
+                               wrap_log_reader],
+                              registered => [application_controller,erl_reply,auth,
+                               boot_server,code_server,disk_log_server,
+                               disk_log_sup,erl_prim_loader,error_logger,
+                               file_server_2,fixtable_server,global_group,
+                               global_name_server,heart,init,kernel_config,
+                               kernel_sup,net_kernel,net_sup,rex,user,
+                               os_server,ddll_server,erl_epmd,inet_db,pg2],
+                              start_phases => undefined,
+                              vsn => <<"3.0.3">>}
+Encoding: #{applications => [],
+            description => <<"ERTS  CXC 138 10">>,
+            env => #{error_logger => tty,included_applications => []},
+            id => [],
+            included_applications => [],
+            maxP => infinity,
+            maxT => infinity,
+            mod => #{<<"name">> => kernel,<<"params">> => []},
+            modules => [application,application_controller,application_master,
+             application_starter,auth,code,code_server,dist_util,
+             erl_boot_server,erl_distribution,erl_reply,error_handler,
+             error_logger,file,file_server,file_io_server,global,global_group,
+             global_search,group,heart,hipe_unified_loader,inet6_tcp,
+             inet6_tcp_dist,inet6_udp,inet6_sctp,inet_config,inet_hosts,
+             inet_gethost_native,inet_tcp_dist,kernel,kernel_config,net,
+             net_adm,net_kernel,os,ram_file,rpc,user,user_drv,user_sup,
+             disk_log,disk_log_1,disk_log_server,disk_log_sup,dist_ac,
+             erl_ddll,erl_epmd,erts_debug,gen_tcp,gen_udp,gen_sctp,inet,
+             inet_db,inet_dns,inet_parse,inet_res,inet_tcp,inet_udp,inet_sctp,
+             pg2,seq_trace,standard_error,wrap_log_reader],
+            registered => [application_controller,erl_reply,auth,boot_server,code_server,
+             disk_log_server,disk_log_sup,erl_prim_loader,error_logger,
+             file_server_2,fixtable_server,global_group,global_name_server,
+             heart,init,kernel_config,kernel_sup,net_kernel,net_sup,rex,user,
+             os_server,ddll_server,erl_epmd,inet_db,pg2],
+            start_phases => undefined,
+            vsn => <<"3.0.3">>} 
+Encoded: <<"{\"applications\":[],\"description\":\"ERTS  CXC 138 10\",\"env\":{\"error_logger\":\"tty\",\"included_applications\":[]},\"id\":[],\"included_applications\":[],\"maxP\":\"infinity\",\"maxT\":\"infinity\",\"mod\":{\"name\":\"kernel\",\"params\":[]},\"modules\":[\"application\",\"application_controller\",\"application_master\",\"application_starter\",\"auth\",\"code\",\"code_server\",\"dist_util\",\"erl_boot_server\",\"erl_distribution\",\"erl_reply\",\"error_handler\",\"error_logger\",\"file\",\"file_server\",\"file_io_server\",\"global\",\"global_group\",\"global_search\",\"group\",\"heart\",\"hipe_unified_loader\",\"inet6_tcp\",\"inet6_tcp_dist\",\"inet6_udp\",\"inet6_sctp\",\"inet_config\",\"inet_hosts\",\"inet_gethost_native\",\"inet_tcp_dist\",\"kernel\",\"kernel_config\",\"net\",\"net_adm\",\"net_kernel\",\"os\",\"ram_file\",\"rpc\",\"user\",\"user_drv\",\"user_sup\",\"disk_log\",\"disk_log_1\",\"disk_log_server\",\"disk_log_sup\",\"dist_ac\",\"erl_ddll\",\"erl_epmd\",\"erts_debug\",\"gen_tcp\",\"gen_udp\",\"gen_sctp\",\"inet\",\"inet_db\",\"inet_dns\",\"inet_parse\",\"inet_res\",\"inet_tcp\",\"inet_udp\",\"inet_sctp\",\"pg2\",\"seq_trace\",\"standard_error\",\"wrap_log_reader\"],\"registered\":[\"application_controller\",\"erl_reply\",\"auth\",\"boot_server\",\"code_server\",\"disk_log_server\",\"disk_log_sup\",\"erl_prim_loader\",\"error_logger\",\"file_server_2\",\"fixtable_server\",\"global_group\",\"global_name_server\",\"heart\",\"init\",\"kernel_config\",\"kernel_sup\",\"net_kernel\",\"net_sup\",\"rex\",\"user\",\"os_server\",\"ddll_server\",\"erl_epmd\",\"inet_db\",\"pg2\"],\"start_phases\":\"undefined\",\"vsn\":\"3.0.3\"}">> 
+terminate: normal 
+test/cb_app_hndlr_tests.erl:173:<0.229.0>: Retrieved App Resource: #{applications => [],
+                          description => <<"ERTS  CXC 138 10">>,
+                          env => #{error_logger => <<"tty">>,included_applications => []},
+                          id => [],
+                          included_applications => [],
+                          maxP => <<"infinity">>,
+                          maxT => <<"infinity">>,
+                          mod => #{name => <<"kernel">>,params => []},
+                          modules => [<<"application">>,<<"application_controller">>,
+                           <<"application_master">>,<<"application_starter">>,
+                           <<"auth">>,<<"code">>,<<"code_server">>,
+                           <<"dist_util">>,<<"erl_boot_server">>,
+                           <<"erl_distribution">>,<<"erl_reply">>,
+                           <<"error_handler">>,<<"error_logger">>,<<"file">>,
+                           <<"file_server">>,<<"file_io_server">>,
+                           <<"global">>,<<"global_group">>,
+                           <<"global_search">>,<<"group">>,<<"heart">>,
+                           <<"hipe_unified_loader">>,<<"inet6_tcp">>,
+                           <<"inet6_tcp_dist">>,<<"inet6_udp">>,
+                           <<"inet6_sctp">>,<<"inet_config">>,
+                           <<"inet_hosts">>,<<"inet_gethost_native">>,
+                           <<"inet_tcp_dist">>,<<"kernel">>,
+                           <<"kernel_config">>,<<"net">>,<<"net_adm">>,
+                           <<"net_kernel">>,<<"os">>,<<"ram_file">>,<<"rpc">>,
+                           <<"user">>,<<"user_drv">>,<<"user_sup">>,
+                           <<"disk_log">>,<<"disk_log_1">>,
+                           <<"disk_log_server">>,<<"disk_log_sup">>,
+                           <<"dist_ac">>,<<"erl_ddll">>,<<"erl_epmd">>,
+                           <<"erts_debug">>,<<"gen_tcp">>,<<"gen_udp">>,
+                           <<"gen_sctp">>,<<"inet">>,<<"inet_db">>,
+                           <<"inet_dns">>,<<"inet_parse">>,<<"inet_res">>,
+                           <<"inet_tcp">>,<<"inet_udp">>,<<"inet_sctp">>,
+                           <<"pg2">>,<<"seq_trace">>,<<"standard_error">>,
+                           <<"wrap_log_reader">>],
+                          registered => [<<"application_controller">>,<<"erl_reply">>,
+                           <<"auth">>,<<"boot_server">>,<<"code_server">>,
+                           <<"disk_log_server">>,<<"disk_log_sup">>,
+                           <<"erl_prim_loader">>,<<"error_logger">>,
+                           <<"file_server_2">>,<<"fixtable_server">>,
+                           <<"global_group">>,<<"global_name_server">>,
+                           <<"heart">>,<<"init">>,<<"kernel_config">>,
+                           <<"kernel_sup">>,<<"net_kernel">>,<<"net_sup">>,
+                           <<"rex">>,<<"user">>,<<"os_server">>,
+                           <<"ddll_server">>,<<"erl_epmd">>,<<"inet_db">>,
+                           <<"pg2">>],
+                          start_phases => <<"undefined">>,
+                          vsn => <<"3.0.3">>}
+
+23:20:17.732 [info] Starting 'plexo_srv' apps: [crypto,ranch,cowlib,cowboy,plexo_srv]
+Starting Cowboy on port 8877...
+RootDir "/usr/local/Cellar/erlang/17.3/lib/erlang"...
+LibDir "/usr/local/Cellar/erlang/17.3/lib/erlang/lib"...
+AppDir "/Users/Temple/Work/dev/projects/plexo/apps/plexo_srv"...
+AppPrivDir "/Users/Temple/Work/dev/projects/plexo/apps/plexo_srv/priv"...
+Started Server...
+Init Handler: {http_req,#Port<0.70212>,ranch_tcp,keepalive,<0.679.0>,
+                        <<"GET">>,'HTTP/1.1',
+                        {{127,0,0,1},50662},
+                        <<"localhost">>,undefined,8877,<<"/api/app/kernel">>,
+                        undefined,<<>>,
+                        [{app_name,<<"kernel">>}],
+                        [{<<"content-length">>,<<"0">>},
+                         {<<"te">>,<<>>},
+                         {<<"host">>,<<"localhost:8877">>},
+                         {<<"authorization">>,
+                          <<"Basic VGVtcGxlOkJhZFBhc3N3b3Jk">>},
+                         {<<"connection">>,<<"keep-alive">>}],
+                        [],waiting,<<>>,undefined,false,waiting,[],<<>>,
+                        undefined} 
+Built RestAction: #{action => #{method => <<"GET">>,
+                      path => <<"/api/app/kernel">>,
+                      pathInfo => undefined,
+                      url => <<"http://localhost:8877/api/app/kernel">>,
+                      urlQuery => <<>>,
+                      version => 'HTTP/1.1'},
+                    auth => #{pass => <<"BadPassword">>,type => <<"basic">>,user => <<"Temple">>},
+                    host => #{info => undefined,
+                      name => <<"localhost">>,
+                      port => 8877,
+                      url => <<"http://localhost:8877">>},
+                    peer => #{ip => {127,0,0,1},port => 50662}}
+terminate: normal 
+test/cb_app_hndlr_tests.erl:173:<0.229.0>: Retrieved App Resource: {401,"Unauthorized","Basic realm=\"plexo\""}
+
+23:20:17.745 [info] Starting 'plexo_srv' apps: [crypto,ranch,cowlib,cowboy,plexo_srv]
+Starting Cowboy on port 8877...
+RootDir "/usr/local/Cellar/erlang/17.3/lib/erlang"...
+LibDir "/usr/local/Cellar/erlang/17.3/lib/erlang/lib"...
+AppDir "/Users/Temple/Work/dev/projects/plexo/apps/plexo_srv"...
+AppPrivDir "/Users/Temple/Work/dev/projects/plexo/apps/plexo_srv/priv"...
+Started Server...
+Init Handler: {http_req,#Port<0.70228>,ranch_tcp,keepalive,<0.812.0>,
+                        <<"POST">>,'HTTP/1.1',
+                        {{127,0,0,1},50663},
+                        <<"localhost">>,undefined,8877,<<"/api/apps/sasl">>,
+                        undefined,<<>>,
+                        [{app_name,<<"sasl">>}],
+                        [{<<"content-type">>,
+                          <<"application/x-www-form-urlencoded">>},
+                         {<<"content-length">>,<<"0">>},
+                         {<<"te">>,<<>>},
+                         {<<"host">>,<<"localhost:8877">>},
+                         {<<"authorization">>,
+                          <<"Basic VGVtcGxlOldpYmJsZTJXb2JibGU=">>},
+                         {<<"connection">>,<<"keep-alive">>}],
+                        [],waiting,<<>>,undefined,false,waiting,[],<<>>,
+                        undefined} 
+Built RestAction: #{action => #{method => <<"POST">>,
+                      path => <<"/api/apps/sasl">>,
+                      pathInfo => undefined,
+                      url => <<"http://localhost:8877/api/apps/sasl">>,
+                      urlQuery => <<>>,
+                      version => 'HTTP/1.1'},
+                    auth => #{pass => <<"Wibble2Wobble">>,
+                      type => <<"basic">>,
+                      user => <<"Temple">>},
+                    host => #{info => undefined,
+                      name => <<"localhost">>,
+                      port => 8877,
+                      url => <<"http://localhost:8877">>},
+                    peer => #{ip => {127,0,0,1},port => 50663}}
+
+=PROGRESS REPORT==== 8-Nov-2014::23:20:17 ===
+          supervisor: {local,sasl_safe_sup}
+             started: [{pid,<0.818.0>},
+                       {name,alarm_handler},
+                       {mfargs,{alarm_handler,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,2000},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 8-Nov-2014::23:20:17 ===
+          supervisor: {local,sasl_sup}
+             started: [{pid,<0.820.0>},
+                       {name,release_handler},
+                       {mfargs,{release_handler,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,2000},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 8-Nov-2014::23:20:17 ===
+         application: sasl
+          started_at: nonode@nohost
+Encoding: #{<<"appName">> => sasl,<<"appStatus">> => app_started} 
+Encoded: <<"{\"appName\":\"sasl\",\"appStatus\":\"app_started\"}">> 
+terminate: normal 
+test/cb_apps_hndlr_tests.erl:107:<0.229.0>: start_remote_app: #{appName => <<"sasl">>,appStatus => <<"app_started">>}
+
+23:20:17.798 [info] Starting 'plexo_srv' apps: [crypto,ranch,cowlib,cowboy,plexo_srv]
+
+=PROGRESS REPORT==== 8-Nov-2014::23:20:17 ===
+         application: crypto
+          started_at: nonode@nohost
+
+=PROGRESS REPORT==== 8-Nov-2014::23:20:17 ===
+          supervisor: {local,ranch_sup}
+             started: [{pid,<0.828.0>},
+                       {name,ranch_server},
+                       {mfargs,{ranch_server,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,5000},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 8-Nov-2014::23:20:17 ===
+         application: ranch
+          started_at: nonode@nohost
+
+=PROGRESS REPORT==== 8-Nov-2014::23:20:17 ===
+         application: cowlib
+          started_at: nonode@nohost
+
+=PROGRESS REPORT==== 8-Nov-2014::23:20:17 ===
+          supervisor: {local,cowboy_sup}
+             started: [{pid,<0.834.0>},
+                       {name,cowboy_clock},
+                       {mfargs,{cowboy_clock,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,5000},
+                       {child_type,worker}]
 Starting Cowboy on port 8877...
 RootDir "/usr/local/Cellar/erlang/17.3/lib/erlang"...
 LibDir "/usr/local/Cellar/erlang/17.3/lib/erlang/lib"...
 AppDir "/Users/Temple/Work/dev/projects/plexo/apps/plexo_srv"...
 AppPrivDir "/Users/Temple/Work/dev/projects/plexo/apps/plexo_srv/priv"...
 
-=INFO REPORT==== 7-Nov-2014::23:55:16 ===
-    application: plexo_srv
-    exited: {bad_return,
-             {{plexo_srv_app,start,[normal,[]]},
-              {'EXIT',
-               {{badmatch,
-                 {error,
-                  {{shutdown,
-                    {failed_to_start_child,ranch_acceptors_sup,
-                     {{badmatch,{error,eaddrinuse}},
-                      [{ranch_acceptors_sup,init,1,
-                        [{file,"src/ranch_acceptors_sup.erl"},{line,30}]},
-                       {supervisor,init,1,
-                        [{file,"supervisor.erl"},{line,243}]},
-                       {gen_server,init_it,6,
-                        [{file,"gen_server.erl"},{line,306}]},
-                       {proc_lib,init_p_do_apply,3,
-                        [{file,"proc_lib.erl"},{line,237}]}]}}},
-                   {child,undefined,
-                    {ranch_listener_sup,http},
-                    {ranch_listener_sup,start_link,
-                     [http,100,ranch_tcp,
-                      [{port,8877}],
-                      cowboy_protocol,
-                      [{env,
-                        [{dispatch,
-                          [{'_',[],
-                            [{[],[],cowboy_static,
-                              {priv_file,plexo_srv,"assets/plexo.html"}},
-                             {[<<"assets">>,<<"controllers">>,'...'],
-                              [],cowboy_static,
-                              {priv_dir,plexo_srv,"assets/controllers"}},
-                             {[<<"api">>,<<"apps">>],[],cb_apps_hndlr,[]},
-                             {[<<"api">>,<<"apps">>,app_name],
-                              [],cb_apps_hndlr,[]},
-                             {[<<"api">>,<<"app">>,app_name],
-                              [],cb_app_hndlr,[]}]}]}]}]]},
-                    permanent,infinity,supervisor,
-                    [ranch_listener_sup]}}}},
-                [{plexo_srv_app,start,2,
-                  [{file,"src/plexo_srv_app.erl"},{line,62}]},
-                 {application_master,start_it_old,4,
-                  [{file,"application_master.erl"},{line,272}]}]}}}}
-    type: temporary
-Test starting the applications required for the plexo_srv application.
-*** context setup failed ***
-**in function erts_apps:start_apps/1 (src/erts_apps.erl, line 215)
-in call from erts_apps:'-start_apps/1-lc$^0/1-0-'/1 (src/erts_apps.erl, line 209)
-in call from plexo_srv:start/0 (src/plexo_srv.erl, line 40)
-in call from plexo_srv_tests:start_plexo_srv/0 (test/plexo_srv_tests.erl, line 28)
-**error:{badmatch,
-    {error,
-        {bad_return,
-            {{plexo_srv_app,start,[normal,[]]},
-             {'EXIT',
-                 {{badmatch,
-                      {error,
-                          {{shutdown,{failed_to_start_child,...}},
-                           {child,undefined,...}}}},
-                  [{plexo_srv_app,start,2,[{file,...},{...}]},
-                   {application_master,start_it_old,4,[{...}|...]}]}}}}}}
+=PROGRESS REPORT==== 8-Nov-2014::23:20:17 ===
+          supervisor: {<0.838.0>,ranch_listener_sup}
+             started: [{pid,<0.839.0>},
+                       {name,ranch_conns_sup},
+                       {mfargs,
+                           {ranch_conns_sup,start_link,
+                               [http,worker,5000,ranch_tcp,5000,
+                                cowboy_protocol]}},
+                       {restart_type,permanent},
+                       {shutdown,infinity},
+                       {child_type,supervisor}]
+
+=PROGRESS REPORT==== 8-Nov-2014::23:20:17 ===
+          supervisor: {<0.840.0>,ranch_acceptors_sup}
+             started: [{pid,<0.851.0>},
+                       {name,{acceptor,<0.840.0>,11}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.72520>,ranch_tcp,<0.839.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 8-Nov-2014::23:20:17 ===
+          supervisor: {<0.840.0>,ranch_acceptors_sup}
+             started: [{pid,<0.896.0>},
+                       {name,{acceptor,<0.840.0>,56}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.72520>,ranch_tcp,<0.839.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+Started Server...
+
+=PROGRESS REPORT==== 8-Nov-2014::23:20:17 ===
+         application: plexo_srv
+          started_at: nonode@nohost
+
+=PROGRESS REPORT==== 8-Nov-2014::23:20:17 ===
+          supervisor: {local,inets_sup}
+             started: [{pid,<0.946.0>},
+                       {name,ftp_sup},
+                       {mfargs,{ftp_sup,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,infinity},
+                       {child_type,supervisor}]
+Init Handler: {http_req,#Port<0.72522>,ranch_tcp,keepalive,<0.954.0>,
+                        <<"POST">>,'HTTP/1.1',
+                        {{127,0,0,1},50664},
+                        <<"localhost">>,undefined,8877,<<"/api/apps/sasl">>,
+                        undefined,<<>>,
+                        [{app_name,<<"sasl">>}],
+                        [{<<"content-type">>,
+                          <<"application/x-www-form-urlencoded">>},
+                         {<<"content-length">>,<<"0">>},
+                         {<<"te">>,<<>>},
+                         {<<"host">>,<<"localhost:8877">>},
+                         {<<"authorization">>,
+                          <<"Basic VGVtcGxlOldpYmJsZTJXb2JibGU=">>},
+                         {<<"connection">>,<<"keep-alive">>}],
+                        [],waiting,<<>>,undefined,false,waiting,[],<<>>,
+                        undefined} 
+Built RestAction: #{action => #{method => <<"POST">>,
+                      path => <<"/api/apps/sasl">>,
+                      pathInfo => undefined,
+                      url => <<"http://localhost:8877/api/apps/sasl">>,
+                      urlQuery => <<>>,
+                      version => 'HTTP/1.1'},
+                    auth => #{pass => <<"Wibble2Wobble">>,
+                      type => <<"basic">>,
+                      user => <<"Temple">>},
+                    host => #{info => undefined,
+                      name => <<"localhost">>,
+                      port => 8877,
+                      url => <<"http://localhost:8877">>},
+                    peer => #{ip => {127,0,0,1},port => 50664}}
+Encoding: #{<<"appName">> => sasl,<<"appStatus">> => app_running} 
+Encoded: <<"{\"appName\":\"sasl\",\"appStatus\":\"app_running\"}">> 
+terminate: normal 
+test/cb_apps_hndlr_tests.erl:107:<0.229.0>: start_remote_app: #{appName => <<"sasl">>,appStatus => <<"app_running">>}
+
+Init Handler: {http_req,#Port<0.72522>,ranch_tcp,keepalive,<0.954.0>,
+                        <<"POST">>,'HTTP/1.1',
+                        {{127,0,0,1},50664},
+                        <<"localhost">>,undefined,8877,<<"/api/apps/sasl">>,
+                        undefined,<<>>,
+                        [{app_name,<<"sasl">>}],
+                        [{<<"content-type">>,
+                          <<"application/x-www-form-urlencoded">>},
+                         {<<"content-length">>,<<"0">>},
+                         {<<"te">>,<<>>},
+                         {<<"host">>,<<"localhost:8877">>},
+                         {<<"authorization">>,
+                          <<"Basic VGVtcGxlOldpYmJsZTJXb2JibGU=">>},
+                         {<<"connection">>,<<"keep-alive">>}],
+                        [],waiting,<<>>,undefined,false,waiting,[],<<>>,
+                        undefined} 
+Built RestAction: #{action => #{method => <<"POST">>,
+                      path => <<"/api/apps/sasl">>,
+                      pathInfo => undefined,
+                      url => <<"http://localhost:8877/api/apps/sasl">>,
+                      urlQuery => <<>>,
+                      version => 'HTTP/1.1'},
+                    auth => #{pass => <<"Wibble2Wobble">>,
+                      type => <<"basic">>,
+                      user => <<"Temple">>},
+                    host => #{info => undefined,
+                      name => <<"localhost">>,
+                      port => 8877,
+                      url => <<"http://localhost:8877">>},
+                    peer => #{ip => {127,0,0,1},port => 50664}}
+Encoding: #{<<"appName">> => sasl,<<"appStatus">> => app_running} 
+Encoded: <<"{\"appName\":\"sasl\",\"appStatus\":\"app_running\"}">> 
+terminate: normal 
+test/cb_apps_hndlr_tests.erl:107:<0.229.0>: start_remote_app: #{appName => <<"sasl">>,appStatus => <<"app_running">>}
 
 
-test/erts_apps_tests.erl:28:<0.212.0>: Expected Running Apps: [#{app_nfo => #{description => <<"ERTS  CXC 138 10">>,
-                            name => <<"stdlib">>,
-                            version => <<"2.2">>}},
-                        #{app_nfo => #{description => <<"ERTS  CXC 138 10">>,
-                            name => <<"kernel">>,
-                            version => <<"3.0.3">>}}]
+=PROGRESS REPORT==== 8-Nov-2014::23:20:17 ===
+         application: crypto
+          started_at: nonode@nohost
+23:20:17.810 [info] Starting 'plexo_srv' apps: [crypto,ranch,cowlib,cowboy,plexo_srv]
 
-test/erts_apps_tests.erl:32:<0.212.0>: Actual Running Apps: [#{app_nfo => #{description => <<"Small, fast, modular HTTP server.">>,
-                          name => <<"cowboy">>,
-                          version => <<"2.0.0-pre.1">>}},
-                      #{app_nfo => #{description => <<"Support library for manipulating Web protocols.">>,
-                          name => <<"cowlib">>,
-                          version => <<"1.0.0">>}},
-                      #{app_nfo => #{description => <<"Socket acceptor pool for TCP protocols.">>,
-                          name => <<"ranch">>,
-                          version => <<"1.0.0">>}},
-                      #{app_nfo => #{description => <<"CRYPTO">>,
-                          name => <<"crypto">>,
-                          version => <<"3.4.1">>}},
-                      #{app_nfo => #{description => <<"ERTS  CXC 138 10">>,
-                          name => <<"stdlib">>,
-                          version => <<"2.2">>}},
-                      #{app_nfo => #{description => <<"ERTS  CXC 138 10">>,
-                          name => <<"kernel">>,
-                          version => <<"3.0.3">>}}]
+=PROGRESS REPORT==== 8-Nov-2014::23:20:17 ===
+          supervisor: {local,ranch_sup}
+             started: [{pid,<0.961.0>},
+                       {name,ranch_server},
+                       {mfargs,{ranch_server,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,5000},
+                       {child_type,worker}]
 
-test/erts_apps_tests.erl:28:<0.212.0>: Expected Running Apps: [#{app_nfo => #{description => <<"ERTS  CXC 138 10">>,
-                            name => <<"stdlib">>,
-                            version => <<"2.2">>}},
-                        #{app_nfo => #{description => <<"ERTS  CXC 138 10">>,
-                            name => <<"kernel">>,
-                            version => <<"3.0.3">>}}]
-
-test/erts_apps_tests.erl:32:<0.212.0>: Actual Running Apps: [#{app_nfo => #{description => <<"Small, fast, modular HTTP server.">>,
-                          name => <<"cowboy">>,
-                          version => <<"2.0.0-pre.1">>}},
-                      #{app_nfo => #{description => <<"Support library for manipulating Web protocols.">>,
-                          name => <<"cowlib">>,
-                          version => <<"1.0.0">>}},
-                      #{app_nfo => #{description => <<"Socket acceptor pool for TCP protocols.">>,
-                          name => <<"ranch">>,
-                          version => <<"1.0.0">>}},
-                      #{app_nfo => #{description => <<"CRYPTO">>,
-                          name => <<"crypto">>,
-                          version => <<"3.4.1">>}},
-                      #{app_nfo => #{description => <<"ERTS  CXC 138 10">>,
-                          name => <<"stdlib">>,
-                          version => <<"2.2">>}},
-                      #{app_nfo => #{description => <<"ERTS  CXC 138 10">>,
-                          name => <<"kernel">>,
-                          version => <<"3.0.3">>}}]
-
-test/erts_apps_tests.erl:28:<0.212.0>: Expected Running Apps: [#{app_nfo => #{description => <<"ERTS  CXC 138 10">>,
-                            name => <<"stdlib">>,
-                            version => <<"2.2">>}},
-                        #{app_nfo => #{description => <<"ERTS  CXC 138 10">>,
-                            name => <<"kernel">>,
-                            version => <<"3.0.3">>}}]
-
-test/erts_apps_tests.erl:32:<0.212.0>: Actual Running Apps: [#{app_nfo => #{description => <<"Small, fast, modular HTTP server.">>,
-                          name => <<"cowboy">>,
-                          version => <<"2.0.0-pre.1">>}},
-                      #{app_nfo => #{description => <<"Support library for manipulating Web protocols.">>,
-                          name => <<"cowlib">>,
-                          version => <<"1.0.0">>}},
-                      #{app_nfo => #{description => <<"Socket acceptor pool for TCP protocols.">>,
-                          name => <<"ranch">>,
-                          version => <<"1.0.0">>}},
-                      #{app_nfo => #{description => <<"CRYPTO">>,
-                          name => <<"crypto">>,
-                          version => <<"3.4.1">>}},
-                      #{app_nfo => #{description => <<"ERTS  CXC 138 10">>,
-                          name => <<"stdlib">>,
-                          version => <<"2.2">>}},
-                      #{app_nfo => #{description => <<"ERTS  CXC 138 10">>,
-                          name => <<"kernel">>,
-                          version => <<"3.0.3">>}}]
-
-erts_apps_tests:34: test_get_running_apps...*failed*
-in function erts_apps_tests:'-test_get_running_apps/0-fun-0-'/2 (test/erts_apps_tests.erl, line 34)
-**error:{assertEqual_failed,[{module,erts_apps_tests},
-                     {line,34},
-                     {expression,"Actual"},
-                     {expected,[#{app_nfo => #{description => <<"ERTS  CXC 138 10">>,
-                                    name => <<"stdlib">>,
-                                    version => <<"2.2">>}},
-                                #{app_nfo => #{description => <<"ERTS  CXC 138 10">>,
-                                    name => <<"kernel">>,
-                                    version => <<"3.0.3">>}}]},
-                     {value,[#{app_nfo => #{description => <<"Small, fast, modular HTTP se"...>>,
-                                 name => <<"cowboy">>,
-                                 version => <<"2.0.0-pre.1">>}},
-                             #{app_nfo => #{description => <<"Support library for mani"...>>,
-                                 name => <<"cowlib">>,
-                                 version => <<"1.0.0">>}},
-                             #{app_nfo => #{description => <<"Socket acceptor pool"...>>,
-                                 name => <<"ranch">>,
-                                 version => <<"1.0.0">>}},
-                             #{app_nfo => #{description => <<"CRYPTO">>,
-                                 name => <<"crypto">>,
-                                 version => <<"3.4.1">>}},
-                             #{app_nfo => #{description => <<"ERTS  CXC 13"...>>,
-                                 name => <<"stdlib">>,
-                                 version => <<"2.2">>}},
-                             #{app_nfo => #{description => <<"ERTS  CX"...>>,
-                                 name => <<"kern"...>>,
-                                 version => <<...>>}}]}]}
-
-
+=PROGRESS REPORT==== 8-Nov-2014::23:20:17 ===
+         application: cowboy
+          started_at: nonode@nohost
 Starting Cowboy on port 8877...
 RootDir "/usr/local/Cellar/erlang/17.3/lib/erlang"...
 LibDir "/usr/local/Cellar/erlang/17.3/lib/erlang/lib"...
 AppDir "/Users/Temple/Work/dev/projects/plexo/apps/plexo_srv"...
 AppPrivDir "/Users/Temple/Work/dev/projects/plexo/apps/plexo_srv/priv"...
-undefined
 
-=INFO REPORT==== 7-Nov-2014::23:55:16 ===
-    application: plexo_srv
-    exited: {bad_return,
-             {{plexo_srv_app,start,[normal,[]]},
-              {'EXIT',
-               {{badmatch,
-                 {error,
-                  {{shutdown,
-                    {failed_to_start_child,ranch_acceptors_sup,
-                     {{badmatch,{error,eaddrinuse}},
-                      [{ranch_acceptors_sup,init,1,
-                        [{file,"src/ranch_acceptors_sup.erl"},{line,30}]},
-                       {supervisor,init,1,
-                        [{file,"supervisor.erl"},{line,243}]},
-                       {gen_server,init_it,6,
-                        [{file,"gen_server.erl"},{line,306}]},
-                       {proc_lib,init_p_do_apply,3,
-                        [{file,"proc_lib.erl"},{line,237}]}]}}},
-                   {child,undefined,
-                    {ranch_listener_sup,http},
-                    {ranch_listener_sup,start_link,
-                     [http,100,ranch_tcp,
-                      [{port,8877}],
-                      cowboy_protocol,
-                      [{env,
-                        [{dispatch,
-                          [{'_',[],
-                            [{[],[],cowboy_static,
-                              {priv_file,plexo_srv,"assets/plexo.html"}},
-                             {[<<"assets">>,<<"controllers">>,'...'],
-                              [],cowboy_static,
-                              {priv_dir,plexo_srv,"assets/controllers"}},
-                             {[<<"api">>,<<"apps">>],[],cb_apps_hndlr,[]},
-                             {[<<"api">>,<<"apps">>,app_name],
-                              [],cb_apps_hndlr,[]},
-                             {[<<"api">>,<<"app">>,app_name],
-                              [],cb_app_hndlr,[]}]}]}]}]]},
-                    permanent,infinity,supervisor,
-                    [ranch_listener_sup]}}}},
-                [{plexo_srv_app,start,2,
-                  [{file,"src/plexo_srv_app.erl"},{line,62}]},
-                 {application_master,start_it_old,4,
-                  [{file,"application_master.erl"},{line,272}]}]}}}}
-    type: temporary
-*** context setup failed ***
-**in function erts_apps:start_apps/1 (src/erts_apps.erl, line 215)
-in call from erts_apps:'-start_apps/1-lc$^0/1-0-'/1 (src/erts_apps.erl, line 209)
-in call from plexo_srv:start/0 (src/plexo_srv.erl, line 40)
-in call from cb_util_tests:start_plexo_srv/0 (test/cb_util_tests.erl, line 51)
-**error:{badmatch,
-    {error,
-        {bad_return,
-            {{plexo_srv_app,start,[normal,[]]},
-             {'EXIT',
-                 {{badmatch,
-                      {error,
-                          {{shutdown,{failed_to_start_child,...}},
-                           {child,undefined,...}}}},
-                  [{plexo_srv_app,start,2,[{file,...},{...}]},
-                   {application_master,start_it_old,4,[{...}|...]}]}}}}}}
+=PROGRESS REPORT==== 8-Nov-2014::23:20:17 ===
+          supervisor: {<0.971.0>,ranch_listener_sup}
+             started: [{pid,<0.972.0>},
+                       {name,ranch_conns_sup},
+                       {mfargs,
+                           {ranch_conns_sup,start_link,
+                               [http,worker,5000,ranch_tcp,5000,
+                                cowboy_protocol]}},
+                       {restart_type,permanent},
+                       {shutdown,infinity},
+                       {child_type,supervisor}]
 
+=PROGRESS REPORT==== 8-Nov-2014::23:20:17 ===
+          supervisor: {<0.973.0>,ranch_acceptors_sup}
+             started: [{pid,<0.985.0>},
+                       {name,{acceptor,<0.973.0>,12}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.72523>,ranch_tcp,<0.972.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
 
+=PROGRESS REPORT==== 8-Nov-2014::23:20:17 ===
+          supervisor: {<0.973.0>,ranch_acceptors_sup}
+             started: [{pid,<0.1051.0>},
+                       {name,{acceptor,<0.973.0>,78}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.72523>,ranch_tcp,<0.972.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+Started Server...
+
+=PROGRESS REPORT==== 8-Nov-2014::23:20:17 ===
+         application: plexo_srv
+          started_at: nonode@nohost
+
+=PROGRESS REPORT==== 8-Nov-2014::23:20:17 ===
+          supervisor: {local,inets_sup}
+             started: [{pid,<0.1079.0>},
+                       {name,ftp_sup},
+                       {mfargs,{ftp_sup,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,infinity},
+                       {child_type,supervisor}]
+Init Handler: {http_req,#Port<0.72525>,ranch_tcp,keepalive,<0.1087.0>,
+                        <<"GET">>,'HTTP/1.1',
+                        {{127,0,0,1},50665},
+                        <<"localhost">>,undefined,8877,<<"/api/apps">>,
+                        undefined,<<"status=running">>,[],
+                        [{<<"content-length">>,<<"0">>},
+                         {<<"te">>,<<>>},
+                         {<<"host">>,<<"localhost:8877">>},
+                         {<<"authorization">>,
+                          <<"Basic VGVtcGxlOldpYmJsZTJXb2JibGU=">>},
+                         {<<"connection">>,<<"keep-alive">>}],
+                        [],waiting,<<>>,undefined,false,waiting,[],<<>>,
+                        undefined} 
+Built RestAction: #{action => #{method => <<"GET">>,
+                      path => <<"/api/apps">>,
+                      pathInfo => undefined,
+                      url => <<"http://localhost:8877/api/apps?status=running">>,
+                      urlQuery => <<"status=running">>,
+                      version => 'HTTP/1.1'},
+                    auth => #{pass => <<"Wibble2Wobble">>,
+                      type => <<"basic">>,
+                      user => <<"Temple">>},
+                    host => #{info => undefined,
+                      name => <<"localhost">>,
+                      port => 8877,
+                      url => <<"http://localhost:8877">>},
+                    peer => #{ip => {127,0,0,1},port => 50665}}
+Converting: {inets,"INETS  CXC 138 49","5.10.3"} 
+Converting: {plexo_srv,"A simple HTTP REST client for Erlang/Elixir.","0.1.0"} 
+Converting: {cowboy,"Small, fast, modular HTTP server.","2.0.0-pre.1"} 
+Converting: {cowlib,"Support library for manipulating Web protocols.","1.0.0"} 
+Converting: {ranch,"Socket acceptor pool for TCP protocols.","1.1.0"} 
+Converting: {crypto,"CRYPTO","3.4.1"} 
+Converting: {sasl,"SASL  CXC 138 11","2.4.1"} 
+Converting: {lager,"Erlang logging framework","2.0.3"} 
+Converting: {goldrush,"Erlang event stream processor","0.1.6"} 
+Converting: {syntax_tools,"Syntax tools","1.6.16"} 
+Converting: {compiler,"ERTS  CXC 138 10","5.0.2"} 
+Converting: {stdlib,"ERTS  CXC 138 10","2.2"} 
+Converting: {kernel,"ERTS  CXC 138 10","3.0.3"} 
+Encoding: [#{app_nfo => #{description => <<"INETS  CXC 138 49">>,
+               name => <<"inets">>,
+               version => <<"5.10.3">>}},
+           #{app_nfo => #{description => <<"A simple HTTP REST client for Erlang/Elixir.">>,
+               name => <<"plexo_srv">>,
+               version => <<"0.1.0">>}},
+           #{app_nfo => #{description => <<"Small, fast, modular HTTP server.">>,
+               name => <<"cowboy">>,
+               version => <<"2.0.0-pre.1">>}},
+           #{app_nfo => #{description => <<"Support library for manipulating Web protocols.">>,
+               name => <<"cowlib">>,
+               version => <<"1.0.0">>}},
+           #{app_nfo => #{description => <<"Socket acceptor pool for TCP protocols.">>,
+               name => <<"ranch">>,
+               version => <<"1.1.0">>}},
+           #{app_nfo => #{description => <<"CRYPTO">>,name => <<"crypto">>,version => <<"3.4.1">>}},
+           #{app_nfo => #{description => <<"SASL  CXC 138 11">>,
+               name => <<"sasl">>,
+               version => <<"2.4.1">>}},
+           #{app_nfo => #{description => <<"Erlang logging framework">>,
+               name => <<"lager">>,
+               version => <<"2.0.3">>}},
+           #{app_nfo => #{description => <<"Erlang event stream processor">>,
+               name => <<"goldrush">>,
+               version => <<"0.1.6">>}},
+           #{app_nfo => #{description => <<"Syntax tools">>,
+               name => <<"syntax_tools">>,
+               version => <<"1.6.16">>}},
+           #{app_nfo => #{description => <<"ERTS  CXC 138 10">>,
+               name => <<"compiler">>,
+               version => <<"5.0.2">>}},
+           #{app_nfo => #{description => <<"ERTS  CXC 138 10">>,
+               name => <<"stdlib">>,
+               version => <<"2.2">>}},
+           #{app_nfo => #{description => <<"ERTS  CXC 138 10">>,
+               name => <<"kernel">>,
+               version => <<"3.0.3">>}}] 
+Encoded: <<"[{\"app_nfo\":{\"description\":\"INETS  CXC 138 49\",\"name\":\"inets\",\"version\":\"5.10.3\"}},{\"app_nfo\":{\"description\":\"A simple HTTP REST client for Erlang/Elixir.\",\"name\":\"plexo_srv\",\"version\":\"0.1.0\"}},{\"app_nfo\":{\"description\":\"Small, fast, modular HTTP server.\",\"name\":\"cowboy\",\"version\":\"2.0.0-pre.1\"}},{\"app_nfo\":{\"description\":\"Support library for manipulating Web protocols.\",\"name\":\"cowlib\",\"version\":\"1.0.0\"}},{\"app_nfo\":{\"description\":\"Socket acceptor pool for TCP protocols.\",\"name\":\"ranch\",\"version\":\"1.1.0\"}},{\"app_nfo\":{\"description\":\"CRYPTO\",\"name\":\"crypto\",\"version\":\"3.4.1\"}},{\"app_nfo\":{\"description\":\"SASL  CXC 138 11\",\"name\":\"sasl\",\"version\":\"2.4.1\"}},{\"app_nfo\":{\"description\":\"Erlang logging framework\",\"name\":\"lager\",\"version\":\"2.0.3\"}},{\"app_nfo\":{\"description\":\"Erlang event stream processor\",\"name\":\"goldrush\",\"version\":\"0.1.6\"}},{\"app_nfo\":{\"description\":\"Syntax tools\",\"name\":\"syntax_tools\",\"version\":\"1.6.16\"}},{\"app_nfo\":{\"description\":\"ERTS  CXC 138 10\",\"name\":\"compiler\",\"version\":\"5.0.2\"}},{\"app_nfo\":{\"description\":\"ERTS  CXC 138 10\",\"name\":\"stdlib\",\"version\":\"2.2\"}},{\"app_nfo\":{\"description\":\"ERTS  CXC 138 10\",\"name\":\"kernel\",\"version\":\"3.0.3\"}}]">> 
+terminate: normal 
+test/cb_apps_hndlr_tests.erl:131:<0.229.0>: get_remote_apps: [#{app_nfo => #{description => <<"INETS  CXC 138 49">>,
+                      name => <<"inets">>,
+                      version => <<"5.10.3">>}},
+                  #{app_nfo => #{description => <<"A simple HTTP REST client for Erlang/Elixir.">>,
+                      name => <<"plexo_srv">>,
+                      version => <<"0.1.0">>}},
+                  #{app_nfo => #{description => <<"Small, fast, modular HTTP server.">>,
+                      name => <<"cowboy">>,
+                      version => <<"2.0.0-pre.1">>}},
+                  #{app_nfo => #{description => <<"Support library for manipulating Web protocols.">>,
+                      name => <<"cowlib">>,
+                      version => <<"1.0.0">>}},
+                  #{app_nfo => #{description => <<"Socket acceptor pool for TCP protocols.">>,
+                      name => <<"ranch">>,
+                      version => <<"1.1.0">>}},
+                  #{app_nfo => #{description => <<"CRYPTO">>,
+                      name => <<"crypto">>,
+                      version => <<"3.4.1">>}},
+                  #{app_nfo => #{description => <<"SASL  CXC 138 11">>,
+                      name => <<"sasl">>,
+                      version => <<"2.4.1">>}},
+                  #{app_nfo => #{description => <<"Erlang logging framework">>,
+                      name => <<"lager">>,
+                      version => <<"2.0.3">>}},
+                  #{app_nfo => #{description => <<"Erlang event stream processor">>,
+                      name => <<"goldrush">>,
+                      version => <<"0.1.6">>}},
+                  #{app_nfo => #{description => <<"Syntax tools">>,
+                      name => <<"syntax_tools">>,
+                      version => <<"1.6.16">>}},
+                  #{app_nfo => #{description => <<"ERTS  CXC 138 10">>,
+                      name => <<"compiler">>,
+                      version => <<"5.0.2">>}},
+                  #{app_nfo => #{description => <<"ERTS  CXC 138 10">>,
+                      name => <<"stdlib">>,
+                      version => <<"2.2">>}},
+                  #{app_nfo => #{description => <<"ERTS  CXC 138 10">>,
+                      name => <<"kernel">>,
+                      version => <<"3.0.3">>}}]
+
+23:20:17.860 [info] Starting 'plexo_srv' apps: [crypto,ranch,cowlib,cowboy,plexo_srv]
+
+=PROGRESS REPORT==== 8-Nov-2014::23:20:17 ===
+         application: crypto
+          started_at: nonode@nohost
+
+=PROGRESS REPORT==== 8-Nov-2014::23:20:17 ===
+          supervisor: {local,ranch_sup}
+             started: [{pid,<0.1106.0>},
+                       {name,ranch_server},
+                       {mfargs,{ranch_server,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,5000},
+                       {child_type,worker}]
 Starting Cowboy on port 8877...
 RootDir "/usr/local/Cellar/erlang/17.3/lib/erlang"...
 LibDir "/usr/local/Cellar/erlang/17.3/lib/erlang/lib"...
 AppDir "/Users/Temple/Work/dev/projects/plexo/apps/plexo_srv"...
 AppPrivDir "/Users/Temple/Work/dev/projects/plexo/apps/plexo_srv/priv"...
-undefined
 
-=INFO REPORT==== 7-Nov-2014::23:55:16 ===
-    application: plexo_srv
-    exited: {bad_return,
-             {{plexo_srv_app,start,[normal,[]]},
-              {'EXIT',
-               {{badmatch,
-                 {error,
-                  {{shutdown,
-                    {failed_to_start_child,ranch_acceptors_sup,
-                     {{badmatch,{error,eaddrinuse}},
-                      [{ranch_acceptors_sup,init,1,
-                        [{file,"src/ranch_acceptors_sup.erl"},{line,30}]},
-                       {supervisor,init,1,
-                        [{file,"supervisor.erl"},{line,243}]},
-                       {gen_server,init_it,6,
-                        [{file,"gen_server.erl"},{line,306}]},
-                       {proc_lib,init_p_do_apply,3,
-                        [{file,"proc_lib.erl"},{line,237}]}]}}},
-                   {child,undefined,
-                    {ranch_listener_sup,http},
-                    {ranch_listener_sup,start_link,
-                     [http,100,ranch_tcp,
-                      [{port,8877}],
-                      cowboy_protocol,
-                      [{env,
-                        [{dispatch,
-                          [{'_',[],
-                            [{[],[],cowboy_static,
-                              {priv_file,plexo_srv,"assets/plexo.html"}},
-                             {[<<"assets">>,<<"controllers">>,'...'],
-                              [],cowboy_static,
-                              {priv_dir,plexo_srv,"assets/controllers"}},
-                             {[<<"api">>,<<"apps">>],[],cb_apps_hndlr,[]},
-                             {[<<"api">>,<<"apps">>,app_name],
-                              [],cb_apps_hndlr,[]},
-                             {[<<"api">>,<<"app">>,app_name],
-                              [],cb_app_hndlr,[]}]}]}]}]]},
-                    permanent,infinity,supervisor,
-                    [ranch_listener_sup]}}}},
-                [{plexo_srv_app,start,2,
-                  [{file,"src/plexo_srv_app.erl"},{line,62}]},
-                 {application_master,start_it_old,4,
-                  [{file,"application_master.erl"},{line,272}]}]}}}}
-    type: temporary
-*** context setup failed ***
-**in function erts_apps:start_apps/1 (src/erts_apps.erl, line 215)
-in call from erts_apps:'-start_apps/1-lc$^0/1-0-'/1 (src/erts_apps.erl, line 209)
-in call from plexo_srv:start/0 (src/plexo_srv.erl, line 40)
-in call from cb_util_tests:start_plexo_srv/0 (test/cb_util_tests.erl, line 51)
-**error:{badmatch,
-    {error,
-        {bad_return,
-            {{plexo_srv_app,start,[normal,[]]},
-             {'EXIT',
-                 {{badmatch,
-                      {error,
-                          {{shutdown,{failed_to_start_child,...}},
-                           {child,undefined,...}}}},
-                  [{plexo_srv_app,start,2,[{file,...},{...}]},
-                   {application_master,start_it_old,4,[{...}|...]}]}}}}}}
+=PROGRESS REPORT==== 8-Nov-2014::23:20:17 ===
+          supervisor: {<0.1116.0>,ranch_listener_sup}
+             started: [{pid,<0.1117.0>},
+                       {name,ranch_conns_sup},
+                       {mfargs,
+                           {ranch_conns_sup,start_link,
+                               [http,worker,5000,ranch_tcp,5000,
+                                cowboy_protocol]}},
+                       {restart_type,permanent},
+                       {shutdown,infinity},
+                       {child_type,supervisor}]
 
+=PROGRESS REPORT==== 8-Nov-2014::23:20:17 ===
+          supervisor: {<0.1118.0>,ranch_acceptors_sup}
+             started: [{pid,<0.1123.0>},
+                       {name,{acceptor,<0.1118.0>,5}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.72526>,ranch_tcp,<0.1117.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
 
+=PROGRESS REPORT==== 8-Nov-2014::23:20:17 ===
+          supervisor: {<0.1118.0>,ranch_acceptors_sup}
+             started: [{pid,<0.1175.0>},
+                       {name,{acceptor,<0.1118.0>,57}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.72526>,ranch_tcp,<0.1117.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+Started Server...
+
+=PROGRESS REPORT==== 8-Nov-2014::23:20:17 ===
+          supervisor: {<0.1116.0>,ranch_listener_sup}
+             started: [{pid,<0.1118.0>},
+                       {name,ranch_acceptors_sup},
+                       {mfargs,
+                           {ranch_acceptors_sup,start_link,
+                               [http,100,ranch_tcp,[{port,8877}]]}},
+                       {restart_type,permanent},
+                       {shutdown,infinity},
+                       {child_type,supervisor}]
+
+=PROGRESS REPORT==== 8-Nov-2014::23:20:17 ===
+          supervisor: {local,httpc_profile_sup}
+             started: [{pid,<0.1227.0>},
+                       {name,httpc_manager},
+                       {mfargs,
+                           {httpc_manager,start_link,
+                               [default,only_session_cookies,inets]}},
+                       {restart_type,permanent},
+                       {shutdown,4000},
+                       {child_type,worker}]
+Init Handler: {http_req,#Port<0.72528>,ranch_tcp,keepalive,<0.1232.0>,
+                        <<"GET">>,'HTTP/1.1',
+                        {{127,0,0,1},50666},
+                        <<"localhost">>,undefined,8877,<<"/api/apps">>,
+                        undefined,<<"status=loaded">>,[],
+                        [{<<"content-length">>,<<"0">>},
+                         {<<"te">>,<<>>},
+                         {<<"host">>,<<"localhost:8877">>},
+                         {<<"authorization">>,
+                          <<"Basic VGVtcGxlOldpYmJsZTJXb2JibGU=">>},
+                         {<<"connection">>,<<"keep-alive">>}],
+                        [],waiting,<<>>,undefined,false,waiting,[],<<>>,
+                        undefined} 
+Built RestAction: #{action => #{method => <<"GET">>,
+                      path => <<"/api/apps">>,
+                      pathInfo => undefined,
+                      url => <<"http://localhost:8877/api/apps?status=loaded">>,
+                      urlQuery => <<"status=loaded">>,
+                      version => 'HTTP/1.1'},
+                    auth => #{pass => <<"Wibble2Wobble">>,
+                      type => <<"basic">>,
+                      user => <<"Temple">>},
+                    host => #{info => undefined,
+                      name => <<"localhost">>,
+                      port => 8877,
+                      url => <<"http://localhost:8877">>},
+                    peer => #{ip => {127,0,0,1},port => 50666}}
+Converting: {goldrush,"Erlang event stream processor","0.1.6"} 
+Converting: {ranch,"Socket acceptor pool for TCP protocols.","1.1.0"} 
+Converting: {cowlib,"Support library for manipulating Web protocols.","1.0.0"} 
+Converting: {kernel,"ERTS  CXC 138 10","3.0.3"} 
+Converting: {lager,"Erlang logging framework","2.0.3"} 
+Converting: {syntax_tools,"Syntax tools","1.6.16"} 
+Converting: {cowboy,"Small, fast, modular HTTP server.","2.0.0-pre.1"} 
+Converting: {rebar,"Rebar: Erlang Build Tool","2.5.1"} 
+Converting: {compiler,"ERTS  CXC 138 10","5.0.2"} 
+Converting: {inets,"INETS  CXC 138 49","5.10.3"} 
+Converting: {crypto,"CRYPTO","3.4.1"} 
+Converting: {plexo_srv,"A simple HTTP REST client for Erlang/Elixir.","0.1.0"} 
+Converting: {sasl,"SASL  CXC 138 11","2.4.1"} 
+Converting: {stdlib,"ERTS  CXC 138 10","2.2"} 
+Encoding: [#{app_nfo => #{description => <<"Erlang event stream processor">>,
+               name => <<"goldrush">>,
+               version => <<"0.1.6">>}},
+           #{app_nfo => #{description => <<"Socket acceptor pool for TCP protocols.">>,
+               name => <<"ranch">>,
+               version => <<"1.1.0">>}},
+           #{app_nfo => #{description => <<"Support library for manipulating Web protocols.">>,
+               name => <<"cowlib">>,
+               version => <<"1.0.0">>}},
+           #{app_nfo => #{description => <<"ERTS  CXC 138 10">>,
+               name => <<"kernel">>,
+               version => <<"3.0.3">>}},
+           #{app_nfo => #{description => <<"Erlang logging framework">>,
+               name => <<"lager">>,
+               version => <<"2.0.3">>}},
+           #{app_nfo => #{description => <<"Syntax tools">>,
+               name => <<"syntax_tools">>,
+               version => <<"1.6.16">>}},
+           #{app_nfo => #{description => <<"Small, fast, modular HTTP server.">>,
+               name => <<"cowboy">>,
+               version => <<"2.0.0-pre.1">>}},
+           #{app_nfo => #{description => <<"Rebar: Erlang Build Tool">>,
+               name => <<"rebar">>,
+               version => <<"2.5.1">>}},
+           #{app_nfo => #{description => <<"ERTS  CXC 138 10">>,
+               name => <<"compiler">>,
+               version => <<"5.0.2">>}},
+           #{app_nfo => #{description => <<"INETS  CXC 138 49">>,
+               name => <<"inets">>,
+               version => <<"5.10.3">>}},
+           #{app_nfo => #{description => <<"CRYPTO">>,name => <<"crypto">>,version => <<"3.4.1">>}},
+           #{app_nfo => #{description => <<"A simple HTTP REST client for Erlang/Elixir.">>,
+               name => <<"plexo_srv">>,
+               version => <<"0.1.0">>}},
+           #{app_nfo => #{description => <<"SASL  CXC 138 11">>,
+               name => <<"sasl">>,
+               version => <<"2.4.1">>}},
+           #{app_nfo => #{description => <<"ERTS  CXC 138 10">>,
+               name => <<"stdlib">>,
+               version => <<"2.2">>}}] 
+Encoded: <<"[{\"app_nfo\":{\"description\":\"Erlang event stream processor\",\"name\":\"goldrush\",\"version\":\"0.1.6\"}},{\"app_nfo\":{\"description\":\"Socket acceptor pool for TCP protocols.\",\"name\":\"ranch\",\"version\":\"1.1.0\"}},{\"app_nfo\":{\"description\":\"Support library for manipulating Web protocols.\",\"name\":\"cowlib\",\"version\":\"1.0.0\"}},{\"app_nfo\":{\"description\":\"ERTS  CXC 138 10\",\"name\":\"kernel\",\"version\":\"3.0.3\"}},{\"app_nfo\":{\"description\":\"Erlang logging framework\",\"name\":\"lager\",\"version\":\"2.0.3\"}},{\"app_nfo\":{\"description\":\"Syntax tools\",\"name\":\"syntax_tools\",\"version\":\"1.6.16\"}},{\"app_nfo\":{\"description\":\"Small, fast, modular HTTP server.\",\"name\":\"cowboy\",\"version\":\"2.0.0-pre.1\"}},{\"app_nfo\":{\"description\":\"Rebar: Erlang Build Tool\",\"name\":\"rebar\",\"version\":\"2.5.1\"}},{\"app_nfo\":{\"description\":\"ERTS  CXC 138 10\",\"name\":\"compiler\",\"version\":\"5.0.2\"}},{\"app_nfo\":{\"description\":\"INETS  CXC 138 49\",\"name\":\"inets\",\"version\":\"5.10.3\"}},{\"app_nfo\":{\"description\":\"CRYPTO\",\"name\":\"crypto\",\"version\":\"3.4.1\"}},{\"app_nfo\":{\"description\":\"A simple HTTP REST client for Erlang/Elixir.\",\"name\":\"plexo_srv\",\"version\":\"0.1.0\"}},{\"app_nfo\":{\"description\":\"SASL  CXC 138 11\",\"name\":\"sasl\",\"version\":\"2.4.1\"}},{\"app_nfo\":{\"description\":\"ERTS  CXC 138 10\",\"name\":\"stdlib\",\"version\":\"2.2\"}}]">> 
+terminate: normal 
+test/cb_apps_hndlr_tests.erl:131:<0.229.0>: get_remote_apps: [#{app_nfo => #{description => <<"Erlang event stream processor">>,
+                      name => <<"goldrush">>,
+                      version => <<"0.1.6">>}},
+                  #{app_nfo => #{description => <<"Socket acceptor pool for TCP protocols.">>,
+                      name => <<"ranch">>,
+                      version => <<"1.1.0">>}},
+                  #{app_nfo => #{description => <<"Support library for manipulating Web protocols.">>,
+                      name => <<"cowlib">>,
+                      version => <<"1.0.0">>}},
+                  #{app_nfo => #{description => <<"ERTS  CXC 138 10">>,
+                      name => <<"kernel">>,
+                      version => <<"3.0.3">>}},
+                  #{app_nfo => #{description => <<"Erlang logging framework">>,
+                      name => <<"lager">>,
+                      version => <<"2.0.3">>}},
+                  #{app_nfo => #{description => <<"Syntax tools">>,
+                      name => <<"syntax_tools">>,
+                      version => <<"1.6.16">>}},
+                  #{app_nfo => #{description => <<"Small, fast, modular HTTP server.">>,
+                      name => <<"cowboy">>,
+                      version => <<"2.0.0-pre.1">>}},
+                  #{app_nfo => #{description => <<"Rebar: Erlang Build Tool">>,
+                      name => <<"rebar">>,
+                      version => <<"2.5.1">>}},
+                  #{app_nfo => #{description => <<"ERTS  CXC 138 10">>,
+                      name => <<"compiler">>,
+                      version => <<"5.0.2">>}},
+                  #{app_nfo => #{description => <<"INETS  CXC 138 49">>,
+                      name => <<"inets">>,
+                      version => <<"5.10.3">>}},
+                  #{app_nfo => #{description => <<"CRYPTO">>,
+                      name => <<"crypto">>,
+                      version => <<"3.4.1">>}},
+                  #{app_nfo => #{description => <<"A simple HTTP REST client for Erlang/Elixir.">>,
+                      name => <<"plexo_srv">>,
+                      version => <<"0.1.0">>}},
+                  #{app_nfo => #{description => <<"SASL  CXC 138 11">>,
+                      name => <<"sasl">>,
+                      version => <<"2.4.1">>}},
+                  #{app_nfo => #{description => <<"ERTS  CXC 138 10">>,
+                      name => <<"stdlib">>,
+                      version => <<"2.2">>}}]
+
+23:20:17.914 [info] Starting 'plexo_srv' apps: [crypto,ranch,cowlib,cowboy,plexo_srv]
+
+=PROGRESS REPORT==== 8-Nov-2014::23:20:17 ===
+         application: crypto
+          started_at: nonode@nohost
+
+=PROGRESS REPORT==== 8-Nov-2014::23:20:17 ===
+          supervisor: {local,ranch_sup}
+             started: [{pid,<0.1252.0>},
+                       {name,ranch_server},
+                       {mfargs,{ranch_server,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,5000},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 8-Nov-2014::23:20:17 ===
+          supervisor: {local,cowboy_sup}
+             started: [{pid,<0.1258.0>},
+                       {name,cowboy_clock},
+                       {mfargs,{cowboy_clock,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,5000},
+                       {child_type,worker}]
 Starting Cowboy on port 8877...
 RootDir "/usr/local/Cellar/erlang/17.3/lib/erlang"...
 LibDir "/usr/local/Cellar/erlang/17.3/lib/erlang/lib"...
 AppDir "/Users/Temple/Work/dev/projects/plexo/apps/plexo_srv"...
 AppPrivDir "/Users/Temple/Work/dev/projects/plexo/apps/plexo_srv/priv"...
-undefined
 
-=INFO REPORT==== 7-Nov-2014::23:55:16 ===
-    application: plexo_srv
-    exited: {bad_return,
-             {{plexo_srv_app,start,[normal,[]]},
-              {'EXIT',
-               {{badmatch,
-                 {error,
-                  {{shutdown,
-                    {failed_to_start_child,ranch_acceptors_sup,
-                     {{badmatch,{error,eaddrinuse}},
-                      [{ranch_acceptors_sup,init,1,
-                        [{file,"src/ranch_acceptors_sup.erl"},{line,30}]},
-                       {supervisor,init,1,
-                        [{file,"supervisor.erl"},{line,243}]},
-                       {gen_server,init_it,6,
-                        [{file,"gen_server.erl"},{line,306}]},
-                       {proc_lib,init_p_do_apply,3,
-                        [{file,"proc_lib.erl"},{line,237}]}]}}},
-                   {child,undefined,
-                    {ranch_listener_sup,http},
-                    {ranch_listener_sup,start_link,
-                     [http,100,ranch_tcp,
-                      [{port,8877}],
-                      cowboy_protocol,
-                      [{env,
-                        [{dispatch,
-                          [{'_',[],
-                            [{[],[],cowboy_static,
-                              {priv_file,plexo_srv,"assets/plexo.html"}},
-                             {[<<"assets">>,<<"controllers">>,'...'],
-                              [],cowboy_static,
-                              {priv_dir,plexo_srv,"assets/controllers"}},
-                             {[<<"api">>,<<"apps">>],[],cb_apps_hndlr,[]},
-                             {[<<"api">>,<<"apps">>,app_name],
-                              [],cb_apps_hndlr,[]},
-                             {[<<"api">>,<<"app">>,app_name],
-                              [],cb_app_hndlr,[]}]}]}]}]]},
-                    permanent,infinity,supervisor,
-                    [ranch_listener_sup]}}}},
-                [{plexo_srv_app,start,2,
-                  [{file,"src/plexo_srv_app.erl"},{line,62}]},
-                 {application_master,start_it_old,4,
-                  [{file,"application_master.erl"},{line,272}]}]}}}}
-    type: temporary
-*** context setup failed ***
-**in function erts_apps:start_apps/1 (src/erts_apps.erl, line 215)
-in call from erts_apps:'-start_apps/1-lc$^0/1-0-'/1 (src/erts_apps.erl, line 209)
-in call from plexo_srv:start/0 (src/plexo_srv.erl, line 40)
-in call from cb_apps_hndlr_tests:start_plexo_srv/0 (test/cb_apps_hndlr_tests.erl, line 40)
-**error:{badmatch,
-    {error,
-        {bad_return,
-            {{plexo_srv_app,start,[normal,[]]},
-             {'EXIT',
-                 {{badmatch,
-                      {error,
-                          {{shutdown,{failed_to_start_child,...}},
-                           {child,undefined,...}}}},
-                  [{plexo_srv_app,start,2,[{file,...},{...}]},
-                   {application_master,start_it_old,4,[{...}|...]}]}}}}}}
+=PROGRESS REPORT==== 8-Nov-2014::23:20:17 ===
+          supervisor: {<0.1262.0>,ranch_listener_sup}
+             started: [{pid,<0.1263.0>},
+                       {name,ranch_conns_sup},
+                       {mfargs,
+                           {ranch_conns_sup,start_link,
+                               [http,worker,5000,ranch_tcp,5000,
+                                cowboy_protocol]}},
+                       {restart_type,permanent},
+                       {shutdown,infinity},
+                       {child_type,supervisor}]
 
+=PROGRESS REPORT==== 8-Nov-2014::23:20:17 ===
+          supervisor: {<0.1264.0>,ranch_acceptors_sup}
+             started: [{pid,<0.1278.0>},
+                       {name,{acceptor,<0.1264.0>,14}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.72529>,ranch_tcp,<0.1263.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+Started Server...
 
+=PROGRESS REPORT==== 8-Nov-2014::23:20:17 ===
+         application: plexo_srv
+          started_at: nonode@nohost
+
+=PROGRESS REPORT==== 8-Nov-2014::23:20:17 ===
+          supervisor: {local,inets_sup}
+             started: [{pid,<0.1370.0>},
+                       {name,ftp_sup},
+                       {mfargs,{ftp_sup,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,infinity},
+                       {child_type,supervisor}]
+Init Handler: {http_req,#Port<0.72531>,ranch_tcp,keepalive,<0.1378.0>,
+                        <<"GET">>,'HTTP/1.1',
+                        {{127,0,0,1},50667},
+                        <<"localhost">>,undefined,8877,<<"/api/apps">>,
+                        undefined,<<>>,[],
+                        [{<<"content-length">>,<<"0">>},
+                         {<<"te">>,<<>>},
+                         {<<"host">>,<<"localhost:8877">>},
+                         {<<"authorization">>,
+                          <<"Basic VGVtcGxlOldpYmJsZTJXb2JibGU=">>},
+                         {<<"connection">>,<<"keep-alive">>}],
+                        [],waiting,<<>>,undefined,false,waiting,[],<<>>,
+                        undefined} 
+Built RestAction: #{action => #{method => <<"GET">>,
+                      path => <<"/api/apps">>,
+                      pathInfo => undefined,
+                      url => <<"http://localhost:8877/api/apps">>,
+                      urlQuery => <<>>,
+                      version => 'HTTP/1.1'},
+                    auth => #{pass => <<"Wibble2Wobble">>,
+                      type => <<"basic">>,
+                      user => <<"Temple">>},
+                    host => #{info => undefined,
+                      name => <<"localhost">>,
+                      port => 8877,
+                      url => <<"http://localhost:8877">>},
+                    peer => #{ip => {127,0,0,1},port => 50667}}
+terminate: {crash,error,{badmatch,false}} 
+test/cb_apps_hndlr_tests.erl:131:<0.229.0>: get_remote_apps: {500,"Internal Server Error"}
+
+23:20:17.924 [info] Starting 'plexo_srv' apps: [crypto,ranch,cowlib,cowboy,plexo_srv]
+
+=PROGRESS REPORT==== 8-Nov-2014::23:20:17 ===
+         application: crypto
+          started_at: nonode@nohost
+
+=PROGRESS REPORT==== 8-Nov-2014::23:20:17 ===
+          supervisor: {local,ranch_sup}
+             started: [{pid,<0.1385.0>},
+                       {name,ranch_server},
+                       {mfargs,{ranch_server,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,5000},
+                       {child_type,worker}]
 Starting Cowboy on port 8877...
 RootDir "/usr/local/Cellar/erlang/17.3/lib/erlang"...
 LibDir "/usr/local/Cellar/erlang/17.3/lib/erlang/lib"...
 AppDir "/Users/Temple/Work/dev/projects/plexo/apps/plexo_srv"...
 AppPrivDir "/Users/Temple/Work/dev/projects/plexo/apps/plexo_srv/priv"...
-undefined
 
-=INFO REPORT==== 7-Nov-2014::23:55:16 ===
-    application: plexo_srv
-    exited: {bad_return,
-             {{plexo_srv_app,start,[normal,[]]},
-              {'EXIT',
-               {{badmatch,
-                 {error,
-                  {{shutdown,
-                    {failed_to_start_child,ranch_acceptors_sup,
-                     {{badmatch,{error,eaddrinuse}},
-                      [{ranch_acceptors_sup,init,1,
-                        [{file,"src/ranch_acceptors_sup.erl"},{line,30}]},
-                       {supervisor,init,1,
-                        [{file,"supervisor.erl"},{line,243}]},
-                       {gen_server,init_it,6,
-                        [{file,"gen_server.erl"},{line,306}]},
-                       {proc_lib,init_p_do_apply,3,
-                        [{file,"proc_lib.erl"},{line,237}]}]}}},
-                   {child,undefined,
-                    {ranch_listener_sup,http},
-                    {ranch_listener_sup,start_link,
-                     [http,100,ranch_tcp,
-                      [{port,8877}],
-                      cowboy_protocol,
-                      [{env,
-                        [{dispatch,
-                          [{'_',[],
-                            [{[],[],cowboy_static,
-                              {priv_file,plexo_srv,"assets/plexo.html"}},
-                             {[<<"assets">>,<<"controllers">>,'...'],
-                              [],cowboy_static,
-                              {priv_dir,plexo_srv,"assets/controllers"}},
-                             {[<<"api">>,<<"apps">>],[],cb_apps_hndlr,[]},
-                             {[<<"api">>,<<"apps">>,app_name],
-                              [],cb_apps_hndlr,[]},
-                             {[<<"api">>,<<"app">>,app_name],
-                              [],cb_app_hndlr,[]}]}]}]}]]},
-                    permanent,infinity,supervisor,
-                    [ranch_listener_sup]}}}},
-                [{plexo_srv_app,start,2,
-                  [{file,"src/plexo_srv_app.erl"},{line,62}]},
-                 {application_master,start_it_old,4,
-                  [{file,"application_master.erl"},{line,272}]}]}}}}
-    type: temporary
-*** context setup failed ***
-**in function erts_apps:start_apps/1 (src/erts_apps.erl, line 215)
-in call from erts_apps:'-start_apps/1-lc$^0/1-0-'/1 (src/erts_apps.erl, line 209)
-in call from plexo_srv:start/0 (src/plexo_srv.erl, line 40)
-in call from cb_apps_hndlr_tests:start_plexo_srv/0 (test/cb_apps_hndlr_tests.erl, line 40)
-**error:{badmatch,
-    {error,
-        {bad_return,
-            {{plexo_srv_app,start,[normal,[]]},
-             {'EXIT',
-                 {{badmatch,
-                      {error,
-                          {{shutdown,{failed_to_start_child,...}},
-                           {child,undefined,...}}}},
-                  [{plexo_srv_app,start,2,[{file,...},{...}]},
-                   {application_master,start_it_old,4,[{...}|...]}]}}}}}}
+=PROGRESS REPORT==== 8-Nov-2014::23:20:17 ===
+          supervisor: {<0.1395.0>,ranch_listener_sup}
+             started: [{pid,<0.1396.0>},
+                       {name,ranch_conns_sup},
+                       {mfargs,
+                           {ranch_conns_sup,start_link,
+                               [http,worker,5000,ranch_tcp,5000,
+                                cowboy_protocol]}},
+                       {restart_type,permanent},
+                       {shutdown,infinity},
+                       {child_type,supervisor}]
 
+=PROGRESS REPORT==== 8-Nov-2014::23:20:17 ===
+          supervisor: {<0.1397.0>,ranch_acceptors_sup}
+             started: [{pid,<0.1398.0>},
+                       {name,{acceptor,<0.1397.0>,1}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.72532>,ranch_tcp,<0.1396.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
 
+=PROGRESS REPORT==== 8-Nov-2014::23:20:17 ===
+          supervisor: {<0.1397.0>,ranch_acceptors_sup}
+             started: [{pid,<0.1451.0>},
+                       {name,{acceptor,<0.1397.0>,54}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.72532>,ranch_tcp,<0.1396.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+Started Server...
+
+=PROGRESS REPORT==== 8-Nov-2014::23:20:17 ===
+         application: plexo_srv
+          started_at: nonode@nohost
+
+=PROGRESS REPORT==== 8-Nov-2014::23:20:17 ===
+          supervisor: {local,inets_sup}
+             started: [{pid,<0.1503.0>},
+                       {name,ftp_sup},
+                       {mfargs,{ftp_sup,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,infinity},
+                       {child_type,supervisor}]
+Init Handler: {http_req,#Port<0.72534>,ranch_tcp,keepalive,<0.1511.0>,
+                        <<"GET">>,'HTTP/1.1',
+                        {{127,0,0,1},50668},
+                        <<"localhost">>,undefined,8877,<<"/api/apps">>,
+                        undefined,<<"status=bad">>,[],
+                        [{<<"content-length">>,<<"0">>},
+                         {<<"te">>,<<>>},
+                         {<<"host">>,<<"localhost:8877">>},
+                         {<<"authorization">>,
+                          <<"Basic VGVtcGxlOldpYmJsZTJXb2JibGU=">>},
+                         {<<"connection">>,<<"keep-alive">>}],
+                        [],waiting,<<>>,undefined,false,waiting,[],<<>>,
+                        undefined} 
+Built RestAction: #{action => #{method => <<"GET">>,
+                      path => <<"/api/apps">>,
+                      pathInfo => undefined,
+                      url => <<"http://localhost:8877/api/apps?status=bad">>,
+                      urlQuery => <<"status=bad">>,
+                      version => 'HTTP/1.1'},
+                    auth => #{pass => <<"Wibble2Wobble">>,
+                      type => <<"basic">>,
+                      user => <<"Temple">>},
+                    host => #{info => undefined,
+                      name => <<"localhost">>,
+                      port => 8877,
+                      url => <<"http://localhost:8877">>},
+                    peer => #{ip => {127,0,0,1},port => 50668}}
+Encoding: #{error => <<"Error. Bad QueryParam: 'bad'">>} 
+Encoded: <<"{\"error\":\"Error. Bad QueryParam: 'bad'\"}">> 
+terminate: normal 
+test/cb_apps_hndlr_tests.erl:131:<0.229.0>: get_remote_apps: #{error => <<"Error. Bad QueryParam: 'bad'">>}
+
+23:20:17.934 [info] Starting 'plexo_srv' apps: [crypto,ranch,cowlib,cowboy,plexo_srv]
+
+=PROGRESS REPORT==== 8-Nov-2014::23:20:17 ===
+         application: crypto
+          started_at: nonode@nohost
+
+=PROGRESS REPORT==== 8-Nov-2014::23:20:17 ===
+         application: ranch
+          started_at: nonode@nohost
+
+=PROGRESS REPORT==== 8-Nov-2014::23:20:17 ===
+          supervisor: {local,cowboy_sup}
+             started: [{pid,<0.1524.0>},
+                       {name,cowboy_clock},
+                       {mfargs,{cowboy_clock,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,5000},
+                       {child_type,worker}]
 Starting Cowboy on port 8877...
 RootDir "/usr/local/Cellar/erlang/17.3/lib/erlang"...
 LibDir "/usr/local/Cellar/erlang/17.3/lib/erlang/lib"...
 AppDir "/Users/Temple/Work/dev/projects/plexo/apps/plexo_srv"...
 AppPrivDir "/Users/Temple/Work/dev/projects/plexo/apps/plexo_srv/priv"...
-undefined
-Starting Cowboy on port 8877...
 
-=INFO REPORT==== 7-Nov-2014::23:55:16 ===
-    application: plexo_srv
-    exited: {bad_return,
-             {{plexo_srv_app,start,[normal,[]]},
-              {'EXIT',
-               {{badmatch,
-                 {error,
-                  {{shutdown,
-                    {failed_to_start_child,ranch_acceptors_sup,
-                     {{badmatch,{error,eaddrinuse}},
-                      [{ranch_acceptors_sup,init,1,
-                        [{file,"src/ranch_acceptors_sup.erl"},{line,30}]},
-                       {supervisor,init,1,
-                        [{file,"supervisor.erl"},{line,243}]},
-                       {gen_server,init_it,6,
-                        [{file,"gen_server.erl"},{line,306}]},
-                       {proc_lib,init_p_do_apply,3,
-                        [{file,"proc_lib.erl"},{line,237}]}]}}},
-                   {child,undefined,
-                    {ranch_listener_sup,http},
-                    {ranch_listener_sup,start_link,
-                     [http,100,ranch_tcp,
-                      [{port,8877}],
-                      cowboy_protocol,
-                      [{env,
-                        [{dispatch,
-                          [{'_',[],
-                            [{[],[],cowboy_static,
-                              {priv_file,plexo_srv,"assets/plexo.html"}},
-                             {[<<"assets">>,<<"controllers">>,'...'],
-                              [],cowboy_static,
-                              {priv_dir,plexo_srv,"assets/controllers"}},
-                             {[<<"api">>,<<"apps">>],[],cb_apps_hndlr,[]},
-                             {[<<"api">>,<<"apps">>,app_name],
-                              [],cb_apps_hndlr,[]},
-                             {[<<"api">>,<<"app">>,app_name],
-                              [],cb_app_hndlr,[]}]}]}]}]]},
-                    permanent,infinity,supervisor,
-                    [ranch_listener_sup]}}}},
-                [{plexo_srv_app,start,2,
-                  [{file,"src/plexo_srv_app.erl"},{line,62}]},
-                 {application_master,start_it_old,4,
-                  [{file,"application_master.erl"},{line,272}]}]}}}}
-    type: temporary
-RootDir "/usr/local/Cellar/erlang/17.3/lib/erlang"...
-*** context setup failed ***
-**in function erts_apps:start_apps/1 (src/erts_apps.erl, line 215)
-in call from erts_apps:'-start_apps/1-lc$^0/1-0-'/1 (src/erts_apps.erl, line 209)
-in call from plexo_srv:start/0 (src/plexo_srv.erl, line 40)
-in call from cb_apps_hndlr_tests:start_plexo_srv/0 (test/cb_apps_hndlr_tests.erl, line 40)
-**error:{badmatch,
-    {error,
-        {bad_return,
-            {{plexo_srv_app,start,[normal,[]]},
-             {'EXIT',
-                 {{badmatch,
-                      {error,
-                          {{shutdown,{failed_to_start_child,...}},
-                           {child,undefined,...}}}},
-                  [{plexo_srv_app,start,2,[{file,...},{...}]},
-                   {application_master,start_it_old,4,[{...}|...]}]}}}}}}
+=PROGRESS REPORT==== 8-Nov-2014::23:20:17 ===
+          supervisor: {<0.1528.0>,ranch_listener_sup}
+             started: [{pid,<0.1529.0>},
+                       {name,ranch_conns_sup},
+                       {mfargs,
+                           {ranch_conns_sup,start_link,
+                               [http,worker,5000,ranch_tcp,5000,
+                                cowboy_protocol]}},
+                       {restart_type,permanent},
+                       {shutdown,infinity},
+                       {child_type,supervisor}]
 
+=PROGRESS REPORT==== 8-Nov-2014::23:20:17 ===
+          supervisor: {<0.1530.0>,ranch_acceptors_sup}
+             started: [{pid,<0.1531.0>},
+                       {name,{acceptor,<0.1530.0>,1}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.72535>,ranch_tcp,<0.1529.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
 
-LibDir "/usr/local/Cellar/erlang/17.3/lib/erlang/lib"...
-AppDir "/Users/Temple/Work/dev/projects/plexo/apps/plexo_srv"...
-AppPrivDir "/Users/Temple/Work/dev/projects/plexo/apps/plexo_srv/priv"...
+=PROGRESS REPORT==== 8-Nov-2014::23:20:17 ===
+          supervisor: {<0.1530.0>,ranch_acceptors_sup}
+             started: [{pid,<0.1585.0>},
+                       {name,{acceptor,<0.1530.0>,55}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.72535>,ranch_tcp,<0.1529.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
 
-=INFO REPORT==== 7-Nov-2014::23:55:16 ===
-    application: plexo_srv
-    exited: {bad_return,
-             {{plexo_srv_app,start,[normal,[]]},
-              {'EXIT',
-               {{badmatch,
-                 {error,
-                  {{shutdown,
-                    {failed_to_start_child,ranch_acceptors_sup,
-                     {{badmatch,{error,eaddrinuse}},
-                      [{ranch_acceptors_sup,init,1,
-                        [{file,"src/ranch_acceptors_sup.erl"},{line,30}]},
-                       {supervisor,init,1,
-                        [{file,"supervisor.erl"},{line,243}]},
-                       {gen_server,init_it,6,
-                        [{file,"gen_server.erl"},{line,306}]},
-                       {proc_lib,init_p_do_apply,3,
-                        [{file,"proc_lib.erl"},{line,237}]}]}}},
-                   {child,undefined,
-                    {ranch_listener_sup,http},
-                    {ranch_listener_sup,start_link,
-                     [http,100,ranch_tcp,
-                      [{port,8877}],
-                      cowboy_protocol,
-                      [{env,
-                        [{dispatch,
-                          [{'_',[],
-                            [{[],[],cowboy_static,
-                              {priv_file,plexo_srv,"assets/plexo.html"}},
-                             {[<<"assets">>,<<"controllers">>,'...'],
-                              [],cowboy_static,
-                              {priv_dir,plexo_srv,"assets/controllers"}},
-                             {[<<"api">>,<<"apps">>],[],cb_apps_hndlr,[]},
-                             {[<<"api">>,<<"apps">>,app_name],
-                              [],cb_apps_hndlr,[]},
-                             {[<<"api">>,<<"app">>,app_name],
-                              [],cb_app_hndlr,[]}]}]}]}]]},
-                    permanent,infinity,supervisor,
-                    [ranch_listener_sup]}}}},
-                [{plexo_srv_app,start,2,
-                  [{file,"src/plexo_srv_app.erl"},{line,62}]},
-                 {application_master,start_it_old,4,
-                  [{file,"application_master.erl"},{line,272}]}]}}}}
-    type: temporary
-undefined
-Starting Cowboy on port 8877...
-RootDir "/usr/local/Cellar/erlang/17.3/lib/erlang"...
-LibDir "/usr/local/Cellar/erlang/17.3/lib/erlang/lib"...
-AppDir "/Users/Temple/Work/dev/projects/plexo/apps/plexo_srv"...
-AppPrivDir "/Users/Temple/Work/dev/projects/plexo/apps/plexo_srv/priv"...
-*** context setup failed ***
-**in function erts_apps:start_apps/1 (src/erts_apps.erl, line 215)
-in call from erts_apps:'-start_apps/1-lc$^0/1-0-'/1 (src/erts_apps.erl, line 209)
-in call from plexo_srv:start/0 (src/plexo_srv.erl, line 40)
-in call from cb_apps_hndlr_tests:start_plexo_srv/0 (test/cb_apps_hndlr_tests.erl, line 40)
-**error:{badmatch,
-    {error,
-        {bad_return,
-            {{plexo_srv_app,start,[normal,[]]},
-             {'EXIT',
-                 {{badmatch,
-                      {error,
-                          {{shutdown,{failed_to_start_child,...}},
-                           {child,undefined,...}}}},
-                  [{plexo_srv_app,start,2,[{file,...},{...}]},
-                   {application_master,start_it_old,4,[{...}|...]}]}}}}}}
+=PROGRESS REPORT==== 8-Nov-2014::23:20:17 ===
+          supervisor: {<0.1530.0>,ranch_acceptors_sup}
+             started: [{pid,<0.1622.0>},
+                       {name,{acceptor,<0.1530.0>,92}},
+                       {mfargs,
+                           {ranch_acceptor,start_link,
+                               [#Port<0.72535>,ranch_tcp,<0.1529.0>]}},
+                       {restart_type,permanent},
+                       {shutdown,brutal_kill},
+                       {child_type,worker}]
+Started Server...
 
+=PROGRESS REPORT==== 8-Nov-2014::23:20:17 ===
+         application: plexo_srv
+          started_at: nonode@nohost
 
-undefined
-Starting Cowboy on port 8877...
+=PROGRESS REPORT==== 8-Nov-2014::23:20:17 ===
+          supervisor: {local,inets_sup}
+             started: [{pid,<0.1636.0>},
+                       {name,ftp_sup},
+                       {mfargs,{ftp_sup,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,infinity},
+                       {child_type,supervisor}]
+Init Handler: {http_req,#Port<0.72537>,ranch_tcp,keepalive,<0.1644.0>,
+                        <<"DELETE">>,'HTTP/1.1',
+                        {{127,0,0,1},50669},
+                        <<"localhost">>,undefined,8877,<<"/api/app/sasl">>,
+                        undefined,<<>>,
+                        [{app_name,<<"sasl">>}],
+                        [{<<"content-length">>,<<"0">>},
+                         {<<"te">>,<<>>},
+                         {<<"host">>,<<"localhost:8877">>},
+                         {<<"authorization">>,
+                          <<"Basic VGVtcGxlOldpYmJsZTJXb2JibGU=">>},
+                         {<<"connection">>,<<"keep-alive">>}],
+                        [],waiting,<<>>,undefined,false,waiting,[],<<>>,
+                        undefined} 
+Built RestAction: #{action => #{method => <<"DELETE">>,
+                      path => <<"/api/app/sasl">>,
+                      pathInfo => undefined,
+                      url => <<"http://localhost:8877/api/app/sasl">>,
+                      urlQuery => <<>>,
+                      version => 'HTTP/1.1'},
+                    auth => #{pass => <<"Wibble2Wobble">>,
+                      type => <<"basic">>,
+                      user => <<"Temple">>},
+                    host => #{info => undefined,
+                      name => <<"localhost">>,
+                      port => 8877,
+                      url => <<"http://localhost:8877">>},
+                    peer => #{ip => {127,0,0,1},port => 50669}}
+Encoding: #{<<"appName">> => sasl,<<"appStatus">> => app_stopped} 
+Encoded: <<"{\"appName\":\"sasl\",\"appStatus\":\"app_stopped\"}">> 
+terminate: normal 
+test/cb_app_hndlr_tests.erl:148:<0.229.0>: Deleted App Resource: #{appName => <<"sasl">>,appStatus => <<"app_stopped">>}
 
-=INFO REPORT==== 7-Nov-2014::23:55:16 ===
-    application: plexo_srv
-    exited: {bad_return,
-             {{plexo_srv_app,start,[normal,[]]},
-              {'EXIT',
-               {{badmatch,
-                 {error,
-                  {{shutdown,
-                    {failed_to_start_child,ranch_acceptors_sup,
-                     {{badmatch,{error,eaddrinuse}},
-                      [{ranch_acceptors_sup,init,1,
-                        [{file,"src/ranch_acceptors_sup.erl"},{line,30}]},
-                       {supervisor,init,1,
-                        [{file,"supervisor.erl"},{line,243}]},
-                       {gen_server,init_it,6,
-                        [{file,"gen_server.erl"},{line,306}]},
-                       {proc_lib,init_p_do_apply,3,
-                        [{file,"proc_lib.erl"},{line,237}]}]}}},
-                   {child,undefined,
-                    {ranch_listener_sup,http},
-                    {ranch_listener_sup,start_link,
-                     [http,100,ranch_tcp,
-                      [{port,8877}],
-                      cowboy_protocol,
-                      [{env,
-                        [{dispatch,
-                          [{'_',[],
-                            [{[],[],cowboy_static,
-                              {priv_file,plexo_srv,"assets/plexo.html"}},
-                             {[<<"assets">>,<<"controllers">>,'...'],
-                              [],cowboy_static,
-                              {priv_dir,plexo_srv,"assets/controllers"}},
-                             {[<<"api">>,<<"apps">>],[],cb_apps_hndlr,[]},
-                             {[<<"api">>,<<"apps">>,app_name],
-                              [],cb_apps_hndlr,[]},
-                             {[<<"api">>,<<"app">>,app_name],
-                              [],cb_app_hndlr,[]}]}]}]}]]},
-                    permanent,infinity,supervisor,
-                    [ranch_listener_sup]}}}},
-                [{plexo_srv_app,start,2,
-                  [{file,"src/plexo_srv_app.erl"},{line,62}]},
-                 {application_master,start_it_old,4,
-                  [{file,"application_master.erl"},{line,272}]}]}}}}
-    type: temporary
-RootDir "/usr/local/Cellar/erlang/17.3/lib/erlang"...
-*** context setup failed ***
-**in function erts_apps:start_apps/1 (src/erts_apps.erl, line 215)
-in call from erts_apps:'-start_apps/1-lc$^0/1-0-'/1 (src/erts_apps.erl, line 209)
-in call from plexo_srv:start/0 (src/plexo_srv.erl, line 40)
-in call from cb_apps_hndlr_tests:start_plexo_srv/0 (test/cb_apps_hndlr_tests.erl, line 40)
-**error:{badmatch,
-    {error,
-        {bad_return,
-            {{plexo_srv_app,start,[normal,[]]},
-             {'EXIT',
-                 {{badmatch,
-                      {error,
-                          {{shutdown,{failed_to_start_child,...}},
-                           {child,undefined,...}}}},
-                  [{plexo_srv_app,start,2,[{file,...},{...}]},
-                   {application_master,start_it_old,4,[{...}|...]}]}}}}}}
+Init Handler: {http_req,#Port<0.72537>,ranch_tcp,keepalive,<0.1644.0>,
+                        <<"PUT">>,'HTTP/1.1',
+                        {{127,0,0,1},50669},
+                        <<"localhost">>,undefined,8877,<<"/api/app/sasl">>,
+                        undefined,<<>>,
+                        [{app_name,<<"sasl">>}],
+                        [{<<"content-type">>,
+                          <<"application/x-www-form-urlencoded">>},
+                         {<<"content-length">>,<<"0">>},
+                         {<<"te">>,<<>>},
+                         {<<"host">>,<<"localhost:8877">>},
+                         {<<"authorization">>,
+                          <<"Basic VGVtcGxlOldpYmJsZTJXb2JibGU=">>},
+                         {<<"connection">>,<<"keep-alive">>}],
+                        [],waiting,<<>>,undefined,false,waiting,[],<<>>,
+                        undefined} 
+Built RestAction: #{action => #{method => <<"PUT">>,
+                      path => <<"/api/app/sasl">>,
+                      pathInfo => undefined,
+                      url => <<"http://localhost:8877/api/app/sasl">>,
+                      urlQuery => <<>>,
+                      version => 'HTTP/1.1'},
+                    auth => #{pass => <<"Wibble2Wobble">>,
+                      type => <<"basic">>,
+                      user => <<"Temple">>},
+                    host => #{info => undefined,
+                      name => <<"localhost">>,
+                      port => 8877,
+                      url => <<"http://localhost:8877">>},
+                    peer => #{ip => {127,0,0,1},port => 50669}}
 
+=PROGRESS REPORT==== 8-Nov-2014::23:20:17 ===
+          supervisor: {local,sasl_safe_sup}
+             started: [{pid,<0.1650.0>},
+                       {name,alarm_handler},
+                       {mfargs,{alarm_handler,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,2000},
+                       {child_type,worker}]
 
-LibDir "/usr/local/Cellar/erlang/17.3/lib/erlang/lib"...
-AppDir "/Users/Temple/Work/dev/projects/plexo/apps/plexo_srv"...
-AppPrivDir "/Users/Temple/Work/dev/projects/plexo/apps/plexo_srv/priv"...
-undefined
+=PROGRESS REPORT==== 8-Nov-2014::23:20:17 ===
+          supervisor: {local,sasl_safe_sup}
+             started: [{pid,<0.1651.0>},
+                       {name,overload},
+                       {mfargs,{overload,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,2000},
+                       {child_type,worker}]
 
-=INFO REPORT==== 7-Nov-2014::23:55:16 ===
-    application: plexo_srv
-    exited: {bad_return,
-             {{plexo_srv_app,start,[normal,[]]},
-              {'EXIT',
-               {{badmatch,
-                 {error,
-                  {{shutdown,
-                    {failed_to_start_child,ranch_acceptors_sup,
-                     {{badmatch,{error,eaddrinuse}},
-                      [{ranch_acceptors_sup,init,1,
-                        [{file,"src/ranch_acceptors_sup.erl"},{line,30}]},
-                       {supervisor,init,1,
-                        [{file,"supervisor.erl"},{line,243}]},
-                       {gen_server,init_it,6,
-                        [{file,"gen_server.erl"},{line,306}]},
-                       {proc_lib,init_p_do_apply,3,
-                        [{file,"proc_lib.erl"},{line,237}]}]}}},
-                   {child,undefined,
-                    {ranch_listener_sup,http},
-                    {ranch_listener_sup,start_link,
-                     [http,100,ranch_tcp,
-                      [{port,8877}],
-                      cowboy_protocol,
-                      [{env,
-                        [{dispatch,
-                          [{'_',[],
-                            [{[],[],cowboy_static,
-                              {priv_file,plexo_srv,"assets/plexo.html"}},
-                             {[<<"assets">>,<<"controllers">>,'...'],
-                              [],cowboy_static,
-                              {priv_dir,plexo_srv,"assets/controllers"}},
-                             {[<<"api">>,<<"apps">>],[],cb_apps_hndlr,[]},
-                             {[<<"api">>,<<"apps">>,app_name],
-                              [],cb_apps_hndlr,[]},
-                             {[<<"api">>,<<"app">>,app_name],
-                              [],cb_app_hndlr,[]}]}]}]}]]},
-                    permanent,infinity,supervisor,
-                    [ranch_listener_sup]}}}},
-                [{plexo_srv_app,start,2,
-                  [{file,"src/plexo_srv_app.erl"},{line,62}]},
-                 {application_master,start_it_old,4,
-                  [{file,"application_master.erl"},{line,272}]}]}}}}
-    type: temporary
-*** context setup failed ***
-**in function erts_apps:start_apps/1 (src/erts_apps.erl, line 215)
-in call from erts_apps:'-start_apps/1-lc$^0/1-0-'/1 (src/erts_apps.erl, line 209)
-in call from plexo_srv:start/0 (src/plexo_srv.erl, line 40)
-in call from cb_apps_hndlr_tests:start_plexo_srv/0 (test/cb_apps_hndlr_tests.erl, line 40)
-**error:{badmatch,
-    {error,
-        {bad_return,
-            {{plexo_srv_app,start,[normal,[]]},
-             {'EXIT',
-                 {{badmatch,
-                      {error,
-                          {{shutdown,{failed_to_start_child,...}},
-                           {child,undefined,...}}}},
-                  [{plexo_srv_app,start,2,[{file,...},{...}]},
-                   {application_master,start_it_old,4,[{...}|...]}]}}}}}}
+=PROGRESS REPORT==== 8-Nov-2014::23:20:17 ===
+          supervisor: {local,sasl_sup}
+             started: [{pid,<0.1652.0>},
+                       {name,release_handler},
+                       {mfargs,{release_handler,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,2000},
+                       {child_type,worker}]
 
+=PROGRESS REPORT==== 8-Nov-2014::23:20:17 ===
+         application: sasl
+          started_at: nonode@nohost
+Encoding: #{<<"appName">> => sasl,<<"appStatus">> => app_started} 
+Encoded: <<"{\"appName\":\"sasl\",\"appStatus\":\"app_started\"}">> 
+terminate: normal 
+test/cb_app_hndlr_tests.erl:131:<0.229.0>: Created App Resource (Authed): #{appName => <<"sasl">>,appStatus => <<"app_started">>}
 
+Init Handler: {http_req,#Port<0.72537>,ranch_tcp,keepalive,<0.1644.0>,
+                        <<"DELETE">>,'HTTP/1.1',
+                        {{127,0,0,1},50669},
+                        <<"localhost">>,undefined,8877,<<"/api/app/sasl">>,
+                        undefined,<<>>,
+                        [{app_name,<<"sasl">>}],
+                        [{<<"content-length">>,<<"0">>},
+                         {<<"te">>,<<>>},
+                         {<<"host">>,<<"localhost:8877">>},
+                         {<<"authorization">>,
+                          <<"Basic VGVtcGxlOldpYmJsZTJXb2JibGU=">>},
+                         {<<"connection">>,<<"keep-alive">>}],
+                        [],waiting,<<>>,undefined,false,waiting,[],<<>>,
+                        undefined} 
+Built RestAction: #{action => #{method => <<"DELETE">>,
+                      path => <<"/api/app/sasl">>,
+                      pathInfo => undefined,
+                      url => <<"http://localhost:8877/api/app/sasl">>,
+                      urlQuery => <<>>,
+                      version => 'HTTP/1.1'},
+                    auth => #{pass => <<"Wibble2Wobble">>,
+                      type => <<"basic">>,
+                      user => <<"Temple">>},
+                    host => #{info => undefined,
+                      name => <<"localhost">>,
+                      port => 8877,
+                      url => <<"http://localhost:8877">>},
+                    peer => #{ip => {127,0,0,1},port => 50669}}
+Encoding: #{<<"appName">> => sasl,<<"appStatus">> => app_stopped} 
+Encoded: <<"{\"appName\":\"sasl\",\"appStatus\":\"app_stopped\"}">> 
+terminate: normal 
+test/cb_app_hndlr_tests.erl:148:<0.229.0>: Deleted App Resource: #{appName => <<"sasl">>,appStatus => <<"app_stopped">>}
+
+23:20:17.951 [info] Starting 'plexo_srv' apps: [crypto,ranch,cowlib,cowboy,plexo_srv]
 Starting Cowboy on port 8877...
 RootDir "/usr/local/Cellar/erlang/17.3/lib/erlang"...
 LibDir "/usr/local/Cellar/erlang/17.3/lib/erlang/lib"...
 AppDir "/Users/Temple/Work/dev/projects/plexo/apps/plexo_srv"...
 AppPrivDir "/Users/Temple/Work/dev/projects/plexo/apps/plexo_srv/priv"...
-undefined
-Starting Cowboy on port 8877...
+Started Server...
+Init Handler: {http_req,#Port<0.72541>,ranch_tcp,keepalive,<0.1786.0>,
+                        <<"PUT">>,'HTTP/1.1',
+                        {{127,0,0,1},50670},
+                        <<"localhost">>,undefined,8877,<<"/api/app/sasl">>,
+                        undefined,<<>>,
+                        [{app_name,<<"sasl">>}],
+                        [{<<"content-type">>,
+                          <<"application/x-www-form-urlencoded">>},
+                         {<<"content-length">>,<<"0">>},
+                         {<<"te">>,<<>>},
+                         {<<"host">>,<<"localhost:8877">>},
+                         {<<"authorization">>,
+                          <<"Basic VGVtcGxlOldpYmJsZTJXb2JibGU=">>},
+                         {<<"connection">>,<<"keep-alive">>}],
+                        [],waiting,<<>>,undefined,false,waiting,[],<<>>,
+                        undefined} 
+Built RestAction: #{action => #{method => <<"PUT">>,
+                      path => <<"/api/app/sasl">>,
+                      pathInfo => undefined,
+                      url => <<"http://localhost:8877/api/app/sasl">>,
+                      urlQuery => <<>>,
+                      version => 'HTTP/1.1'},
+                    auth => #{pass => <<"Wibble2Wobble">>,
+                      type => <<"basic">>,
+                      user => <<"Temple">>},
+                    host => #{info => undefined,
+                      name => <<"localhost">>,
+                      port => 8877,
+                      url => <<"http://localhost:8877">>},
+                    peer => #{ip => {127,0,0,1},port => 50670}}
 
-=INFO REPORT==== 7-Nov-2014::23:55:16 ===
-    application: plexo_srv
-    exited: {bad_return,
-             {{plexo_srv_app,start,[normal,[]]},
-              {'EXIT',
-               {{badmatch,
-                 {error,
-                  {{shutdown,
-                    {failed_to_start_child,ranch_acceptors_sup,
-                     {{badmatch,{error,eaddrinuse}},
-                      [{ranch_acceptors_sup,init,1,
-                        [{file,"src/ranch_acceptors_sup.erl"},{line,30}]},
-                       {supervisor,init,1,
-                        [{file,"supervisor.erl"},{line,243}]},
-                       {gen_server,init_it,6,
-                        [{file,"gen_server.erl"},{line,306}]},
-                       {proc_lib,init_p_do_apply,3,
-                        [{file,"proc_lib.erl"},{line,237}]}]}}},
-                   {child,undefined,
-                    {ranch_listener_sup,http},
-                    {ranch_listener_sup,start_link,
-                     [http,100,ranch_tcp,
-                      [{port,8877}],
-                      cowboy_protocol,
-                      [{env,
-                        [{dispatch,
-                          [{'_',[],
-                            [{[],[],cowboy_static,
-                              {priv_file,plexo_srv,"assets/plexo.html"}},
-                             {[<<"assets">>,<<"controllers">>,'...'],
-                              [],cowboy_static,
-                              {priv_dir,plexo_srv,"assets/controllers"}},
-                             {[<<"api">>,<<"apps">>],[],cb_apps_hndlr,[]},
-                             {[<<"api">>,<<"apps">>,app_name],
-                              [],cb_apps_hndlr,[]},
-                             {[<<"api">>,<<"app">>,app_name],
-                              [],cb_app_hndlr,[]}]}]}]}]]},
-                    permanent,infinity,supervisor,
-                    [ranch_listener_sup]}}}},
-                [{plexo_srv_app,start,2,
-                  [{file,"src/plexo_srv_app.erl"},{line,62}]},
-                 {application_master,start_it_old,4,
-                  [{file,"application_master.erl"},{line,272}]}]}}}}
-    type: temporary
-*** context setup failed ***
-**in function erts_apps:start_apps/1 (src/erts_apps.erl, line 215)
-in call from erts_apps:'-start_apps/1-lc$^0/1-0-'/1 (src/erts_apps.erl, line 209)
-in call from plexo_srv:start/0 (src/plexo_srv.erl, line 40)
-in call from cb_app_hndlr_tests:start_plexo_srv/0 (test/cb_app_hndlr_tests.erl, line 41)
-**error:{badmatch,
-    {error,
-        {bad_return,
-            {{plexo_srv_app,start,[normal,[]]},
-             {'EXIT',
-                 {{badmatch,
-                      {error,
-                          {{shutdown,{failed_to_start_child,...}},
-                           {child,undefined,...}}}},
-                  [{plexo_srv_app,start,2,[{file,...},{...}]},
-                   {application_master,start_it_old,4,[{...}|...]}]}}}}}}
+=PROGRESS REPORT==== 8-Nov-2014::23:20:17 ===
+          supervisor: {local,sasl_safe_sup}
+             started: [{pid,<0.1792.0>},
+                       {name,alarm_handler},
+                       {mfargs,{alarm_handler,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,2000},
+                       {child_type,worker}]
 
+=PROGRESS REPORT==== 8-Nov-2014::23:20:17 ===
+          supervisor: {local,sasl_safe_sup}
+             started: [{pid,<0.1793.0>},
+                       {name,overload},
+                       {mfargs,{overload,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,2000},
+                       {child_type,worker}]
 
-RootDir "/usr/local/Cellar/erlang/17.3/lib/erlang"...
-LibDir "/usr/local/Cellar/erlang/17.3/lib/erlang/lib"...
-AppDir "/Users/Temple/Work/dev/projects/plexo/apps/plexo_srv"...
-AppPrivDir "/Users/Temple/Work/dev/projects/plexo/apps/plexo_srv/priv"...
-undefined
+=PROGRESS REPORT==== 8-Nov-2014::23:20:17 ===
+          supervisor: {local,sasl_sup}
+             started: [{pid,<0.1794.0>},
+                       {name,release_handler},
+                       {mfargs,{release_handler,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,2000},
+                       {child_type,worker}]
 
-=INFO REPORT==== 7-Nov-2014::23:55:16 ===
-    application: plexo_srv
-    exited: {bad_return,
-             {{plexo_srv_app,start,[normal,[]]},
-              {'EXIT',
-               {{badmatch,
-                 {error,
-                  {{shutdown,
-                    {failed_to_start_child,ranch_acceptors_sup,
-                     {{badmatch,{error,eaddrinuse}},
-                      [{ranch_acceptors_sup,init,1,
-                        [{file,"src/ranch_acceptors_sup.erl"},{line,30}]},
-                       {supervisor,init,1,
-                        [{file,"supervisor.erl"},{line,243}]},
-                       {gen_server,init_it,6,
-                        [{file,"gen_server.erl"},{line,306}]},
-                       {proc_lib,init_p_do_apply,3,
-                        [{file,"proc_lib.erl"},{line,237}]}]}}},
-                   {child,undefined,
-                    {ranch_listener_sup,http},
-                    {ranch_listener_sup,start_link,
-                     [http,100,ranch_tcp,
-                      [{port,8877}],
-                      cowboy_protocol,
-                      [{env,
-                        [{dispatch,
-                          [{'_',[],
-                            [{[],[],cowboy_static,
-                              {priv_file,plexo_srv,"assets/plexo.html"}},
-                             {[<<"assets">>,<<"controllers">>,'...'],
-                              [],cowboy_static,
-                              {priv_dir,plexo_srv,"assets/controllers"}},
-                             {[<<"api">>,<<"apps">>],[],cb_apps_hndlr,[]},
-                             {[<<"api">>,<<"apps">>,app_name],
-                              [],cb_apps_hndlr,[]},
-                             {[<<"api">>,<<"app">>,app_name],
-                              [],cb_app_hndlr,[]}]}]}]}]]},
-                    permanent,infinity,supervisor,
-                    [ranch_listener_sup]}}}},
-                [{plexo_srv_app,start,2,
-                  [{file,"src/plexo_srv_app.erl"},{line,62}]},
-                 {application_master,start_it_old,4,
-                  [{file,"application_master.erl"},{line,272}]}]}}}}
-    type: temporary
-Starting Cowboy on port 8877...
-*** context setup failed ***
-**in function erts_apps:start_apps/1 (src/erts_apps.erl, line 215)
-in call from erts_apps:'-start_apps/1-lc$^0/1-0-'/1 (src/erts_apps.erl, line 209)
-in call from plexo_srv:start/0 (src/plexo_srv.erl, line 40)
-in call from cb_app_hndlr_tests:start_plexo_srv/0 (test/cb_app_hndlr_tests.erl, line 41)
-**error:{badmatch,
-    {error,
-        {bad_return,
-            {{plexo_srv_app,start,[normal,[]]},
-             {'EXIT',
-                 {{badmatch,
-                      {error,
-                          {{shutdown,{failed_to_start_child,...}},
-                           {child,undefined,...}}}},
-                  [{plexo_srv_app,start,2,[{file,...},{...}]},
-                   {application_master,start_it_old,4,[{...}|...]}]}}}}}}
+=PROGRESS REPORT==== 8-Nov-2014::23:20:17 ===
+         application: sasl
+          started_at: nonode@nohost
+Encoding: #{<<"appName">> => sasl,<<"appStatus">> => app_started} 
+Encoded: <<"{\"appName\":\"sasl\",\"appStatus\":\"app_started\"}">> 
+terminate: normal 
+test/cb_app_hndlr_tests.erl:131:<0.229.0>: Created App Resource (Authed): #{appName => <<"sasl">>,appStatus => <<"app_started">>}
 
+Init Handler: {http_req,#Port<0.72541>,ranch_tcp,keepalive,<0.1786.0>,
+                        <<"PUT">>,'HTTP/1.1',
+                        {{127,0,0,1},50670},
+                        <<"localhost">>,undefined,8877,<<"/api/app/sasl">>,
+                        undefined,<<>>,
+                        [{app_name,<<"sasl">>}],
+                        [{<<"content-type">>,
+                          <<"application/x-www-form-urlencoded">>},
+                         {<<"content-length">>,<<"0">>},
+                         {<<"te">>,<<>>},
+                         {<<"host">>,<<"localhost:8877">>},
+                         {<<"authorization">>,
+                          <<"Basic VGVtcGxlOldpYmJsZTJXb2JibGU=">>},
+                         {<<"connection">>,<<"keep-alive">>}],
+                        [],waiting,<<>>,undefined,false,waiting,[],<<>>,
+                        undefined} 
+Built RestAction: #{action => #{method => <<"PUT">>,
+                      path => <<"/api/app/sasl">>,
+                      pathInfo => undefined,
+                      url => <<"http://localhost:8877/api/app/sasl">>,
+                      urlQuery => <<>>,
+                      version => 'HTTP/1.1'},
+                    auth => #{pass => <<"Wibble2Wobble">>,
+                      type => <<"basic">>,
+                      user => <<"Temple">>},
+                    host => #{info => undefined,
+                      name => <<"localhost">>,
+                      port => 8877,
+                      url => <<"http://localhost:8877">>},
+                    peer => #{ip => {127,0,0,1},port => 50670}}
+Encoding: #{<<"appName">> => sasl,<<"appStatus">> => app_running} 
+Encoded: <<"{\"appName\":\"sasl\",\"appStatus\":\"app_running\"}">> 
+terminate: normal 
+test/cb_app_hndlr_tests.erl:131:<0.229.0>: Created App Resource (Authed): #{appName => <<"sasl">>,appStatus => <<"app_running">>}
 
-RootDir "/usr/local/Cellar/erlang/17.3/lib/erlang"...
-LibDir "/usr/local/Cellar/erlang/17.3/lib/erlang/lib"...
-AppDir "/Users/Temple/Work/dev/projects/plexo/apps/plexo_srv"...
-AppPrivDir "/Users/Temple/Work/dev/projects/plexo/apps/plexo_srv/priv"...
+Init Handler: {http_req,#Port<0.72541>,ranch_tcp,keepalive,<0.1786.0>,
+                        <<"DELETE">>,'HTTP/1.1',
+                        {{127,0,0,1},50670},
+                        <<"localhost">>,undefined,8877,<<"/api/app/sasl">>,
+                        undefined,<<>>,
+                        [{app_name,<<"sasl">>}],
+                        [{<<"content-length">>,<<"0">>},
+                         {<<"te">>,<<>>},
+                         {<<"host">>,<<"localhost:8877">>},
+                         {<<"authorization">>,
+                          <<"Basic VGVtcGxlOldpYmJsZTJXb2JibGU=">>},
+                         {<<"connection">>,<<"keep-alive">>}],
+                        [],waiting,<<>>,undefined,false,waiting,[],<<>>,
+                        undefined} 
+Built RestAction: #{action => #{method => <<"DELETE">>,
+                      path => <<"/api/app/sasl">>,
+                      pathInfo => undefined,
+                      url => <<"http://localhost:8877/api/app/sasl">>,
+                      urlQuery => <<>>,
+                      version => 'HTTP/1.1'},
+                    auth => #{pass => <<"Wibble2Wobble">>,
+                      type => <<"basic">>,
+                      user => <<"Temple">>},
+                    host => #{info => undefined,
+                      name => <<"localhost">>,
+                      port => 8877,
+                      url => <<"http://localhost:8877">>},
+                    peer => #{ip => {127,0,0,1},port => 50670}}
+Encoding: #{<<"appName">> => sasl,<<"appStatus">> => app_stopped} 
+Encoded: <<"{\"appName\":\"sasl\",\"appStatus\":\"app_stopped\"}">> 
+terminate: normal 
+test/cb_app_hndlr_tests.erl:148:<0.229.0>: Deleted App Resource: #{appName => <<"sasl">>,appStatus => <<"app_stopped">>}
 
-=INFO REPORT==== 7-Nov-2014::23:55:16 ===
-    application: plexo_srv
-    exited: {bad_return,
-             {{plexo_srv_app,start,[normal,[]]},
-              {'EXIT',
-               {{badmatch,
-                 {error,
-                  {{shutdown,
-                    {failed_to_start_child,ranch_acceptors_sup,
-                     {{badmatch,{error,eaddrinuse}},
-                      [{ranch_acceptors_sup,init,1,
-                        [{file,"src/ranch_acceptors_sup.erl"},{line,30}]},
-                       {supervisor,init,1,
-                        [{file,"supervisor.erl"},{line,243}]},
-                       {gen_server,init_it,6,
-                        [{file,"gen_server.erl"},{line,306}]},
-                       {proc_lib,init_p_do_apply,3,
-                        [{file,"proc_lib.erl"},{line,237}]}]}}},
-                   {child,undefined,
-                    {ranch_listener_sup,http},
-                    {ranch_listener_sup,start_link,
-                     [http,100,ranch_tcp,
-                      [{port,8877}],
-                      cowboy_protocol,
-                      [{env,
-                        [{dispatch,
-                          [{'_',[],
-                            [{[],[],cowboy_static,
-                              {priv_file,plexo_srv,"assets/plexo.html"}},
-                             {[<<"assets">>,<<"controllers">>,'...'],
-                              [],cowboy_static,
-                              {priv_dir,plexo_srv,"assets/controllers"}},
-                             {[<<"api">>,<<"apps">>],[],cb_apps_hndlr,[]},
-                             {[<<"api">>,<<"apps">>,app_name],
-                              [],cb_apps_hndlr,[]},
-                             {[<<"api">>,<<"app">>,app_name],
-                              [],cb_app_hndlr,[]}]}]}]}]]},
-                    permanent,infinity,supervisor,
-                    [ranch_listener_sup]}}}},
-                [{plexo_srv_app,start,2,
-                  [{file,"src/plexo_srv_app.erl"},{line,62}]},
-                 {application_master,start_it_old,4,
-                  [{file,"application_master.erl"},{line,272}]}]}}}}
-    type: temporary
-undefined
+23:20:17.972 [info] Starting 'plexo_srv' apps: [crypto,ranch,cowlib,cowboy,plexo_srv]
 Starting Cowboy on port 8877...
 RootDir "/usr/local/Cellar/erlang/17.3/lib/erlang"...
 LibDir "/usr/local/Cellar/erlang/17.3/lib/erlang/lib"...
 AppDir "/Users/Temple/Work/dev/projects/plexo/apps/plexo_srv"...
 AppPrivDir "/Users/Temple/Work/dev/projects/plexo/apps/plexo_srv/priv"...
-*** context setup failed ***
-**in function erts_apps:start_apps/1 (src/erts_apps.erl, line 215)
-in call from erts_apps:'-start_apps/1-lc$^0/1-0-'/1 (src/erts_apps.erl, line 209)
-in call from plexo_srv:start/0 (src/plexo_srv.erl, line 40)
-in call from cb_app_hndlr_tests:start_plexo_srv/0 (test/cb_app_hndlr_tests.erl, line 41)
-**error:{badmatch,
-    {error,
-        {bad_return,
-            {{plexo_srv_app,start,[normal,[]]},
-             {'EXIT',
-                 {{badmatch,
-                      {error,
-                          {{shutdown,{failed_to_start_child,...}},
-                           {child,undefined,...}}}},
-                  [{plexo_srv_app,start,2,[{file,...},{...}]},
-                   {application_master,start_it_old,4,[{...}|...]}]}}}}}}
+Started Server...
+Init Handler: {http_req,#Port<0.72545>,ranch_tcp,keepalive,<0.1928.0>,
+                        <<"PUT">>,'HTTP/1.1',
+                        {{127,0,0,1},50671},
+                        <<"localhost">>,undefined,8877,<<"/api/app/sasl">>,
+                        undefined,<<>>,
+                        [{app_name,<<"sasl">>}],
+                        [{<<"content-type">>,
+                          <<"application/x-www-form-urlencoded">>},
+                         {<<"content-length">>,<<"0">>},
+                         {<<"te">>,<<>>},
+                         {<<"host">>,<<"localhost:8877">>},
+                         {<<"authorization">>,
+                          <<"Basic VGVtcGxlOldpYmJsZTJXb2JibGU=">>},
+                         {<<"connection">>,<<"keep-alive">>}],
+                        [],waiting,<<>>,undefined,false,waiting,[],<<>>,
+                        undefined} 
+Built RestAction: #{action => #{method => <<"PUT">>,
+                      path => <<"/api/app/sasl">>,
+                      pathInfo => undefined,
+                      url => <<"http://localhost:8877/api/app/sasl">>,
+                      urlQuery => <<>>,
+                      version => 'HTTP/1.1'},
+                    auth => #{pass => <<"Wibble2Wobble">>,
+                      type => <<"basic">>,
+                      user => <<"Temple">>},
+                    host => #{info => undefined,
+                      name => <<"localhost">>,
+                      port => 8877,
+                      url => <<"http://localhost:8877">>},
+                    peer => #{ip => {127,0,0,1},port => 50671}}
 
+=PROGRESS REPORT==== 8-Nov-2014::23:20:17 ===
+          supervisor: {local,sasl_safe_sup}
+             started: [{pid,<0.1934.0>},
+                       {name,alarm_handler},
+                       {mfargs,{alarm_handler,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,2000},
+                       {child_type,worker}]
 
-undefined
+=PROGRESS REPORT==== 8-Nov-2014::23:20:17 ===
+          supervisor: {local,sasl_safe_sup}
+             started: [{pid,<0.1935.0>},
+                       {name,overload},
+                       {mfargs,{overload,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,2000},
+                       {child_type,worker}]
 
-=INFO REPORT==== 7-Nov-2014::23:55:16 ===
-    application: plexo_srv
-    exited: {bad_return,
-             {{plexo_srv_app,start,[normal,[]]},
-              {'EXIT',
-               {{badmatch,
-                 {error,
-                  {{shutdown,
-                    {failed_to_start_child,ranch_acceptors_sup,
-                     {{badmatch,{error,eaddrinuse}},
-                      [{ranch_acceptors_sup,init,1,
-                        [{file,"src/ranch_acceptors_sup.erl"},{line,30}]},
-                       {supervisor,init,1,
-                        [{file,"supervisor.erl"},{line,243}]},
-                       {gen_server,init_it,6,
-                        [{file,"gen_server.erl"},{line,306}]},
-                       {proc_lib,init_p_do_apply,3,
-                        [{file,"proc_lib.erl"},{line,237}]}]}}},
-                   {child,undefined,
-                    {ranch_listener_sup,http},
-                    {ranch_listener_sup,start_link,
-                     [http,100,ranch_tcp,
-                      [{port,8877}],
-                      cowboy_protocol,
-                      [{env,
-                        [{dispatch,
-                          [{'_',[],
-                            [{[],[],cowboy_static,
-                              {priv_file,plexo_srv,"assets/plexo.html"}},
-                             {[<<"assets">>,<<"controllers">>,'...'],
-                              [],cowboy_static,
-                              {priv_dir,plexo_srv,"assets/controllers"}},
-                             {[<<"api">>,<<"apps">>],[],cb_apps_hndlr,[]},
-                             {[<<"api">>,<<"apps">>,app_name],
-                              [],cb_apps_hndlr,[]},
-                             {[<<"api">>,<<"app">>,app_name],
-                              [],cb_app_hndlr,[]}]}]}]}]]},
-                    permanent,infinity,supervisor,
-                    [ranch_listener_sup]}}}},
-                [{plexo_srv_app,start,2,
-                  [{file,"src/plexo_srv_app.erl"},{line,62}]},
-                 {application_master,start_it_old,4,
-                  [{file,"application_master.erl"},{line,272}]}]}}}}
-    type: temporary
-*** context setup failed ***
-**in function erts_apps:start_apps/1 (src/erts_apps.erl, line 215)
-in call from erts_apps:'-start_apps/1-lc$^0/1-0-'/1 (src/erts_apps.erl, line 209)
-in call from plexo_srv:start/0 (src/plexo_srv.erl, line 40)
-in call from cb_app_hndlr_tests:start_plexo_srv/0 (test/cb_app_hndlr_tests.erl, line 41)
-**error:{badmatch,
-    {error,
-        {bad_return,
-            {{plexo_srv_app,start,[normal,[]]},
-             {'EXIT',
-                 {{badmatch,
-                      {error,
-                          {{shutdown,{failed_to_start_child,...}},
-                           {child,undefined,...}}}},
-                  [{plexo_srv_app,start,2,[{file,...},{...}]},
-                   {application_master,start_it_old,4,[{...}|...]}]}}}}}}
+=PROGRESS REPORT==== 8-Nov-2014::23:20:17 ===
+          supervisor: {local,sasl_sup}
+             started: [{pid,<0.1936.0>},
+                       {name,release_handler},
+                       {mfargs,{release_handler,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,2000},
+                       {child_type,worker}]
 
+=PROGRESS REPORT==== 8-Nov-2014::23:20:17 ===
+         application: sasl
+          started_at: nonode@nohost
+Encoding: #{<<"appName">> => sasl,<<"appStatus">> => app_started} 
+Encoded: <<"{\"appName\":\"sasl\",\"appStatus\":\"app_started\"}">> 
+terminate: normal 
+test/cb_app_hndlr_tests.erl:131:<0.229.0>: Created App Resource (Authed): #{appName => <<"sasl">>,appStatus => <<"app_started">>}
 
+Init Handler: {http_req,#Port<0.72545>,ranch_tcp,keepalive,<0.1928.0>,
+                        <<"DELETE">>,'HTTP/1.1',
+                        {{127,0,0,1},50671},
+                        <<"localhost">>,undefined,8877,<<"/api/app/sasl">>,
+                        undefined,<<>>,
+                        [{app_name,<<"sasl">>}],
+                        [{<<"content-length">>,<<"0">>},
+                         {<<"te">>,<<>>},
+                         {<<"host">>,<<"localhost:8877">>},
+                         {<<"authorization">>,
+                          <<"Basic VGVtcGxlOldpYmJsZTJXb2JibGU=">>},
+                         {<<"connection">>,<<"keep-alive">>}],
+                        [],waiting,<<>>,undefined,false,waiting,[],<<>>,
+                        undefined} 
+Built RestAction: #{action => #{method => <<"DELETE">>,
+                      path => <<"/api/app/sasl">>,
+                      pathInfo => undefined,
+                      url => <<"http://localhost:8877/api/app/sasl">>,
+                      urlQuery => <<>>,
+                      version => 'HTTP/1.1'},
+                    auth => #{pass => <<"Wibble2Wobble">>,
+                      type => <<"basic">>,
+                      user => <<"Temple">>},
+                    host => #{info => undefined,
+                      name => <<"localhost">>,
+                      port => 8877,
+                      url => <<"http://localhost:8877">>},
+                    peer => #{ip => {127,0,0,1},port => 50671}}
+Encoding: #{<<"appName">> => sasl,<<"appStatus">> => app_stopped} 
+Encoded: <<"{\"appName\":\"sasl\",\"appStatus\":\"app_stopped\"}">> 
+terminate: normal 
+test/cb_app_hndlr_tests.erl:148:<0.229.0>: Deleted App Resource: #{appName => <<"sasl">>,appStatus => <<"app_stopped">>}
+
+Init Handler: {http_req,#Port<0.72545>,ranch_tcp,keepalive,<0.1928.0>,
+                        <<"DELETE">>,'HTTP/1.1',
+                        {{127,0,0,1},50671},
+                        <<"localhost">>,undefined,8877,<<"/api/app/sasl">>,
+                        undefined,<<>>,
+                        [{app_name,<<"sasl">>}],
+                        [{<<"content-length">>,<<"0">>},
+                         {<<"te">>,<<>>},
+                         {<<"host">>,<<"localhost:8877">>},
+                         {<<"authorization">>,
+                          <<"Basic VGVtcGxlOldpYmJsZTJXb2JibGU=">>},
+                         {<<"connection">>,<<"keep-alive">>}],
+                        [],waiting,<<>>,undefined,false,waiting,[],<<>>,
+                        undefined} 
+Built RestAction: #{action => #{method => <<"DELETE">>,
+                      path => <<"/api/app/sasl">>,
+                      pathInfo => undefined,
+                      url => <<"http://localhost:8877/api/app/sasl">>,
+                      urlQuery => <<>>,
+                      version => 'HTTP/1.1'},
+                    auth => #{pass => <<"Wibble2Wobble">>,
+                      type => <<"basic">>,
+                      user => <<"Temple">>},
+                    host => #{info => undefined,
+                      name => <<"localhost">>,
+                      port => 8877,
+                      url => <<"http://localhost:8877">>},
+                    peer => #{ip => {127,0,0,1},port => 50671}}
+Encoding: #{<<"appName">> => sasl,<<"appStatus">> => app_not_running} 
+Encoded: <<"{\"appName\":\"sasl\",\"appStatus\":\"app_not_running\"}">> 
+terminate: normal 
+test/cb_app_hndlr_tests.erl:148:<0.229.0>: Deleted App Resource: #{appName => <<"sasl">>,appStatus => <<"app_not_running">>}
+
+23:20:17.987 [info] Starting 'plexo_srv' apps: [crypto,ranch,cowlib,cowboy,plexo_srv]
 Starting Cowboy on port 8877...
 RootDir "/usr/local/Cellar/erlang/17.3/lib/erlang"...
 LibDir "/usr/local/Cellar/erlang/17.3/lib/erlang/lib"...
 AppDir "/Users/Temple/Work/dev/projects/plexo/apps/plexo_srv"...
 AppPrivDir "/Users/Temple/Work/dev/projects/plexo/apps/plexo_srv/priv"...
-undefined
+Started Server...
+Init Handler: {http_req,#Port<0.72549>,ranch_tcp,keepalive,<0.2070.0>,
+                        <<"DELETE">>,'HTTP/1.1',
+                        {{127,0,0,1},50672},
+                        <<"localhost">>,undefined,8877,<<"/api/app/sasl">>,
+                        undefined,<<>>,
+                        [{app_name,<<"sasl">>}],
+                        [{<<"content-length">>,<<"0">>},
+                         {<<"te">>,<<>>},
+                         {<<"host">>,<<"localhost:8877">>},
+                         {<<"authorization">>,
+                          <<"Basic VGVtcGxlOldpYmJsZTJXb2JibGU=">>},
+                         {<<"connection">>,<<"keep-alive">>}],
+                        [],waiting,<<>>,undefined,false,waiting,[],<<>>,
+                        undefined} 
+Built RestAction: #{action => #{method => <<"DELETE">>,
+                      path => <<"/api/app/sasl">>,
+                      pathInfo => undefined,
+                      url => <<"http://localhost:8877/api/app/sasl">>,
+                      urlQuery => <<>>,
+                      version => 'HTTP/1.1'},
+                    auth => #{pass => <<"Wibble2Wobble">>,
+                      type => <<"basic">>,
+                      user => <<"Temple">>},
+                    host => #{info => undefined,
+                      name => <<"localhost">>,
+                      port => 8877,
+                      url => <<"http://localhost:8877">>},
+                    peer => #{ip => {127,0,0,1},port => 50672}}
+Encoding: #{<<"appName">> => sasl,<<"appStatus">> => app_not_running} 
+Encoded: <<"{\"appName\":\"sasl\",\"appStatus\":\"app_not_running\"}">> 
+terminate: normal 
+test/cb_app_hndlr_tests.erl:148:<0.229.0>: Deleted App Resource: #{appName => <<"sasl">>,appStatus => <<"app_not_running">>}
 
-=INFO REPORT==== 7-Nov-2014::23:55:16 ===
-    application: plexo_srv
-    exited: {bad_return,
-             {{plexo_srv_app,start,[normal,[]]},
-              {'EXIT',
-               {{badmatch,
-                 {error,
-                  {{shutdown,
-                    {failed_to_start_child,ranch_acceptors_sup,
-                     {{badmatch,{error,eaddrinuse}},
-                      [{ranch_acceptors_sup,init,1,
-                        [{file,"src/ranch_acceptors_sup.erl"},{line,30}]},
-                       {supervisor,init,1,
-                        [{file,"supervisor.erl"},{line,243}]},
-                       {gen_server,init_it,6,
-                        [{file,"gen_server.erl"},{line,306}]},
-                       {proc_lib,init_p_do_apply,3,
-                        [{file,"proc_lib.erl"},{line,237}]}]}}},
-                   {child,undefined,
-                    {ranch_listener_sup,http},
-                    {ranch_listener_sup,start_link,
-                     [http,100,ranch_tcp,
-                      [{port,8877}],
-                      cowboy_protocol,
-                      [{env,
-                        [{dispatch,
-                          [{'_',[],
-                            [{[],[],cowboy_static,
-                              {priv_file,plexo_srv,"assets/plexo.html"}},
-                             {[<<"assets">>,<<"controllers">>,'...'],
-                              [],cowboy_static,
-                              {priv_dir,plexo_srv,"assets/controllers"}},
-                             {[<<"api">>,<<"apps">>],[],cb_apps_hndlr,[]},
-                             {[<<"api">>,<<"apps">>,app_name],
-                              [],cb_apps_hndlr,[]},
-                             {[<<"api">>,<<"app">>,app_name],
-                              [],cb_app_hndlr,[]}]}]}]}]]},
-                    permanent,infinity,supervisor,
-                    [ranch_listener_sup]}}}},
-                [{plexo_srv_app,start,2,
-                  [{file,"src/plexo_srv_app.erl"},{line,62}]},
-                 {application_master,start_it_old,4,
-                  [{file,"application_master.erl"},{line,272}]}]}}}}
-    type: temporary
-*** context setup failed ***
-**in function erts_apps:start_apps/1 (src/erts_apps.erl, line 215)
-in call from erts_apps:'-start_apps/1-lc$^0/1-0-'/1 (src/erts_apps.erl, line 209)
-in call from plexo_srv:start/0 (src/plexo_srv.erl, line 40)
-in call from cb_app_hndlr_tests:start_plexo_srv/0 (test/cb_app_hndlr_tests.erl, line 41)
-**error:{badmatch,
-    {error,
-        {bad_return,
-            {{plexo_srv_app,start,[normal,[]]},
-             {'EXIT',
-                 {{badmatch,
-                      {error,
-                          {{shutdown,{failed_to_start_child,...}},
-                           {child,undefined,...}}}},
-                  [{plexo_srv_app,start,2,[{file,...},{...}]},
-                   {application_master,start_it_old,4,[{...}|...]}]}}}}}}
+Init Handler: {http_req,#Port<0.72549>,ranch_tcp,keepalive,<0.2070.0>,
+                        <<"DELETE">>,'HTTP/1.1',
+                        {{127,0,0,1},50672},
+                        <<"localhost">>,undefined,8877,<<"/api/app/sasl">>,
+                        undefined,<<>>,
+                        [{app_name,<<"sasl">>}],
+                        [{<<"content-length">>,<<"0">>},
+                         {<<"te">>,<<>>},
+                         {<<"host">>,<<"localhost:8877">>},
+                         {<<"authorization">>,
+                          <<"Basic VGVtcGxlOldpYmJsZTJXb2JibGU=">>},
+                         {<<"connection">>,<<"keep-alive">>}],
+                        [],waiting,<<>>,undefined,false,waiting,[],<<>>,
+                        undefined} 
+Built RestAction: #{action => #{method => <<"DELETE">>,
+                      path => <<"/api/app/sasl">>,
+                      pathInfo => undefined,
+                      url => <<"http://localhost:8877/api/app/sasl">>,
+                      urlQuery => <<>>,
+                      version => 'HTTP/1.1'},
+                    auth => #{pass => <<"Wibble2Wobble">>,
+                      type => <<"basic">>,
+                      user => <<"Temple">>},
+                    host => #{info => undefined,
+                      name => <<"localhost">>,
+                      port => 8877,
+                      url => <<"http://localhost:8877">>},
+                    peer => #{ip => {127,0,0,1},port => 50672}}
+Encoding: #{<<"appName">> => sasl,<<"appStatus">> => app_not_running} 
+Encoded: <<"{\"appName\":\"sasl\",\"appStatus\":\"app_not_running\"}">> 
+terminate: normal 
+test/cb_app_hndlr_tests.erl:148:<0.229.0>: Deleted App Resource: #{appName => <<"sasl">>,appStatus => <<"app_not_running">>}
 
+Init Handler: {http_req,#Port<0.72549>,ranch_tcp,keepalive,<0.2070.0>,
+                        <<"DELETE">>,'HTTP/1.1',
+                        {{127,0,0,1},50672},
+                        <<"localhost">>,undefined,8877,<<"/api/app/sasl">>,
+                        undefined,<<>>,
+                        [{app_name,<<"sasl">>}],
+                        [{<<"content-length">>,<<"0">>},
+                         {<<"te">>,<<>>},
+                         {<<"host">>,<<"localhost:8877">>},
+                         {<<"authorization">>,
+                          <<"Basic VGVtcGxlOldpYmJsZTJXb2JibGU=">>},
+                         {<<"connection">>,<<"keep-alive">>}],
+                        [],waiting,<<>>,undefined,false,waiting,[],<<>>,
+                        undefined} 
+Built RestAction: #{action => #{method => <<"DELETE">>,
+                      path => <<"/api/app/sasl">>,
+                      pathInfo => undefined,
+                      url => <<"http://localhost:8877/api/app/sasl">>,
+                      urlQuery => <<>>,
+                      version => 'HTTP/1.1'},
+                    auth => #{pass => <<"Wibble2Wobble">>,
+                      type => <<"basic">>,
+                      user => <<"Temple">>},
+                    host => #{info => undefined,
+                      name => <<"localhost">>,
+                      port => 8877,
+                      url => <<"http://localhost:8877">>},
+                    peer => #{ip => {127,0,0,1},port => 50672}}
+Encoding: #{<<"appName">> => sasl,<<"appStatus">> => app_not_running} 
+Encoded: <<"{\"appName\":\"sasl\",\"appStatus\":\"app_not_running\"}">> 
+terminate: normal 
+test/cb_app_hndlr_tests.erl:148:<0.229.0>: Deleted App Resource: #{appName => <<"sasl">>,appStatus => <<"app_not_running">>}
 
-=======================================================
-  Failed: 1.  Skipped: 0.  Passed: 16.
-One or more tests were cancelled.
+23:20:17.998 [info] Starting 'plexo_srv' apps: [crypto,ranch,cowlib,cowboy,plexo_srv]
+Starting Cowboy on port 8877...
+RootDir "/usr/local/Cellar/erlang/17.3/lib/erlang"...
+LibDir "/usr/local/Cellar/erlang/17.3/lib/erlang/lib"...
+AppDir "/Users/Temple/Work/dev/projects/plexo/apps/plexo_srv"...
+AppPrivDir "/Users/Temple/Work/dev/projects/plexo/apps/plexo_srv/priv"...
+23:20:18.000 [warning] lager_error_logger_h dropped 1008 messages in the last second that exceeded the limit of 50 messages/sec
+Started Server...
+Init Handler: {http_req,#Port<0.72552>,ranch_tcp,keepalive,<0.2203.0>,
+                        <<"PUT">>,'HTTP/1.1',
+                        {{127,0,0,1},50673},
+                        <<"localhost">>,undefined,8877,<<"/api/app/sasl">>,
+                        undefined,<<>>,
+                        [{app_name,<<"sasl">>}],
+                        [{<<"content-type">>,
+                          <<"application/x-www-form-urlencoded">>},
+                         {<<"content-length">>,<<"0">>},
+                         {<<"te">>,<<>>},
+                         {<<"host">>,<<"localhost:8877">>},
+                         {<<"authorization">>,
+                          <<"Basic VGVtcGxlOldpYmJsZTJXb2JibGU=">>},
+                         {<<"connection">>,<<"keep-alive">>}],
+                        [],waiting,<<>>,undefined,false,waiting,[],<<>>,
+                        undefined} 
+Built RestAction: #{action => #{method => <<"PUT">>,
+                      path => <<"/api/app/sasl">>,
+                      pathInfo => undefined,
+                      url => <<"http://localhost:8877/api/app/sasl">>,
+                      urlQuery => <<>>,
+                      version => 'HTTP/1.1'},
+                    auth => #{pass => <<"Wibble2Wobble">>,
+                      type => <<"basic">>,
+                      user => <<"Temple">>},
+                    host => #{info => undefined,
+                      name => <<"localhost">>,
+                      port => 8877,
+                      url => <<"http://localhost:8877">>},
+                    peer => #{ip => {127,0,0,1},port => 50673}}
+
+=PROGRESS REPORT==== 8-Nov-2014::23:20:18 ===
+          supervisor: {local,sasl_safe_sup}
+             started: [{pid,<0.2209.0>},
+                       {name,alarm_handler},
+                       {mfargs,{alarm_handler,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,2000},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 8-Nov-2014::23:20:18 ===
+          supervisor: {local,sasl_safe_sup}
+             started: [{pid,<0.2210.0>},
+                       {name,overload},
+                       {mfargs,{overload,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,2000},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 8-Nov-2014::23:20:18 ===
+          supervisor: {local,sasl_sup}
+             started: [{pid,<0.2211.0>},
+                       {name,release_handler},
+                       {mfargs,{release_handler,start_link,[]}},
+                       {restart_type,permanent},
+                       {shutdown,2000},
+                       {child_type,worker}]
+
+=PROGRESS REPORT==== 8-Nov-2014::23:20:18 ===
+         application: sasl
+          started_at: nonode@nohost
+Encoding: #{<<"appName">> => sasl,<<"appStatus">> => app_started} 
+Encoded: <<"{\"appName\":\"sasl\",\"appStatus\":\"app_started\"}">> 
+terminate: normal 
+test/cb_app_hndlr_tests.erl:131:<0.229.0>: Created App Resource (Authed): #{appName => <<"sasl">>,appStatus => <<"app_started">>}
+
+Init Handler: {http_req,#Port<0.72552>,ranch_tcp,keepalive,<0.2203.0>,
+                        <<"GET">>,'HTTP/1.1',
+                        {{127,0,0,1},50673},
+                        <<"localhost">>,undefined,8877,<<"/api/app/sasl">>,
+                        undefined,<<>>,
+                        [{app_name,<<"sasl">>}],
+                        [{<<"content-length">>,<<"0">>},
+                         {<<"te">>,<<>>},
+                         {<<"host">>,<<"localhost:8877">>},
+                         {<<"authorization">>,
+                          <<"Basic VGVtcGxlOldpYmJsZTJXb2JibGU=">>},
+                         {<<"connection">>,<<"keep-alive">>}],
+                        [],waiting,<<>>,undefined,false,waiting,[],<<>>,
+                        undefined} 
+Built RestAction: #{action => #{method => <<"GET">>,
+                      path => <<"/api/app/sasl">>,
+                      pathInfo => undefined,
+                      url => <<"http://localhost:8877/api/app/sasl">>,
+                      urlQuery => <<>>,
+                      version => 'HTTP/1.1'},
+                    auth => #{pass => <<"Wibble2Wobble">>,
+                      type => <<"basic">>,
+                      user => <<"Temple">>},
+                    host => #{info => undefined,
+                      name => <<"localhost">>,
+                      port => 8877,
+                      url => <<"http://localhost:8877">>},
+                    peer => #{ip => {127,0,0,1},port => 50673}}
+app_env_to_map - AppEnv: [{description,"SASL  CXC 138 11"},
+                          {id,[]},
+                          {vsn,"2.4.1"},
+                          {modules,[sasl,alarm_handler,format_lib_supp,
+                                    misc_supp,overload,rb,rb_format_supp,
+                                    release_handler,release_handler_1,erlsrv,
+                                    sasl_report,sasl_report_tty_h,
+                                    sasl_report_file_h,si,si_sasl_supp,
+                                    systools,systools_make,systools_rc,
+                                    systools_relup,systools_lib]},
+                          {maxP,infinity},
+                          {maxT,infinity},
+                          {registered,[sasl_sup,alarm_handler,overload,
+                                       release_handler]},
+                          {included_applications,[]},
+                          {applications,[kernel,stdlib]},
+                          {env,[{errlog_type,all},
+                                {included_applications,[]},
+                                {sasl_error_logger,tty}]},
+                          {mod,{sasl,[]}},
+                          {start_phases,undefined}]
+app_env_to_map - AppEnvMap: #{applications => [kernel,stdlib],
+                              description => <<"SASL  CXC 138 11">>,
+                              env => #{errlog_type => all,
+                                included_applications => [],
+                                sasl_error_logger => tty},
+                              id => [],
+                              included_applications => [],
+                              maxP => infinity,
+                              maxT => infinity,
+                              mod => #{<<"name">> => sasl,<<"params">> => []},
+                              modules => [sasl,alarm_handler,format_lib_supp,misc_supp,
+                               overload,rb,rb_format_supp,release_handler,
+                               release_handler_1,erlsrv,sasl_report,
+                               sasl_report_tty_h,sasl_report_file_h,si,
+                               si_sasl_supp,systools,systools_make,
+                               systools_rc,systools_relup,systools_lib],
+                              registered => [sasl_sup,alarm_handler,overload,
+                               release_handler],
+                              start_phases => undefined,
+                              vsn => <<"2.4.1">>}
+Encoding: #{applications => [kernel,stdlib],
+            description => <<"SASL  CXC 138 11">>,
+            env => #{errlog_type => all,included_applications => [],sasl_error_logger => tty},
+            id => [],
+            included_applications => [],
+            maxP => infinity,
+            maxT => infinity,
+            mod => #{<<"name">> => sasl,<<"params">> => []},
+            modules => [sasl,alarm_handler,format_lib_supp,misc_supp,overload,rb,
+             rb_format_supp,release_handler,release_handler_1,erlsrv,
+             sasl_report,sasl_report_tty_h,sasl_report_file_h,si,si_sasl_supp,
+             systools,systools_make,systools_rc,systools_relup,systools_lib],
+            registered => [sasl_sup,alarm_handler,overload,release_handler],
+            start_phases => undefined,
+            vsn => <<"2.4.1">>} 
+Encoded: <<"{\"applications\":[\"kernel\",\"stdlib\"],\"description\":\"SASL  CXC 138 11\",\"env\":{\"errlog_type\":\"all\",\"included_applications\":[],\"sasl_error_logger\":\"tty\"},\"id\":[],\"included_applications\":[],\"maxP\":\"infinity\",\"maxT\":\"infinity\",\"mod\":{\"name\":\"sasl\",\"params\":[]},\"modules\":[\"sasl\",\"alarm_handler\",\"format_lib_supp\",\"misc_supp\",\"overload\",\"rb\",\"rb_format_supp\",\"release_handler\",\"release_handler_1\",\"erlsrv\",\"sasl_report\",\"sasl_report_tty_h\",\"sasl_report_file_h\",\"si\",\"si_sasl_supp\",\"systools\",\"systools_make\",\"systools_rc\",\"systools_relup\",\"systools_lib\"],\"registered\":[\"sasl_sup\",\"alarm_handler\",\"overload\",\"release_handler\"],\"start_phases\":\"undefined\",\"vsn\":\"2.4.1\"}">> 
+terminate: normal 
+test/cb_app_hndlr_tests.erl:173:<0.229.0>: Retrieved App Resource: #{applications => [<<"kernel">>,<<"stdlib">>],
+                          description => <<"SASL  CXC 138 11">>,
+                          env => #{errlog_type => <<"all">>,
+                            included_applications => [],
+                            sasl_error_logger => <<"tty">>},
+                          id => [],
+                          included_applications => [],
+                          maxP => <<"infinity">>,
+                          maxT => <<"infinity">>,
+                          mod => #{name => <<"sasl">>,params => []},
+                          modules => [<<"sasl">>,<<"alarm_handler">>,
+                           <<"format_lib_supp">>,<<"misc_supp">>,
+                           <<"overload">>,<<"rb">>,<<"rb_format_supp">>,
+                           <<"release_handler">>,<<"release_handler_1">>,
+                           <<"erlsrv">>,<<"sasl_report">>,
+                           <<"sasl_report_tty_h">>,<<"sasl_report_file_h">>,
+                           <<"si">>,<<"si_sasl_supp">>,<<"systools">>,
+                           <<"systools_make">>,<<"systools_rc">>,
+                           <<"systools_relup">>,<<"systools_lib">>],
+                          registered => [<<"sasl_sup">>,<<"alarm_handler">>,<<"overload">>,
+                           <<"release_handler">>],
+                          start_phases => <<"undefined">>,
+                          vsn => <<"2.4.1">>}
+
+Init Handler: {http_req,#Port<0.72552>,ranch_tcp,keepalive,<0.2203.0>,
+                        <<"DELETE">>,'HTTP/1.1',
+                        {{127,0,0,1},50673},
+                        <<"localhost">>,undefined,8877,<<"/api/app/sasl">>,
+                        undefined,<<>>,
+                        [{app_name,<<"sasl">>}],
+                        [{<<"content-length">>,<<"0">>},
+                         {<<"te">>,<<>>},
+                         {<<"host">>,<<"localhost:8877">>},
+                         {<<"authorization">>,
+                          <<"Basic VGVtcGxlOldpYmJsZTJXb2JibGU=">>},
+                         {<<"connection">>,<<"keep-alive">>}],
+                        [],waiting,<<>>,undefined,false,waiting,[],<<>>,
+                        undefined} 
+Built RestAction: #{action => #{method => <<"DELETE">>,
+                      path => <<"/api/app/sasl">>,
+                      pathInfo => undefined,
+                      url => <<"http://localhost:8877/api/app/sasl">>,
+                      urlQuery => <<>>,
+                      version => 'HTTP/1.1'},
+                    auth => #{pass => <<"Wibble2Wobble">>,
+                      type => <<"basic">>,
+                      user => <<"Temple">>},
+                    host => #{info => undefined,
+                      name => <<"localhost">>,
+                      port => 8877,
+                      url => <<"http://localhost:8877">>},
+                    peer => #{ip => {127,0,0,1},port => 50673}}
+Encoding: #{<<"appName">> => sasl,<<"appStatus">> => app_stopped} 
+Encoded: <<"{\"appName\":\"sasl\",\"appStatus\":\"app_stopped\"}">> 
+terminate: normal 
+test/cb_app_hndlr_tests.erl:148:<0.229.0>: Deleted App Resource: #{appName => <<"sasl">>,appStatus => <<"app_stopped">>}
+
+  All 61 tests passed.
 Cover analysis: /Users/Temple/Work/dev/projects/plexo/apps/plexo_srv/.eunit/index.html
 Coverdata export: /Users/Temple/Work/dev/projects/plexo/apps/plexo_srv/.eunit/cover.coverdata
 
 Code Coverage:
-cb_app_hndlr  :  0%
-cb_apps_hndlr :  0%
-cb_util       : 25%
-core_auth     :  0%
-core_error    :  0%
+cb_app_hndlr  : 100
+cb_apps_hndlr : 100
+cb_util       : 100
+core_auth     : 100
+core_error    : 100
 core_json     : 100
 core_rest     : not
 core_util     : 100
-erts_apps     : 37%
-plexo_srv     : 25%
-plexo_srv_app : 78%
-plexo_srv_sup :  0%
-util_inet     :  0%
+erts_apps     : 100
+plexo_srv     : 100
+plexo_srv_app : 100
+plexo_srv_sup : 100
+util_inet     : 100
 
-Total         : 27%
+Total         : 100%
 
-=INFO REPORT==== 7-Nov-2014::23:55:16 ===
-    application: ranch
-    exited: killed
+=INFO REPORT==== 8-Nov-2014::23:20:18 ===
+    application: lager
+    exited: stopped
     type: temporary
 
-=INFO REPORT==== 7-Nov-2014::23:55:16 ===
-    application: cowboy
+=INFO REPORT==== 8-Nov-2014::23:20:18 ===
+    application: goldrush
     exited: killed
     type: temporary
+# rebar ct -- disabled.
+# rebar qc -- disabled.
+==> plexo_srv (doc)

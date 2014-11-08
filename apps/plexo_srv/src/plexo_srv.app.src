@@ -41,9 +41,11 @@
 	{applications, [
 		kernel,
 		stdlib,
-		crypto,
-		cowlib,
-		ranch,
+    compiler,       % Lager dependency.
+    syntax_tools,   % Lager dependency.
+		crypto,         % Cowboy dependency.
+		cowlib,         % Cowboy dependency.
+		ranch,          % Cowboy dependency.
 		cowboy
 	]},
 	{mod, {plexo_srv_app, []}},
