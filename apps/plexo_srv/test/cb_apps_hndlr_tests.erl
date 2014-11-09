@@ -70,11 +70,11 @@ test_start_started_app(Fixture) ->
 
 test_get_running_apps(Fixture) ->
   Res = get_remote_apps(Fixture, <<"?status=running">>),
-  [?_assertEqual(true, is_valid(App)) || App <- Res].
+  [?_assertEqual(true, is_valid_app_nfo(App)) || App <- Res].
 
 test_get_loaded_apps(Fixture) ->
   Res = get_remote_apps(Fixture, <<"?status=loaded">>),
-  [?_assertEqual(true, is_valid(App)) || App <- Res].
+  [?_assertEqual(true, is_valid_app_nfo(App)) || App <- Res].
 
 test_get_apps_null_qp(Fixture) ->
   Res = get_remote_apps(Fixture, <<"">>),
@@ -132,6 +132,6 @@ get_remote_apps(Fixture, QueryParam) ->
   Res.
 
 
-is_valid(AppNfo) ->
+is_valid_app_nfo(AppNfo) ->
   erts_apps_tests:is_valid_app_nfo(AppNfo).
 

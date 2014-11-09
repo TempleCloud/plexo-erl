@@ -10,13 +10,12 @@
 
 -include_lib("eunit/include/eunit.hrl").
 
-
 %%%============================================================================
 %% Export Test Util Function
 %%%============================================================================
 
 -export([
-  is_valid_app_nfo/1                   % Start the plexo_srv app.
+  is_valid_app_nfo/1                   % Validate an 'app_nfo' map.
 ]).
 
 %%%============================================================================
@@ -25,7 +24,8 @@
 
 %%-----------------------------------------------------------------------------
 %% @doc
-%%
+%% Test that the {@link erts_apps:get_running_apps/0} function returns a list
+%% of 'app_nfo" maps entities.
 %% @end
 %%-----------------------------------------------------------------------------
 get_running_apps_test_() ->
@@ -33,11 +33,24 @@ get_running_apps_test_() ->
 
 test_get_running_apps() ->
   Actual = erts_apps:get_running_apps(),
-  [?_assertEqual(true, is_valid(App)) || App <- Actual].
+  [?_assertEqual(true, is_valid_app_nfo(App)) || App <- Actual].
 
 %%-----------------------------------------------------------------------------
 %% @doc
-%%
+%% Test that the {@link erts_apps:get_loaded_apps/0} function returns a list
+%% of 'app_nfo" maps entities.
+%% @end
+%%-----------------------------------------------------------------------------
+get_loaded_apps_test_() ->
+  [test_get_loaded_apps()].
+
+test_get_loaded_apps() ->
+  Actual = erts_apps:get_loaded_apps(),
+  [?_assertEqual(true, is_valid_app_nfo(App)) || App <- Actual].
+
+%%-----------------------------------------------------------------------------
+%% @doc
+%% Test conversion of an 'app_tpl' to an 'app_nfo' map.
 %% @end
 %%-----------------------------------------------------------------------------
 to_map_test_() ->
@@ -62,7 +75,7 @@ mock_test_app_nfo() ->
 
 %%-----------------------------------------------------------------------------
 %% @doc
-%%
+%% Test conversion of an 'app_tpl' to an 'app_rec'.
 %% @end
 %%-----------------------------------------------------------------------------
 to_record_test_() ->
@@ -77,7 +90,16 @@ test_to_record() ->
 mock_test_app_rec() ->
   {app_rec, test_app_name, <<"A test app!">>,<<"0.0.0">>}.
 
+%%%============================================================================
+%% Test Utility Functions
+%%%============================================================================
 
+%%-----------------------------------------------------------------------------
+%% @doc
+%% A simple function that check the format, types, and completeness of
+%% 'app_nfo' data maps.
+%% @end
+%%-----------------------------------------------------------------------------
 is_valid_app_nfo(AppNfo) ->
   #{
     app_nfo := #{
