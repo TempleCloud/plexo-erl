@@ -8,8 +8,6 @@
 -module(cb_util_tests).
 -author("Temple").
 
-
-
 -include_lib("eunit/include/eunit.hrl").
 
 %%%============================================================================

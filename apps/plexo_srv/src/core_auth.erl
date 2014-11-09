@@ -23,14 +23,21 @@
 -module(core_auth).
 -author("Temple").
 
+%%% Export all declared functions when TEST.
+-ifdef(TEST).
+-include_lib("eunit/include/eunit.hrl").
+-compile(export_all).
+-endif.
+
 %%%============================================================================
 %% Public API
 %%%============================================================================
 
 -export([
-  restful_auth/1,               % Convert a JSON term to a JSON binary.
-  determine_realm/1,            % Convert a JSON term to a JSON binary.
-  http_basic_realm_hdr/1        % Convert a JSON term to a JSON binary.
+  restful_auth/1,               % Do a restful authetication and authorisation.
+  do_auth/1,                    % Do a simple authentication.
+  determine_realm/1,            % Determine the realm for this authentication.
+  http_basic_realm_hdr/1        % Create a basic realm challenge HTTP response.
 ]).
 
 %%%============================================================================
@@ -84,12 +91,37 @@
 -spec restful_auth(Req :: core_rest:rest_action()) -> true | false.
 
 restful_auth(RestAction) ->
-  % For now just hardcode this...
-  #{auth := #{user := User, pass :=  Passwd}} = RestAction,
-  case {User, Passwd} of
-    {<<"Temple">>, <<"Wibble2Wobble">>} ->
+  #{auth := AuthNfo} = RestAction,
+  case AuthNfo of
+    undefined ->
+      false;
+    _ ->
+      #{user := User, pass :=  Passwd, type := Type} = AuthNfo,
+      do_auth({User, Passwd, Type})
+  end.
+
+%%-----------------------------------------------------------------------------
+%% @doc
+%% Perform a 'restful' authentication check with respect to the specified
+%% AuthType.
+%%
+%% Return true if the user is authenticated; false otherwise.
+%%
+%% ==== Example Input ====
+%%   ```
+%%   {<<"User">>, <<"Password">>, <<"AuthType">>}
+%%   '''
+%% @TODO Replace static credential mechanism with proper user/password lookup.
+%% @end
+%%-----------------------------------------------------------------------------
+do_auth({User, Passwd, Type}) ->
+  case {User, Passwd, Type} of
+    % For now just hardcode some basic authentication.
+    {<<"Temple">>, <<"Wibble2Wobble">>, <<"basic">>} ->
+      lager:info("Authenticated User:~p, Pass~p~n", [User, Passwd]),
       true;
     _ ->
+      lager:info("Invalid User:~p, Pass~p~n", [User, Passwd]),
       false
   end.
 

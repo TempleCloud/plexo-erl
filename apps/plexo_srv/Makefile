@@ -5,6 +5,7 @@
 # The erl binary path for application dependencies.
 #
 PRJ_DEP_PATH= \
+	-pa './deps/goldrush/ebin' \
 	-pa './deps/lager/ebin' \
 	-pa './deps/jsx/ebin' \
 	-pa './deps/jsxn/ebin' \

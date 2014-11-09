@@ -38,11 +38,10 @@
 start() ->
   io:format("Trying initialise Lager logging system. ~n"),
   erts_apps:start_apps([compiler, syntax_tools, goldrush, lager]),
-
   Apps = [crypto, ranch, cowlib, cowboy, plexo_srv],
   lager:info("Starting 'plexo_srv' apps: ~p~n", [Apps]),
   Res = erts_apps:start_apps(Apps),
-  io:format("Res: ~p~n", [Res]),
+  lager:info("Res: ~p~n", [Res]),
   Res.
 
 %%-----------------------------------------------------------------------------

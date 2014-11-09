@@ -57,9 +57,9 @@
 
 is_authorized(Req, State) ->
   RestAction = build_rest_action(Req),
-  #{auth := #{user := User, pass :=  Passwd}} = RestAction,
   case core_auth:restful_auth(RestAction) of
     true ->
+      #{auth := #{user := User, pass :=  Passwd}} = RestAction,
       {true, Req, {User, Passwd}};
     _ ->
       {{false, core_auth:http_basic_realm_hdr(RestAction)}, Req, State}
@@ -112,7 +112,7 @@ build_rest_action(Req) ->
     host => build_host(Req),
     peer => build_peer(Req)
   },
-  io:format("Built RestAction: ~p~n", [RestAction]),
+  lager:debug("Built RestAction: ~p~n", [RestAction]),
   RestAction.
 
 %%-----------------------------------------------------------------------------
