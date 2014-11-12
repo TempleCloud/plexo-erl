@@ -58,15 +58,17 @@ stop_plexo_srv(_Fixture) ->
 test_start_app(Fixture) ->
   Res = start_remote_app(Fixture),
   #{appName := AppName, appStatus := AppStatus} = Res,
-  ?_assertEqual(maps:get(app, Fixture), AppName),
-  ?_assertEqual(<<"app_started">>, AppStatus).
+  ?assertEqual(atom_to_binary(maps:get(app, Fixture), utf8), AppName),
+  ?assertEqual(<<"app_started">>, AppStatus),
+  ?_assertEqual(ok, ok).
 
 test_start_started_app(Fixture) ->
   start_remote_app(Fixture),
   Res = start_remote_app(Fixture),
   #{appName := AppName, appStatus := AppStatus} = Res,
-  ?_assertEqual(maps:get(app, Fixture), AppName),
-  ?_assertEqual(<<"app_running">>, AppStatus).
+  ?assertEqual(atom_to_binary(maps:get(app, Fixture), utf8), AppName),
+  ?assertEqual(<<"app_running">>, AppStatus),
+  ?_assertEqual(ok, ok).
 
 test_get_running_apps(Fixture) ->
   Res = get_remote_apps(Fixture, <<"?status=running">>),

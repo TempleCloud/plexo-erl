@@ -43,10 +43,9 @@ utest_build_auth(_Fixture) ->
   meck:expect(cowboy_req, parse_header, fun(<<"authorization">>, MockRes) -> MockRes end),
 
   Res = cb_util:build_auth({bad_input}),
-  ?_assertEqual(undefined, Res),
-
-  ?_assertEqual(
-    #{user => <<"Temple">>, passwd => <<"Wibble2Wobble">>, type => <<"basic">>},
+  ?assertEqual(undefined, Res),
+  ?assertEqual(
+    #{user => <<"Temple">>, pass => <<"Wibble2Wobble">>, type => <<"basic">>},
     cb_util:build_auth({<<"basic">>, {<<"Temple">>, <<"Wibble2Wobble">>}})
   ),
 
@@ -61,9 +60,8 @@ utest_build_peer(_Fixture) ->
   meck:expect(cowboy_req, peer, fun(MockRes) -> MockRes end),
 
   Res = cb_util:build_peer({bad_input}),
-  ?_assertEqual(undefined, Res),
-
-  ?_assertEqual(
+  ?assertEqual(undefined, Res),
+  ?assertEqual(
     #{ip => {127,0,0,1}, port => 1234},
     cb_util:build_peer({{127,0,0,1}, 1234})
   ),

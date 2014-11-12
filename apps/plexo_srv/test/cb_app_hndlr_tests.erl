@@ -62,32 +62,40 @@ test_start_app(Fixture) ->
   Res = start_remote_app(Fixture),
   #{appName := AppName} = Res,
   #{appStatus := AppStatus} = Res,
-  ?_assertEqual(AppName, maps:get(app, Fixture)),
-  ?_assertEqual(AppStatus, <<"app_started">>).
+  % ?_assertEqual(AppName, maps:get(app, Fixture)),
+  ?assertEqual(atom_to_binary(maps:get(app, Fixture), utf8), AppName),
+  ?assertEqual(AppStatus, <<"app_started">>),
+  ?_assertEqual(ok, ok).
 
 test_start_started_app(Fixture) ->
   start_remote_app(Fixture),
   Res = start_remote_app(Fixture),
   #{appName := AppName} = Res,
   #{appStatus := AppStatus} = Res,
-  ?_assertEqual(AppName, maps:get(app, Fixture)),
-  ?_assertEqual(AppStatus, <<"app_running">>).
+  % ?_assertEqual(AppName, maps:get(app, Fixture)),
+  ?assertEqual(atom_to_binary(maps:get(app, Fixture), utf8), AppName),
+  ?assertEqual(AppStatus, <<"app_running">>),
+  ?_assertEqual(ok, ok).
 
 test_stop_app(Fixture) ->
   start_remote_app(Fixture),
   Res = stop_remote_app(Fixture),
   #{appName := AppName} = Res,
   #{appStatus := AppStatus} = Res,
-  ?_assertEqual(AppName, maps:get(app, Fixture)),
-  ?_assertEqual(AppStatus, <<"app_stopped">>).
+  % ?_assertEqual(AppName, maps:get(app, Fixture)),
+  ?assertEqual(atom_to_binary(maps:get(app, Fixture), utf8), AppName),
+  ?assertEqual(AppStatus, <<"app_stopped">>),
+  ?_assertEqual(ok, ok).
 
 test_stop_stopped_app(Fixture) ->
   stop_remote_app(Fixture),
   Res = stop_remote_app(Fixture),
   #{appName := AppName} = Res,
   #{appStatus := AppStatus} = Res,
-  ?_assertEqual(AppName, maps:get(app, Fixture)),
-  ?_assertEqual(AppStatus, <<"app_not_running">>).
+  % ?_assertEqual(AppName, maps:get(app, Fixture)),
+  ?assertEqual(atom_to_binary(maps:get(app, Fixture), utf8), AppName),
+  ?assertEqual(AppStatus, <<"app_not_running">>),
+  ?_assertEqual(ok, ok).
 
 test_get_app(Fixture) ->
   start_remote_app(Fixture),

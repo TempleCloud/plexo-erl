@@ -19,8 +19,8 @@
 %%%============================================================================
 -export([
   to_atom_key_map/1,            % Convert a nested map to have atomic keys.
-  proplist_to_map/1,
-  is_proplist/1
+  proplist_to_map/1,            % Convert a nested proplist to a nested map.
+  is_proplist/1                 % Determine if the input is a proplist.
 ]).
 
 %%%============================================================================
@@ -98,39 +98,28 @@ atomise_kv(K, V, Map) when is_binary(K) ->
 %%   '''
 %% @end
 %%-----------------------------------------------------------------------------
-
-% {ok, KVs} = application:get_all_key(lager).
-% core_util:proplist_to_map(KVs).
+-spec proplist_to_map(list(proplists:property())) -> map().
 
 proplist_to_map(Input) when is_list(Input) ->
   proplist_to_map(Input, #{}).
 
 proplist_to_map(Input, AccMap) when is_list(Input) ->
-  % [proplist_item_to_map(Prop, AccMap) || Prop <- Input].
-  % foldl(Fun, Acc0, List) -> Acc1
   lists:foldl(fun proplist_item_to_map/2, AccMap, Input).
 
+
 proplist_item_to_map({Key, Val}, Map) when is_list(Val) ->
-  lager:info("proplist_item_to_map: {~p,~p}", [Key, Val]),
   case io_lib:char_list(Val) of
     true ->
-      lager:info("char_list: {~p,~p}", [Key, Val]),
       maps:put(Key, list_to_binary(Val), Map);
     false ->
       case is_proplist(Val) of
         true  ->
-          lager:info("is_proplist: {~p,~p}", [Key, Val]),
           maps:put(Key, proplist_to_map(Val), Map);
         false ->
-          lager:info("is_simple: {~p,~p}", [Key, Val]),
           maps:put(Key, Val, Map)
       end
   end;
-%% proplist_item_to_map({Key, Val}, Map) ->
-%%   lager:info("proplist_item_to_map2: {~p,~p}", [Key, Val]),
-%%   maps:put(Key, Val, Map).
 proplist_item_to_map({Key, Val}, Map) ->
-  lager:info("proplist_item_to_map2: {~p,~p}", [Key, Val]),
   case is_proplist_item(Val) of
     true  -> maps:put(Key, proplist_item_to_map(Val, #{}), Map);
     false -> maps:put(Key, Val, Map)
