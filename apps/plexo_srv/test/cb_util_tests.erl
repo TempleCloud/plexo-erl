@@ -100,7 +100,8 @@ start_plexo_srv() ->
   User = "Temple",
   Passwd = "Wibble2Wobble",
   Uri = <<"http://localhost:8877/api/app">>,
-  App = <<"kernel">>,
+  % App = <<"kernel">>,
+  App = kernel,
   Fixture = #{user => User, passwd => Passwd, uri => Uri, app => App},
   Fixture.
 
@@ -116,9 +117,11 @@ stop_plexo_srv(_Fixture) ->
 % Use the simple 'get_remote_app' rest function to test the login.
 itest_valid_basic_auth(Fixture) ->
   Res = cb_app_hndlr_tests:get_remote_app(Fixture),
-  #{
-    mod := #{name := ModName, params := _ModParams}
-  } = Res,
+%%   #{
+%%     mod := #{name := ModName, params := _ModParams}
+%%   } = Res,
+  #{mod := Mod} = Res,
+  [{ModName, _ModCnfg}] = maps:to_list(Mod),
   ?_assertEqual(ModName, maps:get(app, Fixture)).
 
 itest_invalid_basic_auth(Fixture) ->

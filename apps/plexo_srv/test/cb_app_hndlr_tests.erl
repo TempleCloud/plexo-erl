@@ -43,7 +43,8 @@ start_plexo_srv() ->
   User = "Temple",
   Passwd = "Wibble2Wobble",
   Uri = <<"http://localhost:8877/api/app">>,
-  App = <<"sasl">>,
+  % App = <<"sasl">>,
+  App = sasl,
   Fixture = #{user => User, passwd => Passwd, uri => Uri, app => App},
   Fixture.
 
@@ -100,13 +101,15 @@ test_get_app(Fixture) ->
     included_applications := _IncludedApplications,
     maxP := _MaxP,
     maxT := _MaxT,
-    mod := #{name := ModName, params := _ModParams},
+    % mod := #{name := ModName, params := _ModParams},
+    mod := Mod,
     modules := _Modules,
     registered := _Registered,
     start_phases := _StartPhase,
     vsn := _VSN
   } = Res,
-  ?_assertEqual(ModName, maps:get(app, Fixture)).
+  [{ModName, _ModCnfg}] = maps:to_list(Mod),
+  ?_assertEqual(maps:get(app, Fixture), ModName).
 
 
 %%%============================================================================
@@ -118,7 +121,7 @@ start_remote_app(Fixture) ->
 
   #{user := User, passwd :=  Passwd, uri :=  Uri, app := App} = Fixture,
 
-  Url = binary_to_list(Uri) ++ "/" ++ binary_to_list(App),
+  Url = binary_to_list(Uri) ++ "/" ++ atom_to_list(App),
   ContentType = "application/x-www-form-urlencoded",
   RqHeaders = [util_inet:auth_header(User, Passwd), {"Content-Type",ContentType}],
   RqOptions = [{body_format,binary}],
@@ -136,7 +139,7 @@ stop_remote_app(Fixture) ->
 
   #{user := User, passwd :=  Passwd, uri :=  Uri, app := App} = Fixture,
 
-  Url = binary_to_list(Uri) ++ "/" ++ binary_to_list(App),
+  Url = binary_to_list(Uri) ++ "/" ++ atom_to_list(App),
   RqHeaders = [util_inet:auth_header(User, Passwd)],
   RqHttpOptions = [],
   RqOptions = [],
@@ -153,7 +156,7 @@ get_remote_app(Fixture) ->
 
   #{user := User, passwd :=  Passwd, uri :=  Uri, app := App} = Fixture,
 
-  Url = binary_to_list(Uri) ++ "/" ++ binary_to_list(App),
+  Url = binary_to_list(Uri) ++ "/" ++ atom_to_list(App),
   RqHeaders = [util_inet:auth_header(User, Passwd)],
   RqHttpOptions = [],
   RqOptions = [],

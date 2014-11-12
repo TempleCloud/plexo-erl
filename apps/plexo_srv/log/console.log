@@ -1,105 +1,283 @@
-2014-11-09 16:53:43.903 [info] <0.2.0>@plexo_srv:start:42 Starting 'plexo_srv' apps: [crypto,ranch,cowlib,cowboy,plexo_srv]
-2014-11-09 16:53:43.903 [info] <0.7.0> Application lager started on node nonode@nohost
-2014-11-09 16:53:43.909 [info] <0.7.0> Application crypto started on node nonode@nohost
-2014-11-09 16:53:43.912 [info] <0.7.0> Application ranch started on node nonode@nohost
-2014-11-09 16:53:43.913 [info] <0.7.0> Application cowlib started on node nonode@nohost
-2014-11-09 16:53:43.915 [info] <0.7.0> Application cowboy started on node nonode@nohost
-2014-11-09 16:53:43.924 [info] <0.2.0>@plexo_srv:start:44 Res: [{crypto,app_started},{ranch,app_started},{cowlib,app_started},{cowboy,app_started},{plexo_srv,app_started}]
-2014-11-09 16:54:30.665 [warning] <0.6.0> lager_error_logger_h dropped 57 messages in the last second that exceeded the limit of 50 messages/sec
-2014-11-09 16:54:30.665 [error] emulator Error in process <0.185.0> with exit value: {[{reason,{badmatch,#{action=>#{method=><<3 bytes>>,path=><<9 bytes>>,pathInfo=>undefined,url=><<45 bytes>>,urlQuery=><<14 bytes>>,version=>'HTTP/1.1'},auth=>undefined,host=>#{info=>undefined,name=><<9 bytes>>,port=>8877,url=><<21 bytes>>},peer=>#{ip=>{127,0,0,1},port=>52543}}}},{mfa,{cb_apps_hndlr,is_authorized... 
+2014-11-12 15:30:44.918 [info] <0.2.0>@plexo_srv:start:42 Starting 'plexo_srv' apps: [crypto,ranch,cowlib,cowboy,plexo_srv]
+2014-11-12 15:30:44.918 [info] <0.7.0> Application lager started on node nonode@nohost
+2014-11-12 15:30:44.925 [info] <0.7.0> Application crypto started on node nonode@nohost
+2014-11-12 15:30:44.927 [info] <0.7.0> Application ranch started on node nonode@nohost
+2014-11-12 15:30:44.927 [info] <0.7.0> Application cowlib started on node nonode@nohost
+2014-11-12 15:30:44.929 [info] <0.7.0> Application cowboy started on node nonode@nohost
+2014-11-12 15:30:44.938 [info] <0.2.0>@plexo_srv:start:44 Res: [{crypto,app_started},{ranch,app_started},{cowlib,app_started},{cowboy,app_started},{plexo_srv,app_started}]
+2014-11-12 15:44:07.755 [info] <0.190.0>@core_auth:do_auth:121 Authenticated User:<<"Temple">>, Pass<<"Wibble2Wobble">>
+2014-11-12 15:44:15.105 [info] <0.192.0>@core_auth:do_auth:121 Authenticated User:<<"Temple">>, Pass<<"Wibble2Wobble">>
+2014-11-12 16:25:55.353 [info] <0.2.0>@plexo_srv:start:42 Starting 'plexo_srv' apps: [crypto,ranch,cowlib,cowboy,plexo_srv]
+2014-11-12 16:25:55.353 [info] <0.7.0> Application lager started on node nonode@nohost
+2014-11-12 16:25:55.359 [info] <0.7.0> Application crypto started on node nonode@nohost
+2014-11-12 16:25:55.361 [info] <0.7.0> Application ranch started on node nonode@nohost
+2014-11-12 16:25:55.362 [info] <0.7.0> Application cowlib started on node nonode@nohost
+2014-11-12 16:25:55.364 [info] <0.7.0> Application cowboy started on node nonode@nohost
+2014-11-12 16:25:55.373 [info] <0.2.0>@plexo_srv:start:44 Res: [{crypto,app_started},{ranch,app_started},{cowlib,app_started},{cowboy,app_started},{plexo_srv,app_started}]
+2014-11-12 16:27:41.129 [info] <0.2.0>@plexo_srv:start:42 Starting 'plexo_srv' apps: [crypto,ranch,cowlib,cowboy,plexo_srv]
+2014-11-12 16:27:41.129 [info] <0.7.0> Application lager started on node nonode@nohost
+2014-11-12 16:27:41.135 [info] <0.7.0> Application crypto started on node nonode@nohost
+2014-11-12 16:27:41.138 [info] <0.7.0> Application ranch started on node nonode@nohost
+2014-11-12 16:27:41.138 [info] <0.7.0> Application cowlib started on node nonode@nohost
+2014-11-12 16:27:41.140 [info] <0.7.0> Application cowboy started on node nonode@nohost
+2014-11-12 16:27:41.149 [info] <0.2.0>@plexo_srv:start:44 Res: [{crypto,app_started},{ranch,app_started},{cowlib,app_started},{cowboy,app_started},{plexo_srv,app_started}]
+2014-11-12 16:48:26.204 [info] <0.2.0>@plexo_srv:start:42 Starting 'plexo_srv' apps: [crypto,ranch,cowlib,cowboy,plexo_srv]
+2014-11-12 16:48:26.204 [info] <0.7.0> Application lager started on node nonode@nohost
+2014-11-12 16:48:26.210 [info] <0.7.0> Application crypto started on node nonode@nohost
+2014-11-12 16:48:26.213 [info] <0.7.0> Application ranch started on node nonode@nohost
+2014-11-12 16:48:26.213 [info] <0.7.0> Application cowlib started on node nonode@nohost
+2014-11-12 16:48:26.215 [info] <0.7.0> Application cowboy started on node nonode@nohost
+2014-11-12 16:48:26.224 [info] <0.2.0>@plexo_srv:start:44 Res: [{crypto,app_started},{ranch,app_started},{cowlib,app_started},{cowboy,app_started},{plexo_srv,app_started}]
+2014-11-12 16:51:51.926 [info] <0.2.0>@plexo_srv:start:42 Starting 'plexo_srv' apps: [crypto,ranch,cowlib,cowboy,plexo_srv]
+2014-11-12 16:51:51.926 [info] <0.7.0> Application lager started on node nonode@nohost
+2014-11-12 16:51:51.934 [info] <0.7.0> Application crypto started on node nonode@nohost
+2014-11-12 16:51:51.936 [info] <0.7.0> Application ranch started on node nonode@nohost
+2014-11-12 16:51:51.937 [info] <0.7.0> Application cowlib started on node nonode@nohost
+2014-11-12 16:51:51.939 [info] <0.7.0> Application cowboy started on node nonode@nohost
+2014-11-12 16:51:51.948 [info] <0.2.0>@plexo_srv:start:44 Res: [{crypto,app_started},{ranch,app_started},{cowlib,app_started},{cowboy,app_started},{plexo_srv,app_started}]
+2014-11-12 16:52:04.883 [info] <0.32.0>@core_util:proplist_item_to_map:141 InTuple: {description,"Erlang logging framework"}
+2014-11-12 16:52:04.884 [info] <0.32.0>@core_util:proplist_item_to_map:141 InTuple: {id,[]}
+2014-11-12 16:52:04.884 [info] <0.32.0>@core_util:proplist_item_to_map:141 InTuple: {vsn,"2.0.3"}
+2014-11-12 16:52:04.884 [info] <0.32.0>@core_util:proplist_item_to_map:141 InTuple: {modules,[error_logger_lager_h,lager,lager_app,lager_backend_throttle,lager_common_test_backend,lager_config,lager_console_backend,lager_crash_log,lager_default_formatter,lager_file_backend,lager_format,lager_handler_watcher,lager_handler_watcher_sup,lager_msg,lager_stdlib,lager_sup,lager_transform,lager_trunc_io,lager_util]}
+2014-11-12 16:52:04.884 [info] <0.32.0>@core_util:proplist_item_to_map:153 InTuple: {maxP,infinity}
+2014-11-12 16:52:04.884 [info] <0.32.0>@core_util:proplist_item_to_map:153 InTuple: {maxT,infinity}
+2014-11-12 16:52:04.885 [info] <0.32.0>@core_util:proplist_item_to_map:141 InTuple: {registered,[lager_sup,lager_event,lager_crash_log,lager_handler_watcher_sup]}
+2014-11-12 16:52:04.885 [info] <0.32.0>@core_util:proplist_item_to_map:141 InTuple: {included_applications,[]}
+2014-11-12 16:52:04.885 [info] <0.32.0>@core_util:proplist_item_to_map:141 InTuple: {applications,[kernel,stdlib,goldrush]}
+2014-11-12 16:52:04.885 [info] <0.32.0>@core_util:proplist_item_to_map:141 InTuple: {env,[{async_threshold_window,5},{crash_log_date,"$D0"},{crash_log,"log/crash.log"},{colors,[{debug,"\e[0;38m"},{info,"\e[1;37m"},{notice,"\e[1;36m"},{warning,"\e[1;33m"},{error,"\e[1;31m"},{critical,"\e[1;35m"},{alert,"\e[1;44m"},{emergency,"\e[1;41m"}]},{crash_log_count,5},{async_threshold,20},{crash_log_size,10485760},{crash_log_msg_size,65536},{colored,false},{error_logger_hwm,50},{error_logger_redirect,true},{included_applications,[]}]}
+2014-11-12 16:52:04.885 [info] <0.32.0>@core_util:proplist_item_to_map:153 InTuple: {async_threshold_window,5}
+2014-11-12 16:52:04.885 [info] <0.32.0>@core_util:proplist_item_to_map:141 InTuple: {crash_log_date,"$D0"}
+2014-11-12 16:52:04.885 [info] <0.32.0>@core_util:proplist_item_to_map:141 InTuple: {crash_log,"log/crash.log"}
+2014-11-12 16:52:04.886 [info] <0.32.0>@core_util:proplist_item_to_map:141 InTuple: {colors,[{debug,"\e[0;38m"},{info,"\e[1;37m"},{notice,"\e[1;36m"},{warning,"\e[1;33m"},{error,"\e[1;31m"},{critical,"\e[1;35m"},{alert,"\e[1;44m"},{emergency,"\e[1;41m"}]}
+2014-11-12 16:52:04.886 [info] <0.32.0>@core_util:proplist_item_to_map:141 InTuple: {debug,"\e[0;38m"}
+2014-11-12 16:52:04.886 [info] <0.32.0>@core_util:proplist_item_to_map:141 InTuple: {info,"\e[1;37m"}
+2014-11-12 16:52:04.886 [info] <0.32.0>@core_util:proplist_item_to_map:141 InTuple: {notice,"\e[1;36m"}
+2014-11-12 16:52:04.886 [info] <0.32.0>@core_util:proplist_item_to_map:141 InTuple: {warning,"\e[1;33m"}
+2014-11-12 16:52:04.886 [info] <0.32.0>@core_util:proplist_item_to_map:141 InTuple: {error,"\e[1;31m"}
+2014-11-12 16:52:04.886 [info] <0.32.0>@core_util:proplist_item_to_map:141 InTuple: {critical,"\e[1;35m"}
+2014-11-12 16:52:04.886 [info] <0.32.0>@core_util:proplist_item_to_map:141 InTuple: {alert,"\e[1;44m"}
+2014-11-12 16:52:04.886 [info] <0.32.0>@core_util:proplist_item_to_map:141 InTuple: {emergency,"\e[1;41m"}
+2014-11-12 16:52:04.886 [info] <0.32.0>@core_util:proplist_item_to_map:153 InTuple: {crash_log_count,5}
+2014-11-12 16:52:04.886 [info] <0.32.0>@core_util:proplist_item_to_map:153 InTuple: {async_threshold,20}
+2014-11-12 16:52:04.886 [info] <0.32.0>@core_util:proplist_item_to_map:153 InTuple: {crash_log_size,10485760}
+2014-11-12 16:52:04.886 [info] <0.32.0>@core_util:proplist_item_to_map:153 InTuple: {crash_log_msg_size,65536}
+2014-11-12 16:52:04.886 [info] <0.32.0>@core_util:proplist_item_to_map:153 InTuple: {colored,false}
+2014-11-12 16:52:04.886 [info] <0.32.0>@core_util:proplist_item_to_map:153 InTuple: {error_logger_hwm,50}
+2014-11-12 16:52:04.886 [info] <0.32.0>@core_util:proplist_item_to_map:153 InTuple: {error_logger_redirect,true}
+2014-11-12 16:52:04.886 [info] <0.32.0>@core_util:proplist_item_to_map:141 InTuple: {included_applications,[]}
+2014-11-12 16:52:04.886 [info] <0.32.0>@core_util:proplist_item_to_map:153 InTuple: {mod,{lager_app,[]}}
+2014-11-12 16:52:04.886 [info] <0.32.0>@core_util:proplist_item_to_map:153 InTuple: {start_phases,undefined}
+2014-11-12 16:56:12.475 [info] <0.2.0>@plexo_srv:start:42 Starting 'plexo_srv' apps: [crypto,ranch,cowlib,cowboy,plexo_srv]
+2014-11-12 16:56:12.475 [info] <0.7.0> Application lager started on node nonode@nohost
+2014-11-12 16:56:12.481 [info] <0.7.0> Application crypto started on node nonode@nohost
+2014-11-12 16:56:12.483 [info] <0.7.0> Application ranch started on node nonode@nohost
+2014-11-12 16:56:12.484 [info] <0.7.0> Application cowlib started on node nonode@nohost
+2014-11-12 16:56:12.486 [info] <0.7.0> Application cowboy started on node nonode@nohost
+2014-11-12 16:56:12.495 [info] <0.2.0>@plexo_srv:start:44 Res: [{crypto,app_started},{ranch,app_started},{cowlib,app_started},{cowboy,app_started},{plexo_srv,app_started}]
+2014-11-12 16:56:38.481 [info] <0.32.0>@core_util:proplist_item_to_map:141 proplist_item_to_map: {description,"Erlang logging framework"}
+2014-11-12 16:56:38.481 [info] <0.32.0>@core_util:proplist_item_to_map:144 char_list: {description,"Erlang logging framework"}
+2014-11-12 16:56:38.481 [info] <0.32.0>@core_util:proplist_item_to_map:141 proplist_item_to_map: {id,[]}
+2014-11-12 16:56:38.481 [info] <0.32.0>@core_util:proplist_item_to_map:144 char_list: {id,[]}
+2014-11-12 16:56:38.481 [info] <0.32.0>@core_util:proplist_item_to_map:141 proplist_item_to_map: {vsn,"2.0.3"}
+2014-11-12 16:56:38.481 [info] <0.32.0>@core_util:proplist_item_to_map:144 char_list: {vsn,"2.0.3"}
+2014-11-12 16:56:38.481 [info] <0.32.0>@core_util:proplist_item_to_map:141 proplist_item_to_map: {modules,[error_logger_lager_h,lager,lager_app,lager_backend_throttle,lager_common_test_backend,lager_config,lager_console_backend,lager_crash_log,lager_default_formatter,lager_file_backend,lager_format,lager_handler_watcher,lager_handler_watcher_sup,lager_msg,lager_stdlib,lager_sup,lager_transform,lager_trunc_io,lager_util]}
+2014-11-12 16:56:38.481 [info] <0.32.0>@core_util:proplist_item_to_map:152 is_simple: {modules,[error_logger_lager_h,lager,lager_app,lager_backend_throttle,lager_common_test_backend,lager_config,lager_console_backend,lager_crash_log,lager_default_formatter,lager_file_backend,lager_format,lager_handler_watcher,lager_handler_watcher_sup,lager_msg,lager_stdlib,lager_sup,lager_transform,lager_trunc_io,lager_util]}
+2014-11-12 16:56:38.481 [info] <0.32.0>@core_util:proplist_item_to_map:157 proplist_item_to_map2: {maxP,infinity}
+2014-11-12 16:56:38.481 [info] <0.32.0>@core_util:proplist_item_to_map:157 proplist_item_to_map2: {maxT,infinity}
+2014-11-12 16:56:38.481 [info] <0.32.0>@core_util:proplist_item_to_map:141 proplist_item_to_map: {registered,[lager_sup,lager_event,lager_crash_log,lager_handler_watcher_sup]}
+2014-11-12 16:56:38.481 [info] <0.32.0>@core_util:proplist_item_to_map:152 is_simple: {registered,[lager_sup,lager_event,lager_crash_log,lager_handler_watcher_sup]}
+2014-11-12 16:56:38.481 [info] <0.32.0>@core_util:proplist_item_to_map:141 proplist_item_to_map: {included_applications,[]}
+2014-11-12 16:56:38.481 [info] <0.32.0>@core_util:proplist_item_to_map:144 char_list: {included_applications,[]}
+2014-11-12 16:56:38.481 [info] <0.32.0>@core_util:proplist_item_to_map:141 proplist_item_to_map: {applications,[kernel,stdlib,goldrush]}
+2014-11-12 16:56:38.481 [info] <0.32.0>@core_util:proplist_item_to_map:152 is_simple: {applications,[kernel,stdlib,goldrush]}
+2014-11-12 16:56:38.482 [info] <0.32.0>@core_util:proplist_item_to_map:141 proplist_item_to_map: {env,[{async_threshold_window,5},{crash_log_date,"$D0"},{crash_log,"log/crash.log"},{colors,[{debug,"\e[0;38m"},{info,"\e[1;37m"},{notice,"\e[1;36m"},{warning,"\e[1;33m"},{error,"\e[1;31m"},{critical,"\e[1;35m"},{alert,"\e[1;44m"},{emergency,"\e[1;41m"}]},{crash_log_count,5},{async_threshold,20},{crash_log_size,10485760},{crash_log_msg_size,65536},{colored,false},{error_logger_hwm,50},{error_logger_redirect,true},{included_applications,[]}]}
+2014-11-12 16:56:38.482 [info] <0.32.0>@core_util:proplist_item_to_map:149 is_proplist: {env,[{async_threshold_window,5},{crash_log_date,"$D0"},{crash_log,"log/crash.log"},{colors,[{debug,"\e[0;38m"},{info,"\e[1;37m"},{notice,"\e[1;36m"},{warning,"\e[1;33m"},{error,"\e[1;31m"},{critical,"\e[1;35m"},{alert,"\e[1;44m"},{emergency,"\e[1;41m"}]},{crash_log_count,5},{async_threshold,20},{crash_log_size,10485760},{crash_log_msg_size,65536},{colored,false},{error_logger_hwm,50},{error_logger_redirect,true},{included_applications,[]}]}
+2014-11-12 16:56:38.482 [info] <0.32.0>@core_util:proplist_item_to_map:157 proplist_item_to_map2: {async_threshold_window,5}
+2014-11-12 16:56:38.482 [info] <0.32.0>@core_util:proplist_item_to_map:141 proplist_item_to_map: {crash_log_date,"$D0"}
+2014-11-12 16:56:38.482 [info] <0.32.0>@core_util:proplist_item_to_map:144 char_list: {crash_log_date,"$D0"}
+2014-11-12 16:56:38.482 [info] <0.32.0>@core_util:proplist_item_to_map:141 proplist_item_to_map: {crash_log,"log/crash.log"}
+2014-11-12 16:56:38.482 [info] <0.32.0>@core_util:proplist_item_to_map:144 char_list: {crash_log,"log/crash.log"}
+2014-11-12 16:56:38.482 [info] <0.32.0>@core_util:proplist_item_to_map:141 proplist_item_to_map: {colors,[{debug,"\e[0;38m"},{info,"\e[1;37m"},{notice,"\e[1;36m"},{warning,"\e[1;33m"},{error,"\e[1;31m"},{critical,"\e[1;35m"},{alert,"\e[1;44m"},{emergency,"\e[1;41m"}]}
+2014-11-12 16:56:38.482 [info] <0.32.0>@core_util:proplist_item_to_map:149 is_proplist: {colors,[{debug,"\e[0;38m"},{info,"\e[1;37m"},{notice,"\e[1;36m"},{warning,"\e[1;33m"},{error,"\e[1;31m"},{critical,"\e[1;35m"},{alert,"\e[1;44m"},{emergency,"\e[1;41m"}]}
+2014-11-12 16:56:38.482 [info] <0.32.0>@core_util:proplist_item_to_map:141 proplist_item_to_map: {debug,"\e[0;38m"}
+2014-11-12 16:56:38.482 [info] <0.32.0>@core_util:proplist_item_to_map:144 char_list: {debug,"\e[0;38m"}
+2014-11-12 16:56:38.482 [info] <0.32.0>@core_util:proplist_item_to_map:141 proplist_item_to_map: {info,"\e[1;37m"}
+2014-11-12 16:56:38.482 [info] <0.32.0>@core_util:proplist_item_to_map:144 char_list: {info,"\e[1;37m"}
+2014-11-12 16:56:38.482 [info] <0.32.0>@core_util:proplist_item_to_map:141 proplist_item_to_map: {notice,"\e[1;36m"}
+2014-11-12 16:56:38.482 [info] <0.32.0>@core_util:proplist_item_to_map:144 char_list: {notice,"\e[1;36m"}
+2014-11-12 16:56:38.482 [info] <0.32.0>@core_util:proplist_item_to_map:141 proplist_item_to_map: {warning,"\e[1;33m"}
+2014-11-12 16:56:38.483 [info] <0.32.0>@core_util:proplist_item_to_map:144 char_list: {warning,"\e[1;33m"}
+2014-11-12 16:56:38.484 [info] <0.32.0>@core_util:proplist_item_to_map:141 proplist_item_to_map: {error,"\e[1;31m"}
+2014-11-12 16:56:38.484 [info] <0.32.0>@core_util:proplist_item_to_map:144 char_list: {error,"\e[1;31m"}
+2014-11-12 16:56:38.484 [info] <0.32.0>@core_util:proplist_item_to_map:141 proplist_item_to_map: {critical,"\e[1;35m"}
+2014-11-12 16:56:38.484 [info] <0.32.0>@core_util:proplist_item_to_map:144 char_list: {critical,"\e[1;35m"}
+2014-11-12 16:56:38.484 [info] <0.32.0>@core_util:proplist_item_to_map:141 proplist_item_to_map: {alert,"\e[1;44m"}
+2014-11-12 16:56:38.484 [info] <0.32.0>@core_util:proplist_item_to_map:144 char_list: {alert,"\e[1;44m"}
+2014-11-12 16:56:38.484 [info] <0.32.0>@core_util:proplist_item_to_map:141 proplist_item_to_map: {emergency,"\e[1;41m"}
+2014-11-12 16:56:38.484 [info] <0.32.0>@core_util:proplist_item_to_map:144 char_list: {emergency,"\e[1;41m"}
+2014-11-12 16:56:38.484 [info] <0.32.0>@core_util:proplist_item_to_map:157 proplist_item_to_map2: {crash_log_count,5}
+2014-11-12 16:56:38.484 [info] <0.32.0>@core_util:proplist_item_to_map:157 proplist_item_to_map2: {async_threshold,20}
+2014-11-12 16:56:38.484 [info] <0.32.0>@core_util:proplist_item_to_map:157 proplist_item_to_map2: {crash_log_size,10485760}
+2014-11-12 16:56:38.484 [info] <0.32.0>@core_util:proplist_item_to_map:157 proplist_item_to_map2: {crash_log_msg_size,65536}
+2014-11-12 16:56:38.484 [info] <0.32.0>@core_util:proplist_item_to_map:157 proplist_item_to_map2: {colored,false}
+2014-11-12 16:56:38.484 [info] <0.32.0>@core_util:proplist_item_to_map:157 proplist_item_to_map2: {error_logger_hwm,50}
+2014-11-12 16:56:38.484 [info] <0.32.0>@core_util:proplist_item_to_map:157 proplist_item_to_map2: {error_logger_redirect,true}
+2014-11-12 16:56:38.484 [info] <0.32.0>@core_util:proplist_item_to_map:141 proplist_item_to_map: {included_applications,[]}
+2014-11-12 16:56:38.484 [info] <0.32.0>@core_util:proplist_item_to_map:144 char_list: {included_applications,[]}
+2014-11-12 16:56:38.484 [info] <0.32.0>@core_util:proplist_item_to_map:157 proplist_item_to_map2: {mod,{lager_app,[]}}
+2014-11-12 16:56:38.484 [info] <0.32.0>@core_util:proplist_item_to_map:157 proplist_item_to_map2: {start_phases,undefined}
+2014-11-12 17:09:23.756 [info] <0.2.0>@plexo_srv:start:42 Starting 'plexo_srv' apps: [crypto,ranch,cowlib,cowboy,plexo_srv]
+2014-11-12 17:09:23.756 [info] <0.7.0> Application lager started on node nonode@nohost
+2014-11-12 17:09:23.761 [info] <0.7.0> Application crypto started on node nonode@nohost
+2014-11-12 17:09:23.764 [info] <0.7.0> Application ranch started on node nonode@nohost
+2014-11-12 17:09:23.765 [info] <0.7.0> Application cowlib started on node nonode@nohost
+2014-11-12 17:09:23.767 [info] <0.7.0> Application cowboy started on node nonode@nohost
+2014-11-12 17:09:23.776 [info] <0.2.0>@plexo_srv:start:44 Res: [{crypto,app_started},{ranch,app_started},{cowlib,app_started},{cowboy,app_started},{plexo_srv,app_started}]
+2014-11-12 17:09:48.753 [info] <0.32.0>@core_util:proplist_item_to_map:144 proplist_item_to_map: {description,"Erlang logging framework"}
+2014-11-12 17:09:48.753 [info] <0.32.0>@core_util:proplist_item_to_map:147 char_list: {description,"Erlang logging framework"}
+2014-11-12 17:09:48.754 [info] <0.32.0>@core_util:proplist_item_to_map:144 proplist_item_to_map: {id,[]}
+2014-11-12 17:09:48.754 [info] <0.32.0>@core_util:proplist_item_to_map:147 char_list: {id,[]}
+2014-11-12 17:09:48.754 [info] <0.32.0>@core_util:proplist_item_to_map:144 proplist_item_to_map: {vsn,"2.0.3"}
+2014-11-12 17:09:48.754 [info] <0.32.0>@core_util:proplist_item_to_map:147 char_list: {vsn,"2.0.3"}
+2014-11-12 17:09:48.754 [info] <0.32.0>@core_util:proplist_item_to_map:144 proplist_item_to_map: {modules,[error_logger_lager_h,lager,lager_app,lager_backend_throttle,lager_common_test_backend,lager_config,lager_console_backend,lager_crash_log,lager_default_formatter,lager_file_backend,lager_format,lager_handler_watcher,lager_handler_watcher_sup,lager_msg,lager_stdlib,lager_sup,lager_transform,lager_trunc_io,lager_util]}
+2014-11-12 17:09:48.754 [info] <0.32.0>@core_util:proplist_item_to_map:155 is_simple: {modules,[error_logger_lager_h,lager,lager_app,lager_backend_throttle,lager_common_test_backend,lager_config,lager_console_backend,lager_crash_log,lager_default_formatter,lager_file_backend,lager_format,lager_handler_watcher,lager_handler_watcher_sup,lager_msg,lager_stdlib,lager_sup,lager_transform,lager_trunc_io,lager_util]}
+2014-11-12 17:09:48.754 [info] <0.32.0>@core_util:proplist_item_to_map:160 proplist_item_to_map2: {maxP,infinity}
+2014-11-12 17:09:48.754 [info] <0.32.0>@core_util:proplist_item_to_map:160 proplist_item_to_map2: {maxT,infinity}
+2014-11-12 17:09:48.754 [info] <0.32.0>@core_util:proplist_item_to_map:144 proplist_item_to_map: {registered,[lager_sup,lager_event,lager_crash_log,lager_handler_watcher_sup]}
+2014-11-12 17:09:48.754 [info] <0.32.0>@core_util:proplist_item_to_map:155 is_simple: {registered,[lager_sup,lager_event,lager_crash_log,lager_handler_watcher_sup]}
+2014-11-12 17:09:48.754 [info] <0.32.0>@core_util:proplist_item_to_map:144 proplist_item_to_map: {included_applications,[]}
+2014-11-12 17:09:48.754 [info] <0.32.0>@core_util:proplist_item_to_map:147 char_list: {included_applications,[]}
+2014-11-12 17:09:48.754 [info] <0.32.0>@core_util:proplist_item_to_map:144 proplist_item_to_map: {applications,[kernel,stdlib,goldrush]}
+2014-11-12 17:09:48.754 [info] <0.32.0>@core_util:proplist_item_to_map:155 is_simple: {applications,[kernel,stdlib,goldrush]}
+2014-11-12 17:09:48.754 [info] <0.32.0>@core_util:proplist_item_to_map:144 proplist_item_to_map: {env,[{async_threshold_window,5},{crash_log_date,"$D0"},{crash_log,"log/crash.log"},{colors,[{debug,"\e[0;38m"},{info,"\e[1;37m"},{notice,"\e[1;36m"},{warning,"\e[1;33m"},{error,"\e[1;31m"},{critical,"\e[1;35m"},{alert,"\e[1;44m"},{emergency,"\e[1;41m"}]},{crash_log_count,5},{async_threshold,20},{crash_log_size,10485760},{crash_log_msg_size,65536},{colored,false},{error_logger_hwm,50},{error_logger_redirect,true},{included_applications,[]}]}
+2014-11-12 17:09:48.755 [info] <0.32.0>@core_util:proplist_item_to_map:152 is_proplist: {env,[{async_threshold_window,5},{crash_log_date,"$D0"},{crash_log,"log/crash.log"},{colors,[{debug,"\e[0;38m"},{info,"\e[1;37m"},{notice,"\e[1;36m"},{warning,"\e[1;33m"},{error,"\e[1;31m"},{critical,"\e[1;35m"},{alert,"\e[1;44m"},{emergency,"\e[1;41m"}]},{crash_log_count,5},{async_threshold,20},{crash_log_size,10485760},{crash_log_msg_size,65536},{colored,false},{error_logger_hwm,50},{error_logger_redirect,true},{included_applications,[]}]}
+2014-11-12 17:09:48.755 [info] <0.32.0>@core_util:proplist_item_to_map:160 proplist_item_to_map2: {async_threshold_window,5}
+2014-11-12 17:09:48.755 [info] <0.32.0>@core_util:proplist_item_to_map:144 proplist_item_to_map: {crash_log_date,"$D0"}
+2014-11-12 17:09:48.755 [info] <0.32.0>@core_util:proplist_item_to_map:147 char_list: {crash_log_date,"$D0"}
+2014-11-12 17:09:48.755 [info] <0.32.0>@core_util:proplist_item_to_map:144 proplist_item_to_map: {crash_log,"log/crash.log"}
+2014-11-12 17:09:48.755 [info] <0.32.0>@core_util:proplist_item_to_map:147 char_list: {crash_log,"log/crash.log"}
+2014-11-12 17:09:48.755 [info] <0.32.0>@core_util:proplist_item_to_map:144 proplist_item_to_map: {colors,[{debug,"\e[0;38m"},{info,"\e[1;37m"},{notice,"\e[1;36m"},{warning,"\e[1;33m"},{error,"\e[1;31m"},{critical,"\e[1;35m"},{alert,"\e[1;44m"},{emergency,"\e[1;41m"}]}
+2014-11-12 17:09:48.755 [info] <0.32.0>@core_util:proplist_item_to_map:152 is_proplist: {colors,[{debug,"\e[0;38m"},{info,"\e[1;37m"},{notice,"\e[1;36m"},{warning,"\e[1;33m"},{error,"\e[1;31m"},{critical,"\e[1;35m"},{alert,"\e[1;44m"},{emergency,"\e[1;41m"}]}
+2014-11-12 17:09:48.755 [info] <0.32.0>@core_util:proplist_item_to_map:144 proplist_item_to_map: {debug,"\e[0;38m"}
+2014-11-12 17:09:48.755 [info] <0.32.0>@core_util:proplist_item_to_map:147 char_list: {debug,"\e[0;38m"}
+2014-11-12 17:09:48.755 [info] <0.32.0>@core_util:proplist_item_to_map:144 proplist_item_to_map: {info,"\e[1;37m"}
+2014-11-12 17:09:48.755 [info] <0.32.0>@core_util:proplist_item_to_map:147 char_list: {info,"\e[1;37m"}
+2014-11-12 17:09:48.755 [info] <0.32.0>@core_util:proplist_item_to_map:144 proplist_item_to_map: {notice,"\e[1;36m"}
+2014-11-12 17:09:48.755 [info] <0.32.0>@core_util:proplist_item_to_map:147 char_list: {notice,"\e[1;36m"}
+2014-11-12 17:09:48.756 [info] <0.32.0>@core_util:proplist_item_to_map:144 proplist_item_to_map: {warning,"\e[1;33m"}
+2014-11-12 17:09:48.756 [info] <0.32.0>@core_util:proplist_item_to_map:147 char_list: {warning,"\e[1;33m"}
+2014-11-12 17:09:48.756 [info] <0.32.0>@core_util:proplist_item_to_map:144 proplist_item_to_map: {error,"\e[1;31m"}
+2014-11-12 17:09:48.756 [info] <0.32.0>@core_util:proplist_item_to_map:147 char_list: {error,"\e[1;31m"}
+2014-11-12 17:09:48.756 [info] <0.32.0>@core_util:proplist_item_to_map:144 proplist_item_to_map: {critical,"\e[1;35m"}
+2014-11-12 17:09:48.756 [info] <0.32.0>@core_util:proplist_item_to_map:147 char_list: {critical,"\e[1;35m"}
+2014-11-12 17:09:48.756 [info] <0.32.0>@core_util:proplist_item_to_map:144 proplist_item_to_map: {alert,"\e[1;44m"}
+2014-11-12 17:09:48.756 [info] <0.32.0>@core_util:proplist_item_to_map:147 char_list: {alert,"\e[1;44m"}
+2014-11-12 17:09:48.756 [info] <0.32.0>@core_util:proplist_item_to_map:144 proplist_item_to_map: {emergency,"\e[1;41m"}
+2014-11-12 17:09:48.756 [info] <0.32.0>@core_util:proplist_item_to_map:147 char_list: {emergency,"\e[1;41m"}
+2014-11-12 17:09:48.756 [info] <0.32.0>@core_util:proplist_item_to_map:160 proplist_item_to_map2: {crash_log_count,5}
+2014-11-12 17:09:48.756 [info] <0.32.0>@core_util:proplist_item_to_map:160 proplist_item_to_map2: {async_threshold,20}
+2014-11-12 17:09:48.756 [info] <0.32.0>@core_util:proplist_item_to_map:160 proplist_item_to_map2: {crash_log_size,10485760}
+2014-11-12 17:09:48.756 [info] <0.32.0>@core_util:proplist_item_to_map:160 proplist_item_to_map2: {crash_log_msg_size,65536}
+2014-11-12 17:09:48.756 [info] <0.32.0>@core_util:proplist_item_to_map:160 proplist_item_to_map2: {colored,false}
+2014-11-12 17:09:48.756 [info] <0.32.0>@core_util:proplist_item_to_map:160 proplist_item_to_map2: {error_logger_hwm,50}
+2014-11-12 17:09:48.756 [info] <0.32.0>@core_util:proplist_item_to_map:160 proplist_item_to_map2: {error_logger_redirect,true}
+2014-11-12 17:09:48.756 [info] <0.32.0>@core_util:proplist_item_to_map:144 proplist_item_to_map: {included_applications,[]}
+2014-11-12 17:09:48.757 [info] <0.32.0>@core_util:proplist_item_to_map:147 char_list: {included_applications,[]}
+2014-11-12 17:09:48.757 [info] <0.32.0>@core_util:proplist_item_to_map:160 proplist_item_to_map2: {mod,{lager_app,[]}}
+2014-11-12 17:09:48.757 [info] <0.32.0>@core_util:proplist_item_to_map:160 proplist_item_to_map2: {start_phases,undefined}
+2014-11-12 17:19:10.103 [info] <0.2.0>@plexo_srv:start:42 Starting 'plexo_srv' apps: [crypto,ranch,cowlib,cowboy,plexo_srv]
+2014-11-12 17:19:10.103 [info] <0.7.0> Application lager started on node nonode@nohost
+2014-11-12 17:19:10.109 [info] <0.7.0> Application crypto started on node nonode@nohost
+2014-11-12 17:19:10.112 [info] <0.7.0> Application ranch started on node nonode@nohost
+2014-11-12 17:19:10.113 [info] <0.7.0> Application cowlib started on node nonode@nohost
+2014-11-12 17:19:10.115 [info] <0.7.0> Application cowboy started on node nonode@nohost
+2014-11-12 17:19:10.124 [info] <0.2.0>@plexo_srv:start:44 Res: [{crypto,app_started},{ranch,app_started},{cowlib,app_started},{cowboy,app_started},{plexo_srv,app_started}]
+2014-11-12 17:25:07.222 [info] <0.2.0>@plexo_srv:start:42 Starting 'plexo_srv' apps: [crypto,ranch,cowlib,cowboy,plexo_srv]
+2014-11-12 17:25:07.222 [info] <0.7.0> Application lager started on node nonode@nohost
+2014-11-12 17:25:07.228 [info] <0.7.0> Application crypto started on node nonode@nohost
+2014-11-12 17:25:07.230 [info] <0.7.0> Application ranch started on node nonode@nohost
+2014-11-12 17:25:07.231 [info] <0.7.0> Application cowlib started on node nonode@nohost
+2014-11-12 17:25:07.233 [info] <0.7.0> Application cowboy started on node nonode@nohost
+2014-11-12 17:25:07.242 [info] <0.2.0>@plexo_srv:start:44 Res: [{crypto,app_started},{ranch,app_started},{cowlib,app_started},{cowboy,app_started},{plexo_srv,app_started}]
+2014-11-12 17:25:13.099 [info] <0.185.0>@core_auth:do_auth:121 Authenticated User:<<"Temple">>, Pass<<"Wibble2Wobble">>
+2014-11-12 17:25:32.329 [info] <0.187.0>@core_auth:do_auth:121 Authenticated User:<<"Temple">>, Pass<<"Wibble2Wobble">>
+2014-11-12 17:25:32.330 [info] <0.187.0>@core_util:proplist_item_to_map:161 proplist_item_to_map2: {async_threshold_window,5}
+2014-11-12 17:25:32.330 [info] <0.187.0>@core_util:proplist_item_to_map:145 proplist_item_to_map: {crash_log_date,"$D0"}
+2014-11-12 17:25:32.330 [info] <0.187.0>@core_util:proplist_item_to_map:148 char_list: {crash_log_date,"$D0"}
+2014-11-12 17:25:32.330 [info] <0.187.0>@core_util:proplist_item_to_map:145 proplist_item_to_map: {crash_log,"log/crash.log"}
+2014-11-12 17:25:32.330 [info] <0.187.0>@core_util:proplist_item_to_map:148 char_list: {crash_log,"log/crash.log"}
+2014-11-12 17:25:32.330 [info] <0.187.0>@core_util:proplist_item_to_map:145 proplist_item_to_map: {colors,[{debug,"\e[0;38m"},{info,"\e[1;37m"},{notice,"\e[1;36m"},{warning,"\e[1;33m"},{error,"\e[1;31m"},{critical,"\e[1;35m"},{alert,"\e[1;44m"},{emergency,"\e[1;41m"}]}
+2014-11-12 17:25:32.330 [info] <0.187.0>@core_util:proplist_item_to_map:153 is_proplist: {colors,[{debug,"\e[0;38m"},{info,"\e[1;37m"},{notice,"\e[1;36m"},{warning,"\e[1;33m"},{error,"\e[1;31m"},{critical,"\e[1;35m"},{alert,"\e[1;44m"},{emergency,"\e[1;41m"}]}
+2014-11-12 17:25:32.330 [info] <0.187.0>@core_util:proplist_item_to_map:145 proplist_item_to_map: {debug,"\e[0;38m"}
+2014-11-12 17:25:32.330 [info] <0.187.0>@core_util:proplist_item_to_map:148 char_list: {debug,"\e[0;38m"}
+2014-11-12 17:25:32.330 [info] <0.187.0>@core_util:proplist_item_to_map:145 proplist_item_to_map: {info,"\e[1;37m"}
+2014-11-12 17:25:32.330 [info] <0.187.0>@core_util:proplist_item_to_map:148 char_list: {info,"\e[1;37m"}
+2014-11-12 17:25:32.330 [info] <0.187.0>@core_util:proplist_item_to_map:145 proplist_item_to_map: {notice,"\e[1;36m"}
+2014-11-12 17:25:32.330 [info] <0.187.0>@core_util:proplist_item_to_map:148 char_list: {notice,"\e[1;36m"}
+2014-11-12 17:25:32.330 [info] <0.187.0>@core_util:proplist_item_to_map:145 proplist_item_to_map: {warning,"\e[1;33m"}
+2014-11-12 17:25:32.331 [info] <0.187.0>@core_util:proplist_item_to_map:148 char_list: {warning,"\e[1;33m"}
+2014-11-12 17:25:32.331 [info] <0.187.0>@core_util:proplist_item_to_map:145 proplist_item_to_map: {error,"\e[1;31m"}
+2014-11-12 17:25:32.331 [info] <0.187.0>@core_util:proplist_item_to_map:148 char_list: {error,"\e[1;31m"}
+2014-11-12 17:25:32.331 [info] <0.187.0>@core_util:proplist_item_to_map:145 proplist_item_to_map: {critical,"\e[1;35m"}
+2014-11-12 17:25:32.331 [info] <0.187.0>@core_util:proplist_item_to_map:148 char_list: {critical,"\e[1;35m"}
+2014-11-12 17:25:32.331 [info] <0.187.0>@core_util:proplist_item_to_map:145 proplist_item_to_map: {alert,"\e[1;44m"}
+2014-11-12 17:25:32.331 [info] <0.187.0>@core_util:proplist_item_to_map:148 char_list: {alert,"\e[1;44m"}
+2014-11-12 17:25:32.331 [info] <0.187.0>@core_util:proplist_item_to_map:145 proplist_item_to_map: {emergency,"\e[1;41m"}
+2014-11-12 17:25:32.331 [info] <0.187.0>@core_util:proplist_item_to_map:148 char_list: {emergency,"\e[1;41m"}
+2014-11-12 17:25:32.331 [info] <0.187.0>@core_util:proplist_item_to_map:161 proplist_item_to_map2: {crash_log_count,5}
+2014-11-12 17:25:32.331 [info] <0.187.0>@core_util:proplist_item_to_map:161 proplist_item_to_map2: {async_threshold,20}
+2014-11-12 17:25:32.331 [info] <0.187.0>@core_util:proplist_item_to_map:161 proplist_item_to_map2: {crash_log_size,10485760}
+2014-11-12 17:25:32.331 [info] <0.187.0>@core_util:proplist_item_to_map:161 proplist_item_to_map2: {crash_log_msg_size,65536}
+2014-11-12 17:25:32.331 [info] <0.187.0>@core_util:proplist_item_to_map:161 proplist_item_to_map2: {colored,false}
+2014-11-12 17:25:32.331 [info] <0.187.0>@core_util:proplist_item_to_map:161 proplist_item_to_map2: {error_logger_hwm,50}
+2014-11-12 17:25:32.331 [info] <0.187.0>@core_util:proplist_item_to_map:161 proplist_item_to_map2: {error_logger_redirect,true}
+2014-11-12 17:25:32.331 [info] <0.187.0>@core_util:proplist_item_to_map:145 proplist_item_to_map: {included_applications,[]}
+2014-11-12 17:25:32.331 [info] <0.187.0>@core_util:proplist_item_to_map:148 char_list: {included_applications,[]}
+2014-11-12 17:26:28.607 [info] <0.188.0>@core_auth:do_auth:121 Authenticated User:<<"Temple">>, Pass<<"Wibble2Wobble">>
+2014-11-12 17:26:28.607 [info] <0.188.0>@core_util:proplist_item_to_map:145 proplist_item_to_map: {included_applications,[]}
+2014-11-12 17:26:28.607 [info] <0.188.0>@core_util:proplist_item_to_map:148 char_list: {included_applications,[]}
+2014-11-12 17:26:28.607 [info] <0.188.0>@core_util:proplist_item_to_map:161 proplist_item_to_map2: {error_logger,tty}
+2014-11-12 17:26:55.324 [info] <0.189.0>@core_auth:do_auth:121 Authenticated User:<<"Temple">>, Pass<<"Wibble2Wobble">>
+2014-11-12 17:26:55.324 [warning] <0.6.0> lager_error_logger_h dropped 64 messages in the last second that exceeded the limit of 50 messages/sec
+2014-11-12 17:26:55.324 [error] emulator Error in process <0.189.0> with exit value: {[{reason,{badmatch,[]}},{mfa,{cb_app_hndlr,handle_provide_as_json,2}},{stacktrace,[{erts_apps,app_env_to_map,1,[{file,"src/erts_apps.erl"},{line,312}]},{cb_app_hndlr,get_app_cnfg,2,[{file,"src/cb_app_hndlr.erl"},{line,224}]},{... 
 
 
-2014-11-09 16:54:30.666 [error] <0.82.0> Ranch listener http had connection process started with cowboy_protocol:start_link/4 at <0.185.0> exit with reason: {[{reason,{badmatch,#{action => #{method => <<"GET">>,path => <<"/api/apps">>,pathInfo => undefined,url => <<"http://localhost:8877/api/apps?status=running">>,urlQuery => <<"status=running">>,version => 'HTTP/1.1'},auth => undefined,host => #{info => undefined,name => <<"localhost">>,port => 8877,url => <<"http://localhost:8877">>},peer => #{ip => {127,0,0,1},port => 52543}}}},{mfa,{cb_apps_hndlr,is_authorized,2}},{stacktrace,[{cb_util,is_authorized,2,[{file,"src/cb_util.erl"},{line,60}]},{cowboy_rest,call,3,[{file,"src/cowboy_rest.erl"},{line,952}]},{cowboy_rest,is_authorized,2,[{file,"src/cowboy_rest.erl"},{line,140}]},{cowboy_protocol,execute,4,[{file,"src/cowboy_protocol.erl"},{line,428}]}]},{req,[{socket,#Port<0.5362>},{transport,ranch_tcp},{connection,keepalive},{pid,<0.185.0>},{method,<<"GET">>},{version,'HTTP/1.1'},{peer,{{127,0,0,1},52543}},{host,<<"localhost">>},{host_info,undefined},{port,8877},{path,<<"/api/apps">>},{path_info,undefined},{qs,<<"status=running">>},{bindings,[]},{headers,[{<<"host">>,<<"localhost:8877">>},{<<"connection">>,<<"keep-alive">>},{<<"accept">>,<<"application/json, text/plain, */*">>},{<<"user-agent">>,<<"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/38.0.2125.111 Safari/537.36">>},{<<"referer">>,<<"http://localhost:8877/">>},{<<"accept-encoding">>,<<"gzip,deflate,sdch">>},{<<"accept-language">>,<<"en-US,en;q=0.8">>}]},{meta,[]},{body_state,waiting},{buffer,<<>>},{multipart,undefined},{resp_compress,false},{resp_state,waiting},{resp_headers,[]},{resp_body,<<>>},{onresponse,undefined}]},{state,[]}],[{cowboy_rest,is_authorized,2,[{file,"src/cowboy_rest.erl"},{line,140}]},{cowboy_protocol,execute,4,[{file,"src/cowboy_protocol.erl"},{line,428}]}]}
+2014-11-12 17:26:55.325 [error] <0.82.0> Ranch listener http had connection process started with cowboy_protocol:start_link/4 at <0.189.0> exit with reason: {[{reason,{badmatch,[]}},{mfa,{cb_app_hndlr,handle_provide_as_json,2}},{stacktrace,[{erts_apps,app_env_to_map,1,[{file,"src/erts_apps.erl"},{line,312}]},{cb_app_hndlr,get_app_cnfg,2,[{file,"src/cb_app_hndlr.erl"},{line,224}]},{cowboy_rest,call,3,[{file,"src/cowboy_rest.erl"},{line,952}]},{cowboy_rest,set_resp_body,2,[{file,"src/cowboy_rest.erl"},{line,834}]},{cowboy_protocol,execute,4,[{file,"src/cowboy_protocol.erl"},{line,428}]}]},{req,[{socket,#Port<0.5577>},{transport,ranch_tcp},{connection,keepalive},{pid,<0.189.0>},{method,<<"GET">>},{version,'HTTP/1.1'},{peer,{{127,0,0,1},56611}},{host,<<"localhost">>},{host_info,undefined},{port,8877},{path,<<"/api/app/stdlib">>},{path_info,undefined},{qs,<<>>},{bindings,[{app_name,<<"stdlib">>}]},{headers,[{<<"host">>,<<"localhost:8877">>},{<<"connection">>,<<"keep-alive">>},{<<"authorization">>,<<"Basic VGVtcGxlOldpYmJsZTJXb2JibGU=">>},{<<"user-agent">>,<<"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/38.0.2125.111 Safari/537.36">>},{<<"content-type">>,<<"text/plain; charset=utf-8">>},{<<"accept">>,<<"*/*">>},{<<"accept-encoding">>,<<"gzip,deflate,sdch">>},{<<"accept-language">>,<<"en-US,en;q=0.8">>}]},{meta,[{media_type,{<<"application">>,<<"json">>,[]}},{charset,undefined}]},{body_state,waiting},{buffer,<<>>},{multipart,undefined},{resp_compress,false},{resp_state,waiting},{resp_headers,[{<<"content-type">>,[<<"application">>,<<"/">>,<<"json">>,<<>>]}]},{resp_body,<<>>},{onresponse,undefined}]},{state,{<<"Temple">>,<<"Wibble2Wobble">>}}],[{cowboy_rest,set_resp_body,2,[{file,"src/cowboy_rest.erl"},{line,834}]},{cowboy_protocol,execute,4,[{file,"src/cowboy_protocol.erl"},{line,428}]}]}
 
-2014-11-09 16:54:35.001 [error] emulator Error in process <0.186.0> with exit value: {[{reason,{badmatch,#{action=>#{method=><<3 bytes>>,path=><<9 bytes>>,pathInfo=>undefined,url=><<45 bytes>>,urlQuery=><<14 bytes>>,version=>'HTTP/1.1'},auth=>undefined,host=>#{info=>undefined,name=><<9 bytes>>,port=>8877,url=><<21 bytes>>},peer=>#{ip=>{127,0,0,1},port=>52544}}}},{mfa,{cb_apps_hndlr,is_authorized... 
-
-
-2014-11-09 16:54:35.002 [error] <0.82.0> Ranch listener http had connection process started with cowboy_protocol:start_link/4 at <0.186.0> exit with reason: {[{reason,{badmatch,#{action => #{method => <<"GET">>,path => <<"/api/apps">>,pathInfo => undefined,url => <<"http://localhost:8877/api/apps?status=running">>,urlQuery => <<"status=running">>,version => 'HTTP/1.1'},auth => undefined,host => #{info => undefined,name => <<"localhost">>,port => 8877,url => <<"http://localhost:8877">>},peer => #{ip => {127,0,0,1},port => 52544}}}},{mfa,{cb_apps_hndlr,is_authorized,2}},{stacktrace,[{cb_util,is_authorized,2,[{file,"src/cb_util.erl"},{line,60}]},{cowboy_rest,call,3,[{file,"src/cowboy_rest.erl"},{line,952}]},{cowboy_rest,is_authorized,2,[{file,"src/cowboy_rest.erl"},{line,140}]},{cowboy_protocol,execute,4,[{file,"src/cowboy_protocol.erl"},{line,428}]}]},{req,[{socket,#Port<0.5363>},{transport,ranch_tcp},{connection,keepalive},{pid,<0.186.0>},{method,<<"GET">>},{version,'HTTP/1.1'},{peer,{{127,0,0,1},52544}},{host,<<"localhost">>},{host_info,undefined},{port,8877},{path,<<"/api/apps">>},{path_info,undefined},{qs,<<"status=running">>},{bindings,[]},{headers,[{<<"host">>,<<"localhost:8877">>},{<<"connection">>,<<"keep-alive">>},{<<"cache-control">>,<<"max-age=0">>},{<<"accept">>,<<"application/json, text/plain, */*">>},{<<"user-agent">>,<<"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/38.0.2125.111 Safari/537.36">>},{<<"referer">>,<<"http://localhost:8877/">>},{<<"accept-encoding">>,<<"gzip,deflate,sdch">>},{<<"accept-language">>,<<"en-US,en;q=0.8">>}]},{meta,[]},{body_state,waiting},{buffer,<<>>},{multipart,undefined},{resp_compress,false},{resp_state,waiting},{resp_headers,[]},{resp_body,<<>>},{onresponse,undefined}]},{state,[]}],[{cowboy_rest,is_authorized,2,[{file,"src/cowboy_rest.erl"},{line,140}]},{cowboy_protocol,execute,4,[{file,"src/cowboy_protocol.erl"},{line,428}]}]}
-
-2014-11-09 16:55:06.750 [error] emulator Error in process <0.190.0> with exit value: {[{reason,{badmatch,#{action=>#{method=><<3 bytes>>,path=><<9 bytes>>,pathInfo=>undefined,url=><<45 bytes>>,urlQuery=><<14 bytes>>,version=>'HTTP/1.1'},auth=>undefined,host=>#{info=>undefined,name=><<9 bytes>>,port=>8877,url=><<21 bytes>>},peer=>#{ip=>{127,0,0,1},port=>52556}}}},{mfa,{cb_apps_hndlr,is_authorized... 
+2014-11-12 17:27:02.857 [info] <0.190.0>@core_auth:do_auth:121 Authenticated User:<<"Temple">>, Pass<<"Wibble2Wobble">>
+2014-11-12 17:27:02.858 [error] emulator Error in process <0.190.0> with exit value: {[{reason,{badmatch,undefined}},{mfa,{cb_app_hndlr,handle_provide_as_json,2}},{stacktrace,[{erts_apps,get_app_cnfg,1,[{file,"src/erts_apps.erl"},{line,197}]},{cb_app_hndlr,get_app_cnfg,2,[{file,"src/cb_app_hndlr.erl"},{... 
 
 
-2014-11-09 16:55:06.750 [error] <0.82.0> Ranch listener http had connection process started with cowboy_protocol:start_link/4 at <0.190.0> exit with reason: {[{reason,{badmatch,#{action => #{method => <<"GET">>,path => <<"/api/apps">>,pathInfo => undefined,url => <<"http://localhost:8877/api/apps?status=running">>,urlQuery => <<"status=running">>,version => 'HTTP/1.1'},auth => undefined,host => #{info => undefined,name => <<"localhost">>,port => 8877,url => <<"http://localhost:8877">>},peer => #{ip => {127,0,0,1},port => 52556}}}},{mfa,{cb_apps_hndlr,is_authorized,2}},{stacktrace,[{cb_util,is_authorized,2,[{file,"src/cb_util.erl"},{line,60}]},{cowboy_rest,call,3,[{file,"src/cowboy_rest.erl"},{line,952}]},{cowboy_rest,is_authorized,2,[{file,"src/cowboy_rest.erl"},{line,140}]},{cowboy_protocol,execute,4,[{file,"src/cowboy_protocol.erl"},{line,428}]}]},{req,[{socket,#Port<0.5457>},{transport,ranch_tcp},{connection,keepalive},{pid,<0.190.0>},{method,<<"GET">>},{version,'HTTP/1.1'},{peer,{{127,0,0,1},52556}},{host,<<"localhost">>},{host_info,undefined},{port,8877},{path,<<"/api/apps">>},{path_info,undefined},{qs,<<"status=running">>},{bindings,[]},{headers,[{<<"host">>,<<"localhost:8877">>},{<<"connection">>,<<"keep-alive">>},{<<"cache-control">>,<<"max-age=0">>},{<<"accept">>,<<"text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8">>},{<<"user-agent">>,<<"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/38.0.2125.111 Safari/537.36">>},{<<"accept-encoding">>,<<"gzip,deflate,sdch">>},{<<"accept-language">>,<<"en-US,en;q=0.8">>}]},{meta,[]},{body_state,waiting},{buffer,<<>>},{multipart,undefined},{resp_compress,false},{resp_state,waiting},{resp_headers,[]},{resp_body,<<>>},{onresponse,undefined}]},{state,[]}],[{cowboy_rest,is_authorized,2,[{file,"src/cowboy_rest.erl"},{line,140}]},{cowboy_protocol,execute,4,[{file,"src/cowboy_protocol.erl"},{line,428}]}]}
+2014-11-12 17:27:02.858 [error] <0.82.0> Ranch listener http had connection process started with cowboy_protocol:start_link/4 at <0.190.0> exit with reason: {[{reason,{badmatch,undefined}},{mfa,{cb_app_hndlr,handle_provide_as_json,2}},{stacktrace,[{erts_apps,get_app_cnfg,1,[{file,"src/erts_apps.erl"},{line,197}]},{cb_app_hndlr,get_app_cnfg,2,[{file,"src/cb_app_hndlr.erl"},{line,224}]},{cowboy_rest,call,3,[{file,"src/cowboy_rest.erl"},{line,952}]},{cowboy_rest,set_resp_body,2,[{file,"src/cowboy_rest.erl"},{line,834}]},{cowboy_protocol,execute,4,[{file,"src/cowboy_protocol.erl"},{line,428}]}]},{req,[{socket,#Port<0.5578>},{transport,ranch_tcp},{connection,keepalive},{pid,<0.190.0>},{method,<<"GET">>},{version,'HTTP/1.1'},{peer,{{127,0,0,1},56613}},{host,<<"localhost">>},{host_info,undefined},{port,8877},{path,<<"/api/app/sasl">>},{path_info,undefined},{qs,<<>>},{bindings,[{app_name,<<"sasl">>}]},{headers,[{<<"host">>,<<"localhost:8877">>},{<<"connection">>,<<"keep-alive">>},{<<"authorization">>,<<"Basic VGVtcGxlOldpYmJsZTJXb2JibGU=">>},{<<"user-agent">>,<<"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/38.0.2125.111 Safari/537.36">>},{<<"content-type">>,<<"text/plain; charset=utf-8">>},{<<"accept">>,<<"*/*">>},{<<"accept-encoding">>,<<"gzip,deflate,sdch">>},{<<"accept-language">>,<<"en-US,en;q=0.8">>}]},{meta,[{media_type,{<<"application">>,<<"json">>,[]}},{charset,undefined}]},{body_state,waiting},{buffer,<<>>},{multipart,undefined},{resp_compress,false},{resp_state,waiting},{resp_headers,[{<<"content-type">>,[<<"application">>,<<"/">>,<<"json">>,<<>>]}]},{resp_body,<<>>},{onresponse,undefined}]},{state,{<<"Temple">>,<<"Wibble2Wobble">>}}],[{cowboy_rest,set_resp_body,2,[{file,"src/cowboy_rest.erl"},{line,834}]},{cowboy_protocol,execute,4,[{file,"src/cowboy_protocol.erl"},{line,428}]}]}
 
-2014-11-09 16:55:12.409 [error] emulator Error in process <0.191.0> with exit value: {[{reason,{badmatch,#{action=>#{method=><<3 bytes>>,path=><<9 bytes>>,pathInfo=>undefined,url=><<44 bytes>>,urlQuery=><<13 bytes>>,version=>'HTTP/1.1'},auth=>undefined,host=>#{info=>undefined,name=><<9 bytes>>,port=>8877,url=><<21 bytes>>},peer=>#{ip=>{127,0,0,1},port=>52561}}}},{mfa,{cb_apps_hndlr,is_authorized... 
-
-
-2014-11-09 16:55:12.409 [error] <0.82.0> Ranch listener http had connection process started with cowboy_protocol:start_link/4 at <0.191.0> exit with reason: {[{reason,{badmatch,#{action => #{method => <<"GET">>,path => <<"/api/apps">>,pathInfo => undefined,url => <<"http://localhost:8877/api/apps?status=loaded">>,urlQuery => <<"status=loaded">>,version => 'HTTP/1.1'},auth => undefined,host => #{info => undefined,name => <<"localhost">>,port => 8877,url => <<"http://localhost:8877">>},peer => #{ip => {127,0,0,1},port => 52561}}}},{mfa,{cb_apps_hndlr,is_authorized,2}},{stacktrace,[{cb_util,is_authorized,2,[{file,"src/cb_util.erl"},{line,60}]},{cowboy_rest,call,3,[{file,"src/cowboy_rest.erl"},{line,952}]},{cowboy_rest,is_authorized,2,[{file,"src/cowboy_rest.erl"},{line,140}]},{cowboy_protocol,execute,4,[{file,"src/cowboy_protocol.erl"},{line,428}]}]},{req,[{socket,#Port<0.5458>},{transport,ranch_tcp},{connection,keepalive},{pid,<0.191.0>},{method,<<"GET">>},{version,'HTTP/1.1'},{peer,{{127,0,0,1},52561}},{host,<<"localhost">>},{host_info,undefined},{port,8877},{path,<<"/api/apps">>},{path_info,undefined},{qs,<<"status=loaded">>},{bindings,[]},{headers,[{<<"host">>,<<"localhost:8877">>},{<<"connection">>,<<"keep-alive">>},{<<"accept">>,<<"text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8">>},{<<"user-agent">>,<<"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/38.0.2125.111 Safari/537.36">>},{<<"accept-encoding">>,<<"gzip,deflate,sdch">>},{<<"accept-language">>,<<"en-US,en;q=0.8">>}]},{meta,[]},{body_state,waiting},{buffer,<<>>},{multipart,undefined},{resp_compress,false},{resp_state,waiting},{resp_headers,[]},{resp_body,<<>>},{onresponse,undefined}]},{state,[]}],[{cowboy_rest,is_authorized,2,[{file,"src/cowboy_rest.erl"},{line,140}]},{cowboy_protocol,execute,4,[{file,"src/cowboy_protocol.erl"},{line,428}]}]}
-
-2014-11-09 16:55:19.545 [error] emulator Error in process <0.195.0> with exit value: {[{reason,{badmatch,#{action=>#{method=><<6 bytes>>,path=><<13 bytes>>,pathInfo=>undefined,url=><<34 bytes>>,urlQuery=><<0 bytes>>,version=>'HTTP/1.1'},auth=>undefined,host=>#{info=>undefined,name=><<9 bytes>>,port=>8877,url=><<21 bytes>>},peer=>#{ip=>{127,0,0,1},port=>52568}}}},{mfa,{cb_app_hndlr,is_authorized... 
-
-
-2014-11-09 16:55:19.546 [error] <0.82.0> Ranch listener http had connection process started with cowboy_protocol:start_link/4 at <0.195.0> exit with reason: {[{reason,{badmatch,#{action => #{method => <<"DELETE">>,path => <<"/api/app/sasl">>,pathInfo => undefined,url => <<"http://localhost:8877/api/app/sasl">>,urlQuery => <<>>,version => 'HTTP/1.1'},auth => undefined,host => #{info => undefined,name => <<"localhost">>,port => 8877,url => <<"http://localhost:8877">>},peer => #{ip => {127,0,0,1},port => 52568}}}},{mfa,{cb_app_hndlr,is_authorized,2}},{stacktrace,[{cb_util,is_authorized,2,[{file,"src/cb_util.erl"},{line,60}]},{cowboy_rest,call,3,[{file,"src/cowboy_rest.erl"},{line,952}]},{cowboy_rest,is_authorized,2,[{file,"src/cowboy_rest.erl"},{line,140}]},{cowboy_protocol,execute,4,[{file,"src/cowboy_protocol.erl"},{line,428}]}]},{req,[{socket,#Port<0.5462>},{transport,ranch_tcp},{connection,keepalive},{pid,<0.195.0>},{method,<<"DELETE">>},{version,'HTTP/1.1'},{peer,{{127,0,0,1},52568}},{host,<<"localhost">>},{host_info,undefined},{port,8877},{path,<<"/api/app/sasl">>},{path_info,undefined},{qs,<<>>},{bindings,[{app_name,<<"sasl">>}]},{headers,[{<<"host">>,<<"localhost:8877">>},{<<"connection">>,<<"keep-alive">>},{<<"user-agent">>,<<"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/38.0.2125.111 Safari/537.36">>},{<<"origin">>,<<"chrome-extension://hgmloofddffdnphfgcellkdfbfbjeloo">>},{<<"content-type">>,<<"application/x-www-form-urlencoded">>},{<<"accept">>,<<"*/*">>},{<<"accept-encoding">>,<<"gzip,deflate,sdch">>},{<<"accept-language">>,<<"en-US,en;q=0.8">>}]},{meta,[]},{body_state,waiting},{buffer,<<>>},{multipart,undefined},{resp_compress,false},{resp_state,waiting},{resp_headers,[]},{resp_body,<<>>},{onresponse,undefined}]},{state,[]}],[{cowboy_rest,is_authorized,2,[{file,"src/cowboy_rest.erl"},{line,140}]},{cowboy_protocol,execute,4,[{file,"src/cowboy_protocol.erl"},{line,428}]}]}
-
-2014-11-09 16:57:36.441 [info] <0.2.0>@plexo_srv:start:42 Starting 'plexo_srv' apps: [crypto,ranch,cowlib,cowboy,plexo_srv]
-2014-11-09 16:57:36.441 [info] <0.7.0> Application lager started on node nonode@nohost
-2014-11-09 16:57:36.447 [info] <0.7.0> Application crypto started on node nonode@nohost
-2014-11-09 16:57:36.450 [info] <0.7.0> Application ranch started on node nonode@nohost
-2014-11-09 16:57:36.450 [info] <0.7.0> Application cowlib started on node nonode@nohost
-2014-11-09 16:57:36.452 [info] <0.7.0> Application cowboy started on node nonode@nohost
-2014-11-09 16:57:36.461 [info] <0.2.0>@plexo_srv:start:44 Res: [{crypto,app_started},{ranch,app_started},{cowlib,app_started},{cowboy,app_started},{plexo_srv,app_started}]
-2014-11-09 16:57:40.675 [warning] <0.6.0> lager_error_logger_h dropped 62 messages in the last second that exceeded the limit of 50 messages/sec
-2014-11-09 16:57:40.676 [error] emulator Error in process <0.185.0> with exit value: {[{reason,{badmatch,#{action=>#{method=><<3 bytes>>,path=><<9 bytes>>,pathInfo=>undefined,url=><<45 bytes>>,urlQuery=><<14 bytes>>,version=>'HTTP/1.1'},auth=>undefined,host=>#{info=>undefined,name=><<9 bytes>>,port=>8877,url=><<21 bytes>>},peer=>#{ip=>{127,0,0,1},port=>52585}}}},{mfa,{cb_apps_hndlr,is_authorized... 
+2014-11-12 17:27:18.262 [info] <0.191.0>@core_auth:do_auth:121 Authenticated User:<<"Temple">>, Pass<<"Wibble2Wobble">>
+2014-11-12 17:27:18.263 [info] <0.191.0>@core_util:proplist_item_to_map:145 proplist_item_to_map: {included_applications,[]}
+2014-11-12 17:27:18.263 [info] <0.191.0>@core_util:proplist_item_to_map:148 char_list: {included_applications,[]}
+2014-11-12 17:28:03.260 [info] <0.192.0>@core_auth:do_auth:121 Authenticated User:<<"Temple">>, Pass<<"Wibble2Wobble">>
+2014-11-12 17:28:03.261 [error] emulator Error in process <0.192.0> with exit value: {[{reason,{badmatch,undefined}},{mfa,{cb_app_hndlr,handle_provide_as_json,2}},{stacktrace,[{erts_apps,get_app_cnfg,1,[{file,"src/erts_apps.erl"},{line,197}]},{cb_app_hndlr,get_app_cnfg,2,[{file,"src/cb_app_hndlr.erl"},{... 
 
 
-2014-11-09 16:57:40.676 [error] <0.82.0> Ranch listener http had connection process started with cowboy_protocol:start_link/4 at <0.185.0> exit with reason: {[{reason,{badmatch,#{action => #{method => <<"GET">>,path => <<"/api/apps">>,pathInfo => undefined,url => <<"http://localhost:8877/api/apps?status=running">>,urlQuery => <<"status=running">>,version => 'HTTP/1.1'},auth => undefined,host => #{info => undefined,name => <<"localhost">>,port => 8877,url => <<"http://localhost:8877">>},peer => #{ip => {127,0,0,1},port => 52585}}}},{mfa,{cb_apps_hndlr,is_authorized,2}},{stacktrace,[{cb_util,is_authorized,2,[{file,"src/cb_util.erl"},{line,60}]},{cowboy_rest,call,3,[{file,"src/cowboy_rest.erl"},{line,952}]},{cowboy_rest,is_authorized,2,[{file,"src/cowboy_rest.erl"},{line,140}]},{cowboy_protocol,execute,4,[{file,"src/cowboy_protocol.erl"},{line,428}]}]},{req,[{socket,#Port<0.5362>},{transport,ranch_tcp},{connection,keepalive},{pid,<0.185.0>},{method,<<"GET">>},{version,'HTTP/1.1'},{peer,{{127,0,0,1},52585}},{host,<<"localhost">>},{host_info,undefined},{port,8877},{path,<<"/api/apps">>},{path_info,undefined},{qs,<<"status=running">>},{bindings,[]},{headers,[{<<"host">>,<<"localhost:8877">>},{<<"connection">>,<<"keep-alive">>},{<<"cache-control">>,<<"max-age=0">>},{<<"accept">>,<<"application/json, text/plain, */*">>},{<<"user-agent">>,<<"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/38.0.2125.111 Safari/537.36">>},{<<"referer">>,<<"http://localhost:8877/">>},{<<"accept-encoding">>,<<"gzip,deflate,sdch">>},{<<"accept-language">>,<<"en-US,en;q=0.8">>}]},{meta,[]},{body_state,waiting},{buffer,<<>>},{multipart,undefined},{resp_compress,false},{resp_state,waiting},{resp_headers,[]},{resp_body,<<>>},{onresponse,undefined}]},{state,[]}],[{cowboy_rest,is_authorized,2,[{file,"src/cowboy_rest.erl"},{line,140}]},{cowboy_protocol,execute,4,[{file,"src/cowboy_protocol.erl"},{line,428}]}]}
+2014-11-12 17:28:03.261 [error] <0.82.0> Ranch listener http had connection process started with cowboy_protocol:start_link/4 at <0.192.0> exit with reason: {[{reason,{badmatch,undefined}},{mfa,{cb_app_hndlr,handle_provide_as_json,2}},{stacktrace,[{erts_apps,get_app_cnfg,1,[{file,"src/erts_apps.erl"},{line,197}]},{cb_app_hndlr,get_app_cnfg,2,[{file,"src/cb_app_hndlr.erl"},{line,224}]},{cowboy_rest,call,3,[{file,"src/cowboy_rest.erl"},{line,952}]},{cowboy_rest,set_resp_body,2,[{file,"src/cowboy_rest.erl"},{line,834}]},{cowboy_protocol,execute,4,[{file,"src/cowboy_protocol.erl"},{line,428}]}]},{req,[{socket,#Port<0.5580>},{transport,ranch_tcp},{connection,keepalive},{pid,<0.192.0>},{method,<<"GET">>},{version,'HTTP/1.1'},{peer,{{127,0,0,1},56618}},{host,<<"localhost">>},{host_info,undefined},{port,8877},{path,<<"/api/app/cypto">>},{path_info,undefined},{qs,<<>>},{bindings,[{app_name,<<"cypto">>}]},{headers,[{<<"host">>,<<"localhost:8877">>},{<<"connection">>,<<"keep-alive">>},{<<"authorization">>,<<"Basic VGVtcGxlOldpYmJsZTJXb2JibGU=">>},{<<"user-agent">>,<<"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/38.0.2125.111 Safari/537.36">>},{<<"content-type">>,<<"text/plain; charset=utf-8">>},{<<"accept">>,<<"*/*">>},{<<"accept-encoding">>,<<"gzip,deflate,sdch">>},{<<"accept-language">>,<<"en-US,en;q=0.8">>}]},{meta,[{media_type,{<<"application">>,<<"json">>,[]}},{charset,undefined}]},{body_state,waiting},{buffer,<<>>},{multipart,undefined},{resp_compress,false},{resp_state,waiting},{resp_headers,[{<<"content-type">>,[<<"application">>,<<"/">>,<<"json">>,<<>>]}]},{resp_body,<<>>},{onresponse,undefined}]},{state,{<<"Temple">>,<<"Wibble2Wobble">>}}],[{cowboy_rest,set_resp_body,2,[{file,"src/cowboy_rest.erl"},{line,834}]},{cowboy_protocol,execute,4,[{file,"src/cowboy_protocol.erl"},{line,428}]}]}
 
-2014-11-09 17:05:56.783 [info] <0.2.0>@plexo_srv:start:42 Starting 'plexo_srv' apps: [crypto,ranch,cowlib,cowboy,plexo_srv]
-2014-11-09 17:05:56.783 [info] <0.7.0> Application lager started on node nonode@nohost
-2014-11-09 17:05:56.790 [info] <0.7.0> Application crypto started on node nonode@nohost
-2014-11-09 17:05:56.792 [info] <0.7.0> Application ranch started on node nonode@nohost
-2014-11-09 17:05:56.793 [info] <0.7.0> Application cowlib started on node nonode@nohost
-2014-11-09 17:05:56.795 [info] <0.7.0> Application cowboy started on node nonode@nohost
-2014-11-09 17:05:56.804 [info] <0.2.0>@plexo_srv:start:44 Res: [{crypto,app_started},{ranch,app_started},{cowlib,app_started},{cowboy,app_started},{plexo_srv,app_started}]
-2014-11-09 17:06:03.984 [warning] <0.6.0> lager_error_logger_h dropped 64 messages in the last second that exceeded the limit of 50 messages/sec
-2014-11-09 17:06:03.984 [error] emulator Error in process <0.185.0> with exit value: {[{reason,{badmatch,#{action=>#{method=><<3 bytes>>,path=><<9 bytes>>,pathInfo=>undefined,url=><<45 bytes>>,urlQuery=><<14 bytes>>,version=>'HTTP/1.1'},auth=>undefined,host=>#{info=>undefined,name=><<9 bytes>>,port=>8877,url=><<21 bytes>>},peer=>#{ip=>{127,0,0,1},port=>52634}}}},{mfa,{cb_apps_hndlr,is_authorized... 
+2014-11-12 17:28:14.770 [info] <0.193.0>@core_auth:do_auth:121 Authenticated User:<<"Temple">>, Pass<<"Wibble2Wobble">>
+2014-11-12 17:28:14.771 [error] emulator Error in process <0.193.0> with exit value: {[{reason,{badmatch,[]}},{mfa,{cb_app_hndlr,handle_provide_as_json,2}},{stacktrace,[{erts_apps,app_env_to_map,1,[{file,"src/erts_apps.erl"},{line,312}]},{cb_app_hndlr,get_app_cnfg,2,[{file,"src/cb_app_hndlr.erl"},{line,224}]},{... 
 
 
-2014-11-09 17:06:03.985 [error] <0.82.0> Ranch listener http had connection process started with cowboy_protocol:start_link/4 at <0.185.0> exit with reason: {[{reason,{badmatch,#{action => #{method => <<"GET">>,path => <<"/api/apps">>,pathInfo => undefined,url => <<"http://localhost:8877/api/apps?status=running">>,urlQuery => <<"status=running">>,version => 'HTTP/1.1'},auth => undefined,host => #{info => undefined,name => <<"localhost">>,port => 8877,url => <<"http://localhost:8877">>},peer => #{ip => {127,0,0,1},port => 52634}}}},{mfa,{cb_apps_hndlr,is_authorized,2}},{stacktrace,[{core_auth,restful_auth,1,[{file,"src/core_auth.erl"},{line,88}]},{cb_util,is_authorized,2,[{file,"src/cb_util.erl"},{line,60}]},{cowboy_rest,call,3,[{file,"src/cowboy_rest.erl"},{line,952}]},{cowboy_rest,is_authorized,2,[{file,"src/cowboy_rest.erl"},{line,140}]},{cowboy_protocol,execute,4,[{file,"src/cowboy_protocol.erl"},{line,428}]}]},{req,[{socket,#Port<0.5362>},{transport,ranch_tcp},{connection,keepalive},{pid,<0.185.0>},{method,<<"GET">>},{version,'HTTP/1.1'},{peer,{{127,0,0,1},52634}},{host,<<"localhost">>},{host_info,undefined},{port,8877},{path,<<"/api/apps">>},{path_info,undefined},{qs,<<"status=running">>},{bindings,[]},{headers,[{<<"host">>,<<"localhost:8877">>},{<<"connection">>,<<"keep-alive">>},{<<"cache-control">>,<<"max-age=0">>},{<<"accept">>,<<"application/json, text/plain, */*">>},{<<"user-agent">>,<<"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/38.0.2125.111 Safari/537.36">>},{<<"referer">>,<<"http://localhost:8877/">>},{<<"accept-encoding">>,<<"gzip,deflate,sdch">>},{<<"accept-language">>,<<"en-US,en;q=0.8">>}]},{meta,[]},{body_state,waiting},{buffer,<<>>},{multipart,undefined},{resp_compress,false},{resp_state,waiting},{resp_headers,[]},{resp_body,<<>>},{onresponse,undefined}]},{state,[]}],[{cowboy_rest,is_authorized,2,[{file,"src/cowboy_rest.erl"},{line,140}]},{cowboy_protocol,execute,4,[{file,"src/cowboy_protocol.erl"},{line,428}]}]}
+2014-11-12 17:28:14.771 [error] <0.82.0> Ranch listener http had connection process started with cowboy_protocol:start_link/4 at <0.193.0> exit with reason: {[{reason,{badmatch,[]}},{mfa,{cb_app_hndlr,handle_provide_as_json,2}},{stacktrace,[{erts_apps,app_env_to_map,1,[{file,"src/erts_apps.erl"},{line,312}]},{cb_app_hndlr,get_app_cnfg,2,[{file,"src/cb_app_hndlr.erl"},{line,224}]},{cowboy_rest,call,3,[{file,"src/cowboy_rest.erl"},{line,952}]},{cowboy_rest,set_resp_body,2,[{file,"src/cowboy_rest.erl"},{line,834}]},{cowboy_protocol,execute,4,[{file,"src/cowboy_protocol.erl"},{line,428}]}]},{req,[{socket,#Port<0.5581>},{transport,ranch_tcp},{connection,keepalive},{pid,<0.193.0>},{method,<<"GET">>},{version,'HTTP/1.1'},{peer,{{127,0,0,1},56620}},{host,<<"localhost">>},{host_info,undefined},{port,8877},{path,<<"/api/app/crypto">>},{path_info,undefined},{qs,<<>>},{bindings,[{app_name,<<"crypto">>}]},{headers,[{<<"host">>,<<"localhost:8877">>},{<<"connection">>,<<"keep-alive">>},{<<"authorization">>,<<"Basic VGVtcGxlOldpYmJsZTJXb2JibGU=">>},{<<"user-agent">>,<<"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/38.0.2125.111 Safari/537.36">>},{<<"content-type">>,<<"text/plain; charset=utf-8">>},{<<"accept">>,<<"*/*">>},{<<"accept-encoding">>,<<"gzip,deflate,sdch">>},{<<"accept-language">>,<<"en-US,en;q=0.8">>}]},{meta,[{media_type,{<<"application">>,<<"json">>,[]}},{charset,undefined}]},{body_state,waiting},{buffer,<<>>},{multipart,undefined},{resp_compress,false},{resp_state,waiting},{resp_headers,[{<<"content-type">>,[<<"application">>,<<"/">>,<<"json">>,<<>>]}]},{resp_body,<<>>},{onresponse,undefined}]},{state,{<<"Temple">>,<<"Wibble2Wobble">>}}],[{cowboy_rest,set_resp_body,2,[{file,"src/cowboy_rest.erl"},{line,834}]},{cowboy_protocol,execute,4,[{file,"src/cowboy_protocol.erl"},{line,428}]}]}
 
-2014-11-09 17:11:54.929 [info] <0.2.0>@plexo_srv:start:42 Starting 'plexo_srv' apps: [crypto,ranch,cowlib,cowboy,plexo_srv]
-2014-11-09 17:11:54.930 [info] <0.7.0> Application lager started on node nonode@nohost
-2014-11-09 17:11:54.936 [info] <0.7.0> Application crypto started on node nonode@nohost
-2014-11-09 17:11:54.938 [info] <0.7.0> Application ranch started on node nonode@nohost
-2014-11-09 17:11:54.939 [info] <0.7.0> Application cowlib started on node nonode@nohost
-2014-11-09 17:11:54.941 [info] <0.7.0> Application cowboy started on node nonode@nohost
-2014-11-09 17:11:54.950 [info] <0.2.0>@plexo_srv:start:44 Res: [{crypto,app_started},{ranch,app_started},{cowlib,app_started},{cowboy,app_started},{plexo_srv,app_started}]
-2014-11-09 17:12:00.982 [info] <0.185.0>@core_auth:restful_auth:87 Doing Logon..
-2014-11-09 17:12:00.982 [warning] <0.6.0> lager_error_logger_h dropped 64 messages in the last second that exceeded the limit of 50 messages/sec
-2014-11-09 17:12:00.982 [error] emulator Error in process <0.185.0> with exit value: {[{reason,{badmatch,#{action=>#{method=><<3 bytes>>,path=><<9 bytes>>,pathInfo=>undefined,url=><<45 bytes>>,urlQuery=><<14 bytes>>,version=>'HTTP/1.1'},auth=>undefined,host=>#{info=>undefined,name=><<9 bytes>>,port=>8877,url=><<21 bytes>>},peer=>#{ip=>{127,0,0,1},port=>52670}}}},{mfa,{cb_apps_hndlr,is_authorized... 
+2014-11-12 17:29:34.678 [info] <0.194.0>@core_auth:do_auth:121 Authenticated User:<<"Temple">>, Pass<<"Wibble2Wobble">>
+2014-11-12 17:29:34.678 [error] emulator Error in process <0.194.0> with exit value: {[{reason,{badmatch,undefined}},{mfa,{cb_app_hndlr,handle_provide_as_json,2}},{stacktrace,[{erts_apps,get_app_cnfg,1,[{file,"src/erts_apps.erl"},{line,197}]},{cb_app_hndlr,get_app_cnfg,2,[{file,"src/cb_app_hndlr.erl"},{... 
 
 
-2014-11-09 17:12:00.983 [error] <0.82.0> Ranch listener http had connection process started with cowboy_protocol:start_link/4 at <0.185.0> exit with reason: {[{reason,{badmatch,#{action => #{method => <<"GET">>,path => <<"/api/apps">>,pathInfo => undefined,url => <<"http://localhost:8877/api/apps?status=running">>,urlQuery => <<"status=running">>,version => 'HTTP/1.1'},auth => undefined,host => #{info => undefined,name => <<"localhost">>,port => 8877,url => <<"http://localhost:8877">>},peer => #{ip => {127,0,0,1},port => 52670}}}},{mfa,{cb_apps_hndlr,is_authorized,2}},{stacktrace,[{core_auth,restful_auth,1,[{file,"src/core_auth.erl"},{line,88}]},{cb_util,is_authorized,2,[{file,"src/cb_util.erl"},{line,60}]},{cowboy_rest,call,3,[{file,"src/cowboy_rest.erl"},{line,952}]},{cowboy_rest,is_authorized,2,[{file,"src/cowboy_rest.erl"},{line,140}]},{cowboy_protocol,execute,4,[{file,"src/cowboy_protocol.erl"},{line,428}]}]},{req,[{socket,#Port<0.5362>},{transport,ranch_tcp},{connection,keepalive},{pid,<0.185.0>},{method,<<"GET">>},{version,'HTTP/1.1'},{peer,{{127,0,0,1},52670}},{host,<<"localhost">>},{host_info,undefined},{port,8877},{path,<<"/api/apps">>},{path_info,undefined},{qs,<<"status=running">>},{bindings,[]},{headers,[{<<"host">>,<<"localhost:8877">>},{<<"connection">>,<<"keep-alive">>},{<<"cache-control">>,<<"max-age=0">>},{<<"accept">>,<<"application/json, text/plain, */*">>},{<<"user-agent">>,<<"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/38.0.2125.111 Safari/537.36">>},{<<"referer">>,<<"http://localhost:8877/">>},{<<"accept-encoding">>,<<"gzip,deflate,sdch">>},{<<"accept-language">>,<<"en-US,en;q=0.8">>}]},{meta,[]},{body_state,waiting},{buffer,<<>>},{multipart,undefined},{resp_compress,false},{resp_state,waiting},{resp_headers,[]},{resp_body,<<>>},{onresponse,undefined}]},{state,[]}],[{cowboy_rest,is_authorized,2,[{file,"src/cowboy_rest.erl"},{line,140}]},{cowboy_protocol,execute,4,[{file,"src/cowboy_protocol.erl"},{line,428}]}]}
+2014-11-12 17:29:34.678 [error] <0.82.0> Ranch listener http had connection process started with cowboy_protocol:start_link/4 at <0.194.0> exit with reason: {[{reason,{badmatch,undefined}},{mfa,{cb_app_hndlr,handle_provide_as_json,2}},{stacktrace,[{erts_apps,get_app_cnfg,1,[{file,"src/erts_apps.erl"},{line,197}]},{cb_app_hndlr,get_app_cnfg,2,[{file,"src/cb_app_hndlr.erl"},{line,224}]},{cowboy_rest,call,3,[{file,"src/cowboy_rest.erl"},{line,952}]},{cowboy_rest,set_resp_body,2,[{file,"src/cowboy_rest.erl"},{line,834}]},{cowboy_protocol,execute,4,[{file,"src/cowboy_protocol.erl"},{line,428}]}]},{req,[{socket,#Port<0.5582>},{transport,ranch_tcp},{connection,keepalive},{pid,<0.194.0>},{method,<<"GET">>},{version,'HTTP/1.1'},{peer,{{127,0,0,1},56628}},{host,<<"localhost">>},{host_info,undefined},{port,8877},{path,<<"/api/app/sasl">>},{path_info,undefined},{qs,<<>>},{bindings,[{app_name,<<"sasl">>}]},{headers,[{<<"host">>,<<"localhost:8877">>},{<<"connection">>,<<"keep-alive">>},{<<"authorization">>,<<"Basic VGVtcGxlOldpYmJsZTJXb2JibGU=">>},{<<"user-agent">>,<<"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/38.0.2125.111 Safari/537.36">>},{<<"content-type">>,<<"text/plain; charset=utf-8">>},{<<"accept">>,<<"*/*">>},{<<"accept-encoding">>,<<"gzip,deflate,sdch">>},{<<"accept-language">>,<<"en-US,en;q=0.8">>}]},{meta,[{media_type,{<<"application">>,<<"json">>,[]}},{charset,undefined}]},{body_state,waiting},{buffer,<<>>},{multipart,undefined},{resp_compress,false},{resp_state,waiting},{resp_headers,[{<<"content-type">>,[<<"application">>,<<"/">>,<<"json">>,<<>>]}]},{resp_body,<<>>},{onresponse,undefined}]},{state,{<<"Temple">>,<<"Wibble2Wobble">>}}],[{cowboy_rest,set_resp_body,2,[{file,"src/cowboy_rest.erl"},{line,834}]},{cowboy_protocol,execute,4,[{file,"src/cowboy_protocol.erl"},{line,428}]}]}
 
-2014-11-09 17:50:29.340 [info] <0.2.0>@plexo_srv:start:42 Starting 'plexo_srv' apps: [crypto,ranch,cowlib,cowboy,plexo_srv]
-2014-11-09 17:50:29.340 [info] <0.7.0> Application lager started on node nonode@nohost
-2014-11-09 17:50:29.346 [info] <0.7.0> Application crypto started on node nonode@nohost
-2014-11-09 17:50:29.349 [info] <0.7.0> Application ranch started on node nonode@nohost
-2014-11-09 17:50:29.349 [info] <0.7.0> Application cowlib started on node nonode@nohost
-2014-11-09 17:50:29.352 [info] <0.7.0> Application cowboy started on node nonode@nohost
-2014-11-09 17:50:29.361 [info] <0.2.0>@plexo_srv:start:44 Res: [{crypto,app_started},{ranch,app_started},{cowlib,app_started},{cowboy,app_started},{plexo_srv,app_started}]
-2014-11-09 17:51:02.665 [info] <0.188.0>@core_auth:do_auth:108 Authenticated User:<<"Temple">>, Pass<<"Wibble2Wobble">>
-2014-11-09 17:51:14.203 [info] <0.189.0>@core_auth:do_auth:108 Authenticated User:<<"Temple">>, Pass<<"Wibble2Wobble">>
-2014-11-09 17:51:21.692 [info] <0.192.0>@core_auth:do_auth:108 Authenticated User:<<"Temple">>, Pass<<"Wibble2Wobble">>
-2014-11-09 17:51:23.569 [info] <0.192.0>@core_auth:do_auth:108 Authenticated User:<<"Temple">>, Pass<<"Wibble2Wobble">>
-2014-11-09 17:51:25.235 [info] <0.192.0>@core_auth:do_auth:108 Authenticated User:<<"Temple">>, Pass<<"Wibble2Wobble">>
-2014-11-09 17:51:26.123 [info] <0.192.0>@core_auth:do_auth:108 Authenticated User:<<"Temple">>, Pass<<"Wibble2Wobble">>
-2014-11-09 17:51:26.123 [warning] <0.6.0> lager_error_logger_h dropped 64 messages in the last second that exceeded the limit of 50 messages/sec
-2014-11-09 17:51:26.123 [error] emulator Error in process <0.192.0> with exit value: {[{reason,{badmatch,false}},{mfa,{cb_apps_hndlr,handle_provide_as_json,2}},{stacktrace,[{cowboy_req,filter,2,[{file,"src/cowboy_req.erl"},{line,1265}]},{cb_apps_hndlr,handle_provide_as_json,2,[{file,"src/cb_apps_hndlr... 
-
-
-2014-11-09 17:51:26.124 [error] <0.82.0> Ranch listener http had connection process started with cowboy_protocol:start_link/4 at <0.192.0> exit with reason: {[{reason,{badmatch,false}},{mfa,{cb_apps_hndlr,handle_provide_as_json,2}},{stacktrace,[{cowboy_req,filter,2,[{file,"src/cowboy_req.erl"},{line,1265}]},{cb_apps_hndlr,handle_provide_as_json,2,[{file,"src/cb_apps_hndlr.erl"},{line,164}]},{cowboy_rest,call,3,[{file,"src/cowboy_rest.erl"},{line,952}]},{cowboy_rest,set_resp_body,2,[{file,"src/cowboy_rest.erl"},{line,834}]},{cowboy_protocol,execute,4,[{file,"src/cowboy_protocol.erl"},{line,428}]}]},{req,[{socket,#Port<0.5574>},{transport,ranch_tcp},{connection,keepalive},{pid,<0.192.0>},{method,<<"GET">>},{version,'HTTP/1.1'},{peer,{{127,0,0,1},52834}},{host,<<"localhost">>},{host_info,undefined},{port,8877},{path,<<"/api/apps">>},{path_info,undefined},{qs,<<"cow=illegal">>},{bindings,[]},{headers,[{<<"host">>,<<"localhost:8877">>},{<<"connection">>,<<"keep-alive">>},{<<"authorization">>,<<"Basic VGVtcGxlOldpYmJsZTJXb2JibGU=">>},{<<"accept">>,<<"text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8">>},{<<"user-agent">>,<<"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/38.0.2125.111 Safari/537.36">>},{<<"accept-encoding">>,<<"gzip,deflate,sdch">>},{<<"accept-language">>,<<"en-US,en;q=0.8">>}]},{meta,[{media_type,{<<"application">>,<<"json">>,[]}},{charset,undefined}]},{body_state,waiting},{buffer,<<>>},{multipart,undefined},{resp_compress,false},{resp_state,waiting},{resp_headers,[{<<"content-type">>,[<<"application">>,<<"/">>,<<"json">>,<<>>]}]},{resp_body,<<>>},{onresponse,undefined}]},{state,{<<"Temple">>,<<"Wibble2Wobble">>}}],[{cowboy_rest,set_resp_body,2,[{file,"src/cowboy_rest.erl"},{line,834}]},{cowboy_protocol,execute,4,[{file,"src/cowboy_protocol.erl"},{line,428}]}]}
-
-2014-11-09 17:51:27.462 [info] <0.193.0>@core_auth:do_auth:108 Authenticated User:<<"Temple">>, Pass<<"Wibble2Wobble">>
-2014-11-09 17:51:27.463 [error] emulator Error in process <0.193.0> with exit value: {[{reason,{badmatch,false}},{mfa,{cb_apps_hndlr,handle_provide_as_json,2}},{stacktrace,[{cowboy_req,filter,2,[{file,"src/cowboy_req.erl"},{line,1265}]},{cb_apps_hndlr,handle_provide_as_json,2,[{file,"src/cb_apps_hndlr... 
-
-
-2014-11-09 17:51:27.464 [error] <0.82.0> Ranch listener http had connection process started with cowboy_protocol:start_link/4 at <0.193.0> exit with reason: {[{reason,{badmatch,false}},{mfa,{cb_apps_hndlr,handle_provide_as_json,2}},{stacktrace,[{cowboy_req,filter,2,[{file,"src/cowboy_req.erl"},{line,1265}]},{cb_apps_hndlr,handle_provide_as_json,2,[{file,"src/cb_apps_hndlr.erl"},{line,164}]},{cowboy_rest,call,3,[{file,"src/cowboy_rest.erl"},{line,952}]},{cowboy_rest,set_resp_body,2,[{file,"src/cowboy_rest.erl"},{line,834}]},{cowboy_protocol,execute,4,[{file,"src/cowboy_protocol.erl"},{line,428}]}]},{req,[{socket,#Port<0.5578>},{transport,ranch_tcp},{connection,keepalive},{pid,<0.193.0>},{method,<<"GET">>},{version,'HTTP/1.1'},{peer,{{127,0,0,1},52836}},{host,<<"localhost">>},{host_info,undefined},{port,8877},{path,<<"/api/apps">>},{path_info,undefined},{qs,<<"cow=illegal">>},{bindings,[]},{headers,[{<<"host">>,<<"localhost:8877">>},{<<"connection">>,<<"keep-alive">>},{<<"cache-control">>,<<"max-age=0">>},{<<"authorization">>,<<"Basic VGVtcGxlOldpYmJsZTJXb2JibGU=">>},{<<"accept">>,<<"text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8">>},{<<"user-agent">>,<<"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/38.0.2125.111 Safari/537.36">>},{<<"accept-encoding">>,<<"gzip,deflate,sdch">>},{<<"accept-language">>,<<"en-US,en;q=0.8">>}]},{meta,[{media_type,{<<"application">>,<<"json">>,[]}},{charset,undefined}]},{body_state,waiting},{buffer,<<>>},{multipart,undefined},{resp_compress,false},{resp_state,waiting},{resp_headers,[{<<"content-type">>,[<<"application">>,<<"/">>,<<"json">>,<<>>]}]},{resp_body,<<>>},{onresponse,undefined}]},{state,{<<"Temple">>,<<"Wibble2Wobble">>}}],[{cowboy_rest,set_resp_body,2,[{file,"src/cowboy_rest.erl"},{line,834}]},{cowboy_protocol,execute,4,[{file,"src/cowboy_protocol.erl"},{line,428}]}]}
-
-2014-11-09 17:51:50.035 [info] <0.195.0>@core_auth:do_auth:108 Authenticated User:<<"Temple">>, Pass<<"Wibble2Wobble">>
-2014-11-09 17:52:12.159 [info] <0.196.0>@core_auth:do_auth:108 Authenticated User:<<"Temple">>, Pass<<"Wibble2Wobble">>
-2014-11-09 17:52:12.180 [info] <0.7.0> Application sasl started on node nonode@nohost
-2014-11-09 17:52:18.069 [info] <0.206.0>@core_auth:do_auth:108 Authenticated User:<<"Temple">>, Pass<<"Wibble2Wobble">>
-2014-11-09 17:52:41.074 [info] <0.207.0>@core_auth:do_auth:108 Authenticated User:<<"Temple">>, Pass<<"Wibble2Wobble">>
-2014-11-09 17:52:50.307 [info] <0.208.0>@core_auth:do_auth:108 Authenticated User:<<"Temple">>, Pass<<"Wibble2Wobble">>
-2014-11-09 18:10:16.947 [info] <0.27282.0>@core_auth:do_auth:108 Authenticated User:<<"Temple">>, Pass<<"Wibble2Wobble">>
+2014-11-12 17:29:45.717 [info] <0.195.0>@core_auth:do_auth:121 Authenticated User:<<"Temple">>, Pass<<"Wibble2Wobble">>
+2014-11-12 17:29:45.736 [info] <0.7.0> Application sasl started on node nonode@nohost
+2014-11-12 17:29:51.904 [info] <0.205.0>@core_auth:do_auth:121 Authenticated User:<<"Temple">>, Pass<<"Wibble2Wobble">>
+2014-11-12 17:29:51.904 [info] <0.205.0>@core_util:proplist_item_to_map:161 proplist_item_to_map2: {errlog_type,all}
+2014-11-12 17:29:51.904 [info] <0.205.0>@core_util:proplist_item_to_map:145 proplist_item_to_map: {included_applications,[]}
+2014-11-12 17:29:51.904 [info] <0.205.0>@core_util:proplist_item_to_map:148 char_list: {included_applications,[]}
+2014-11-12 17:29:51.904 [info] <0.205.0>@core_util:proplist_item_to_map:161 proplist_item_to_map2: {sasl_error_logger,tty}
+2014-11-12 17:30:04.831 [info] <0.206.0>@core_auth:do_auth:121 Authenticated User:<<"Temple">>, Pass<<"Wibble2Wobble">>
+2014-11-12 17:30:04.832 [info] <0.206.0>@core_util:proplist_item_to_map:145 proplist_item_to_map: {included_applications,[]}
+2014-11-12 17:30:04.832 [info] <0.206.0>@core_util:proplist_item_to_map:148 char_list: {included_applications,[]}

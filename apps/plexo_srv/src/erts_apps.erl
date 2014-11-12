@@ -303,15 +303,18 @@ to_map({Name, Desc, Ver}) ->
 -spec app_env_to_map([{Par :: atom(), Val :: term()}]) -> map().
 
 app_env_to_map(AppEnv) ->
-  io:format("app_env_to_map - AppEnv: ~p~n", [AppEnv]),
-  Res = maps:from_list(AppEnv),
-  Res1 = maps:update(description, list_to_binary(maps:get(description, Res)), Res),
-  Res2 = maps:update(vsn, list_to_binary(maps:get(vsn, Res1)), Res1),
-  {Name, Param} = maps:get(mod, Res2),
-  Res3 = maps:update(mod, #{<<"name">> => Name, <<"params">> => Param}, Res2),
-  Res4 = maps:update(env, maps:from_list((maps:get(env, Res3))), Res3),
-  io:format("app_env_to_map - AppEnvMap: ~p~n", [Res4]),
-  Res4.
+    Res = core_util:proplist_to_map(AppEnv).
+
+%%   lager:debug("app_env_to_map - AppEnv: ~p~n", [AppEnv]),
+%%   Res = maps:from_list(AppEnv),
+%%   Res1 = maps:update(description, list_to_binary(maps:get(description, Res)), Res),
+%%   Res2 = maps:update(vsn, list_to_binary(maps:get(vsn, Res1)), Res1),
+%%   {Name, Param} = maps:get(mod, Res2),
+%%   Res3 = maps:update(mod, #{<<"name">> => Name, <<"params">> => Param}, Res2),
+%%   % Res4 = maps:update(env, maps:from_list((maps:get(env, Res3))), Res3),
+%%   Res4 = maps:update(env, core_util:proplist_to_map((maps:get(env, Res3))), Res3),
+%%   lager:debug("app_env_to_map - AppEnvMap: ~p~n", [Res4]),
+%%   Res4.
 
 %%-----------------------------------------------------------------------------
 %% @deprecated
