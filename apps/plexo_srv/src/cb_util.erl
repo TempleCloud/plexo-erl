@@ -242,7 +242,7 @@ build_host(Req) ->
 
 build_peer(Req) ->
   case cowboy_req:peer(Req) of
-  % e.g. {inet:ip_address(), inet:port_number()}
+    % e.g. {inet:ip_address(), inet:port_number()}
     {IPAddress, Port} ->
       #{ip => IPAddress, port => Port};
     _ ->

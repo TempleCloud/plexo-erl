@@ -1,11 +1,6 @@
 %%%----------------------------------------------------------------------------
 %%% @author Temple
 %%%
-%%% @reference The <a href="https://github.com/talentdeficit/jsx">JSX</a>
-%%% github repo.
-%%% @reference The <a href="https://github.com/talentdeficit/jsxn">JSXN</a>
-%%% github repo.
-%%%
 %%% @doc
 %%% The {@module} module provides centralised methods relating to HTTP
 %%% operations.
@@ -13,7 +8,6 @@
 %%%----------------------------------------------------------------------------
 -module(util_inet).
 -author("Temple").
-
 
 %%%============================================================================
 %% Public API

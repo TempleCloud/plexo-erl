@@ -1,11 +1,6 @@
 %%%----------------------------------------------------------------------------
 %%% @author Temple
 %%%
-%%% @reference The <a href="https://github.com/talentdeficit/jsx">JSX</a>
-%%% github repo.
-%%% @reference The <a href="https://github.com/talentdeficit/jsxn">JSXN</a>
-%%% github repo.
-%%%
 %%% @doc
 %%% The {@module} module provides functions relating to error response returned
 %%% from the Plexo service.
