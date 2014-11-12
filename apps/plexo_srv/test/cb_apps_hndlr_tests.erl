@@ -41,8 +41,8 @@ start_plexo_srv() ->
   inets:start(),
   User = "Temple",
   Passwd = "Wibble2Wobble",
-  Uri = <<"http://localhost:8877/api/apps">>,
-  App = <<"sasl">>,
+  Uri = "http://localhost:8877/api/apps",
+  App = sasl,
   Fixture = #{user => User, passwd => Passwd, uri => Uri, app => App},
   Fixture.
 
@@ -94,7 +94,7 @@ start_remote_app(Fixture) ->
 
   #{user := User, passwd :=  Passwd, uri :=  Uri, app := App} = Fixture,
 
-  Url = binary_to_list(Uri) ++ "/" ++ binary_to_list(App),
+  Url = Uri ++ "/" ++ atom_to_list(App),
   ContentType = "application/x-www-form-urlencoded",
   RqHeaders = [util_inet:auth_header(User, Passwd), {"Content-Type",ContentType}],
   RqBody = <<"">>,
@@ -112,7 +112,7 @@ get_remote_apps(Fixture, QueryParam) ->
 
   #{user := User, passwd :=  Passwd, uri :=  Uri} = Fixture,
 
-  Url = binary_to_list(Uri) ++ binary_to_list(QueryParam),
+  Url = Uri ++ binary_to_list(QueryParam),
   RqHeaders = [util_inet:auth_header(User, Passwd)],
   RqHttpOptions = [],
   RqOptions = [],
