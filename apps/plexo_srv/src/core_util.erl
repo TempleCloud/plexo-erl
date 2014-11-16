@@ -20,7 +20,7 @@
 -export([
   to_atom_key_map/1,            % Convert a nested map to have atomic keys.
   proplist_to_map/1,            % Convert a nested proplist to a nested map.
-  is_proplist/1                 % Determine if the input is a proplist.
+  is_property/1                 % Determine if the input is a proplist.
 ]).
 
 %%%============================================================================
@@ -162,7 +162,7 @@ add_property({Key, Val}, Map) when is_list(Val) ->
   end;
 % Handle 'property' values.
 add_property({Key, Val}, Map) ->
-  case is_proplist_item(Val) of
+  case is_property(Val) of
     true  -> maps:put(Key, add_property(Val, #{}), Map);
     false -> maps:put(Key, Val, Map)
   end.
@@ -190,8 +190,9 @@ is_proplist(List) ->
 %% then return true; else false.
 %% @end
 %%-----------------------------------------------------------------------------
--spec is_proplist_item(proplists:property()) -> boolean().
-is_proplist_item(Item) ->
+-spec is_property(proplists:property()) -> boolean().
+
+is_property(Item) ->
   case Item of
     {_,_} -> true;
     _     -> false
