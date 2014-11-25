@@ -1,0 +1,108 @@
+2014-11-24 17:58:45 =CRASH REPORT====
+  crasher:
+    initial call: application_master:init/4
+    pid: <0.448.0>
+    registered_name: []
+    exception exit: {{bad_return,{{plexo_srv_app,start,[normal,[{lager,[{handlers,[{lager_console_backend,info},{lager_file_backend,[{file,"error.log"},{level,error}]},{lager_file_backend,[{file,"console.log"},{level,info}]}]}]}]]},{'EXIT',{{badmatch,{error,{{shutdown,{failed_to_start_child,ranch_acceptors_sup,{{badmatch,{error,eaddrinuse}},[{ranch_acceptors_sup,init,1,[{file,"src/ranch_acceptors_sup.erl"},{line,30}]},{supervisor,init,1,[{file,"supervisor.erl"},{line,243}]},{gen_server,init_it,6,[{file,"gen_server.erl"},{line,306}]},{proc_lib,init_p_do_apply,3,[{file,"proc_lib.erl"},{line,237}]}]}}},{child,undefined,{ranch_listener_sup,http},{ranch_listener_sup,start_link,[http,100,ranch_tcp,[{port,8877}],cowboy_protocol,[{env,[{dispatch,[{'_',[],[{[],[],cowboy_static,{priv_file,plexo_srv,"assets/plexo.html"}},{[<<"assets">>,<<"controllers">>,'...'],[],cowboy_static,{priv_dir,plexo_srv,"assets/controllers"}},{[<<"api">>,<<"apps">>],[],cb_apps_hndlr,[]},{[<<"api">>,<<"apps">>,app_name],[],cb_apps_hndlr,[]},{[<<"api">>,<<"app">>,app_name],[],cb_app_hndlr,[]}]}]}]}]]},permanent,infinity,supervisor,[ranch_listener_sup]}}}},[{plexo_srv_app,start,2,[{file,"src/plexo_srv_app.erl"},{line,66}]},{application_master,start_it_old,4,[{file,"application_master.erl"},{line,272}]}]}}}},[{application_master,init,4,[{file,"application_master.erl"},{line,133}]},{proc_lib,init_p_do_apply,3,[{file,"proc_lib.erl"},{line,237}]}]}
+    ancestors: [<0.447.0>]
+    messages: [{'EXIT',<0.449.0>,normal}]
+    links: [<0.447.0>,<0.7.0>]
+    dictionary: []
+    trap_exit: true
+    status: running
+    heap_size: 1598
+    stack_size: 27
+    reductions: 211
+  neighbours:
+2014-11-24 17:58:45 =CRASH REPORT====
+  crasher:
+    initial call: supervisor:ranch_acceptors_sup/1
+    pid: <0.458.0>
+    registered_name: []
+    exception exit: {{{badmatch,{error,eaddrinuse}},[{ranch_acceptors_sup,init,1,[{file,"src/ranch_acceptors_sup.erl"},{line,30}]},{supervisor,init,1,[{file,"supervisor.erl"},{line,243}]},{gen_server,init_it,6,[{file,"gen_server.erl"},{line,306}]},{proc_lib,init_p_do_apply,3,[{file,"proc_lib.erl"},{line,237}]}]},[{gen_server,init_it,6,[{file,"gen_server.erl"},{line,330}]},{proc_lib,init_p_do_apply,3,[{file,"proc_lib.erl"},{line,237}]}]}
+    ancestors: [<0.456.0>,ranch_sup,<0.300.0>]
+    messages: []
+    links: [<0.456.0>]
+    dictionary: []
+    trap_exit: true
+    status: running
+    heap_size: 610
+    stack_size: 27
+    reductions: 642
+  neighbours:
+2014-11-24 17:58:45 =SUPERVISOR REPORT====
+     Supervisor: {<0.456.0>,ranch_listener_sup}
+     Context:    start_error
+     Reason:     {{badmatch,{error,eaddrinuse}},[{ranch_acceptors_sup,init,1,[{file,"src/ranch_acceptors_sup.erl"},{line,30}]},{supervisor,init,1,[{file,"supervisor.erl"},{line,243}]},{gen_server,init_it,6,[{file,"gen_server.erl"},{line,306}]},{proc_lib,init_p_do_apply,3,[{file,"proc_lib.erl"},{line,237}]}]}
+     Offender:   [{pid,undefined},{name,ranch_acceptors_sup},{mfargs,{ranch_acceptors_sup,start_link,[http,100,ranch_tcp,[{port,8877}]]}},{restart_type,permanent},{shutdown,infinity},{child_type,supervisor}]
+
+2014-11-24 17:58:45 =CRASH REPORT====
+  crasher:
+    initial call: application_master:init/4
+    pid: <0.454.0>
+    registered_name: []
+    exception exit: {{bad_return,{{plexo_srv_app,start,[normal,[{lager,[{handlers,[{lager_console_backend,info},{lager_file_backend,[{file,"error.log"},{level,error}]},{lager_file_backend,[{file,"console.log"},{level,info}]}]}]}]]},{'EXIT',{{badmatch,{error,{{shutdown,{failed_to_start_child,ranch_acceptors_sup,{{badmatch,{error,eaddrinuse}},[{ranch_acceptors_sup,init,1,[{file,"src/ranch_acceptors_sup.erl"},{line,30}]},{supervisor,init,1,[{file,"supervisor.erl"},{line,243}]},{gen_server,init_it,6,[{file,"gen_server.erl"},{line,306}]},{proc_lib,init_p_do_apply,3,[{file,"proc_lib.erl"},{line,237}]}]}}},{child,undefined,{ranch_listener_sup,http},{ranch_listener_sup,start_link,[http,100,ranch_tcp,[{port,8877}],cowboy_protocol,[{env,[{dispatch,[{'_',[],[{[],[],cowboy_static,{priv_file,plexo_srv,"assets/plexo.html"}},{[<<"assets">>,<<"controllers">>,'...'],[],cowboy_static,{priv_dir,plexo_srv,"assets/controllers"}},{[<<"api">>,<<"apps">>],[],cb_apps_hndlr,[]},{[<<"api">>,<<"apps">>,app_name],[],cb_apps_hndlr,[]},{[<<"api">>,<<"app">>,app_name],[],cb_app_hndlr,[]}]}]}]}]]},permanent,infinity,supervisor,[ranch_listener_sup]}}}},[{plexo_srv_app,start,2,[{file,"src/plexo_srv_app.erl"},{line,66}]},{application_master,start_it_old,4,[{file,"application_master.erl"},{line,272}]}]}}}},[{application_master,init,4,[{file,"application_master.erl"},{line,133}]},{proc_lib,init_p_do_apply,3,[{file,"proc_lib.erl"},{line,237}]}]}
+    ancestors: [<0.453.0>]
+    messages: [{'EXIT',<0.455.0>,normal}]
+    links: [<0.453.0>,<0.7.0>]
+    dictionary: []
+    trap_exit: true
+    status: running
+    heap_size: 1598
+    stack_size: 27
+    reductions: 211
+  neighbours:
+2014-11-24 21:38:17 =CRASH REPORT====
+  crasher:
+    initial call: application_master:init/4
+    pid: <0.448.0>
+    registered_name: []
+    exception exit: {{bad_return,{{plexo_srv_app,start,[normal,[{lager,[{handlers,[{lager_console_backend,info},{lager_file_backend,[{file,"error.log"},{level,error}]},{lager_file_backend,[{file,"console.log"},{level,info}]}]}]}]]},{'EXIT',{{badmatch,{error,{{shutdown,{failed_to_start_child,ranch_acceptors_sup,{{badmatch,{error,eaddrinuse}},[{ranch_acceptors_sup,init,1,[{file,"src/ranch_acceptors_sup.erl"},{line,30}]},{supervisor,init,1,[{file,"supervisor.erl"},{line,243}]},{gen_server,init_it,6,[{file,"gen_server.erl"},{line,306}]},{proc_lib,init_p_do_apply,3,[{file,"proc_lib.erl"},{line,237}]}]}}},{child,undefined,{ranch_listener_sup,http},{ranch_listener_sup,start_link,[http,100,ranch_tcp,[{port,8877}],cowboy_protocol,[{env,[{dispatch,[{'_',[],[{[],[],cowboy_static,{priv_file,plexo_srv,"assets/plexo.html"}},{[<<"assets">>,<<"controllers">>,'...'],[],cowboy_static,{priv_dir,plexo_srv,"assets/controllers"}},{[<<"api">>,<<"apps">>],[],cb_apps_hndlr,[]},{[<<"api">>,<<"apps">>,app_name],[],cb_apps_hndlr,[]},{[<<"api">>,<<"app">>,app_name],[],cb_app_hndlr,[]}]}]}]}]]},permanent,infinity,supervisor,[ranch_listener_sup]}}}},[{plexo_srv_app,start,2,[{file,"src/plexo_srv_app.erl"},{line,66}]},{application_master,start_it_old,4,[{file,"application_master.erl"},{line,272}]}]}}}},[{application_master,init,4,[{file,"application_master.erl"},{line,133}]},{proc_lib,init_p_do_apply,3,[{file,"proc_lib.erl"},{line,237}]}]}
+    ancestors: [<0.447.0>]
+    messages: [{'EXIT',<0.449.0>,normal}]
+    links: [<0.447.0>,<0.7.0>]
+    dictionary: []
+    trap_exit: true
+    status: running
+    heap_size: 1598
+    stack_size: 27
+    reductions: 211
+  neighbours:
+2014-11-24 21:38:17 =CRASH REPORT====
+  crasher:
+    initial call: supervisor:ranch_acceptors_sup/1
+    pid: <0.458.0>
+    registered_name: []
+    exception exit: {{{badmatch,{error,eaddrinuse}},[{ranch_acceptors_sup,init,1,[{file,"src/ranch_acceptors_sup.erl"},{line,30}]},{supervisor,init,1,[{file,"supervisor.erl"},{line,243}]},{gen_server,init_it,6,[{file,"gen_server.erl"},{line,306}]},{proc_lib,init_p_do_apply,3,[{file,"proc_lib.erl"},{line,237}]}]},[{gen_server,init_it,6,[{file,"gen_server.erl"},{line,330}]},{proc_lib,init_p_do_apply,3,[{file,"proc_lib.erl"},{line,237}]}]}
+    ancestors: [<0.456.0>,ranch_sup,<0.300.0>]
+    messages: []
+    links: [<0.456.0>]
+    dictionary: []
+    trap_exit: true
+    status: running
+    heap_size: 610
+    stack_size: 27
+    reductions: 642
+  neighbours:
+2014-11-24 21:38:17 =SUPERVISOR REPORT====
+     Supervisor: {<0.456.0>,ranch_listener_sup}
+     Context:    start_error
+     Reason:     {{badmatch,{error,eaddrinuse}},[{ranch_acceptors_sup,init,1,[{file,"src/ranch_acceptors_sup.erl"},{line,30}]},{supervisor,init,1,[{file,"supervisor.erl"},{line,243}]},{gen_server,init_it,6,[{file,"gen_server.erl"},{line,306}]},{proc_lib,init_p_do_apply,3,[{file,"proc_lib.erl"},{line,237}]}]}
+     Offender:   [{pid,undefined},{name,ranch_acceptors_sup},{mfargs,{ranch_acceptors_sup,start_link,[http,100,ranch_tcp,[{port,8877}]]}},{restart_type,permanent},{shutdown,infinity},{child_type,supervisor}]
+
+2014-11-24 21:38:17 =CRASH REPORT====
+  crasher:
+    initial call: application_master:init/4
+    pid: <0.454.0>
+    registered_name: []
+    exception exit: {{bad_return,{{plexo_srv_app,start,[normal,[{lager,[{handlers,[{lager_console_backend,info},{lager_file_backend,[{file,"error.log"},{level,error}]},{lager_file_backend,[{file,"console.log"},{level,info}]}]}]}]]},{'EXIT',{{badmatch,{error,{{shutdown,{failed_to_start_child,ranch_acceptors_sup,{{badmatch,{error,eaddrinuse}},[{ranch_acceptors_sup,init,1,[{file,"src/ranch_acceptors_sup.erl"},{line,30}]},{supervisor,init,1,[{file,"supervisor.erl"},{line,243}]},{gen_server,init_it,6,[{file,"gen_server.erl"},{line,306}]},{proc_lib,init_p_do_apply,3,[{file,"proc_lib.erl"},{line,237}]}]}}},{child,undefined,{ranch_listener_sup,http},{ranch_listener_sup,start_link,[http,100,ranch_tcp,[{port,8877}],cowboy_protocol,[{env,[{dispatch,[{'_',[],[{[],[],cowboy_static,{priv_file,plexo_srv,"assets/plexo.html"}},{[<<"assets">>,<<"controllers">>,'...'],[],cowboy_static,{priv_dir,plexo_srv,"assets/controllers"}},{[<<"api">>,<<"apps">>],[],cb_apps_hndlr,[]},{[<<"api">>,<<"apps">>,app_name],[],cb_apps_hndlr,[]},{[<<"api">>,<<"app">>,app_name],[],cb_app_hndlr,[]}]}]}]}]]},permanent,infinity,supervisor,[ranch_listener_sup]}}}},[{plexo_srv_app,start,2,[{file,"src/plexo_srv_app.erl"},{line,66}]},{application_master,start_it_old,4,[{file,"application_master.erl"},{line,272}]}]}}}},[{application_master,init,4,[{file,"application_master.erl"},{line,133}]},{proc_lib,init_p_do_apply,3,[{file,"proc_lib.erl"},{line,237}]}]}
+    ancestors: [<0.453.0>]
+    messages: [{'EXIT',<0.455.0>,normal}]
+    links: [<0.453.0>,<0.7.0>]
+    dictionary: []
+    trap_exit: true
+    status: running
+    heap_size: 1598
+    stack_size: 27
+    reductions: 211
+  neighbours:
