@@ -17,5 +17,5 @@ apps/plexo_srv/.rebar
 apps/plexo_srv/deps
 apps/plexo_srv/doc
 apps/plexo_srv/ebin
+apps/plexo_srv/log
 
-**/*.log.*

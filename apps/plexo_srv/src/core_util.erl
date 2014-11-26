@@ -125,7 +125,9 @@ atomise_kv(K, V, Map) when is_binary(K) ->
 -spec proplist_to_map(list(proplists:property())) -> map().
 
 proplist_to_map(Input) when is_list(Input) ->
-  proplist_to_map(Input, #{}).
+  proplist_to_map(Input, #{});
+proplist_to_map(Input)  ->
+  proplist_to_map([Input], #{}).
 
 
 -spec proplist_to_map(list(proplists:property()), map()) -> map().
