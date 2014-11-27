@@ -2,54 +2,11 @@
 %%% @author Temple
 %%%
 %%% @doc
-%%% The {@module} module provides functions that interact with the ERTS to
-%%% return information relating to Erlang 'applications' in the system.
-%%%
-%%% === Types ===
-%%%
-%%% The {@module} module exports several types ({@section app_tpl},
-%%% {@section app_nfo}, {@section app_rec}) that are capable of representing
-%%% ERTS application metadata.
-%%%
-%%% ==== app_tpl ====
-%%%
-%%% The native 3-tuple returned from ERTS module function calls.
-%%%
-%%% Example:
-%%%   ```
-%%%   {kernel,"ERTS  CXC 138 10","3.0.1"}
-%%%   '''
-%%%
-%%% ==== app_nfo ====
-%%%
-%%% A 'map' based representation where the 'description' and 'version' values
-%%% are 'binaries'.
-%%%
-%%% Suitable for conversion to hierarchical serializable representations
-%%% such as 'json', 'xml', etc.
-%%%
-%%% Example:
-%%%   ```
-%%%   #{app_nfo => #{
-%%%     description => <<"ERTS  CXC 138 10">>,
-%%%     name => kernel,
-%%%     version => <<"3.0.1">>
-%%%     }
-%%%   }
-%%%   '''
-%%%
-%%% ==== app_rec ====
-%%%
-%%% A 'record' based representation where the 'description' and 'version'
-%%% values are 'binaries'.
-%%%
-%%% Example:
-%%%   ```
-%%%   #{app_rec{kernel,<<"ERTS  CXC 138 10">>,<<"3.0.1">>}}
-%%%   '''
+%%% The {@module} module provides functions for determining the known
+%%% structured relatinships between processes in an erlang runtime.
 %%% @end
 %%%----------------------------------------------------------------------------
--module(erts_procg).
+-module(erts_gproc).
 -author("Temple").
 
 %%% Export all declared functions when TEST.
@@ -64,8 +21,9 @@
 
 -export([
   extract_proc_nfo/1,          % Get the currently 'loaded' apps.
-  build_proc_graph/1,
-  build_reg_proc_graph/0
+  build_reg_proc_graph/0,
+  build_reg_proc_graph/1,
+  build_proc_graph/1
 ]).
 
 %%%============================================================================
@@ -122,36 +80,45 @@ extract_proc_nfo(Pid) ->
     pd_ancestors => ANs
   }.
 
-
 %%-----------------------------------------------------------------------------
 %% @doc
 %% Return the all the processes associated with the specified Pid.
 %% @end
 %%-----------------------------------------------------------------------------
--spec build_reg_proc_graph()
-      -> tuple(digraph:graph(), [digraph:vertex()], [digraph:edge()]).
+-spec build_reg_proc_graph() -> [digraph:graph()].
 
 build_reg_proc_graph() ->
-  RegProcs = [whereis(PidName) || PidName <- registered()],
-  build_proc_graph(RegProcs).
-
+  [build_reg_proc_graph(PidName) || PidName <- registered()].
 
 %%-----------------------------------------------------------------------------
 %% @doc
-%% Return the all the processes associated with the specified Pid.
+%% Return a Digraph of all the processes associated with the registered
+%% process.
 %% @end
 %%-----------------------------------------------------------------------------
--spec build_proc_graph(pid()|[pid()])
-      -> tuple(digraph:graph(), [digraph:vertex()], [digraph:edge()]).
+-spec build_reg_proc_graph(atom()) -> digraph:graph().
 
+build_reg_proc_graph(Name) when is_atom(Name) ->
+  build_proc_graph([whereis(Name)]).
+
+%%-----------------------------------------------------------------------------
+%% @doc
+%% Return a Digraph of all the processes associated with the specified Pid.
+%% @end
+%%-----------------------------------------------------------------------------
+-spec build_proc_graph(pid()|[pid()]) -> digraph:graph().
 build_proc_graph(Pid) when is_pid(Pid) ->
-  build_proc_graph([Pid]);
+   build_proc_graph([Pid]);
 build_proc_graph(Pids) when is_list(Pids) ->
   Graph = digraph:new(),
   Vertices = [ensure_pid_vtx(Graph, Pid) || Pid <- Pids],
-  Edges = [add_pid_vtx_edges(Graph, Vertex) || Vertex <- Vertices],
-  {Graph, Vertices, Edges}.
+  _Edges = [add_pid_vtx_edges(Graph, Vertex) || Vertex <- Vertices],
+  Graph.
 
+% preorder
+%%%============================================================================
+%%% Private Functions
+%%%============================================================================
 
 %%-----------------------------------------------------------------------------
 %% Add the specified VertexPid to the graph, along with all of the processes
@@ -178,7 +145,8 @@ add_pid_vtx_edges(Graph, Pid) ->
   MntrBy = [add_pid_vtx_edges(Graph, Pid, MNB, monitored_by) || MNB <- MNBs],
   Ancstr = [add_pid_vtx_edges(Graph, Pid, AN, pd_ancestors) || AN <- ANs],
 
-  GrpLdr ++ Lnks ++ Mntr ++ MntrBy ++ Ancstr.
+  % lists:flatten([GrpLdr, Lnks, Mntr, MntrBy, Ancstr]).
+  [GrpLdr, Lnks, Mntr, MntrBy, Ancstr].
 
 %%-----------------------------------------------------------------------------
 %% Add the specified VertexPid to the graph, along with all of the processes

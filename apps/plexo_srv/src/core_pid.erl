@@ -23,6 +23,7 @@
 -export([
   get_as_pid/1,                % Get the Pid type from a representation.
   is_local_pid/1,              % Determine if this is a local process.
+  get_app_pids/1,              % Get Pids for the specified application.
   get_all_app_pids/0           % Get Pids for each running application.
 ]).
 
@@ -142,3 +143,15 @@ addToMap(AppName, Pid, AccMap) ->
     {ok, Pids}  -> maps:update(AppName, [Pid|Pids], AccMap);
     error       -> maps:put(AppName, [Pid], AccMap)
   end.
+
+%%-----------------------------------------------------------------------------
+%% @doc
+%% Return a the list of known Pids associated with the specified OTP
+%% application.
+%% @end
+%% @todo Just create necessary Pid list.
+%%-----------------------------------------------------------------------------
+-spec get_app_pids(AppName :: atom()) -> AppProcs :: list(pid()).
+
+get_app_pids(AppName) ->
+  maps:get(AppName, get_all_app_pids()).
