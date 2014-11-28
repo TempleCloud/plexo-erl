@@ -6,7 +6,7 @@
 %%% structured relatinships between processes in an erlang runtime.
 %%% @end
 %%%----------------------------------------------------------------------------
--module(erts_gproc).
+-module(erts_proc_net).
 -author("Temple").
 
 %%% Export all declared functions when TEST.
@@ -20,7 +20,8 @@
 %%%============================================================================
 
 -export([
-  extract_proc_nfo/1,          % Get the currently 'loaded' apps.
+  get_otp_app_root_pids/1,
+  proc_vtx_nfo/1,          % Get the currently 'loaded' apps.
   build_reg_proc_graph/0,
   build_reg_proc_graph/1,
   build_proc_graph/1
@@ -33,6 +34,40 @@
 %%%============================================================================
 %%% Public Functions
 %%%============================================================================
+
+%%-----------------------------------------------------------------------------
+%% @doc
+%% Return the first three root Pids of the specified OTP applicaton.
+%%
+%% This method assumes the application has been setup and initialised correctly
+%% w.r.t the Erlang OTP conventions.
+%%
+%% @end
+%%-----------------------------------------------------------------------------
+-spec get_otp_app_root_pids(AppName :: atom())
+      -> Root :: {pid(), pid(), pid()}.
+
+get_otp_app_root_pids(AppName) ->
+  % Determine the name of the applications OTP supervisor by convention.
+  % This should always exist as a named process...
+  % TODO: Probably can get this from the app config...
+  AppSupName = list_to_atom(atom_to_list(AppName) ++ "_sup"),
+
+  % Get the process info associated with the supervisor...
+  #{
+    pid := AppSupPid,
+    group_leader := GL,
+    pd_ancestors := ANs
+  } = erts_proc_net:proc_vtx_nfo(whereis(AppSupName)),
+
+  % Assume there is only one parent, and, it is declared as an ancestor in the
+  % process dictionary.
+  AppSupMasterPid = hd(ANs),
+
+  % Assume the AppMaster is always defined as the GrooupLeader.
+  AppMasterPid = GL,
+
+  {AppMasterPid, AppSupMasterPid, AppSupPid}.
 
 %%-----------------------------------------------------------------------------
 %% @doc
@@ -51,9 +86,9 @@
 %%   '''
 %% @end
 %%-----------------------------------------------------------------------------
--spec extract_proc_nfo(pid()) -> map().
+-spec proc_vtx_nfo(pid()) -> map().
 
-extract_proc_nfo(Pid) ->
+proc_vtx_nfo(Pid) ->
 
   PInfo = process_info(Pid),
 
@@ -72,6 +107,7 @@ extract_proc_nfo(Pid) ->
 
   % Return map of data.
   #{
+    pid => Pid,
     registered_name => RN,
     group_leader => GL,
     links => LNs,
@@ -107,12 +143,14 @@ build_reg_proc_graph(Name) when is_atom(Name) ->
 %% @end
 %%-----------------------------------------------------------------------------
 -spec build_proc_graph(pid()|[pid()]) -> digraph:graph().
+
 build_proc_graph(Pid) when is_pid(Pid) ->
    build_proc_graph([Pid]);
 build_proc_graph(Pids) when is_list(Pids) ->
   Graph = digraph:new(),
-  Vertices = [ensure_pid_vtx(Graph, Pid) || Pid <- Pids],
-  _Edges = [add_pid_vtx_edges(Graph, Vertex) || Vertex <- Vertices],
+  % Vertices = [ensure_pid_vtx(Graph, Pid) || Pid <- Pids],
+  % _Edges = [add_pid_vtx_edges(Graph, Vertex) || Vertex <- Vertices],
+  _Edges = [add_pid_vtx_edges(Graph, Pid) || Pid <- Pids],
   Graph.
 
 % preorder
@@ -130,13 +168,14 @@ add_pid_vtx_edges(Graph, Pid) ->
 
   % Dereference all proccess related data...
   #{
+    % pid := Pid,
     % registered_name := RN,
     group_leader := GL,
     links := LNs,
     monitored := MNs,
     monitored_by := MNBs,
     pd_ancestors := ANs
-  } = extract_proc_nfo(Pid),
+  } = proc_vtx_nfo(Pid),
 
   % Dereference all proccess related data...
   GrpLdr = add_pid_vtx_edges(Graph, Pid, GL, group_leader),

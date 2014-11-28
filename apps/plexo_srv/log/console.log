@@ -1,63 +1,7 @@
-2014-11-27 20:03:44.342 [info] <0.2.0>@plexo_srv:start:42 Starting 'plexo_srv' apps: [crypto,ranch,cowlib,cowboy,plexo_srv]
-2014-11-27 20:03:44.342 [info] <0.7.0> Application lager started on node nonode@nohost
-2014-11-27 20:03:44.349 [info] <0.7.0> Application crypto started on node nonode@nohost
-2014-11-27 20:03:44.351 [info] <0.7.0> Application ranch started on node nonode@nohost
-2014-11-27 20:03:44.352 [info] <0.7.0> Application cowlib started on node nonode@nohost
-2014-11-27 20:03:44.354 [info] <0.7.0> Application cowboy started on node nonode@nohost
-2014-11-27 20:03:44.363 [info] <0.2.0>@plexo_srv:start:44 Res: [{crypto,app_started},{ranch,app_started},{cowlib,app_started},{cowboy,app_started},{plexo_srv,app_started}]
-2014-11-27 20:05:41.577 [info] <0.2.0>@plexo_srv:start:42 Starting 'plexo_srv' apps: [crypto,ranch,cowlib,cowboy,plexo_srv]
-2014-11-27 20:05:41.577 [info] <0.7.0> Application lager started on node nonode@nohost
-2014-11-27 20:05:41.583 [info] <0.7.0> Application crypto started on node nonode@nohost
-2014-11-27 20:05:41.586 [info] <0.7.0> Application ranch started on node nonode@nohost
-2014-11-27 20:05:41.586 [info] <0.7.0> Application cowlib started on node nonode@nohost
-2014-11-27 20:05:41.588 [info] <0.7.0> Application cowboy started on node nonode@nohost
-2014-11-27 20:05:41.597 [info] <0.2.0>@plexo_srv:start:44 Res: [{crypto,app_started},{ranch,app_started},{cowlib,app_started},{cowboy,app_started},{plexo_srv,app_started}]
-2014-11-27 20:08:49.797 [info] <0.2.0>@plexo_srv:start:42 Starting 'plexo_srv' apps: [crypto,ranch,cowlib,cowboy,plexo_srv]
-2014-11-27 20:08:49.797 [info] <0.7.0> Application lager started on node nonode@nohost
-2014-11-27 20:08:49.803 [info] <0.7.0> Application crypto started on node nonode@nohost
-2014-11-27 20:08:49.806 [info] <0.7.0> Application ranch started on node nonode@nohost
-2014-11-27 20:08:49.807 [info] <0.7.0> Application cowlib started on node nonode@nohost
-2014-11-27 20:08:49.809 [info] <0.7.0> Application cowboy started on node nonode@nohost
-2014-11-27 20:08:49.817 [info] <0.2.0>@plexo_srv:start:44 Res: [{crypto,app_started},{ranch,app_started},{cowlib,app_started},{cowboy,app_started},{plexo_srv,app_started}]
-2014-11-27 22:05:30.676 [info] <0.2.0>@plexo_srv:start:42 Starting 'plexo_srv' apps: [crypto,ranch,cowlib,cowboy,plexo_srv]
-2014-11-27 22:05:30.676 [info] <0.7.0> Application lager started on node nonode@nohost
-2014-11-27 22:05:30.682 [info] <0.7.0> Application crypto started on node nonode@nohost
-2014-11-27 22:05:30.685 [info] <0.7.0> Application ranch started on node nonode@nohost
-2014-11-27 22:05:30.685 [info] <0.7.0> Application cowlib started on node nonode@nohost
-2014-11-27 22:05:30.688 [info] <0.7.0> Application cowboy started on node nonode@nohost
-2014-11-27 22:05:30.696 [info] <0.2.0>@plexo_srv:start:44 Res: [{crypto,app_started},{ranch,app_started},{cowlib,app_started},{cowboy,app_started},{plexo_srv,app_started}]
-2014-11-27 22:25:27.794 [info] <0.2.0>@plexo_srv:start:42 Starting 'plexo_srv' apps: [crypto,ranch,cowlib,cowboy,plexo_srv]
-2014-11-27 22:25:27.794 [info] <0.7.0> Application lager started on node nonode@nohost
-2014-11-27 22:25:27.801 [info] <0.7.0> Application crypto started on node nonode@nohost
-2014-11-27 22:25:27.804 [info] <0.7.0> Application ranch started on node nonode@nohost
-2014-11-27 22:25:27.805 [info] <0.7.0> Application cowlib started on node nonode@nohost
-2014-11-27 22:25:27.807 [info] <0.7.0> Application cowboy started on node nonode@nohost
-2014-11-27 22:25:27.816 [info] <0.2.0>@plexo_srv:start:44 Res: [{crypto,app_started},{ranch,app_started},{cowlib,app_started},{cowboy,app_started},{plexo_srv,app_started}]
-2014-11-27 22:32:33.762 [info] <0.2.0>@plexo_srv:start:42 Starting 'plexo_srv' apps: [crypto,ranch,cowlib,cowboy,plexo_srv]
-2014-11-27 22:32:33.762 [info] <0.7.0> Application lager started on node nonode@nohost
-2014-11-27 22:32:33.769 [info] <0.7.0> Application crypto started on node nonode@nohost
-2014-11-27 22:32:33.772 [info] <0.7.0> Application ranch started on node nonode@nohost
-2014-11-27 22:32:33.773 [info] <0.7.0> Application cowlib started on node nonode@nohost
-2014-11-27 22:32:33.775 [info] <0.7.0> Application cowboy started on node nonode@nohost
-2014-11-27 22:32:33.784 [info] <0.2.0>@plexo_srv:start:44 Res: [{crypto,app_started},{ranch,app_started},{cowlib,app_started},{cowboy,app_started},{plexo_srv,app_started}]
-2014-11-27 22:59:10.876 [info] <0.2.0>@plexo_srv:start:42 Starting 'plexo_srv' apps: [crypto,ranch,cowlib,cowboy,plexo_srv]
-2014-11-27 22:59:10.876 [info] <0.7.0> Application lager started on node nonode@nohost
-2014-11-27 22:59:10.882 [info] <0.7.0> Application crypto started on node nonode@nohost
-2014-11-27 22:59:10.884 [info] <0.7.0> Application ranch started on node nonode@nohost
-2014-11-27 22:59:10.885 [info] <0.7.0> Application cowlib started on node nonode@nohost
-2014-11-27 22:59:10.887 [info] <0.7.0> Application cowboy started on node nonode@nohost
-2014-11-27 22:59:10.895 [info] <0.2.0>@plexo_srv:start:44 Res: [{crypto,app_started},{ranch,app_started},{cowlib,app_started},{cowboy,app_started},{plexo_srv,app_started}]
-2014-11-27 23:05:44.889 [info] <0.2.0>@plexo_srv:start:42 Starting 'plexo_srv' apps: [crypto,ranch,cowlib,cowboy,plexo_srv]
-2014-11-27 23:05:44.889 [info] <0.7.0> Application lager started on node nonode@nohost
-2014-11-27 23:05:44.896 [info] <0.7.0> Application crypto started on node nonode@nohost
-2014-11-27 23:05:44.899 [info] <0.7.0> Application ranch started on node nonode@nohost
-2014-11-27 23:05:44.899 [info] <0.7.0> Application cowlib started on node nonode@nohost
-2014-11-27 23:05:44.902 [info] <0.7.0> Application cowboy started on node nonode@nohost
-2014-11-27 23:05:44.911 [info] <0.2.0>@plexo_srv:start:44 Res: [{crypto,app_started},{ranch,app_started},{cowlib,app_started},{cowboy,app_started},{plexo_srv,app_started}]
-2014-11-27 23:07:29.038 [info] <0.2.0>@plexo_srv:start:42 Starting 'plexo_srv' apps: [crypto,ranch,cowlib,cowboy,plexo_srv]
-2014-11-27 23:07:29.038 [info] <0.7.0> Application lager started on node nonode@nohost
-2014-11-27 23:07:29.044 [info] <0.7.0> Application crypto started on node nonode@nohost
-2014-11-27 23:07:29.047 [info] <0.7.0> Application ranch started on node nonode@nohost
-2014-11-27 23:07:29.048 [info] <0.7.0> Application cowlib started on node nonode@nohost
-2014-11-27 23:07:29.050 [info] <0.7.0> Application cowboy started on node nonode@nohost
-2014-11-27 23:07:29.059 [info] <0.2.0>@plexo_srv:start:44 Res: [{crypto,app_started},{ranch,app_started},{cowlib,app_started},{cowboy,app_started},{plexo_srv,app_started}]
+2014-11-28 22:14:16.823 [info] <0.2.0>@plexo_srv:start:42 Starting 'plexo_srv' apps: [crypto,ranch,cowlib,cowboy,plexo_srv]
+2014-11-28 22:14:16.823 [info] <0.7.0> Application lager started on node nonode@nohost
+2014-11-28 22:14:16.829 [info] <0.7.0> Application crypto started on node nonode@nohost
+2014-11-28 22:14:16.832 [info] <0.7.0> Application ranch started on node nonode@nohost
+2014-11-28 22:14:16.833 [info] <0.7.0> Application cowlib started on node nonode@nohost
+2014-11-28 22:14:16.834 [info] <0.7.0> Application cowboy started on node nonode@nohost
+2014-11-28 22:14:16.843 [info] <0.2.0>@plexo_srv:start:44 Res: [{crypto,app_started},{ranch,app_started},{cowlib,app_started},{cowboy,app_started},{plexo_srv,app_started}]
