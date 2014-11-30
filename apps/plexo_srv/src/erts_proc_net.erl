@@ -21,10 +21,24 @@
 
 -export([
   get_otp_app_root_pids/1,
-  proc_vtx_nfo/1,          % Get the currently 'loaded' apps.
+  get_otp_app_root_tmap/1,
+  add_child/2
+]).
+
+-export([
+  proc_vtx_nfo/1
+]).
+
+-export([
   build_reg_proc_graph/0,
   build_reg_proc_graph/1,
   build_proc_graph/1
+]).
+
+-export([
+  find_node/2,
+  add_node/3,
+  add_child/2
 ]).
 
 %%%============================================================================
@@ -64,10 +78,115 @@ get_otp_app_root_pids(AppName) ->
   % process dictionary.
   AppSupMasterPid = hd(ANs),
 
-  % Assume the AppMaster is always defined as the GrooupLeader.
+  % Assume the AppMaster is always defined as the GroupLeader.
   AppMasterPid = GL,
 
   {AppMasterPid, AppSupMasterPid, AppSupPid}.
+
+
+%% get_otp_app_root_tmap(AppName) ->
+%% %%   {AppMasterPid, AppSupMasterPid, AppSupPid} = get_otp_app_root_pids(AppName),
+%% %%   X1 = proc_vtx_nfo(AppSupPid),
+%% %%   X2 = maps:put(children, [X1], proc_vtx_nfo(AppSupMasterPid)),
+%% %%   maps:put(children, [X2], proc_vtx_nfo(AppMasterPid)).
+%%   {AppMasterPid, AppSupMasterPid, AppSupPid} = get_otp_app_root_pids(AppName),
+%%   RN = proc_vtx_nfo(AppMasterPid),
+%%   {RN1, CN1} = add_child(AppSupMasterPid, RN),
+%%   {RN2, _CN2} = add_child(AppSupPid, CN1),
+%%   {RN, RN1, RN2}.
+
+%% add_child(CPid, PNode) ->
+%%   #{pid := PPid, children := PChildren} = PNode,
+%%   CNode = proc_vtx_nfo(CPid),
+%%   CNode1 = maps:put(parents, [PPid], CNode),
+%%   PNode1 = maps:put(children, [CNode1 | PChildren], PNode),
+%%   {PNode1, CNode1}.
+%%   case Children of
+%%     undefinded            -> maps:put(children, [CNode], Node);
+%%     CNs when is_list(CNs) -> [CNode | CNs], CNode
+%%   end,
+%%   CNode.
+
+
+get_otp_app_root_tmap(AppName) ->
+  {AppMasterPid, AppSupMasterPid, AppSupPid} = get_otp_app_root_pids(AppName),
+  RN = proc_vtx_nfo(AppMasterPid),
+  CN1 = proc_vtx_nfo(AppSupMasterPid),
+  CN2 = proc_vtx_nfo(AppSupPid),
+
+  RN1 = add_node(RN, CN1, AppMasterPid),
+  RN2 = add_node(RN1, CN2, AppSupMasterPid),
+  RN2.
+
+%% -spec add_node(map(), map() | list(), pid()) -> map().
+%% add_node(Nodes, ToAdd, Pid) when is_list(Nodes) ->
+%%   [add_node(Node, ToAdd, Pid) || Node <- Nodes];
+%% add_node(Node, ToAdd, Pid) ->
+%%   #{pid := NPid} = Node,
+%%   case NPid == Pid of
+%%     true  ->
+%%       maps:merge(Node, add_child(Node, ToAdd));
+%%     false ->
+%%       % maps:merge(Node, add_node(maps:get(children, Node), ToAdd, Pid))
+%%       Node2 = add_node(maps:get(children, Node), ToAdd, Pid),
+%%       io:format("Node2: ~p~n:", [Node2]),
+%%       maps:merge(Node, Node2)
+%%   end.
+%%
+%% add_child(Node, ToAdd) ->
+%%   #{pid := NPid, children := NChildren} = Node,
+%%   CNode = maps:put(parents, [NPid], ToAdd),
+%%   PNode = maps:put(children, [CNode | NChildren], Node),
+%%   PNode.
+
+-spec add_node(map(), map() | list(), pid()) -> map().
+add_node(Nodes, ToAdd, Pid) when is_list(Nodes) ->
+  [add_node(Node, ToAdd, Pid) || Node <- Nodes];
+add_node(Node, ToAdd, Pid) ->
+  #{pid := NPid} = Node,
+  case NPid == Pid of
+    true  ->
+      maps:merge(Node, add_child(Node, ToAdd));
+    false ->
+      % maps:merge(Node, add_node(maps:get(children, Node), ToAdd, Pid))
+      Node2 = add_node(maps:get(children, Node), ToAdd, Pid),
+      io:format("Node2: ~p~n:", [Node2]),
+      maps:merge(Node, Node2)
+  end.
+
+add_child(Node, ToAdd) ->
+  #{pid := NPid, children := NChildren} = Node,
+  CNode = maps:put(parents, [NPid], ToAdd),
+  PNode = maps:put(children, [CNode | NChildren], Node),
+  PNode.
+
+display(Node, Depth) ->
+  #{pid := NPid, children := NChildren} = Node,
+  print_line("|---", Depth),
+  io:format("~p ---", [NPid]),
+  [display(NChild, Depth+1) || NChild <- NChildren].
+
+
+print_line(_Input, 0) ->
+  ok;
+print_line(Input, Count) ->
+  io:format(Input, Count-1).
+
+
+find_node(Nodes, ToFind) when is_list(Nodes) ->
+  case Nodes of
+    [] -> not_found;
+    _  -> [find_node(Node, ToFind) || Node <- Nodes]
+  end;
+find_node(Node, ToFind) ->
+  #{pid := NPid} = Node,
+  case NPid == ToFind of
+    false -> find_node(maps:get(children, Node), ToFind);
+    true  -> Node
+  end.
+
+
+
 
 %%-----------------------------------------------------------------------------
 %% @doc
@@ -113,7 +232,9 @@ proc_vtx_nfo(Pid) ->
     links => LNs,
     monitored => MNs,
     monitored_by => MNBs,
-    pd_ancestors => ANs
+    pd_ancestors => ANs,
+    parents => [],
+    children => []
   }.
 
 %%-----------------------------------------------------------------------------
