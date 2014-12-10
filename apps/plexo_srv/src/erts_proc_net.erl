@@ -21,12 +21,13 @@
 
 -export([
   get_otp_app_root_pids/1,
-  get_otp_app_root_tmap/1,
-  add_child/2
+  get_otp_pid_children/1
+  % get_otp_app_root_tmap/1
 ]).
 
 -export([
-  proc_vtx_nfo/1
+  proc_vtx_nfo/1,
+  proc_vtx_nfo/2
 ]).
 
 -export([
@@ -36,10 +37,14 @@
 ]).
 
 -export([
-  find_node/2,
-  add_node/3,
+  get_otp_app_root_tmap/1,
+  get_otp_pnode_children/1,
+  % find_node/2,
+  add_node/2,
   add_child/2
+  % display/1
 ]).
+
 
 %%%============================================================================
 %%% Public Types
@@ -84,6 +89,27 @@ get_otp_app_root_pids(AppName) ->
   {AppMasterPid, AppSupMasterPid, AppSupPid}.
 
 
+get_otp_app_root_tmap(AppName) ->
+  {Root, Master, Sup} = get_otp_app_root_pids(AppName),
+
+  RootNode = proc_vtx_nfo(Root),
+  MasterNode = proc_vtx_nfo(Master, Root),
+  SupNode = proc_vtx_nfo(Sup, Master),
+
+  {new, RootNode2} = add_node(RootNode, MasterNode),
+  {new, RootNode3} = add_node(RootNode2, SupNode),
+  RootNode3.
+
+
+
+get_otp_pid_children(Pid) ->
+  #{links := Links} = proc_vtx_nfo(Pid),
+  [LPid || LPid <- Links, LPid /= Pid].
+
+get_otp_pnode_children(PNode) ->
+  #{pid := PPid, links := Links} = PNode,
+  [proc_vtx_nfo(LPid, PPid) || LPid <- Links, LPid /= PPid].
+
 %% get_otp_app_root_tmap(AppName) ->
 %% %%   {AppMasterPid, AppSupMasterPid, AppSupPid} = get_otp_app_root_pids(AppName),
 %% %%   X1 = proc_vtx_nfo(AppSupPid),
@@ -108,15 +134,15 @@ get_otp_app_root_pids(AppName) ->
 %%   CNode.
 
 
-get_otp_app_root_tmap(AppName) ->
-  {AppMasterPid, AppSupMasterPid, AppSupPid} = get_otp_app_root_pids(AppName),
-  RN = proc_vtx_nfo(AppMasterPid),
-  CN1 = proc_vtx_nfo(AppSupMasterPid),
-  CN2 = proc_vtx_nfo(AppSupPid),
-
-  RN1 = add_node(RN, CN1, AppMasterPid),
-  RN2 = add_node(RN1, CN2, AppSupMasterPid),
-  RN2.
+%% get_otp_app_root_tmap(AppName) ->
+%%   {AppMasterPid, AppSupMasterPid, AppSupPid} = get_otp_app_root_pids(AppName),
+%%   RN = proc_vtx_nfo(AppMasterPid),
+%%   CN1 = proc_vtx_nfo(AppSupMasterPid),
+%%   CN2 = proc_vtx_nfo(AppSupPid),
+%%
+%%   RN1 = add_node(RN, CN1, AppMasterPid),
+%%   RN2 = add_node(RN1, CN2, AppSupMasterPid),
+%%   RN2.
 
 %% -spec add_node(map(), map() | list(), pid()) -> map().
 %% add_node(Nodes, ToAdd, Pid) when is_list(Nodes) ->
@@ -139,51 +165,86 @@ get_otp_app_root_tmap(AppName) ->
 %%   PNode = maps:put(children, [CNode | NChildren], Node),
 %%   PNode.
 
--spec add_node(map(), map() | list(), pid()) -> map().
-add_node(Nodes, ToAdd, Pid) when is_list(Nodes) ->
-  [add_node(Node, ToAdd, Pid) || Node <- Nodes];
-add_node(Node, ToAdd, Pid) ->
+% -spec add_node(map(), map() | list(), pid()) -> map().
+% (#{},#{},_) -> {'new',#{}}
+
+add_node(Node, ToAdd) ->
+  io:format("add_node ~p~n", [Node]),
+  io:format("add_node ~p~n", [ToAdd]),
   #{pid := NPid} = Node,
-  case NPid == Pid of
+  #{parent := TAPid} = ToAdd,
+  case NPid == TAPid of
     true  ->
-      maps:merge(Node, add_child(Node, ToAdd));
+      Node2 = add_child(Node, ToAdd),
+      {new, Node2};
     false ->
-      % maps:merge(Node, add_node(maps:get(children, Node), ToAdd, Pid))
-      Node2 = add_node(maps:get(children, Node), ToAdd, Pid),
-      io:format("Node2: ~p~n:", [Node2]),
-      maps:merge(Node, Node2)
+      Children2 = [],
+      case maps:get(children, Node) of
+        undefined ->
+          not_found;
+        [] ->
+          not_found;
+        CNs when is_list(CNs) ->
+          [H|T] = CNs,
+          X = add_node(H, ToAdd),
+          case X of
+            {new, NewNode} ->
+              NewChildren = [Children2 | [NewNode | T]],
+              UpdatedNode = maps:put(children, NewChildren, Node),
+              {new, UpdatedNode};
+            not_found ->
+              % add_node(hd(T), ToAdd, Pid)
+              not_found
+          end
+
+      end
   end.
+%% add_node([], _ToAdd, _Pid) ->
+%%   not_found;
+%% add_node([HNode|TNodes], ToAdd, Pid) ->
+%%   Res = add_node(HNode, ToAdd, Pid),
+%%   case Res of
+%%     not_found     ->
+%%       add_node(TNodes, ToAdd, Pid);
+%%     {ok, Updated} ->
+%%
+%%       HNode2 = maps:update(children, Updated, HNode),
+%%       {ok, HNode2}
+%%   end.
 
 add_child(Node, ToAdd) ->
-  #{pid := NPid, children := NChildren} = Node,
-  CNode = maps:put(parents, [NPid], ToAdd),
-  PNode = maps:put(children, [CNode | NChildren], Node),
-  PNode.
+  #{children := NChildren} = Node,
+  maps:put(children, [ToAdd | NChildren], Node).
 
-display(Node, Depth) ->
-  #{pid := NPid, children := NChildren} = Node,
-  print_line("|---", Depth),
-  io:format("~p ---", [NPid]),
-  [display(NChild, Depth+1) || NChild <- NChildren].
+%% display(Node) ->
+%%   display(Node, 0).
+%%
+%% display(Node, Depth) ->
+%%   #{pid := NPid, children := NChildren} = Node,
+%%   print_line("|---", Depth),
+%%   io:format("~p", [NPid]),
+%%   case NChildren of
+%%     [] -> ok;
+%%     _ -> [display(NChild, Depth+1) || NChild <- NChildren]
+%%   end.
+%%
+%% print_line(_Input, 0) ->
+%%   ok;
+%% print_line(Input, Count) ->
+%%   io:format(Input, Count-1).
 
 
-print_line(_Input, 0) ->
-  ok;
-print_line(Input, Count) ->
-  io:format(Input, Count-1).
-
-
-find_node(Nodes, ToFind) when is_list(Nodes) ->
-  case Nodes of
-    [] -> not_found;
-    _  -> [find_node(Node, ToFind) || Node <- Nodes]
-  end;
-find_node(Node, ToFind) ->
-  #{pid := NPid} = Node,
-  case NPid == ToFind of
-    false -> find_node(maps:get(children, Node), ToFind);
-    true  -> Node
-  end.
+%% find_node(Nodes, ToFind) when is_list(Nodes) ->
+%%   case Nodes of
+%%     [] -> not_found;
+%%     _  -> [find_node(Node, ToFind) || Node <- Nodes]
+%%   end;
+%% find_node(Node, ToFind) ->
+%%   #{pid := NPid} = Node,
+%%   case NPid == ToFind of
+%%     false -> find_node(maps:get(children, Node), ToFind);
+%%     true  -> Node
+%%   end.
 
 
 
@@ -208,6 +269,12 @@ find_node(Node, ToFind) ->
 -spec proc_vtx_nfo(pid()) -> map().
 
 proc_vtx_nfo(Pid) ->
+  proc_vtx_nfo(Pid, undefined).
+
+
+-spec proc_vtx_nfo(pid(), pid() | atom()) -> map().
+
+proc_vtx_nfo(Pid, ParentPid) ->
 
   PInfo = process_info(Pid),
 
@@ -233,9 +300,10 @@ proc_vtx_nfo(Pid) ->
     monitored => MNs,
     monitored_by => MNBs,
     pd_ancestors => ANs,
-    parents => [],
+    parent => ParentPid,
     children => []
   }.
+
 
 %%-----------------------------------------------------------------------------
 %% @doc
